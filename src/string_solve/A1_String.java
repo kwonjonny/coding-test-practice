@@ -3,6 +3,8 @@ package string_solve;
 import java.util.Scanner;
 
 /**
+ * 문자 찾기
+ *
  * 설명: 주어진 문자열에서 특정 문자가 몇 번 등장하는지 알아내는 프로그램을 작성하시오.
  *
  * 조건:
