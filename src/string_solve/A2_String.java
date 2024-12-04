@@ -39,4 +39,31 @@ public class A2_String {
         }
         return scan;
     }
+
+
+    /**
+     * 다른 방법으로도 풀어보자 StringBuilder 사용
+     */
+    public static class A2String {
+        public static void main(String [] args) {
+            A2String a2String = new A2String();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a2String.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(final String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for(char x : str.toCharArray()) {
+                if(Character.isLowerCase(x)) {
+                    stringBuilder.append(Character.toUpperCase(x));
+                } else {
+                    stringBuilder.append(Character.toLowerCase(x));
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
