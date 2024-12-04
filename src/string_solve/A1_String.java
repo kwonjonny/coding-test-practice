@@ -46,4 +46,31 @@ public class A1_String {
         }
         return solution;
     }
+
+    /**
+     * 다른 방법으로도 풀어보자 forEach 사용
+     */
+    public static class A1String {
+        public static void main(String[] args) {
+            A1String a1String = new A1String();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            Integer solution = a1String.solution(str, c);
+            System.out.println(solution);
+        }
+
+        public Integer solution(String str,
+                               char c) {
+            Integer solution = 0;
+            String lowerCase = str.toLowerCase();
+
+            for(char x : lowerCase.toCharArray()) {
+                if(x == c) {
+                    solution++;
+                }
+            }
+            return solution;
+        }
+    }
 }
