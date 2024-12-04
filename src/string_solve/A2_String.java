@@ -42,6 +42,7 @@ public class A2_String {
 
 
     /**
+     * 재 복습: 2024-12-04
      * 다른 방법으로도 풀어보자 StringBuilder 사용
      */
     public static class A2String {
