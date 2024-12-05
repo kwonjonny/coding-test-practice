@@ -50,4 +50,38 @@ public class A5_String {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     * 2024-12-05 복습
+     */
+    public static class A5String {
+
+        public static void main(String[] args) {
+            A5String a5String = new A5String();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a5String.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stack.push(x);
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stringBuilder.append(stack.pop());
+                } else {
+                    stringBuilder.append(x);
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
