@@ -71,7 +71,6 @@ public class A6_String {
             for(char x: linkedHashSet) {
                 stringBuilder.append(x);
             }
-
             return stringBuilder.toString();
         }
     }
