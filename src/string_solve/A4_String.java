@@ -27,6 +27,7 @@ import java.util.Scanner;
  *   giB
  */
 public class A4_String {
+
     public static void main(String [] args) {
         Scanner scan = new Scanner(System.in);
         Integer scanner = scan.nextInt();
@@ -41,6 +42,29 @@ public class A4_String {
         for(String str : strings) {
             StringBuilder stringBuilder = new StringBuilder(str).reverse();
             System.out.println(stringBuilder);
+        }
+    }
+
+    /**
+     * 2024-12-05 복습
+     */
+    public static class A4String {
+        public static void main(String[] args) {
+            A4String a4String = new A4String();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strings = new String[count];
+            for(int i = 0; i < strings.length; i++) {
+                strings[i] = scan.next();
+            }
+            a4String.solution(strings);
+        }
+
+        public void solution(String[] str) {
+            for(String s : str) {
+                StringBuilder stringBuilder = new StringBuilder().append(s).reverse();
+                System.out.println(stringBuilder);
+            }
         }
     }
 }
