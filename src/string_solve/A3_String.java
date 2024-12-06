@@ -74,4 +74,32 @@ public class A3_String {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-06
+     */
+    public static class A3String1 {
+        public static void main(String[] args) {
+            A3String1 a3String1 = new A3String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            String solution = a3String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            Integer count = 0;
+            String solution = "";
+            String[] strings = str.split(" ");
+
+            for(String s : strings) {
+                Integer forCount = s.length();
+                if(forCount > count) {
+                    count = forCount;
+                    solution = s;
+                }
+            }
+            return str;
+        }
+    }
 }
