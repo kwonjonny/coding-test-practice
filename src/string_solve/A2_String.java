@@ -69,4 +69,29 @@ public class A2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-06
+     */
+    public static class A2String1 {
+        public static void main(String[] args) {
+            A2String1 a2String1 = new A2String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a2String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isUpperCase(x)) {
+                    stringBuilder.append(Character.toLowerCase(x));
+                } else {
+                    stringBuilder.append(Character.toUpperCase(x));
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
