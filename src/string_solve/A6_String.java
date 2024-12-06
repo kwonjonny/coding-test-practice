@@ -49,10 +49,10 @@ public class A6_String {
     /**
      * 2024-12-05 복습
      */
-    public static class A2String {
+    public static class A6String {
 
         public static void main(String[] args) {
-            A2String a2String = new A2String();
+            A6String a2String = new A6String();
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
             String solution = a2String.solution(str);
@@ -72,6 +72,28 @@ public class A6_String {
                 stringBuilder.append(x);
             }
             return stringBuilder.toString();
+        }
+    }
+
+    /**
+     * 2024-12-06 복습
+     */
+    public static class A6String1 {
+        public static void main(String[] args) {
+            A6String1 a6String1 = new A6String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a6String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            LinkedHashSet<Character> hashSet = new LinkedHashSet<>();
+
+            for(char x : str.toCharArray()) {
+                hashSet.add(x);
+            }
+            return String.valueOf(hashSet);
         }
     }
 }
