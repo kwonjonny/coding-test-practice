@@ -27,7 +27,34 @@ public class B1_String {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
         char c = scan.next().charAt(0);
-
+        int[] array = solution(str, c);
+        for(int x : array) {
+            System.out.print(x + " ");
+        }
     }
 
+    public static int[] solution(String str, char c) {
+        Integer n = str.length();
+        int[] distance = new int[n];
+        int p = 1000;
+
+        for(int i = 0; i < n; i++) {
+            if(str.charAt(i) == c) {
+                p = 0;
+            } else {
+                p++;
+            }
+            distance[i] = p;
+        }
+
+        for(int i = n - 1; i >=0; i--) {
+            if(str.charAt(i) == c) {
+                p = 0;
+            } else {
+                p++;
+            }
+            distance[i] = Math.min(distance[i], p);
+        }
+        return distance;
+    }
 }
