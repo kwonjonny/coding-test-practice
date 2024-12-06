@@ -25,6 +25,7 @@ import java.util.Scanner;
  *   YES
  */
 public class A7_String {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -44,4 +45,44 @@ public class A7_String {
         String lowerCaseBuilder = lowerCaseStringBuilder.toString();
         return lowerCase.equals(lowerCaseBuilder) ?  "YES" : "NO";
     }
+
+    /**
+     * 2024-12-05 복습
+     */
+    public static class A7String {
+        public static void main(String[] args) {
+            A7String a7String = new A7String();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a7String.solution(str);
+            System.out.println(solution);
+        }
+
+
+        public String solution(String str) {
+            String reverse = new StringBuilder(str.toLowerCase()).reverse().toString();
+            String lowerCase = str.toLowerCase();
+            return reverse.equals(lowerCase) ? "YES" : "NO";
+        }
+    }
+
+    /**
+     * 2024-12-06 복습
+     */
+    public static class A7String1 {
+        public static void main(String[] args) {
+            A7String1 a7String =  new A7String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a7String.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            String reverse = new StringBuilder(str.toUpperCase()).reverse().toString();
+            String upperCase = str.toUpperCase();
+            return  reverse.equals(upperCase) ? "YES" : "NO";
+        }
+    }
 }
+
