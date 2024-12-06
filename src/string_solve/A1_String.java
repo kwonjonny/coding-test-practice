@@ -76,4 +76,29 @@ public class A1_String {
             return solution;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-06
+     */
+    public static class A1String1 {
+        public static void main(String[] args) {
+            A1String1 a1String2 = new A1String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            Integer solution = a1String2.solution(str, c);
+            System.out.println(solution);
+        }
+
+        public Integer solution(String str, char c) {
+            Integer count = 0;
+            String lowerCase = str.toLowerCase();
+            for(char x : lowerCase.toCharArray()) {
+                if(x == c) {
+                    count++;
+                }
+            }
+            return count;
+        }
+    }
 }
