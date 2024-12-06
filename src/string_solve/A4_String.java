@@ -67,4 +67,27 @@ public class A4_String {
             }
         }
     }
+
+    /**
+     * 2024-12-06 복습
+     */
+    public static class A4String1 {
+        public static void main(String[] args) {
+            A4String1 a4String1 = new A4String1();
+            Scanner scan = new Scanner(System.in);
+            Integer scanCount = scan.nextInt();
+            String[] strings = new String[scanCount];
+            for(int i = 0; i < strings.length; i++) {
+                strings[i] = scan.next();
+            }
+            a4String1.solution(strings);
+        }
+
+        public void solution(String[] strings) {
+            for(String s : strings) {
+                String stringBuilder = new StringBuilder(s).reverse().toString();
+                System.out.println(stringBuilder);
+            }
+        }
+    }
 }
