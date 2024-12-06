@@ -84,4 +84,37 @@ public class A5_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 2024-12-06 복습
+     */
+    public static class A5String1 {
+        public static void main(String[] args) {
+            A5String1 a5String1 = new A5String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a5String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stack.push(x);
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stringBuilder.append(stack.pop());
+                } else {
+                    stringBuilder.append(x);
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
