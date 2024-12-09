@@ -27,7 +27,7 @@ import java.util.Scanner;
  * 출력:
  *   7 9 6 12
  */
-public class A1_String {
+public class A1_Array {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -57,9 +57,9 @@ public class A1_String {
     /**
      * 재 복습: 2024-12-09
      */
-    public static class A1String {
+    public static class A1Array {
         public static void main(String[] args) {
-            A1String a1String = new A1String();
+            A1Array a1String = new A1Array();
             Scanner scan = new Scanner(System.in);
             Integer count = scan.nextInt();
             Integer[] array = new Integer[count];
