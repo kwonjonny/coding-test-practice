@@ -53,4 +53,34 @@ public class A1_String {
         }
         return array;
     }
+
+    /**
+     * 재 복습: 2024-12-09
+     */
+    public static class A1String {
+        public static void main(String[] args) {
+            A1String a1String = new A1String();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] array = new Integer[count];
+            for(int i = 0; i < array.length; i++) {
+                array[i] = scan.nextInt();
+            }
+            List<Integer> arrayList = a1String.solution(count, array);
+            for(Integer x : arrayList) {
+                System.out.print(x + " ");
+            }
+        }
+
+        public List<Integer> solution(Integer count, Integer[] array) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            arrayList.add(array[0]);
+            for(int i = 1; i <  array.length; i++) {
+                if(array[i] >= array[i - 1]) {
+                    arrayList.add(array[i]);
+                }
+            }
+            return arrayList;
+        }
+    }
 }
