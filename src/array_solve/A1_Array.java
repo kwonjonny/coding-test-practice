@@ -83,4 +83,33 @@ public class A1_Array {
             return arrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-10
+     */
+    public static class A2Array {
+        public static void main(String[] args) {
+            A2Array a2Array = new A2Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] arrayInteger = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                arrayInteger[i] = scan.nextInt();
+            }
+
+            List<Integer> arrayList = a2Array.solution(count, arrayInteger);
+            System.out.print(arrayList + " ");
+        }
+
+
+        public List<Integer> solution(Integer count, Integer[] arrayInteger) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            for(int i = 1; i < count; i++) {
+                if(arrayInteger[i] >= arrayInteger[i - 1])  {
+                    arrayList.add(arrayInteger[i]);
+                }
+            }
+            return arrayList;
+        }
+    }
 }
