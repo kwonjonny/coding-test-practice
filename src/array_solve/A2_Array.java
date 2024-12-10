@@ -25,19 +25,19 @@ import java.util.Scanner;
  * 출력:
  *   5
  */
-public class A2_Array{
+public class A2_Array {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
         Integer[] array = new Integer[count];
-        for(int i = 0; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             array[i] = scan.nextInt();
         }
 
         List<Integer> arrayList = solution(count, array);
         Integer arrayCount = 0;
-        for(Integer x : arrayList) {
+        for (Integer x : arrayList) {
             arrayCount++;
         }
         System.out.println(arrayCount);
@@ -48,12 +48,41 @@ public class A2_Array{
         List<Integer> arrayList = new ArrayList<>();
         arrayList.add(array[0]);
 
-        for(int i = 1; i < count; i++) {
-           if(array[i] > maxHeight) {
-               maxHeight = array[i];
-               arrayList.add(array[i]);
-           }
+        for (int i = 1; i < count; i++) {
+            if (array[i] > maxHeight) {
+                maxHeight = array[i];
+                arrayList.add(array[i]);
+            }
         }
         return arrayList;
+    }
+
+    /**
+     * 재 복습: 2024-12-10
+     */
+    public static class A2Array {
+        public static void main(String[] args) {
+            A2Array a2Array = new A2Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] arrayCount = new Integer[count];
+            for (int i = 0; i < count; i++) {
+                arrayCount[i] = scan.nextInt();
+            }
+            Integer solution = a2Array.solution(count, arrayCount);
+            System.out.println(solution);
+        }
+
+        public Integer solution(Integer count, Integer[] array) {
+            Integer countStudent = 1;
+            Integer maxHeight = 0;
+            for (int i = 1; i < count; i++) {
+                if (array[i] > maxHeight) {
+                    countStudent++;
+                    maxHeight = array[i];
+                }
+            }
+            return countStudent;
+        }
     }
 }
