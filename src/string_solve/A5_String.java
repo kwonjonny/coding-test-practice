@@ -117,4 +117,36 @@ public class A5_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A5String2 {
+        public static void main(String[] args) {
+            A5String2 a5String2 = new A5String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a5String2.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isLetter(x)) {
+                    stack.add(x);
+                }
+            }
+
+            for(char x : str.toCharArray()) {
+                if(Character.isLetter(x)) {
+                    stringBuilder.append(stack.pop());
+                } else {
+                    stringBuilder.append(x);
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
