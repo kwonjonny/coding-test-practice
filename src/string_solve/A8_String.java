@@ -81,7 +81,7 @@ public class A8_String {
             Integer left = 0;
             Integer right = list.size() - 1;
 
-            while (left > right) {
+            while (left < right) {
                 if(!list.get(left).equals(list.get(right))) {
                     return "NO";
                 }
@@ -121,6 +121,41 @@ public class A8_String {
                 }
                 left ++ ;
                 right -- ;
+            }
+            return "YES";
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A8String2 {
+        public static void main(String[] args) {
+            A8String2 a8String2 = new A8String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            String solution = a8String2.solution(str);
+            System.out.println(solution);
+        }
+
+
+        public String solution(String str) {
+            List<Character> arrayList = new ArrayList<>();
+
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    arrayList.add(x);
+                }
+            }
+
+            int left = 0;
+            int right = str.length() - 1;
+            while (left > right) {
+                if(!arrayList.get(left).equals(arrayList.get(right))) {
+                    return "NO";
+                }
+                left++;
+                right--;
             }
             return "YES";
         }
