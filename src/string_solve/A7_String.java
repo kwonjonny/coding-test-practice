@@ -84,5 +84,28 @@ public class A7_String {
             return  reverse.equals(upperCase) ? "YES" : "NO";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A7String2 {
+        public static void main(String[] args) {
+            A7String2 a7String2 = new A7String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a7String2.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            String solution = "NO";
+            str = str.toUpperCase();
+            String reverse = new StringBuilder(str).reverse().toString();
+            if(str.equals(reverse)) {
+                solution = "YES";
+            }
+            return solution;
+        }
+    }
 }
 
