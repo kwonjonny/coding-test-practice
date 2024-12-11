@@ -1,5 +1,6 @@
 package string_solve;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -56,5 +57,47 @@ public class B1_String {
             distance[i] = Math.min(distance[i], p);
         }
         return distance;
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class B1String2 {
+        public static void main(String[] args) {
+            B1String2 b1String2 = new B1String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            Integer[] solution = b1String2.solution(str, c);
+            for(Integer x : solution) {
+                System.out.print(x + " ");
+            }
+        }
+
+
+        public Integer[] solution(String str, char c) {
+            Integer length = str.length();
+            Integer distance = Integer.MAX_VALUE;
+            Integer[] distances = new Integer[length];
+
+            for(int i = 0; i < length; i++) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                } else if (distance != Integer.MAX_VALUE) {
+                    distance++;
+                }
+                distances[i] = distance;
+            }
+
+            for(int i = length - 1; i >= 0; i--) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                } else if (distance != Integer.MAX_VALUE) {
+                    distance++;
+                }
+                distances[i] = Math.min(distances[i], distance);
+            }
+            return distances;
+        }
     }
 }
