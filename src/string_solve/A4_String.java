@@ -1,6 +1,8 @@
 package string_solve;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -88,6 +90,35 @@ public class A4_String {
                 String stringBuilder = new StringBuilder(s).reverse().toString();
                 System.out.println(stringBuilder);
             }
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A4String2 {
+        public static void main(String[] args) {
+            A4String2 a4String2 = new A4String2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strArray = new String[count];
+            for(int i = 0; i < count; i++) {
+                strArray[i] = scan.next();
+            }
+            List<String> solution = a4String2.solution(count, strArray);
+            for(String x : solution) {
+                System.out.println(x);
+            }
+        }
+
+        public List<String> solution(Integer count, String[] str) {
+            List<String> arrayList = new ArrayList<>();
+            StringBuilder stringBuilder = new StringBuilder();
+            for(String x : str) {
+                String reverse = new StringBuilder(x).reverse().toString();
+                arrayList.add(reverse);
+            }
+            return arrayList;
         }
     }
 }
