@@ -85,4 +85,35 @@ public class A2_Array {
             return countStudent;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A3Array {
+        public static void main(String[] args) {
+            A3Array a2Array = new A3Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] studentArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                studentArray[i] = scan.nextInt();
+            }
+
+            Integer studentCount = a2Array.solution(count, studentArray);
+            System.out.println(studentCount);
+        }
+
+        public Integer solution(Integer count, Integer[] studentArray) {
+            Integer studentCount = 1;
+            Integer maxHeight = studentArray[0];
+
+            for(int i = 0; i < count; i++) {
+                if(maxHeight < studentArray[i]) {
+                    maxHeight = studentArray[i];
+                    studentCount ++ ;
+                }
+            }
+            return studentCount;
+        }
+    }
 }
