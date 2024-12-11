@@ -26,7 +26,6 @@ import java.util.Scanner;
  * 출력:
  *   3
  */
-
 public class A1_String {
 
     public static void main(String[] args) {
@@ -95,6 +94,32 @@ public class A1_String {
             String lowerCase = str.toLowerCase();
             for(char x : lowerCase.toCharArray()) {
                 if(x == c) {
+                    count++;
+                }
+            }
+            return count;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A1String2 {
+        public static void main(String[] args) {
+            A1String2 a1String2 = new A1String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            Integer solution = a1String2.solution(str, c);
+            System.out.println(solution);
+        }
+
+        public Integer solution(String str, char c) {
+            Integer count = 0;
+
+            c = Character.toLowerCase(c);
+            for(char x : str.toCharArray()) {
+                if(c == Character.toLowerCase(x)) {
                     count++;
                 }
             }
