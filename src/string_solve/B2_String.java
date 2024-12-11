@@ -50,4 +50,35 @@ public class B2_String {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class B2String1 {
+        public static void main(String[] args) {
+            B2String1 b2String1 = new B2String1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = b2String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            Integer count = 1;
+
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                    count++;
+                } else {
+                    stringBuilder.append(str.charAt(i));
+                    if(count > 1) {
+                        stringBuilder.append(count);
+                    }
+                    count = 1;
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
