@@ -66,4 +66,27 @@ public class A9_String {
             return Integer.parseInt(stringBuilder.toString());
         }
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A9String {
+        public static void main(String[] args) {
+            A9String a9String = new A9String();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            Integer solution = a9String.solution(str);
+            System.out.println(solution);
+        }
+
+        public Integer solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                if(Character.isDigit(str.charAt(i))) {
+                    stringBuilder.append(str.charAt(i));
+                }
+            }
+            return Integer.parseInt(stringBuilder.toString());
+        }
+    }
 }
