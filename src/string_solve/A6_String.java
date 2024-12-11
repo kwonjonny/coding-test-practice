@@ -1,7 +1,9 @@
 package string_solve;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 중복 문자 제거
@@ -94,6 +96,31 @@ public class A6_String {
                 hashSet.add(x);
             }
             return String.valueOf(hashSet);
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A6String2 {
+        public static void main(String[] args) {
+            A6String2 a6String2 = new A6String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String solution = a6String2.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            Set<Character> linkedHashSet = new HashSet<>();
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(!linkedHashSet.contains(x)) {
+                    linkedHashSet.add(x);
+                    stringBuilder.append(x);
+                }
+            }
+            return stringBuilder.toString();
         }
     }
 }
