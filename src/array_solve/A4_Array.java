@@ -49,4 +49,33 @@ public class A4_Array {
         }
         return arrayList;
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A4Array {
+        public static void main(String[] args) {
+            A4Array a4Array = new A4Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            List<Integer> solution = a4Array.solution(count);
+            for(Integer x : solution) {
+                System.out.print(x + " ");
+            }
+        }
+
+        public List<Integer> solution(Integer count) {
+            List<Integer> arrayList = new ArrayList<>();
+
+            Integer next = 1;
+            Integer prev = 0;
+            for(int i = 0; i < count; i ++) {
+                arrayList.add(next);
+                Integer temp = next;
+                next = prev + next;
+                prev = temp;
+            }
+            return arrayList;
+        }
+    }
 }
