@@ -80,4 +80,46 @@ public class A3_Array {
         }
         return stringArrayList;
     }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A3Array {
+        public static void main(String[] args) {
+            A3Array a3Array = new A3Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] aArray = new Integer[count];
+            Integer[] bArray = new Integer[count];
+
+            for(int i = 0; i < count; i++) {
+                aArray[i] = scan.nextInt();
+            }
+
+            for(int i = 0; i < count; i++) {
+                bArray[i] = scan.nextInt();
+            }
+
+            List<String> solution = a3Array.solution(count, aArray, bArray);
+            for(String x : solution) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer count, Integer[] aArray, Integer[] bArray) {
+            List<String> solution = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                Integer a = aArray[i];
+                Integer b = bArray[i];
+                if(a.equals(b)) {
+                    solution.add("D");
+                } else if (a == 1 && b == 3 || a == 2 && b == 1 || a == 3 && b == 2) {
+                    solution.add("A");
+                } else {
+                    solution.add("B");
+                }
+            }
+            return solution;
+        }
+    }
+
 }
