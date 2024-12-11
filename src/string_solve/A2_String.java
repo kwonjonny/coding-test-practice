@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 대소문자 변환
  *
- * 설명: 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로 변환항여 출력하는 프로그램을 작성하세요
+ * 설명: 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로 변환하여 출력하는 프로그램을 작성하세요
  *
  * 조건:
  * 1. 첫 줄에 문자열이 입력된다.
@@ -79,6 +79,31 @@ public class A2_String {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
             String solution = a2String1.solution(str);
+            System.out.println(solution);
+        }
+
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isUpperCase(x)) {
+                    stringBuilder.append(Character.toLowerCase(x));
+                } else {
+                    stringBuilder.append(Character.toUpperCase(x));
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-11
+     */
+    public static class A2String2 {
+        public static void main(String[] args) {
+            A2String2 a2String2 = new A2String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            String solution = a2String2.solution(str);
             System.out.println(solution);
         }
 
