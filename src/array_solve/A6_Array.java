@@ -72,4 +72,52 @@ public class A6_Array {
         }
         return true;
     }
+
+    /**
+     * 재 복습: 2024-12-12
+     */
+    public static class A6Array {
+        public static void main(String[] args) {
+            A6Array a6Array = new A6Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a6Array.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+
+        public List<Integer> solution(Integer count, Integer[] intArray) {
+            List<Integer> arrayList = new ArrayList<>();
+
+            for(int i = 0; i < count; i++) {
+                int temp = intArray[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                if(isPrime(res)) {
+                    arrayList.add(res);
+                }
+            }
+            return arrayList;
+        }
+
+        public static Boolean isPrime(Integer num) {
+            if(num == 1) {
+                return false;
+            }
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }
