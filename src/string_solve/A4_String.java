@@ -121,4 +121,31 @@ public class A4_String {
             return arrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A4String3 {
+        public static void main(String[] args) {
+            A4String3 a4String3 = new A4String3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strs = new String[count];
+            for(int i = 0; i < count; i++) {
+                strs[i] = scan.next();
+            }
+            for(String x : a4String3.solution(count, strs)) {
+                System.out.println(x);
+            }
+        }
+
+        public List<String> solution(Integer count, String[] str) {
+            List<String> newArrayList = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                String stringBuilder = new StringBuilder(str[i]).reverse().toString();
+                newArrayList.add(stringBuilder);
+            }
+            return newArrayList;
+        }
+    }
 }
