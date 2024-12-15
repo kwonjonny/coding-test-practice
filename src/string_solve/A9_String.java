@@ -89,4 +89,25 @@ public class A9_String {
             return Integer.parseInt(stringBuilder.toString());
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A9String2 {
+        public static void main(String[] args) {
+            A9String2 a9String2 = new A9String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a9String2.solution(str));
+        }
+        public Integer solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isDigit(x)) {
+                    stringBuilder.append(x);
+                }
+            }
+            return Integer.valueOf(stringBuilder.toString());
+        }
+    }
 }
