@@ -66,4 +66,33 @@ public class A7_Array {
         }
         return answer;
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A7Array1 {
+        public static void main(String[] args) {
+            A7Array1 a7Array1 = new A7Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(a7Array1.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[] intArray) {
+            Integer score = 0;
+            Integer answer = 0;
+            for(int i = 0; i < count; i++) {
+                if(intArray[i] == 1) {
+                    score++;
+                    answer = answer + score;
+                } else {
+                    score = 0;
+                }
+            }
+            return answer;
+        }
+    }
 }
