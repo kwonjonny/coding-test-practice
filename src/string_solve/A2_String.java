@@ -119,4 +119,29 @@ public class A2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A2String3 {
+        public static void main(String[] args) {
+            A2String3 a2String3 = new A2String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a2String3.solution(str));
+        }
+
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for(int i = 0; i < str.length(); i++) {
+                if(Character.isLowerCase(str.charAt(i))) {
+                    stringBuilder.append(Character.toUpperCase(str.charAt(i)));
+                } else {
+                    stringBuilder.append(Character.toLowerCase(str.charAt(i)));
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
