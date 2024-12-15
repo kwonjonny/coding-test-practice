@@ -74,4 +74,30 @@ public class A5_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A5Array1 {
+        public static void main(String[] args) {
+            A5Array1 a5Array1 = new A5Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            System.out.println(a5Array1.solution(count));
+        }
+        public Integer solution(Integer count) {
+            int[] arrayInt = new int[count +1];
+            Integer primeCount = 0;
+
+            for(int i = 2; i <= count; i++) {
+                if(arrayInt[i] == 0) {
+                    primeCount++;
+                    for(int j = i; j <= count; j = j + i) {
+                        arrayInt[j] = 1;
+                    }
+                }
+            }
+            return primeCount;
+        }
+    }
 }
