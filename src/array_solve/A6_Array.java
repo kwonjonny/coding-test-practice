@@ -120,4 +120,48 @@ public class A6_Array {
             return true;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A6Array1 {
+        public static void main(String[] args) {
+            A6Array1 a6Array1 = new A6Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a6Array1.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count, Integer[] intArray) {
+            List<Integer> intArrayList = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                int temp = intArray[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                A6Array1 a6Array1 = new A6Array1();
+                if(a6Array1.isPrime(res)) {
+                    intArrayList.add(res);
+                }
+            }
+            return intArrayList;
+        }
+        public Boolean isPrime(Integer num) {
+            if(num == 1) return false;
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }
