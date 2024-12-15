@@ -107,5 +107,27 @@ public class A7_String {
             return solution;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A7String3 {
+        public static void main(String[] args) {
+            A7String3 a7String3 = new A7String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a7String3.solution(str));
+        }
+
+        public String solution(String str) {
+            str = str.toLowerCase();
+            String reverseString = new StringBuilder(str).reverse().toString();
+            if(str.equals(reverseString)) {
+                return "YES";
+            }
+            return "NO";
+        }
+    }
+
 }
 
