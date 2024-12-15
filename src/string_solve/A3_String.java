@@ -126,4 +126,30 @@ public class A3_String {
             return solutionWord;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A3String3 {
+        public static void main(String[] args) {
+            A3String3 a3String3 = new A3String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a3String3.solution(str));
+        }
+
+        public String solution(String str) {
+            Integer maxLength = 0;
+            String newStrWord = "";
+
+            String[] newStr = str.split(" ");
+            for(int i = 0; i <newStr.length; i++) {
+                if(maxLength < newStr[i].length()) {
+                    maxLength = newStr[i].length();
+                    newStrWord = newStr[i];
+                }
+            }
+            return newStrWord;
+        }
+    }
 }
