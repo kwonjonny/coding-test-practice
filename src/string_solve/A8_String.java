@@ -160,4 +160,35 @@ public class A8_String {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A8String3 {
+        public static void main(String[] args) {
+            A8String3 a8String3 = new A8String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a8String3.solution(str));
+        }
+        public String solution(String str) {
+            List<Character> newArrayList = new ArrayList<>();
+            for(char x : str.toCharArray()) {
+                if(Character.isLetter(x)) {
+                    newArrayList.add(Character.toLowerCase(x));
+                }
+            }
+
+            int right = 0;
+            int left = str.length() - 1;
+            while(right > left) {
+                if(!newArrayList.get(left).equals(newArrayList.get(right))) {
+                    return "NO";
+                }
+                right++;
+                left--;
+            }
+            return "YES";
+        }
+    }
 }
