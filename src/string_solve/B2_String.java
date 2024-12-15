@@ -81,4 +81,31 @@ public class B2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class B2String2 {
+        public static void main(String[] args) {
+            B2String2 b2String2 = new B2String2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(b2String2.solution(str));
+        }
+        public String solution(String str) {
+            Integer count = 1;
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() - 1 && str.charAt(i) == str.charAt(i +1)) {
+                    count++;
+                    stringBuilder.append(str.charAt(i));
+                    if(count > 1) {
+                        stringBuilder.append(count);
+                    }
+                    count = 0;
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
