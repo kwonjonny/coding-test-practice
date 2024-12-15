@@ -122,4 +122,41 @@ public class A3_Array {
         }
     }
 
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A3Array1 {
+        public static void main(String[] args) {
+            A3Array1 a3Array1 = new A3Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] aArray = new Integer[count];
+            Integer[] bArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            for(int i  = 0; i < count; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            for(String x : a3Array1.solution(count, aArray, bArray)) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer count, Integer[] aArray, Integer[] bArray) {
+            List<String> stringArrayList = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                Integer a = aArray[i];
+                Integer b = bArray[i];
+
+                if(a == 1 && b == 3 || a == 2 && b == 1 || a == 3 && b == 2) {
+                    stringArrayList.add("A");
+                } else if (a.equals(b)) {
+                    stringArrayList.add("D");
+                } else {
+                    stringArrayList.add("B");
+                }
+            }
+            return stringArrayList;
+        }
+    }
 }
