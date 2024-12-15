@@ -142,4 +142,32 @@ public class A1_Array {
             return arrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A1Array1 {
+        public static void main(String[] args) {
+            A1Array1 a1Array1 = new A1Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a1Array1.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count, Integer[] intArray) {
+            List<Integer> newArrayList = new ArrayList<>();
+            newArrayList.add(intArray[0]);
+            for(int i = 1; i < count; i++) {
+                if(intArray[i] > intArray[i -1]) {
+                    newArrayList.add(intArray[i]);
+                }
+            }
+            return newArrayList;
+        }
+    }
 }
