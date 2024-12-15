@@ -126,4 +126,28 @@ public class A1_String {
             return count;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A1String3 {
+        public static void main(String[] args) {
+            A1String3 a1String3 = new A1String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            System.out.println(a1String3.solution(str, c));
+        }
+
+        public Integer solution(String str, char c) {
+            str = str.toLowerCase();
+            Integer count = 0;
+            for(int i = 0; i < str.length(); i++) {
+                if(str.charAt(i) == c) {
+                    count++;
+                }
+            }
+            return count;
+        }
+    }
 }
