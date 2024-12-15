@@ -105,4 +105,30 @@ public class A4_Array {
             return null;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A4Array2 {
+        public static void main(String[] args) {
+            A4Array2 a4Array2 = new A4Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            for(Integer x : a4Array2.solution(count)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count) {
+            List<Integer> intArrayList = new ArrayList<>();
+            Integer prev = 0;
+            Integer next = 1;
+            for(int i = 0; i < count; i++) {
+                intArrayList.add(next);
+                int temp = next;
+                next = prev + next;
+                prev = temp;
+            }
+            return intArrayList;
+        }
+    }
 }
