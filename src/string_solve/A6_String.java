@@ -123,4 +123,26 @@ public class A6_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A6String3 {
+        public static void main(String[] args) {
+            A6String3 a6String3 = new A6String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            for(char x : a6String3.solution(str)) {
+                System.out.print(x);
+            }
+        }
+
+        public LinkedHashSet<Character> solution(String str) {
+            LinkedHashSet<Character> set = new LinkedHashSet<>();
+            for(char x : str.toCharArray()) {
+                set.add(x);
+            }
+            return set;
+        }
+    }
 }
