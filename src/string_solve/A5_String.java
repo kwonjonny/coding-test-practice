@@ -1,5 +1,7 @@
 package string_solve;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -141,6 +143,36 @@ public class A5_String {
 
             for(char x : str.toCharArray()) {
                 if(Character.isLetter(x)) {
+                    stringBuilder.append(stack.pop());
+                } else {
+                    stringBuilder.append(x);
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-15
+     */
+    public static class A5String3 {
+        public static void main(String[] args) {
+            A5String3 a5String3 = new A5String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a5String3.solution(str));
+        }
+
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stack.push(x);
+                }
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
                     stringBuilder.append(stack.pop());
                 } else {
                     stringBuilder.append(x);
