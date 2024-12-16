@@ -27,6 +27,7 @@ import java.util.Scanner;
  *  4 3 2 1 5
  */
 public class A8_Array {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
@@ -51,4 +52,36 @@ public class A8_Array {
         }
         return answer;
     }
+
+    /**
+     * 재 복습: 2024-12-16
+     */
+    public static class A8Array1 {
+        public static void main(String[] args) {
+            A8Array1 a8Array1 = new A8Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a8Array1.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public Integer[] solution(Integer count, Integer[] intArray) {
+            Integer[] scores = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                int score = 1;
+                for(int j = 0; j < count; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        score++;
+                    }
+                }
+                scores[i] = score;
+            }
+            return scores;
+        }
+    }
+
 }
