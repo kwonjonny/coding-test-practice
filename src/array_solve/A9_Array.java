@@ -108,5 +108,45 @@ public class A9_Array {
             return answer;
         }
     }
-
+    
+    /**
+     * 재 복습: 2024-12-17
+     */
+    public static class A9Array1 {
+        public static void main(String[] args) {
+            A9Array1 a9Array1 = new A9Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count][count];
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(a9Array1.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[][] intArray) {
+            int sum1, sum2;
+            int answer = 0;
+            for(int i = 0; i < count; i++) {
+                sum1 = 0;
+                sum2 = 0;
+                for(int j = 0; j < count; j++) {
+                    sum1 = sum1 + intArray[i][j];
+                    sum2 = sum2 + intArray[j][i];
+                }
+                answer = Math.max(answer, sum1);
+                answer = Math.max(answer, sum2);
+            }
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < count; i++) {
+                sum1 = sum1 + intArray[i][i];
+                sum2 = sum2 + intArray[i][count -1 -i];
+            }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
+            return answer;
+        }
+    }
 }
