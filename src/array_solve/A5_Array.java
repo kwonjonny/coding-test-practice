@@ -100,4 +100,29 @@ public class A5_Array {
             return primeCount;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-17
+     */
+    public static class A5Array2 {
+        public static void main(String[] args) {
+            A5Array2 a5Array2 = new A5Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            System.out.println(a5Array2.solution(count));
+        }
+        public Integer solution(Integer count) {
+            Integer answer = 0;
+            int[] intArray = new int[count + 1];
+            for(int i = 2; i <= count; i++) {
+                if(intArray[i] == 0) {
+                    answer++;
+                    for(int j = i; j <= count; j = j + i) {
+                        intArray[j] = 1;
+                    }
+                }
+            }
+            return answer;
+        }
+    }
 }
