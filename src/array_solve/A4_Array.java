@@ -131,4 +131,30 @@ public class A4_Array {
             return intArrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-17
+     */
+    public static class A4Array3 {
+        public static void main(String[] args) {
+            A4Array3 a4Array3 = new A4Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            for(Integer x : a4Array3.solution(count)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count) {
+            List<Integer> arrayList = new ArrayList<>();
+            int prev = 0;
+            int next = 1;
+            for(int i = 0; i < count; i++) {
+                arrayList.add(next);
+                int temp = next;
+                next = next + prev;
+                prev = temp;
+            }
+            return arrayList;
+        }
+    }
 }
