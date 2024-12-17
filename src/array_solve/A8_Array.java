@@ -84,4 +84,34 @@ public class A8_Array {
         }
     }
 
+    /**
+     * 재 복습: 2024-12-17
+     */
+    public static class A8Array2 {
+        public static void main(String[] args) {
+            A8Array2 a8Array2 = new A8Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(int x : a8Array2.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public Integer[] solution(Integer count, Integer[] intArray) {
+            Integer[] array = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                int score = 1;
+                for(int j = 0; j < count; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        score++;
+                    }
+                }
+                array[i] = score;
+            }
+            return array;
+        }
+    }
 }
