@@ -129,5 +129,24 @@ public class A7_String {
         }
     }
 
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A7String4 {
+        public static void main(String[] args) {
+            A7String4 a7String4 = new A7String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a7String4.solution(str));
+        }
+        public String solution(String str) {
+            str = str.toUpperCase();
+            String reverseStr = new StringBuilder(str).reverse().toString();
+            if(reverseStr.equals(str)) {
+                return "YES";
+            }
+            return "NO";
+        }
+    }
 }
 
