@@ -141,4 +141,29 @@ public class A2_Array {
             return studentCount;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A2Array2 {
+        public static void main(String[] args) {
+            A2Array2 a2Array2 = new A2Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(a2Array2.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[] intArray) {
+            Integer answer = 0;
+            for(int i = 0; i < count; i++) {
+                if(i < intArray.length - 1 && intArray[i] < intArray[i +1]) {
+                    answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
