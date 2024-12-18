@@ -125,4 +125,29 @@ public class A5_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A5Array3 {
+        public static void main(String[] args) {
+            A5Array3 a5Array3 = new A5Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer num = scan.nextInt();
+            System.out.println(a5Array3.solution(num));
+        }
+        public Integer solution(Integer num) {
+            int answer = 0;
+            int[] array = new int[num +1];
+            for(int i = 2; i <= num; i++) {
+                if(array[i] == 0) {
+                    answer ++;
+                    for(int j = i; j <= num; j = j +i) {
+                        array[j] = 1;
+                    }
+                }
+            }
+            return answer;
+        }
+    }
 }
