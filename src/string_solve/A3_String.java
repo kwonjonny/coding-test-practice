@@ -152,4 +152,26 @@ public class A3_String {
             return newStrWord;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18 오답
+     */
+    public static class A3String4 {
+        public static void main(String[] args) {
+            A3String4 a3String4 = new A3String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a3String4.solution(str));
+        }
+        public String solution(String str) {
+            String answer = "";
+            String[] strArray = str.split(" ");
+            for(String x : strArray) {
+                if(x.length() > answer.length()) {
+                    answer = x;
+                }
+            }
+            return answer;
+        }
+    }
 }
