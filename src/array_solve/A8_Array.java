@@ -114,4 +114,36 @@ public class A8_Array {
             return array;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A8Array3 {
+        public static void main(String[] args) {
+            A8Array3 a8Array3 = new A8Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            int[] intArray = new int[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a8Array3.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public int[] solution(int count, int[] intArray) {
+            int[] answerArray = new int[count];
+            int score = 1;
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        score++;
+                    }
+                    answerArray[i] = score;
+                    score = 1;
+                }
+            }
+            return answerArray;
+        }
+    }
 }
