@@ -150,4 +150,27 @@ public class A1_String {
             return count;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A1String4 {
+        public static void main(String[] args) {
+            A1String4 a1String4 = new A1String4();
+            Scanner scanner = new Scanner(System.in);
+            String str = scanner.next();
+            char c = scanner.next().charAt(0);
+            System.out.println(a1String4.solution(str, c));
+        }
+        public Integer solution(String str, char c) {
+            int answer = 0;
+            str = str.toLowerCase();
+            for(char x : str.toCharArray()) {
+                if(x == c) {
+                    answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
