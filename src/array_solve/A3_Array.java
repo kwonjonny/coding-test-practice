@@ -159,4 +159,41 @@ public class A3_Array {
             return stringArrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A3Array3 {
+        public static void main(String[] args) {
+            A3Array3 a3Array3 = new A3Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] aArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            Integer[] bArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            for(String x : a3Array3.solution(count, aArray, bArray)) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer count, Integer[] aArray, Integer[] bArray) {
+            List<String> list = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                Integer a = aArray[i];
+                Integer b = bArray[i];
+                if(a.equals(b)) {
+                    list.add("D");
+                } else if (a == 1 && b == 3 || a == 2 && b == 1 || a == 3 && b == 2) {
+                    list.add("A");
+                } else {
+                    list.add("B");
+                }
+            }
+            return list;
+        }
+    }
 }
