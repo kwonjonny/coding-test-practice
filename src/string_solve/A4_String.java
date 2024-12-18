@@ -148,4 +148,29 @@ public class A4_String {
             return newArrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A4String4 {
+        public static void main(String[] args) {
+            A4String4 a4String4 = new A4String4();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strArray = new String[count];
+            for(int i = 0; i < count; i++) {
+                strArray[i] = scan.next();
+            }
+            for(String x : a4String4.solution(count, strArray)) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer count, String[] strArray) {
+            List<String> list = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                list.add(new StringBuilder(strArray[i]).reverse().toString());
+            }
+            return list;
+        }
+    }
 }
