@@ -108,4 +108,32 @@ public class B2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18 오답
+     */
+    public static class B2String3 {
+        public static void main(String[] args) {
+            B2String3 b2String3 = new B2String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(b2String3.solution(str));
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            Integer count = 1;
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() -1 && str.charAt(i) == str.charAt(i +1)) {
+                    count++;
+                } else {
+                    stringBuilder.append(str.charAt(i));
+                    if(count > 1) {
+                        stringBuilder.append(count);
+                    }
+                    count = 1;
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
