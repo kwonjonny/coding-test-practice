@@ -145,4 +145,28 @@ public class A6_String {
             return set;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A6String4 {
+        public static void main(String[] args) {
+            A6String4 a6String4 = new A6String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a6String4.solution(str));
+        }
+        public String solution(String str) {
+            LinkedHashSet<Character> linkedHashSet = new LinkedHashSet<>();
+            for(char x : str.toCharArray()) {
+                linkedHashSet.add(x);
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x : linkedHashSet) {
+                stringBuilder.append(x);
+            }
+            return stringBuilder.toString();
+        }
+    }
+
 }
