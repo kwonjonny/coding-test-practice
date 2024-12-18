@@ -191,4 +191,35 @@ public class A8_String {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18 오답
+     */
+    public static class A8String4 {
+        public static void main(String[] args) {
+            A8String4 a8String4 = new A8String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a8String4.solution(str));
+        }
+        public String solution(String str) {
+            str = str.toLowerCase();
+            List<Character> arrayList = new ArrayList<>();
+            for(char c : str.toCharArray()) {
+                if(Character.isLetter(c)) {
+                    arrayList.add(c);
+                }
+            }
+            int left = 0;
+            int right = arrayList.size() -1;
+            while(right > left) {
+                if(!arrayList.get(left).equals(arrayList.get(right))) {
+                    return "NO";
+                }
+                left++;
+                right--;
+            }
+            return "YES";
+        }
+    }
 }
