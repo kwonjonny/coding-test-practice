@@ -170,4 +170,32 @@ public class A1_Array {
             return newArrayList;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A1Array2 {
+        public static void main(String[] args) {
+            A1Array2 a1Array2 = new A1Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a1Array2.solution(count, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            list.add(intArray[0]);
+            for(int i = 0; i < count; i++) {
+                if(i < intArray.length -1 && intArray[i] < intArray[i + 1]) {
+                    list.add(intArray[i + 1]);
+                }
+            }
+            return list;
+        }
+    }
 }
