@@ -125,4 +125,34 @@ public class A7_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A7Array3 {
+        public static void main(String[] args) {
+            A7Array3 a7Array3 = new A7Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(a7Array3.solution(count, intArray));
+        }
+
+        public Integer solution(Integer count, Integer[] intArray) {
+            int score = 0;
+            int answer = 0;
+            for(int i = 0; i < count; i++) {
+                if(intArray[i] == 1) {
+                    score++;
+                    answer = answer + score;
+                } else if(intArray[i] == 0) {
+                    score = 0;
+                }
+            }
+            return answer;
+        }
+    }
 }
