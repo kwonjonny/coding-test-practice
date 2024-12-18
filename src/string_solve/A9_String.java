@@ -110,4 +110,25 @@ public class A9_String {
             return Integer.valueOf(stringBuilder.toString());
         }
     }
+
+    /**
+     * 재 복습: 2024-12-18
+     */
+    public static class A9String3 {
+        public static void main(String[] args) {
+            A9String3 a9String3 = new A9String3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a9String3.solution(str));
+        }
+        public Integer solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                if(Character.isDigit(str.charAt(i))) {
+                    stringBuilder.append(str.charAt(i));
+                }
+            }
+            return Integer.parseInt(stringBuilder.toString());
+        }
+    }
 }
