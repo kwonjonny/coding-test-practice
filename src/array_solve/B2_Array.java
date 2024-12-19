@@ -131,4 +131,45 @@ public class B2_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-19
+     */
+    public static class B2Array {
+        public static void main(String[] args) {
+            B2Array b2Array = new B2Array();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count + 1][count +1];
+            for(int i = 1; i <= count; i++) {
+                for(int j = 1; j <= count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(b2Array.solution(count, intArray));
+        }
+
+        public Integer solution(Integer count, Integer[][] intArray) {
+            int answer = 0;
+            int max = 0;
+
+            for(int i = 1; i <= count; i++) {
+                int cnt = 0;
+                for(int j = 1; j <= count; j++) {
+                    if(i == j) continue;
+                    for(int k = 1; k <= 5; k++) {
+                        if(Objects.equals(intArray[i][k], intArray[j][k])) {
+                            cnt++;
+                            break;
+                        }
+                    }
+                }
+                if(cnt > max) {
+                    max = cnt;
+                    answer = i;
+                }
+            }
+            return answer;
+        }
+    }
 }
