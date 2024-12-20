@@ -1,4 +1,4 @@
-package z_baekjoon.silver.string;
+package z_baekjoon.bronze.string;
 
 import java.util.Scanner;
 
