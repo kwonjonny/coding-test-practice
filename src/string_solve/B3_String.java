@@ -49,8 +49,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
-      4
-      #****###**#####**#####**##**
+4
+#****###**#####**#####**##**
  *
  * 출력:
  *   COOL
@@ -76,5 +76,32 @@ public class B3_String {
             stringBuilder.append(c);
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * 왜 또 틀렸을까? --> subString, char int 캐스팅 등등 부족한점이 있어
+     * 재 복습: 2024-12-20
+     */
+    public static class B3String {
+        public static void main(String[] args) {
+            B3String b3String = new B3String();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String str = scan.next();
+            System.out.println(b3String.solution(count, str));
+        }
+        public String solution(Integer count, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < count; i++) {
+                String code = str.substring(0, 7)
+                        .replace('#', '1')
+                        .replace('*', '0');
+                int temp = Integer.parseInt(code, 2);
+                str = str.substring(7);
+                char c = (char) temp;
+                stringBuilder.append(c);
+            }
+            return stringBuilder.toString();
+        }
     }
 }
