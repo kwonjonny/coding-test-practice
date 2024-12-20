@@ -26,6 +26,46 @@ import java.util.Scanner;
  */
 public class B2_String {
 
+    /**
+     * 재 복습: 2024-12-20
+     */
+    public static class B2String4 {
+        public static void main(String[] args) {
+            B2String4 b2String4 = new B2String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(b2String4.solution(str));
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            int count = 1;
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                    count++;
+                } else {
+                    stringBuilder.append(str.charAt(i));
+                    if(1 < count) {
+                        stringBuilder.append(count);
+                        count = 1;
+                    }
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
