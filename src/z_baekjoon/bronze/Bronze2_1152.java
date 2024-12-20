@@ -21,6 +21,7 @@ import java.util.Scanner;
  * 6
  */
 public class Bronze2_1152 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
@@ -33,6 +34,28 @@ public class Bronze2_1152 {
             return stringArray.length;
         } else {
             return 0;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-20
+     */
+    public static class Bronze2_1152_1 {
+        public static void main(String[] args) {
+            Bronze2_1152_1 bronze211521 = new Bronze2_1152_1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(bronze211521.solution(str));
+        }
+        public Integer solution(String str) {
+            if(str.trim().isEmpty()) {
+                return 0;
+            }
+            int count = 0;
+            for(char x : str.toCharArray()) {
+                count++;
+            }
+            return count;
         }
     }
 }
