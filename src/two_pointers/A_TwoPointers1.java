@@ -60,7 +60,6 @@ public class A_TwoPointers1 {
         while(p1 < a && p2 < b) {
             if(aArray[p1] < bArray[p2]) list.add(aArray[p1++]);
             else list.add(bArray[p2++]);
-
         }
         while(p1 < a) {
             list.add(aArray[p1++]);
@@ -68,8 +67,6 @@ public class A_TwoPointers1 {
         while(p2 < b) {
             list.add(bArray[p2++]);
         }
-
-
         return list;
     }
 }
