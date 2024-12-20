@@ -25,6 +25,7 @@ import java.util.Scanner;
  * 1
  */
 public class Bronze3_10988 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -39,5 +40,25 @@ public class Bronze3_10988 {
             return 1;
         }
         return 0;
+    }
+
+    /**
+     * 재 복습: 2024-12-20
+     */
+    public static class Bronze3_10988_1 {
+        public static void main(String[] args) {
+            Bronze3_10988_1 bronze3109881 = new Bronze3_10988_1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(bronze3109881.solution(str));
+        }
+        public Integer solution(String str) {
+            str = str.toLowerCase();
+            String reverseString = new StringBuilder(str).reverse().toString();
+            if(reverseString.equals(str)) {
+                return 1;
+            }
+            return 0;
+        }
     }
 }
