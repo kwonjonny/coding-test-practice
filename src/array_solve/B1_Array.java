@@ -120,4 +120,48 @@ public class B1_Array {
             return answer;
         }
     }
+
+    /**
+     * 왜 틀렷을까? 상 하 좌 우 에 대한 필요성, 3중 for 문에 대한 이해도가 부족해
+     * 재 복습: 2024-12-20
+     */
+    public static class B1Array2 {
+        public static void main(String[] args) {
+            B1Array2 b1Array2 = new B1Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count][count];
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(b1Array2.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[][] intArray) {
+            int[] dx = {-1, 0, 1, 0};
+            int[] dy = {0, 1, 0 ,-1};
+            int cnt = 0;
+
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    boolean isPeak = true;
+                    for(int k = 0; k < 4; k++) {
+                        int nx = i + dx[k];
+                        int ny = j + dy[k];
+
+                        if(nx >= 0 && nx < count && ny >= 0 && ny < count) {
+                            if(intArray[i][j] <= intArray[nx][ny]) {
+                                isPeak = false;
+                                break;
+                            }
+                        }
+
+                    }
+                    if(isPeak) cnt++;
+                }
+            }
+            return cnt;
+        }
+    }
 }
