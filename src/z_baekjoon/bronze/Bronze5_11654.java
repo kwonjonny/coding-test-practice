@@ -20,6 +20,7 @@ import java.util.Scanner;
  * 65
  */
 public class Bronze5_11654 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         char c = scan.next().charAt(0);
@@ -28,5 +29,20 @@ public class Bronze5_11654 {
 
     public static Integer solution(char c) {
         return (int) c;
+    }
+
+    /**
+     * 재 복습: 2024-12-20
+     */
+    public static class Bronze511654_1 {
+        public static void main(String[] args) {
+            Bronze511654_1 bronze5116541 = new Bronze511654_1();
+            Scanner scan = new Scanner(System.in);
+            char c = scan.next().charAt(0);
+            System.out.println(bronze5116541.solution(c));
+        }
+        public Integer solution(char c) {
+            return (int) c;
+        }
     }
 }
