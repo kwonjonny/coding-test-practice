@@ -25,6 +25,7 @@ import java.util.Scanner;
  * 13
  */
 public class BaekJoon_1929 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer m = scan.nextInt();
@@ -55,5 +56,37 @@ public class BaekJoon_1929 {
             }
         }
         return list;
+    }
+
+    /**
+     * 재 복습: 2024-12-20
+     */
+    public static class BaekJoon_1929_1 {
+        public static void main(String[] args) {
+            BaekJoon_1929_1 baekJoon19291 = new BaekJoon_1929_1();
+            Scanner scan = new Scanner(System.in);
+            Integer min = scan.nextInt();
+            Integer max = scan.nextInt();
+            for(Integer x : baekJoon19291.solution(min, max)) {
+                System.out.println(x);
+            }
+        }
+        public List<Integer> solution(Integer min, Integer max) {
+            List<Integer> list = new ArrayList<>();
+            int[] array = new int[max + 1];
+            for(int i = 2; i <= max; i++) {
+                if(array[i] == 0) {
+                    for(int j = i * i; j <= max; j = j + i) {
+                        array[j] = 1;
+                    }
+                }
+            }
+            for(int i = min; i <= max; i++) {
+                if(array[i] == 0) {
+                    list.add(i);
+                }
+            }
+            return list;
+        }
     }
 }
