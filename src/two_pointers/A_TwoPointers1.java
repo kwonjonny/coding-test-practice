@@ -34,6 +34,7 @@ import java.util.Scanner;
  *   1 2 3 3 5 6 7 9
  */
 public class A_TwoPointers1 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
@@ -68,5 +69,45 @@ public class A_TwoPointers1 {
             list.add(bArray[p2++]);
         }
         return list;
+    }
+
+    /**
+     * 재 복습: 2024-12-21
+     */
+    public static class ATwoPointers1 {
+        public static void main(String[] args) {
+            ATwoPointers1 aTwoPointers1 = new ATwoPointers1();
+            Scanner scan = new Scanner(System.in);
+
+            Integer aCount = scan.nextInt();
+            Integer[] aArray = new Integer[aCount];
+
+            for(int i = 0; i < aCount; i++) {
+                aArray[i] = scan.nextInt();
+            }
+
+            Integer bCount = scan.nextInt();
+            Integer[] bArray = new Integer[bCount];
+
+            for(int i = 0; i < bCount; i++) {
+                bArray[i] = scan.nextInt();
+            }
+
+            for(Integer x : aTwoPointers1.solution(aCount, bCount, aArray, bArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer aCount, Integer bCount, Integer[] aArray, Integer[] bArray) {
+            List<Integer> list = new ArrayList<>();
+            int p1 = 0;
+            int p2 = 0;
+            while (p1 < aCount && p2 < bCount) {
+                if(aArray[p1] < bArray[p2]) list.add(aArray[p1++]);
+                else list.add(bArray[p2++]);
+            }
+            while(p1 < aCount) list.add(aArray[p1++]);
+            while(p2 < bCount) list.add(bArray[p2++]);
+            return list;
+        }
     }
 }
