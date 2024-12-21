@@ -164,4 +164,47 @@ public class B1_Array {
             return cnt;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-21
+     */
+    public static class B1Array3 {
+        public static void main(String[] args) {
+            B1Array3 b1Array3 = new B1Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count][count];
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(b1Array3.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[][] intArray) {
+            int[] nx = {-1, 0, 1, 0};
+            int[] ny = {0, 1, 0 ,-1};
+            int cnt = 0;
+
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    boolean isPeak = true;
+
+                    for(int k = 0; k < 4; k++) {
+                        int dx = i + nx[k];
+                        int dy = j + ny[k];
+
+                        if(dx >= 0 && dx < count && dy >= 0 && dy < count) {
+                            if(intArray[i][j] <= intArray[dx][dy]) {
+                                isPeak = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(isPeak) cnt++;
+                }
+            }
+            return cnt;
+        }
+    }
 }
