@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * 만약 N=10이고 10일 간의 매출기록이 아래와 같습니다. 이때 K=3이면
  *
- * 12 1511 20 2510 20 19 13 15
+ * 12 15 11 20 2510 20 19 13 15
  *
  * 연속된 3일간의 최대 매출액은 11+20+25=56만원입니다.
  *
@@ -38,6 +38,7 @@ import java.util.Scanner;
  * 56
  */
 public class A_SlidingWindow3 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -63,5 +64,36 @@ public class A_SlidingWindow3 {
             max = Math.max(max, currentSum);
         }
         return max;
+    }
+
+    /**
+     * 재 복습: 2024-12-23
+     */
+    public static class ASlidingWindow3 {
+        public static void main(String[] args) {
+            ASlidingWindow3 aSlidingWindow3 = new ASlidingWindow3();
+            Scanner scan = new Scanner(System.in);
+            int length = scan.nextInt();
+            int days = scan.nextInt();
+            int[] intArray = new int[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(aSlidingWindow3.solution(length, days, intArray));
+        }
+        public int solution(int length, int days, int[] intArray) {
+            int max = 0;
+            int currentSum = 0;
+            for(int i = 0; i < days; i++) {
+                currentSum = currentSum + intArray[i];
+            }
+            max = currentSum;
+
+            for(int i = days; i < length; i++) {
+                currentSum = currentSum + (intArray[i] - intArray[i - days]);
+                max = Math.max(max, currentSum);
+            }
+            return max;
+        }
     }
 }
