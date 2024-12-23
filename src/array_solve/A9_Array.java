@@ -19,7 +19,7 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *  5
+  5
   10 13 10 12 15
   12 39 30 23 11
   11 25 50 53 15
@@ -229,6 +229,49 @@ public class A9_Array {
             for(int i = 0; i < count; i++) {
                 sum1 = sum1 + intArray[i][i];
                 sum2 = sum2 + intArray[i][count - 1 - i];
+            }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
+            return answer;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-23
+     */
+    public static class A9Array4 {
+        public static void main(String[] args) {
+            A9Array4 a9Array4 = new A9Array4();
+            Scanner scan = new Scanner(System.in);
+            int count = scan.nextInt();
+            int[][] intArray = new int[count][count];
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(a9Array4.solution(count, intArray));
+        }
+        public Integer solution(int a, int[][] intArray) {
+            int answer = 0;
+
+            int sum1 = 0, sum2 = 0;
+            for(int i = 0; i < a; i++) {
+                for(int j = 0; j < a; j++) {
+                    sum1 = sum1 + intArray[i][j];
+                    sum2 = sum2 + intArray[j][i];
+                }
+                answer = Math.max(answer, sum1);
+                answer = Math.max(answer, sum2);
+                sum1 = 0;
+                sum2 = 0;
+            }
+
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < a; i++) {
+                sum1 = sum1 + intArray[i][i];
+                sum2 = sum2 + intArray[i][a - 1 - i];
             }
             answer = Math.max(answer, sum1);
             answer = Math.max(answer, sum2);
