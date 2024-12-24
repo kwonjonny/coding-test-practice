@@ -35,7 +35,7 @@ import java.util.Scanner;
  * 예시 출력
  * 3
  */
-public class A_TwoPointersAndSlidingWindow {
+public class A_TwoPointersAndSlidingWindow1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
