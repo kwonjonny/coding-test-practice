@@ -104,4 +104,29 @@ public class B3_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static  class B3String3 {
+        public static void main(String[] args) {
+            B3String3 b3String3 = new B3String3();
+            Scanner scan = new Scanner(System.in);
+            int count = scan.nextInt();
+            String str = scan.next();
+            System.out.println(b3String3.solution(count, str));
+        }
+        public String solution(int count, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for(int i = 0; i < str.length(); i++) {
+                String subString = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                int replaceCount = Integer.parseInt(subString, 2);
+                char c = (char) replaceCount;
+                str = str.substring(7);
+                stringBuilder.append(c);
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
