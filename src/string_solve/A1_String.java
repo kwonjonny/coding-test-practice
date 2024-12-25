@@ -173,4 +173,26 @@ public class A1_String {
             return answer;
         }
     }
+
+    /*
+     * 재 복습: 2024-12-25
+     */
+    public static class A1String5 {
+        public static void main(String[] args) {
+            A1String5 a1String5 = new A1String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            System.out.println(a1String5.solution(str, c));
+        }
+        public Integer solution(String str, char c) {
+            int answer = 0;
+            for(char x : str.toCharArray()) {
+                if(Character.toLowerCase(x) == c) {
+                    answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
