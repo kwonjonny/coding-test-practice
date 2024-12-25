@@ -174,4 +174,28 @@ public class A3_String {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A3String5 {
+        public static void main(String[] args) {
+            A3String5 a3String5 = new A3String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a3String5.solution(str));
+        }
+        public String solution(String str) {
+            String[] stringArray = str.split(" ");
+            int max = 0;
+            String answer = "";
+            for(String x : stringArray) {
+                if (x.length() > max) {
+                    max = x.length();
+                    answer = x;
+                }
+            }
+            return answer;
+        }
+    }
 }
