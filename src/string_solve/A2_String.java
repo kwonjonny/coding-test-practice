@@ -167,4 +167,27 @@ public class A2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A2String5 {
+        public static void main(String[] args) {
+            A2String5 a2String5 = new A2String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a2String5.solution(str));
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(char x: str.toCharArray()) {
+                if(Character.isLowerCase(x)) {
+                    stringBuilder.append(Character.toUpperCase(x));
+                } else {
+                    stringBuilder.append(Character.toLowerCase(x));
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
