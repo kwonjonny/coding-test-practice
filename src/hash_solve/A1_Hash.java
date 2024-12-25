@@ -32,6 +32,7 @@ import java.util.Scanner;
  * C
  */
 public class A1_Hash {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
@@ -52,5 +53,36 @@ public class A1_Hash {
                 }
         }
         return answer;
+    }
+
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A1Hash {
+        public static void main(String[] args) {
+            A1Hash a1Hash = new A1Hash();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            System.out.println(a1Hash.solution(length, str));
+        }
+        public Character solution(Integer length, String str) {
+            Character answer = null;
+            HashMap<Character, Integer> hashMap = new HashMap<>();
+
+            for(char x : str.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x, 0) +1);
+            }
+
+            int max = Integer.MIN_VALUE;
+            for(Map.Entry<Character, Integer> x : hashMap.entrySet()) {
+                if(max < x.getValue()) {
+                    max = x.getValue();
+                    answer = x.getKey();
+                }
+            }
+            return answer;
+        }
     }
 }
