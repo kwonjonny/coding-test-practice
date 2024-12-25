@@ -222,4 +222,37 @@ public class A8_String {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A9String5 {
+        public static void main(String[] args) {
+            A9String5 a9String5 = new A9String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            System.out.println(a9String5.solution(str));
+        }
+        public String solution(String str) {
+            List<Character> list = new ArrayList<>();
+
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    list.add(x);
+                }
+            }
+
+            int left =  list.size() - 1;
+            int right = 0;
+
+            while(left < right) {
+                if(!list.get(right).equals(list.get(left))) {
+                    return "NO";
+                }
+                right++;
+                left--;
+            }
+            return "YES";
+        }
+    }
 }
