@@ -23,10 +23,10 @@ import java.util.*;
  * <p>
  * 예제:
  * 입력:
- * 5
- * 1 3 9 5 2
- * 5
- * 3 2 5 7 8
+   5
+   1 3 9 5 2
+   5
+   3 2 5 7 8
  * <p>
  * 출력:
  * 2 3 5
@@ -107,6 +107,55 @@ public class A_TwoPointers2 {
                 }
                 else if (aArray[p1] < bArray[p2]) p1++;
                 else if (aArray[p1] > bArray[p2]) p2++;
+            }
+            return list;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class ATwoPointers3 {
+        public static void main(String[] args) {
+            ATwoPointers3 aTwoPointers3 = new ATwoPointers3();
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt();
+            int[] aArray = new int[a];
+            for(int i = 0; i < a; i++) {
+                aArray[i] = scan.nextInt();
+            }
+
+            int b = scan.nextInt();
+            int[] bArray = new int[b];
+            for(int i = 0; i < b; i++) {
+                bArray[i] = scan.nextInt();
+            }
+
+            for(Integer x : aTwoPointers3.solution(a, aArray, b, bArray)) {
+                System.out.print(x + " ");
+            }
+        }
+
+        public List<Integer> solution(int a, int[] aArray, int b, int[] bArray) {
+            List<Integer> list = new ArrayList<>();
+
+            Arrays.sort(aArray);
+            Arrays.sort(bArray);
+
+            int p1 = 0;
+            int p2 = 0;
+
+            while(p1 < a && p2 < b) {
+                if(aArray[p1] == bArray[p2]) {
+                    list.add(aArray[p1++]);
+                    p2++;
+                }
+                else if(aArray[p1] < bArray[p2]) {
+                    p1++;
+                }
+                else if(aArray[p1] > bArray[p2]) {
+                    p2++;
+                }
             }
             return list;
         }
