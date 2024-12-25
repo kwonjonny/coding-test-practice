@@ -148,5 +148,25 @@ public class A7_String {
             return "NO";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A7String5 {
+        public static void main(String[] args) {
+            A7String5 a7String5 = new A7String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a7String5.solution(str));
+        }
+        public String solution(String str) {
+            String upperCase = str.toUpperCase();
+            String reverseString = new StringBuilder(upperCase).reverse().toString();
+            if(!upperCase.equals(reverseString)) {
+                return "NO";
+            }
+            return "YES";
+        }
+    }
 }
 
