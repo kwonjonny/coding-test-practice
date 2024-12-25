@@ -25,10 +25,10 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *  3
- *  1 3 5
- *  5
- *  2 3 6 7 9
+    3
+    1 3 5
+    5
+    2 3 6 7 9
  *
  * 출력:
  *   1 2 3 3 5 6 7 9
@@ -148,6 +148,46 @@ public class A_TwoPointers1 {
             while(b > p2) {
                 list.add(bArray[p2++]);
             }
+            return list;
+        }
+    }
+
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class ATwoPointers3 {
+        public static void main(String[] args) {
+            ATwoPointers3 aTwoPointers3 = new ATwoPointers3();
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt();
+            int[] aArray = new int[a];
+            for(int i = 0;  i< a; i++) {
+                aArray[i] = scan.nextInt();
+            }
+
+            int b = scan.nextInt();
+            int[] bArray = new int[b];
+            for(int i = 0; i < b; i++) {
+                bArray[i] = scan.nextInt();
+            }
+
+            for(Integer x : aTwoPointers3.solution(a, b, aArray, bArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(int a, int b, int[] aArray, int[] bArray) {
+            List<Integer> list = new ArrayList<>();
+
+            int p1 = 0;
+            int p2 = 0;
+            while(p1 < a && p2 < b) {
+                if(aArray[p1] < bArray[p2]) list.add(aArray[p1++]);
+                else list.add(bArray[p2++]);
+            }
+            while(p1 < a) list.add(aArray[p1++]);
+            while(p2 < b) list.add(bArray[p2++]);
+
             return list;
         }
     }
