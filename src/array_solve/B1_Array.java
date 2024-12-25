@@ -251,4 +251,48 @@ public class B1_Array {
         }
     }
 
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class B1Array5 {
+        public static void main(String[] args) {
+            B1Array5 b1Array5 = new B1Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count][count];
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            System.out.println(b1Array5.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[][] intArray) {
+            Integer answer = 0;
+
+            int[] dx = {-1, 0, 1, 0};
+            int[] dy = {0, 1, 0, -1};
+
+            for(int i = 0; i < count; i++) {
+                for(int j = 0; j < count; j++) {
+                    boolean isPeak = true;
+
+                    for(int k = 0; k < 4; k++) {
+                        int nx = i + dx[k];
+                        int ny = j + dy[k];
+
+                        if(nx >= 0 && nx < count && ny >= 0 && ny < count) {
+                            if(intArray[i][j] <= intArray[nx][ny]) {
+                                isPeak = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(isPeak) answer++;
+                }
+            }
+
+            return answer;
+        }
+    }
 }
