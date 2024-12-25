@@ -208,7 +208,7 @@ public class A5_String {
             return stringBuilder.toString();
         }
     }
-    
+
     /**
      * 재 복습: 2024-12-25
      */

@@ -173,4 +173,30 @@ public class A4_String {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A4String5 {
+        public static void main(String[] args) {
+            A4String5 a4String5 = new A4String5();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] array = new String[count];
+            for(int i = 0; i < count; i++) {
+                array[i] = scan.next();
+            }
+            for(String x : a4String5.solution(count, array)) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer count, String[] array) {
+            List<String> list = new ArrayList<>();
+            for(String x : array) {
+                String reverseString = new StringBuilder(x).reverse().toString();
+                list.add(reverseString);
+            }
+            return list;
+        }
+    }
 }
