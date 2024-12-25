@@ -150,4 +150,27 @@ public class A5_Array {
             return answer;
         }
     }
+    
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A5Array4 {
+        public static void main(String[] args) {
+            A5Array4 a5Array4 = new A5Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            System.out.println(a5Array4.solution(count));
+        }
+        public Integer solution(Integer count) {
+            int[] intArray = new int[count +1];
+            int answer = 0;
+            for(int i = 2; i <= count; i++) {
+                if(intArray[i] == 0) answer++;
+                for(int j = i * i; j <= count; j = j + i) {
+                    intArray[j] = 1;
+                }
+            }
+            return answer;
+        }
+    }
 }
