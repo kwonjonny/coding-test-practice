@@ -155,4 +155,35 @@ public class A7_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A7Array4 {
+        public static void main(String[] args) {
+            A7Array4 a7Array4 = new A7Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[] intArray = new Integer[count];
+            for(int i = 0; i < count; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(a7Array4.solution(count, intArray));
+        }
+        public Integer solution(Integer count, Integer[] intArray) {
+            int answer = 0;
+            int sum  = 0;
+
+            for(int i = 0 ; i < count; i++) {
+                if(intArray[i] == 1) {
+                    sum++;
+                    answer = answer + sum;
+                } else if(intArray[i] == 0) {
+                    sum = 0;
+                }
+            }
+
+            return answer;
+        }
+    }
 }
