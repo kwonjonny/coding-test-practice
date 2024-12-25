@@ -1,5 +1,7 @@
 package string_solve;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -127,6 +129,31 @@ public class A9_String {
                 if(Character.isDigit(str.charAt(i))) {
                     stringBuilder.append(str.charAt(i));
                 }
+            }
+            return Integer.parseInt(stringBuilder.toString());
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class A9String4 {
+        public static void main(String[] args) {
+            A9String4 a9String4 = new A9String4();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            System.out.println(a9String4.solution(str));
+        }
+        public Integer solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            List<Character> list = new ArrayList<>();
+            for(char x : str.toCharArray()) {
+                if(Character.isDigit(x)) {
+                    list.add(x);
+                }
+            }
+            for(char x : list) {
+                stringBuilder.append(x);
             }
             return Integer.parseInt(stringBuilder.toString());
         }
