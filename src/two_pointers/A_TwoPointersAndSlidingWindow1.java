@@ -36,6 +36,7 @@ import java.util.Scanner;
  * 3
  */
 public class A_TwoPointersAndSlidingWindow1 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
@@ -66,5 +67,40 @@ public class A_TwoPointersAndSlidingWindow1 {
 
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2024-12-25
+     */
+    public static class ATwoPointersAndSlidingWindow2 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow2 aTwoPointersAndSlidingWindow2 = new ATwoPointersAndSlidingWindow2();
+            Scanner scan = new Scanner(System.in);
+            int length = scan.nextInt();
+            int sum = scan.nextInt();
+            int[] intArray = new int[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(aTwoPointersAndSlidingWindow2.solution(length, sum, intArray));
+        }
+        public Integer solution(int length , int sum, int[] intArray) {
+            int count = 0;
+            int left = 0;
+            int loopSum = 0;
+
+            for(int right = 0; right < length; right++) {
+                loopSum = loopSum + intArray[right];
+                if(loopSum == sum) {
+                    count++;
+                }
+
+                while(loopSum >= sum) {
+                    loopSum = loopSum - intArray[left++];
+                    if(loopSum == sum) count++;
+                }
+            }
+            return count;
+        }
     }
 }
