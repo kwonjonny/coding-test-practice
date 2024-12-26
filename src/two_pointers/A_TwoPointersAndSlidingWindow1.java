@@ -103,4 +103,35 @@ public class A_TwoPointersAndSlidingWindow1 {
             return count;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class ATwoPointersAndSlidingWindow3 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow3 aTwoPointersAndSlidingWindow3 = new ATwoPointersAndSlidingWindow3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer call = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(aTwoPointersAndSlidingWindow3.solution(length, call, intArray));
+        }
+        public Integer solution(Integer length, Integer call, Integer[] intArray) {
+            Integer answer = 0;
+            Integer sum = 0;
+            Integer left = 0;
+            for(int right = 0; right < length; right++) {
+                sum = sum + intArray[right];
+                if(sum.equals(call)) answer++;
+                while(sum >= call) {
+                    sum = sum - intArray[left++];
+                    if(sum.equals(call)) answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
