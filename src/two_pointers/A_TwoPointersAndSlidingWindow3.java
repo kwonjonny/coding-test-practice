@@ -71,13 +71,12 @@ public class A_TwoPointersAndSlidingWindow3 {
             }
             System.out.println(aTwoPointersAndSlidingWindow3.solution(length, changeCount, intArray));
         }
-        public Integer solution(Integer length , Integer changeCount, Integer[] intArray){
-            Integer answer = 0;
+        public Integer solution(Integer length , Integer changeCount, Integer[] intArray) {
             Integer zeroCount = 0;
+            Integer answer = 0;
             Integer left = 0;
             for(int right = 0; right < length; right++) {
                 if(intArray[right] == 0) zeroCount++;
-
                 while(zeroCount > changeCount) {
                     if(intArray[left] == 0) zeroCount--;
                     left++;
