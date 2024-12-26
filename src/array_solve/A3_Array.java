@@ -32,9 +32,9 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *   5
- *   2 3 3 1 3
- *   1 1 2 2 3
+    5
+    2 3 3 1 3
+    1 1 2 2 3
  * 출력:
  *   A
  *   B
@@ -194,6 +194,43 @@ public class A3_Array {
                 }
             }
             return list;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A3Array4 {
+        public static void main(String[] args) {
+            A3Array4 a3Array4 = new A3Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] aArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            Integer[] bArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            for(String x : a3Array4.solution(length, aArray, bArray)) {
+                System.out.println(x);
+            }
+        }
+        public List<String> solution(Integer length, Integer[] aArray, Integer[] bArray) {
+            List<String> listString = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                Integer a = aArray[i];
+                Integer b = bArray[i];
+                if(a.equals(b)) {
+                    listString.add("D");
+                } else if(a.equals(1) && b.equals(3) || a.equals(2) && b.equals(1) || a.equals(3) && b.equals(2)) {
+                    listString.add("A");
+                } else {
+                    listString.add("B");
+                }
+            }
+            return listString;
         }
     }
 }
