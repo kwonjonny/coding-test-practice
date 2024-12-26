@@ -128,4 +128,35 @@ public class A_SlidingWindow3 {
             return max;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class ASlidingWindow5 {
+        public static void main(String[] args) {
+            ASlidingWindow5 aSlidingWindow5 = new ASlidingWindow5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer sliding = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(aSlidingWindow5.solution(length, sliding, intArray));
+        }
+        public Integer solution(Integer length, Integer sliding, Integer[] intArray) {
+            Integer max = 0;
+            Integer currentSum = 0;
+            for(int i = 0; i < sliding; i++) {
+                currentSum = currentSum + intArray[i];
+            }
+            max = currentSum;
+
+            for(int i = sliding; i < length; i++) {
+                currentSum = currentSum + (intArray[i] - intArray[i - sliding]);
+                max = Math.max(currentSum, max);
+            }
+            return max;
+        }
+    }
 }
