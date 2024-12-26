@@ -160,4 +160,43 @@ public class A_TwoPointers2 {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class ATwoPointers4 {
+        public static void main(String[] args) {
+            ATwoPointers4 aTwoPointers4 = new ATwoPointers4();
+            Scanner scan = new Scanner(System.in);
+            Integer aLength = scan.nextInt();
+            Integer[] aArray = new Integer[aLength];
+            for(int i = 0; i < aLength; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            Integer bLength = scan.nextInt();
+            Integer[] bArray = new Integer[bLength];
+            for(int i = 0; i < bLength; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            for(Integer x : aTwoPointers4.solution(aLength, bLength, aArray, bArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer aLength, Integer bLength, Integer[] aArray, Integer[] bArray) {
+            List<Integer> list = new ArrayList<>();
+            Arrays.sort(aArray); Arrays.sort(bArray);
+
+            int p1 = 0;
+            int p2 = 0;
+            while(p1 < aLength && p2 < bLength) {
+                if(Objects.equals(aArray[p1], bArray[p2])) {
+                    list.add(aArray[p1++]);
+                    p2++;
+                }
+                else if(aArray[p1] < bArray[p2]) p1++;
+                else if(aArray[p1] > bArray[p2]) p2++;
+            }
+            return list;
+        }
+    }
 }
