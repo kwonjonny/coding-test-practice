@@ -198,4 +198,32 @@ public class A1_Array {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A1Array3 {
+        public static void main(String[] args) {
+            A1Array3 a1Array3 = new A1Array3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a1Array3.solution(length, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            list.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] >= intArray[i - 1]) {
+                    list.add(intArray[i]);
+                }
+            }
+            return list;
+        }
+    }
 }
