@@ -40,6 +40,7 @@ import java.util.Scanner;
  *   NO
  */
 public class A2_Hash {
+
     public static void main(String [] args) {
         Scanner scan = new Scanner(System.in);
         String firstStr = scan.next();
@@ -70,4 +71,34 @@ public class A2_Hash {
         return "YES";
     }
 
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A2Hash1 {
+        public static void main(String[] args) {
+            A2Hash1 a2Hash1 = new A2Hash1();
+            Scanner scan = new Scanner(System.in);
+            String aStr = scan.next();
+            String bStr = scan.next();
+            String answer = a2Hash1.solution(aStr, bStr);
+            System.out.println(answer);
+        }
+        public String solution(String aStr, String bStr) {
+            HashMap<Character, Integer> aHashMap = new HashMap<>();
+
+            for(Character x : aStr.toCharArray()) {
+                aHashMap.put(x, aHashMap.getOrDefault(x, 0) + 1);
+            }
+            for(Character x : bStr.toCharArray()) {
+                if(!aHashMap.containsKey(x) || aHashMap.get(x) == 0) return "NO";
+                aHashMap.put(x, aHashMap.getOrDefault(x, 0) - 1);
+            }
+
+            for(Map.Entry<Character, Integer> map : aHashMap.entrySet()) {
+                if(map.getValue() != 0) return "NO";
+                return "YES";
+            }
+            return "YES";
+        }
+    }
 }
