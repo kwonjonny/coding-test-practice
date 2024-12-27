@@ -21,6 +21,7 @@ import java.util.*;
  * NO
  */
 public class A1_Stack {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -37,5 +38,28 @@ public class A1_Stack {
             }
         }
         return stack.isEmpty() ? "YES" : "NO";
+    }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A1Stack {
+        public static void main(String[] args) {
+            A1Stack a1Stack = new A1Stack();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a1Stack.solution(str);
+        }
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(x.equals('(')) stack.push(x);
+                else if(x.equals(')')) {
+                    if(stack.isEmpty()) return "NO";
+                    stack.pop();
+                }
+            }
+            return stack.isEmpty() ? "YES" : "NO";
+        }
     }
 }
