@@ -21,13 +21,14 @@ import java.util.*;
  * 첫 줄에 K번째 수를 출력합니다. K번째 수가 존재하지 않으면 -1를 출력합니다.
  *
  * 예시 입력
- * 10 3
- * 13 15 34 23 45 65 33 11 26 42
+   10 3
+   13 15 34 23 45 65 33 11 26 42
  *
  * 예시 출력
  * 143
  */
 public class A5_Hash {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -58,5 +59,43 @@ public class A5_Hash {
             }
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2024-12-26
+     */
+    public static class A5Hash1 {
+        public static void main(String[] args) {
+            A5Hash1 a5Hash1 = new A5Hash1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = a5Hash1.solution(length, orderCount, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer orderCount, Integer[] intArray) {
+            Integer answer = -1;
+            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < length; i++) {
+                for(int j = i + 1; j < length; j++) {
+                    for(int k = j + 1; k < length; k++) {
+                        treeSet.add(intArray[i] + intArray[j] + intArray[k]);
+                    }
+                }
+            }
+            Integer cnt = 0;
+            for(Integer x : treeSet) {
+                cnt++;
+                if(cnt.equals(orderCount)) {
+                    answer = x;
+                    break;
+                }
+            }
+            return answer;
+        }
     }
 }
