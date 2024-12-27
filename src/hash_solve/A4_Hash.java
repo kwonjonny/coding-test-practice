@@ -27,6 +27,7 @@ import java.util.Scanner;
  * 출력설명: {bac}, {acb}, {cba} 3개의 부분문자열이 "abc"문자열과 아나그램입니다.
  */
 public class A4_Hash {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -52,16 +53,51 @@ public class A4_Hash {
         for(int rigth = findStr.length(); rigth < str.length(); rigth++) {
             char addChar = str.charAt(rigth);
             strMap.put(addChar, strMap.getOrDefault(addChar, 0) + 1);
-
             char removeChar = str.charAt(rigth - findStr.length());
-            if(strMap.get(removeChar) == 1) {
-                strMap.remove(removeChar);
-            } else {
-                strMap.put(removeChar, strMap.getOrDefault(removeChar, 0) - 1);
-            }
-
+            if(strMap.get(removeChar) == 1) strMap.remove(removeChar);
+            else strMap.put(removeChar, strMap.getOrDefault(removeChar, 0) - 1);
             if(strMap.equals(findStrMap)) answer++;
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A4Hash {
+        public static void main(String[] args) {
+            A4Hash a4Hash = new A4Hash();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String findStr = scan.next();
+            Integer answer = a4Hash.solution(str, findStr);
+            System.out.println(answer);
+        }
+        public Integer solution(String str, String findStr) {
+            Integer answer = 0;
+            HashMap<Character, Integer> strMap = new HashMap<>();
+            HashMap<Character, Integer> findStrMap = new HashMap<>();
+            for(int i = 0; i < findStr.length(); i++) {
+                findStrMap.put(findStr.charAt(i), findStrMap.getOrDefault(findStr.charAt(i), 0) + 1);
+            }
+
+            for(int i = 0; i < findStr.length(); i++) {
+                strMap.put(str.charAt(i), strMap.getOrDefault(str.charAt(i), 0) + 1);
+            }
+
+            if(strMap.equals(findStrMap)) answer++;
+
+            for(int right = findStr.length(); right < str.length(); right++) {
+                char findChar = str.charAt(right);
+                strMap.put(findChar, strMap.getOrDefault(findChar, 0) + 1);
+
+                int left = right - findStr.length();
+                char removeChar = str.charAt(left);
+                if(strMap.get(removeChar) == 1) strMap.remove(removeChar);
+                else strMap.put(removeChar, strMap.getOrDefault(removeChar, 0) - 1);
+                if(strMap.equals(findStrMap)) answer++;
+            }
+            return answer;
+        }
     }
 }
