@@ -45,6 +45,7 @@ import java.util.Scanner;
  * 3 4 4 3
  */
 public class A3_Hash {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer arrayLength = scan.nextInt();
@@ -77,5 +78,41 @@ public class A3_Hash {
           list.add(map.size());
       }
       return list;
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A3Hash {
+        public static void main(String[] args) {
+            A3Hash a3Hash = new A3Hash();
+            Scanner scan = new Scanner(System.in);
+            Integer arrayLength = scan.nextInt();
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[arrayLength];
+            for(int i = 0; i < arrayLength; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            List<Integer> answer = a3Hash.solution(arrayLength, length, intArray);
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer orderCount, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for(int i = 0; i < orderCount; i++) {
+                map.put(intArray[i], map.getOrDefault(intArray[i], 0) + 1);
+            }
+            list.add(map.size());
+            for(int right = orderCount; right < length; right++) {
+                map.put(intArray[right], map.getOrDefault(intArray[right], 0) + 1);
+                int left = right - orderCount;
+                map.put(intArray[left], map.getOrDefault(intArray[left], 0) - 1);
+                if(map.get(intArray[left]) == 0) map.remove(intArray[left]);
+                list.add(map.size());
+            }
+            return list;
+        }
     }
 }
