@@ -41,7 +41,7 @@ public class A1_Stack {
     }
 
     /**
-     * 재 복습: 2024-12-26
+     * 재 복습: 2024-12-28
      */
     public static class A1Stack {
         public static void main(String[] args) {
