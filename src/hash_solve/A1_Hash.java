@@ -114,4 +114,33 @@ public class A1_Hash {
             return answer;
         }
     }
+    
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A1Hash3 {
+        public static void main(String[] args) {
+            A1Hash3 a1Hash3 = new A1Hash3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            Character answer = a1Hash3.solution(length, str);
+            System.out.println(answer);
+        }
+        public Character solution(Integer length, String str) {
+            Character answer = null;
+            HashMap<Character, Integer> hashMap = new HashMap<>();
+            for(Character x : str.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x, 0) + 1);
+            }
+            int max = 0;
+            for(Map.Entry<Character, Integer> map : hashMap.entrySet()) {
+                if(map.getValue() > max) {
+                    max = map.getValue();
+                    answer = map.getKey();
+                }
+            }
+            return answer;
+        }
+    }
 }
