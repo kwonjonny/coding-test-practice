@@ -20,8 +20,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *   8
- *   130 135 148 140 145 150 150 153
+     8
+     130 135 148 140 145 150 150 153
  * 출력:
  *   5
  */
@@ -189,6 +189,34 @@ public class A2_Array {
                 if(intArray[i] > maxHigh) {
                     answer ++;
                     maxHigh = intArray[i];
+                }
+            }
+            return answer;
+        }
+    }
+
+    /**
+     * 재 복습:2024-12-28
+     */
+    public static class A2Array4 {
+        public static void main(String[] args) {
+            A2Array4 a2Array4 = new A2Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = a2Array4.solution(length, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer[] intArray) {
+            Integer answer = 1;
+            Integer max = intArray[0];
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > max) {
+                    max = intArray[i];
+                    answer++;
                 }
             }
             return answer;
