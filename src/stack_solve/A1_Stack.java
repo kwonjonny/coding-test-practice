@@ -15,7 +15,7 @@ import java.util.*;
  * 첫 번째 줄에 YES, NO를 출력한다.
  *
  * 예시 입력
- * (()(()))(()
+    (()(()))(()
  *
  * 예시 출력
  * NO
@@ -49,12 +49,37 @@ public class A1_Stack {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
             String answer = a1Stack.solution(str);
+            System.out.println(answer);
         }
         public String solution(String str) {
             Stack<Character> stack = new Stack<>();
             for(Character x : str.toCharArray()) {
                 if(x.equals('(')) stack.push(x);
                 else if(x.equals(')')) {
+                    if(stack.isEmpty()) return "NO";
+                    stack.pop();
+                }
+            }
+            return stack.isEmpty() ? "YES" : "NO";
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A1Stack1 {
+        public static void main(String[] args) {
+            A1Stack1 a1Stack1 = new A1Stack1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a1Stack1.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(x.equals('(')) stack.push(x);
+                if(x.equals(')')) {
                     if(stack.isEmpty()) return "NO";
                     stack.pop();
                 }
