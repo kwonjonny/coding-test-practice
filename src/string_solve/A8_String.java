@@ -255,4 +255,23 @@ public class A8_String {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 정규식 풀이 2024-12-28
+     */
+    public static class A8String5 {
+        public static void main(String[] args) {
+            A8String5 a8String5 = new A8String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            String answer = a8String5.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            str = str.toLowerCase().replaceAll("[^A-Z]", "");
+            String reverseString = new StringBuilder(str).reverse().toString();
+            if(reverseString.equals(str)) return "YES";
+            return "NO";
+        }
+    }
 }
