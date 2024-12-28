@@ -144,7 +144,7 @@ public class B3_String {
         }
         public String solution(Integer slice ,String str) {
             StringBuilder stringBuilder = new StringBuilder();
-            for(int i = 0; i < str.length(); i++) {
+            for(int i = 0; i < slice; i++) {
                 String sliceString = str.substring(0, 7).replace('#' ,'1').replace('*', '0');
                 int parseInteger = Integer.parseInt(sliceString, 2);
                 str = str.substring(7);
