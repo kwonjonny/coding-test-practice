@@ -100,4 +100,42 @@ public class A4_Hash {
             return answer;
         }
     }
+
+    /*
+     * 재 복습: 2024-12-28
+     */
+    public static class A4Hash1 {
+        public static void main(String[] args) {
+            A4Hash1 a4Hash1 = new A4Hash1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String findStr = scan.next();
+            Integer answer = a4Hash1.solution(str, findStr);
+            System.out.println(answer);
+        }
+        public Integer solution(String str, String findStr) {
+            Integer answer = 0;
+            HashMap<Character, Integer> strMap = new HashMap<>();
+            HashMap<Character, Integer> findMap = new HashMap<>();
+            for(int i = 0; i < findStr.length(); i++) {
+                char findChar = str.charAt(i);
+                strMap.put(findChar, strMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(int i = 0; i < findStr.length(); i++) {
+                char findChar = findStr.charAt(i);
+                findMap.put(findChar, findMap.getOrDefault(findChar, 0) + 1);
+            }
+            if(strMap.equals(findMap)) answer++;
+            for(int right = findStr.length(); right < str.length(); right++) {
+                char findChar = str.charAt(right);
+                strMap.put(findChar, strMap.getOrDefault(findChar, 0) + 1);
+                int left = right - findStr.length();
+                char removeChar = str.charAt(left);
+                if(strMap.get(removeChar) == 1) strMap.remove(removeChar);
+                else strMap.put(removeChar, strMap.getOrDefault(removeChar, 0) - 1);
+                if(strMap.equals(findMap)) answer++;
+            }
+            return answer;
+        }
+    }
 }
