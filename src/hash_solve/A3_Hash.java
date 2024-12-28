@@ -115,4 +115,39 @@ public class A3_Hash {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A3Hash1 {
+        public static void main(String[] args) {
+            A3Hash1 a3Hash1 = new A3Hash1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a3Hash1.solution(length, orderCount, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer orderCount, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for(int i = 0; i < orderCount; i++) {
+                map.put(intArray[i], map.getOrDefault(intArray[i], 0) + 1);
+            }
+            list.add(map.size());
+            for(int rigth = orderCount; rigth < length; rigth++) {
+                map.put(intArray[rigth], map.getOrDefault(intArray[rigth], 0) + 1);
+                int left = rigth - orderCount;
+                map.put(intArray[left], map.get(intArray[left]) - 1);
+                if(map.get(intArray[left]) == 0) map.remove(intArray[left]);
+                list.add(map.size());
+            }
+            return list;
+        }
+    }
 }
