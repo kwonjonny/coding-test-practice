@@ -33,8 +33,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *  10
- *  1 0 1 1 1 0 0 1 1 0
+    10
+    1 0 1 1 1 0 0 1 1 0
  *
  * 출력:
  *  10
@@ -183,6 +183,36 @@ public class A7_Array {
                 }
             }
 
+            return answer;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A7Array5 {
+        public static void main(String[] args) {
+            A7Array5 a7Array5 = new A7Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = a7Array5.solution(length, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer[] intArray) {
+            Integer answer = 0;
+            Integer sum = 0;
+            for(int i = 0; i < length; i++) {
+                if(intArray[i] != 0) {
+                    sum++;
+                    answer = answer + sum;
+                } else {
+                    sum = 0;
+                }
+            }
             return answer;
         }
     }
