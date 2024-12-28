@@ -130,4 +130,33 @@ public class A2_Hash {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A2Hash3 {
+        public static void main(String[] args) {
+            A2Hash3 a2Hash3 = new A2Hash3();
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            String answer = a2Hash3.solution(firstStr, secondStr);
+            System.out.println(answer);
+        }
+        public String solution(String firstStr, String secondStr) {
+            HashMap<Character, Integer> firstMap = new HashMap<>();
+            for(Character x : firstStr.toCharArray()) {
+                firstMap.put(x, firstMap.getOrDefault(x, 0) + 1);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                if(!firstMap.containsKey(x) || firstMap.get(x) == 0) return "NO";
+                firstMap.put(x, firstMap.getOrDefault(x, 0) - 1);
+            }
+            for(Map.Entry<Character, Integer> map : firstMap.entrySet()) {
+                if(map.getValue() != 0) return "NO";
+                return "YES";
+            }
+            return "YES";
+        }
+    }
 }
