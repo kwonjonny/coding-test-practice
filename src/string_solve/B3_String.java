@@ -129,4 +129,29 @@ public class B3_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class B3String4 {
+        public static void main(String[] args) {
+            B3String4 b3String4 = new B3String4();
+            Scanner scan = new Scanner(System.in);
+            Integer slice = scan.nextInt();
+            String str = scan.next();
+            String answer = b3String4.solution(slice, str);
+            System.out.println(answer);
+        }
+        public String solution(Integer slice ,String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                String sliceString = str.substring(0, 7).replace('#' ,'1').replace('*', '0');
+                int parseInteger = Integer.parseInt(sliceString, 2);
+                str = str.substring(7);
+                char charTo = (char) parseInteger;
+                stringBuilder.append(charTo);
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
