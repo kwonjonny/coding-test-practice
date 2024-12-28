@@ -206,4 +206,33 @@ public class B2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class B2String6 {
+        public static void main(String[] args) {
+            B2String6 b2String6 = new B2String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = b2String6.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            int cnt = 1;
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() - 1 && str.charAt(i) == str.charAt(i +1)) {
+                    cnt++;
+                } else {
+                    stringBuilder.append(str.charAt(i));
+                    if(cnt > 1) {
+                        stringBuilder.append(cnt);
+                        cnt = 1;
+                    }
+                }
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
