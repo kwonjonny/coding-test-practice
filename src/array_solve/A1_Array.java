@@ -22,8 +22,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *   6
- *   7 3 9 5 6 12
+     6
+     7 3 9 5 6 12
  * 출력:
  *   7 9 6 12
  */
@@ -220,6 +220,34 @@ public class A1_Array {
             list.add(intArray[0]);
             for(int i = 1; i < length; i++) {
                 if(intArray[i] >= intArray[i - 1]) {
+                    list.add(intArray[i]);
+                }
+            }
+            return list;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A1Array4 {
+        public static void main(String[] args) {
+            A1Array4 a1Array4 = new A1Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a1Array4.solution(length, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            list.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > intArray[i -1]) {
                     list.add(intArray[i]);
                 }
             }
