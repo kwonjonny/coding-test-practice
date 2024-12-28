@@ -20,8 +20,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
- *  5
- *  87 89 92 100 76
+    5
+    87 89 92 100 76
  *
  * 출력:
  *  4 3 2 1 5
@@ -204,6 +204,38 @@ public class A8_Array {
                     }
                 }
                 list[i] = studentScore;
+            }
+            return list;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-28
+     */
+    public static class A8Array6 {
+        public static void main(String[] args) {
+            A8Array6 a8Array6 = new A8Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer[] answer = a8Array6.solution(length, intArray);
+        }
+        public Integer[] solution(Integer length, Integer[] intArray) {
+            Integer[] list = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                int studentSum = 1;
+                for(int j = 0; j < length; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        studentSum++;
+                    }
+                    list[i] = studentSum;
+                }
+            }
+            for(Integer x : list) {
+                System.out.print(x + " ");
             }
             return list;
         }
