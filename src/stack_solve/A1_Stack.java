@@ -87,4 +87,30 @@ public class A1_Stack {
             return stack.isEmpty() ? "YES" : "NO";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A1Stack2 {
+        public static void main(String[] args) {
+            A1Stack2 a1Stack2 = new A1Stack2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a1Stack2.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(char x : str.toCharArray()) {
+                if(x == '(') {
+                    stack.push(x);
+                } else if(x == ')') {
+                    if(stack.isEmpty()) return "NO";
+                    stack.pop();
+                }
+            }
+            return stack.isEmpty() ? "YES" : "NO";
+        }
+    }
+
 }
