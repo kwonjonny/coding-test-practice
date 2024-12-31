@@ -283,4 +283,29 @@ public class A1_Array {
         }
     }
 
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A1Array6 {
+        public static void main(String[] args) {
+            A1Array6 a1Array6 = new A1Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a1Array6.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            List<Integer> answerList = new ArrayList<>();
+            answerList.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > intArray[i - 1]) answerList.add(intArray[i]);
+            }
+            for(Integer x : answerList) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
