@@ -322,4 +322,44 @@ public class A9_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A9Array6 {
+        public static void main(String[] args) {
+            A9Array6 a9Array6 = new A9Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[][] intArray = new Integer[length][length];
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            Integer answer = a9Array6.solution(length, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer[][] intArray) {
+            int answer = 0;
+
+            for(int i = 0; i < length; i++) {
+                int sum1 = 0, sum2 = 0;
+                for(int j = 0; j < length; j++) {
+                    sum1 = sum1 + intArray[i][j];
+                    sum2 = sum2 + intArray[j][i];
+                }
+                answer = Math.max(answer, sum1);
+                answer = Math.max(answer, sum2);
+            }
+            int sum1 = 0, sum2 = 0;
+            for(int i = 0; i < length; i++) {
+                sum1 = sum1 + intArray[i][i];
+                sum2 = sum2 + intArray[i][length - 1 - i];
+            }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
+            return answer;
+        }
+    }
 }
