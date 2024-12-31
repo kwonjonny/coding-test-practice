@@ -199,4 +199,30 @@ public class A4_String {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A4String6 {
+        public static void main(String[] args) {
+            A4String6 a4String6 = new A4String6();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strings = new String[count];
+            for(int i = 0; i < count; i++) {
+                strings[i] = scan.next();
+            }
+            a4String6.solution(count, strings);
+        }
+        public void solution(Integer count, String[] strings) {
+            List<String> answerList = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                String reverse = new StringBuilder(strings[i]).reverse().toString();
+                answerList.add(reverse);
+            }
+            for(String x : answerList) {
+                System.out.println(x);
+            }
+        }
+    }
 }
