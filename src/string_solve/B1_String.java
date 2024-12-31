@@ -290,4 +290,40 @@ public class B1_String {
             return distances;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class B1String8 {
+        public static void main(String[] args) {
+            B1String8 b1String8 = new B1String8();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            b1String8.solution(str, c);
+        }
+        public void solution(String str, char c) {
+            int[] distances = new int[str.length()];
+            int distance = 1000;
+            for(int i = 0; i < str.length(); i++) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                } else {
+                    distance++;
+                }
+                distances[i] = distance;
+            }
+            for(int i = str.length() - 1; i >= 0; i--) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                } else {
+                    distance++;
+                }
+                distances[i] = Math.min(distances[i], distance);
+            }
+            for(Integer x : distances) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
