@@ -159,4 +159,39 @@ public class A_SlidingWindow3 {
             return max;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class ASlidingWindow6 {
+        public static void main(String[] args) {
+            ASlidingWindow6 aSlidingWindow6 = new ASlidingWindow6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = aSlidingWindow6.solution(length, orderCount, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer orderCount, Integer[] intArray) {
+            int currentSum = 0;
+            int max = 0;
+            for(int i = 0; i < orderCount; i++) {
+                int a = intArray[i];
+                currentSum = currentSum + a;
+            }
+            max = currentSum;
+
+            for(int rigth = orderCount; rigth < length; rigth++) {
+                int a = intArray[rigth];
+                int left = rigth - orderCount;
+                currentSum = currentSum + (intArray[rigth] - intArray[left]);
+                max = Math.max(max, currentSum);
+            }
+            return max;
+        }
+    }
 }
