@@ -239,4 +239,33 @@ public class A5_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A5String6 {
+        public static void main(String[] args) {
+            A5String6 a5String6 = new A5String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a5String6.solution(str);
+        }
+        public void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stack.push(x);
+                }
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    stringBuilder.append(stack.pop());
+                } else {
+                    stringBuilder.append(x);
+                }
+            }
+            System.out.println(stringBuilder);
+        }
+    }
 }
