@@ -134,4 +134,39 @@ public class A_TwoPointersAndSlidingWindow1 {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class ATwoPointersAndSlidingWindow4 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow4 aTwoPointersAndSlidingWindow4 = new ATwoPointersAndSlidingWindow4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer sum = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = aTwoPointersAndSlidingWindow4.solution(length, sum, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer sum, Integer[] intArray) {
+            Integer answer = 0;
+            int currentSum = 0;
+            int left = 0;
+            for(int rigth = 0; rigth < length; rigth++) {
+                currentSum = currentSum + intArray[rigth];
+
+                if(sum.equals(currentSum)) {
+                    answer++;
+                }
+                while(currentSum > sum) {
+                    currentSum = currentSum - intArray[left++];
+                    if(sum.equals(currentSum)) answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
