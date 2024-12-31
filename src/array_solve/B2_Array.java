@@ -46,7 +46,7 @@ import java.util.Scanner;
  * <p>
  * 예제:
  * 입력:
- * 5
+     5
      2 3 1 7 3
      4 1 9 6 8
      5 5 2 4 4
@@ -165,6 +165,45 @@ public class B2_Array {
                     }
                 }
                 if(cnt > max) {
+                    max = cnt;
+                    answer = i;
+                }
+            }
+            return answer;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class B2Array2 {
+        public static void main(String[] args) {
+            B2Array2 b2Array2 = new B2Array2();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[][] intArray = new Integer[length + 1][length + 1];
+            for(int i = 1; i <= length; i++) {
+                for(int j = 1; j <= length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            Integer answer = b2Array2.solution(length, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer[][] intArray) {
+            Integer answer = 0;
+            int max = 0;
+            for(int i = 1; i <= length; i++) {
+                int cnt = 0;
+                for(int j = 1; j <= length; j++) {
+                    for(int k = 1; k <= length; k++) {
+                        if(Objects.equals(intArray[i][k], intArray[j][k])) {
+                            cnt++;
+                            break;
+                        }
+                    }
+                }
+                if(max < cnt) {
                     max = cnt;
                     answer = i;
                 }
