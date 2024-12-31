@@ -173,4 +173,30 @@ public class A5_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A5Array5 {
+        public static void main(String[] args) {
+            A5Array5 a5Array5 = new A5Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer answer = a5Array5.solution(count);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer count) {
+            int answer = 0;
+            int[] intArray = new int[count + 1];
+            for(int i = 2; i <= count; i++) {
+                if(intArray[i] == 0) {
+                    answer++;
+                    for(int j = i * i; j <= count; j = j + i) {
+                        intArray[j] = 1;
+                    }
+                }
+            }
+            return answer;
+        }
+    }
 }
