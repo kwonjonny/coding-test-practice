@@ -222,4 +222,31 @@ public class A2_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A2Array5 {
+        public static void main(String[] args) {
+            A2Array5 a2Array5 = new A2Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a2Array5.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            int max = 0;
+            int cnt = 0;
+            for(int i = 0; i < length; i++) {
+                if(intArray[i] > max) {
+                    max = intArray[i];
+                    cnt++;
+                }
+            }
+            System.out.println(cnt);
+        }
+    }
 }
