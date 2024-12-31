@@ -254,4 +254,33 @@ public class A1_Array {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A1Array5 {
+        public static void main(String[] args) {
+            A1Array5 a1Array5 = new A1Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a1Array5.solution(length, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer[] intArray) {
+            List<Integer> answerList = new ArrayList<>();
+            answerList.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > intArray[i - 1]) {
+                    answerList.add(intArray[i]);
+                }
+            }
+            return answerList;
+        }
+    }
+
 }
