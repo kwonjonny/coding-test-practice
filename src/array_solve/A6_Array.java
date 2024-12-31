@@ -23,8 +23,8 @@ import java.util.*;
  * <p>
  * 예제:
  * 입력:
- * 9
- * 32 55 62 20 250 370 200 30 100
+    9
+    32 55 62 20 250 370 200 30 100
  * <p>
  * 출력:
  * 23 2 73 2 3
@@ -294,6 +294,46 @@ public class A6_Array {
                 if(num % i == 0) {
                     return false;
                 }
+            }
+            return true;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A6Array5 {
+        public static void main(String[] args) {
+            A6Array5 a6Array5 = new A6Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a6Array5.solution(length, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer[] intArray) {
+            List<Integer> answerList = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                int temp = intArray[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                A6Array5 a6Array5 = new A6Array5();
+                if(a6Array5.isPrime(res)) answerList.add(res);
+            }
+            return answerList;
+        }
+        public Boolean isPrime(Integer num) {
+            if(num == 1) return false;
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) return false;
             }
             return true;
         }
