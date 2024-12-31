@@ -154,4 +154,28 @@ public class B3_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class B3String5 {
+        public static void main(String[] args) {
+            B3String5 b3String5 = new B3String5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            b3String5.solution(length, str);
+        }
+        public void solution(Integer length, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < length; i++) {
+                String subString = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                str = str.substring(7);
+                int temp = Integer.parseInt(subString, 2);
+                char c = (char) temp;
+                stringBuilder.append(c);
+            }
+            System.out.println(stringBuilder);
+        }
+    }
 }
