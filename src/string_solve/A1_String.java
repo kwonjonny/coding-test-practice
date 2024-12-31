@@ -195,4 +195,26 @@ public class A1_String {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A1String6 {
+        public static void main(String[] args) {
+            A1String6 a1String6 = new A1String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            a1String6.solution(str, c);
+        }
+        public void solution(String str, char c) {
+            str = str.toLowerCase();
+            int cnt = 0;
+            for(Character x : str.toCharArray()) {
+                if(x.equals(c)) cnt++;
+            }
+            System.out.println(cnt);
+        }
+    }
+
 }
