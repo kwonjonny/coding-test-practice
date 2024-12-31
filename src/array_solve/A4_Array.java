@@ -210,4 +210,31 @@ public class A4_Array {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A4Array6 {
+        public static void main(String[] args) {
+            A4Array6 a4Array6 = new A4Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            List<Integer> answer = a4Array6.solution(count);
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer count) {
+            List<Integer> answerList = new ArrayList<>();
+            int next = 1;
+            int prev = 0;
+            for(int i = 0; i < count; i++) {
+                answerList.add(next);
+                int temp = next;
+                next = next + prev;
+                prev = temp;
+            }
+            return answerList;
+        }
+    }
 }
