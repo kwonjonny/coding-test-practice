@@ -168,5 +168,26 @@ public class A7_String {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A7String6 {
+        public static void main(String[] args) {
+            A7String6 a7String6 = new A7String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a7String6.solution(str);
+        }
+        public void solution(String str) {
+            str = str.toLowerCase();
+            String answer = "NO";
+            String reverse = new StringBuilder(str).reverse().toString();
+            if(str.equals(reverse)) {
+                answer = "YES";
+            }
+            System.out.println(answer);
+        }
+    }
 }
 
