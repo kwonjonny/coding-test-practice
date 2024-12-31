@@ -172,4 +172,33 @@ public class A1_Hash {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A1Hash4 {
+        public static void main(String[] args) {
+            A1Hash4 a1Hash4 = new A1Hash4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            Character answer = a1Hash4.solution(length, str);
+            System.out.println(answer);
+        }
+        public Character solution(Integer length, String str) {
+            Character answer = null;
+            HashMap<Character, Integer> hashMap = new HashMap<>();
+            for(char x : str.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x, 0) + 1);
+            }
+            Integer cnt = 0;
+            for(Map.Entry<Character, Integer> x : hashMap.entrySet()) {
+                if(x.getValue() > cnt) {
+                    cnt = x.getValue();
+                    answer = x.getKey();
+                }
+            }
+            return answer;
+        }
+    }
 }
