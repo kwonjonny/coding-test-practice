@@ -190,4 +190,27 @@ public class A2_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A2String6 {
+        public static void main(String[] args) {
+            A2String6 a2String6 = new A2String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a2String6.solution(str);
+        }
+        public void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isLowerCase(x)) {
+                    stringBuilder.append(Character.toUpperCase(x));
+                } else {
+                    stringBuilder.append(Character.toLowerCase(x));
+                }
+            }
+            System.out.println(stringBuilder);
+        }
+    }
 }
