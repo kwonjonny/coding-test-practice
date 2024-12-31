@@ -198,4 +198,28 @@ public class A3_String {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A3String6 {
+        public static void main(String[] args) {
+            A3String6 a3String6 = new A3String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            a3String6.solution(str);
+        }
+        public void solution(String str) {
+            String[] stringArray = str.split(" ");
+            int max = 0;
+            String answer = "";
+            for(String x : stringArray) {
+                if(x.length() > max) {
+                    max = x.length();
+                    answer = x;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
