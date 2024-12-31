@@ -191,4 +191,25 @@ public class A6_String {
             return stringBuilder.toString();
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A6String6 {
+        public static void main(String[] args) {
+            A6String6 a6String6 = new A6String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a6String6.solution(str);
+        }
+        public void solution(String str) {
+            HashSet<Character> hashSet = new LinkedHashSet<>();
+            for(Character x : str.toCharArray()) {
+                hashSet.add(x);
+            }
+            for(Character x : hashSet) {
+                System.out.print(x);
+            }
+        }
+    }
 }
