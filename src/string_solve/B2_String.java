@@ -55,17 +55,6 @@ public class B2_String {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -233,6 +222,34 @@ public class B2_String {
                 }
             }
             return stringBuilder.toString();
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class B2String7 {
+        public static void main(String[] args) {
+            B2String7 b2String7 = new B2String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            b2String7.solution(str);
+        }
+        public void solution(String str) {
+            int cnt = 1;
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                if(i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                    cnt++;
+                } else {
+                    stringBuilder.append(str.charAt(i));
+                    if(cnt > 1) {
+                        stringBuilder.append(cnt);
+                        cnt = 0;
+                    }
+                }
+            }
+            System.out.println(stringBuilder);
         }
     }
 }
