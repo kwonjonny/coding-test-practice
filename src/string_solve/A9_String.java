@@ -158,4 +158,25 @@ public class A9_String {
             return Integer.parseInt(stringBuilder.toString());
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A9String5 {
+        public static void main(String[] args) {
+            A9String5 a9String5 = new A9String5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a9String5.solution(str);
+        }
+        public void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) {
+                    stringBuilder.append(x);
+                }
+            }
+            System.out.println(Integer.parseInt(stringBuilder.toString()));
+        }
+    }
 }
