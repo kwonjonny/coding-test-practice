@@ -199,4 +199,45 @@ public class A_TwoPointers2 {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class ATwoPointers5 {
+        public static void main(String[] args) {
+            ATwoPointers5 aTwoPointers5 = new ATwoPointers5();
+            Scanner scan = new Scanner(System.in);
+            Integer firstLength = scan.nextInt();
+            Integer[] firstArray = new Integer[firstLength];
+            for(int i = 0; i < firstLength; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            Integer secondLength = scan.nextInt();
+            Integer[] secondArray = new Integer[secondLength];
+            for(int i = 0; i < secondLength; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            for(Integer x : aTwoPointers5.solution(firstLength, firstArray, secondLength, secondArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer firstLength, Integer[] firstArray, Integer secondLength, Integer[] secondArray) {
+            List<Integer> answerList = new ArrayList<>();
+            Arrays.sort(firstArray);
+            Arrays.sort(secondArray);
+
+            int p1 = 0;
+            int p2 = 0;
+            while(p1 < firstLength && p2 < secondLength) {
+                if(Objects.equals(firstArray[p1], secondArray[p2])) {
+                    answerList.add(firstArray[p1++]);
+                    p2++;
+                }
+                else if (firstArray[p1] < secondArray[p2]) answerList.add(firstArray[p1++]);
+                else if (firstArray[p1] > secondArray[p2]) answerList.add(secondArray[p2++]);
+            }
+            return answerList;
+        }
+    }
+
 }

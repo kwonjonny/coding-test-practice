@@ -44,4 +44,33 @@ public class A2_Stack {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A2Stack1 {
+        public static void main(String[] args) {
+            A2Stack1 a2Stack1 = new A2Stack1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a2Stack1.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            Stack<Character> stack = new Stack<>();
+            for(char x : str.toCharArray()) {
+                if(x == ')') {
+                    while(stack.pop() != '(');
+                } else {
+                    stack.push(x);
+                }
+            }
+            for(Character x : stack) {
+                stringBuilder.append(x);
+            }
+            return stringBuilder.toString();
+        }
+    }
+
 }

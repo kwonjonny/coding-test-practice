@@ -136,4 +136,43 @@ public class A5_Hash {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A5Hash3 {
+        public static void main(String[] args) {
+            A5Hash3 a5Hash3 = new A5Hash3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = a5Hash3.solution(length, orderCount, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length ,Integer orderCount, Integer[] intArray) {
+            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            int answer = -1;
+            for(int i = 0; i < length; i++) {
+                for(int j = i + 1; j < length; j++) {
+                    for(int k = j + 1; k < length; k++) {
+                        int sum = intArray[i] + intArray[j] + intArray[k];
+                        treeSet.add(sum);
+                    }
+                }
+            }
+            Integer cnt = 0;
+            for(Integer x : treeSet) {
+                cnt++;
+                if(cnt.equals(orderCount)) {
+                    answer = x;
+                    break;
+                }
+            }
+            return answer;
+        }
+    }
 }

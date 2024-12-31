@@ -150,4 +150,45 @@ public class A3_Hash {
             return list;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A3Hash2 {
+        public static void main(String[] args) {
+            A3Hash2 a3Hash2 = new A3Hash2();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            List<Integer> answer = a3Hash2.solution(length, orderCount, intArray);
+            for(Integer x : answer) {
+                System.out.print(answer + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer orderCount, Integer[] intArray) {
+            List<Integer> answerList = new ArrayList<>();
+            HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+            for(int i = 0; i < orderCount; i++) {
+                int findInteger = intArray[i];
+                hashMap.put(findInteger, hashMap.getOrDefault(findInteger, 0) + 1);
+            }
+            answerList.add(hashMap.size());
+            for(int rigth = orderCount; rigth < length; rigth++) {
+                int findInteger = intArray[rigth];
+                hashMap.put(findInteger, hashMap.getOrDefault(findInteger, 0) + 1);
+
+                int left = rigth - orderCount;
+                int findLeftInteger = intArray[left];
+                hashMap.put(findLeftInteger, hashMap.getOrDefault(findLeftInteger, 0) - 1);
+                if(hashMap.get(intArray[left]) == 0) hashMap.remove(intArray[left]);
+                answerList.add(hashMap.size());
+            }
+            return answerList;
+        }
+    }
 }

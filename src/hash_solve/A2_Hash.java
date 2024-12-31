@@ -159,4 +159,36 @@ public class A2_Hash {
             return "YES";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A2Hash4 {
+        public static void main(String[] args) {
+            A2Hash4 a2Hash4 = new A2Hash4();
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            String answer = a2Hash4.solution(firstStr, secondStr);
+            System.out.println(answer);
+        }
+        public String solution(String firstStr, String secondStr) {
+            HashMap<Character, Integer> firstStrHashMap = new HashMap<>();
+            for(Character x : firstStr.toCharArray()) {
+                char findChar = x;
+                firstStrHashMap.put(findChar, firstStrHashMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                char findChar = x;
+                firstStrHashMap.put(findChar, firstStrHashMap.getOrDefault(findChar, 0) - 1);
+            }
+            for(Map.Entry<Character, Integer> x : firstStrHashMap.entrySet()) {
+                if(x.getValue() != 0) {
+                    return "NO";
+                }
+                return "YES";
+            }
+            return "NO";
+        }
+    }
 }

@@ -86,4 +86,33 @@ public class A_TwoPointersAndSlidingWindow2 {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class ATwoPointersAndSlidingWindow3 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow3 aTwoPointersAndSlidingWindow3 = new ATwoPointersAndSlidingWindow3();
+            Scanner scan = new Scanner(System.in);
+            Integer orderCount = scan.nextInt();
+            Integer answer = aTwoPointersAndSlidingWindow3.solution(orderCount);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer orderCount) {
+            Integer answer = 0;
+            int left = 0;
+            int currentSum = 0;
+            for(int rigth = 0; rigth < orderCount; rigth++) {
+                currentSum = currentSum + rigth;
+
+                if(orderCount.equals(currentSum)) answer++;
+
+                while(currentSum > orderCount) {
+                    currentSum = currentSum - left++;
+                    if(orderCount.equals(currentSum)) answer++;
+                }
+            }
+            return answer;
+        }
+    }
 }
