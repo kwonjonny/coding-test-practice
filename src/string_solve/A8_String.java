@@ -274,4 +274,35 @@ public class A8_String {
             return "NO";
         }
     }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A8String6 {
+        public static void main(String[] args) {
+            A8String6 a8String6 = new A8String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            a8String6.solution(str);
+        }
+        public void solution(String str) {
+            String answer = "YES";
+            List<Character> list = new ArrayList<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) {
+                    list.add(Character.toLowerCase(x));
+                }
+            }
+            int left = 0;
+            int right = list.size() - 1;
+            while(right > 0) {
+                if(!list.get(left).equals(list.get(right))) {
+                    answer = "NO";
+                }
+                left++;
+                right--;
+            }
+            System.out.println(answer);
+        }
+    }
 }
