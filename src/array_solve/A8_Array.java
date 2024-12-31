@@ -1,5 +1,7 @@
 package array_solve;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -238,6 +240,37 @@ public class A8_Array {
                 System.out.print(x + " ");
             }
             return list;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class A8Array7 {
+        public static void main(String[] args) {
+            A8Array7 a8Array7 = new A8Array7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            for(Integer x : a8Array7.solution(length, intArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer length, Integer[] intArray) {
+            List<Integer> answerArray = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                int studentScore = 1;
+                for(int j = 0; j < length; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        studentScore++;
+                    }
+                }
+                answerArray.add(studentScore);
+            }
+            return answerArray;
         }
     }
 }
