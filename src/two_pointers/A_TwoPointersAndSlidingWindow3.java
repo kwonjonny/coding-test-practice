@@ -1,5 +1,6 @@
 package two_pointers;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -79,6 +80,40 @@ public class A_TwoPointersAndSlidingWindow3 {
                 if(intArray[right] == 0) zeroCount++;
                 while(zeroCount > changeCount) {
                     if(intArray[left] == 0) zeroCount--;
+                    left++;
+                }
+                answer = Math.max(answer, right - left + 1);
+            }
+            return answer;
+        }
+    }
+
+    /**
+     * 재 복습: 2024-12-31
+     */
+    public static class ATwoPointersAndSlidingWindow4 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow4 aTwoPointersAndSlidingWindow4 = new ATwoPointersAndSlidingWindow4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer howManyZero = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = aTwoPointersAndSlidingWindow4.solution(length, howManyZero, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer howManyZero, Integer[] intArray) {
+            int answer = 0;
+            int cnt = 0;
+            int left = 0;
+
+            for(int right = 0; right < length; right++) {
+                if(intArray[right].equals(0)) cnt++;
+
+                while(cnt > howManyZero) {
+                    if(Objects.equals(intArray[left], 0)) cnt--;
                     left++;
                 }
                 answer = Math.max(answer, right - left + 1);
