@@ -37,6 +37,7 @@ import java.util.Scanner;
  * 3
  */
 public class B3_Array {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -76,5 +77,46 @@ public class B3_Array {
             }
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2025-01-01
+     */
+    public static class B3Array1 {
+        public static void main(String[] args) {
+            B3Array1 b3Array1 = new B3Array1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer testCount = scan.nextInt();
+            Integer[][] intArray = new Integer[testCount][length];
+            for(int i = 0; i < testCount; i++) {
+                for(int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            Integer answer = b3Array1.solution(length, testCount, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer testCount, Integer[][] intArray) {
+            Integer answer = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    boolean isPossible = true;
+                    for(int k = 0; k < testCount; k++) {
+                        int mentorRank = 0, menteeRank = 0;
+                        for(int rank = 0; rank < length; rank++) {
+                            if(intArray[k][rank] == mentor) mentorRank = rank;
+                            if(intArray[k][rank] == mentee) menteeRank = rank;
+                        }
+                        if(mentorRank >= menteeRank) {
+                            isPossible = false;
+                            break;
+                        }
+                    }
+                    if(isPossible) answer++;
+                }
+            }
+            return answer;
+        }
     }
 }
