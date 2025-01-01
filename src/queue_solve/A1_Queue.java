@@ -46,7 +46,7 @@ import java.util.Scanner;
  * 7
  */
 public class A1_Queue {
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
