@@ -24,7 +24,7 @@ import java.util.Scanner;
  * 2 9
  * 예제 출력 1
  * 2 3 5 9
- * 
+ *
  * 예제 입력 2
  * 2 1
  * 4 7
