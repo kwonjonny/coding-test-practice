@@ -54,6 +54,7 @@ import java.util.Scanner;
  * 4
  */
 public class A3_Queue {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -94,5 +95,52 @@ public class A3_Queue {
             }
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2025-01-02
+     */
+    public static class A3Queue {
+        public static void main(String[] args) {
+            A3Queue a3Queue = new A3Queue();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            System.out.println(a3Queue.solution(length, orderCount, intArray));
+        }
+        public Integer solution(Integer length, Integer orderCount, Integer[] intArray){
+            int answer = 0;
+            Queue<Person1> personQueue = new LinkedList<>();
+            for(int i = 0; i < length; i++) {
+                personQueue.offer(new Person1(i, intArray[i]));
+            }
+            while(!personQueue.isEmpty()) {
+                Person1 temp = personQueue.poll();
+                for(Person1 x : personQueue) {
+                    if(x.id > temp.id) {
+                        personQueue.offer(temp);
+                        temp = null;
+                        break;
+                    }
+                }
+                if(temp != null) {
+                    answer++;
+                    if(orderCount.equals(temp.id)) return answer;
+                }
+            }
+            return answer;
+        }
+        public static class Person1 {
+            Integer id;
+            Integer order;
+            public Person1(Integer id, Integer order) {
+                this.id = id;
+                this.order = order;
+            }
+        }
     }
 }
