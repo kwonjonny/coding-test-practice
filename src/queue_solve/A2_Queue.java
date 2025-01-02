@@ -44,6 +44,7 @@ import java.util.Scanner;
  * YES
  */
 public class A2_Queue {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String firstStr = scan.next();
@@ -62,5 +63,31 @@ public class A2_Queue {
             }
         }
         return findQ.isEmpty() ? "YES" : "NO";
+    }
+
+    /**
+     * 재 복습: 2025-01-02
+     */
+    public static class A2Queue {
+        public static void main(String[] args) {
+            A2Queue a2Queue = new A2Queue();
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            String answer = a2Queue.solution(firstStr, secondStr);
+            System.out.println(answer);
+        }
+        public String solution(String firstStr, String secondStr) {
+            Queue<Character> firstQueue = new LinkedList<>();
+            for(Character x : firstStr.toCharArray()) {
+                firstQueue.offer(x);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                if(firstQueue.contains(x)) {
+                    if(firstQueue.poll() != x) return "NO";
+                }
+            }
+            return firstQueue.isEmpty() ? "YES" : "NO";
+        }
     }
 }
