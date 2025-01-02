@@ -66,4 +66,32 @@ public class A1_Queue {
         }
         return answer;
     }
+
+    /**
+     * 재 복습: 2025-01-02
+     */
+    public static class A1Queue1 {
+        public static void main(String[] args) {
+            A1Queue1 a1Queue1 = new A1Queue1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            System.out.println(a1Queue1.solution(length, orderCount));
+        }
+        public Integer solution(Integer length, Integer orderCount) {
+            int answer = 0;
+            Queue<Integer> Q = new LinkedList<>();
+            for(int i = 1; i <= length; i++) {
+                Q.offer(i);
+            }
+            while(!Q.isEmpty()) {
+                for(int i = 1; i < orderCount; i++) {
+                    Q.offer(Q.poll());
+                }
+                Q.poll();
+                if(Q.size() == 1) answer = Q.poll();
+            }
+            return answer;
+        }
+    }
 }
