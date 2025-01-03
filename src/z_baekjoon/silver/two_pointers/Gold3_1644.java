@@ -46,7 +46,7 @@ import java.util.Scanner;
  * 예제 출력 4
  * 2
  */
-public class Gold3_1544 {
+public class Gold3_1644 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int order = scan.nextInt();
