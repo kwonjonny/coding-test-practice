@@ -25,7 +25,7 @@ import java.util.Scanner;
  * 예제 출력 1
  * 4
  */
-public class Silver_2018 {
+public class Silver5_2018 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer orderSum = scan.nextInt();
