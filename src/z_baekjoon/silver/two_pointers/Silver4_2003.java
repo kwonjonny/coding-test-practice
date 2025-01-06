@@ -29,6 +29,7 @@ import java.util.Scanner;
  * 3
  */
 public class Silver4_2003 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -55,5 +56,36 @@ public class Silver4_2003 {
             }
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2025-01-06
+     */
+    public static class Silver4_2003_1 {
+        public static void main(String[] args) {
+            Silver4_2003_1 silver420031 = new Silver4_2003_1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer sumOrder = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            silver420031.solution(length, sumOrder, intArray);
+        }
+        public void solution(Integer length, Integer sumOrder, Integer[] intArray) {
+            int answer = 0;
+            int currentSum = 0;
+            int left = 0;
+            for(int right = 0; right < length; right++) {
+                currentSum = currentSum + intArray[right];
+                if(sumOrder.equals(currentSum)) answer++;
+                while(currentSum > sumOrder) {
+                    currentSum = currentSum - intArray[left++];
+                    if(sumOrder.equals(currentSum)) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
     }
 }
