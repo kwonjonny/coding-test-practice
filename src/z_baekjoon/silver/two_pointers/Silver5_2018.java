@@ -26,6 +26,7 @@ import java.util.Scanner;
  * 4
  */
 public class Silver5_2018 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer orderSum = scan.nextInt();
@@ -44,5 +45,31 @@ public class Silver5_2018 {
             }
         }
         System.out.println(answer);
+    }
+
+    /**
+     * 재 복습: 2025-01-06
+     */
+    public static class Silver5_2018_1 {
+        public static void main(String[] args) {
+            Silver5_2018_1 silver520181 = new Silver5_2018_1();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            silver520181.solution(count);
+        }
+        public void solution(Integer count) {
+            int answer = 0;
+            int currentSum = 0;
+            int left = 1;
+            for(int right = 1; right <= count; right++) {
+                currentSum = currentSum + right;
+                if(count.equals(currentSum)) answer++;
+                while(currentSum > count) {
+                    currentSum = currentSum - left++;
+                    if(count.equals(currentSum)) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
     }
 }
