@@ -40,6 +40,7 @@ import java.util.Scanner;
  * 1 2 3 4 5 7 9
  */
 public class Silver5_11728 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer firstLength = scan.nextInt();
