@@ -29,12 +29,13 @@ import java.util.Scanner;
  * 준수가 일을 해서 벌 수 있는 최대 이익을 출력한다.
  *
  * 예제 입력 1
- * 5 3
- * 10 20 30 20 10
+    5 3
+    10 20 30 20 10
  * 예제 출력 1
  * 70
  */
 public class Silver3_12847 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
@@ -57,5 +58,36 @@ public class Silver3_12847 {
             max = Math.max(max, currentSum);
         }
         System.out.println(max);
+    }
+
+    /**
+     * 재 복습: 2025-01-06
+     */
+    public static class Silver3_12847_1 {
+        public static void main(String[] args) {
+            Silver3_12847_1 silver3128471 = new Silver3_12847_1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer orderCount = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            Integer answer = silver3128471.solution(length, orderCount, intArray);
+            System.out.println(answer);
+        }
+        public Integer solution(Integer length, Integer orderCount, Integer[] intArray) {
+            int currentSum = 0;
+            int max = 0;
+            for(int i = 0; i < orderCount; i++) {
+                currentSum = currentSum + intArray[i];
+            }
+            max = currentSum;
+            for(int right = orderCount; right < length; right++) {
+                currentSum = currentSum + (intArray[right] - intArray[right - orderCount]);
+                max = Math.max(max, currentSum);
+            }
+            return max;
+        }
     }
 }
