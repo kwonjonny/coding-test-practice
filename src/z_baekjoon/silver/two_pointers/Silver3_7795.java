@@ -78,4 +78,43 @@ public class Silver3_7795 {
         }
         return answer;
     }
+
+    /**
+     * 재 복습: 2025-01-07
+     */
+    public static class Silver3_7795_1 {
+        public static void main(String[] args) {
+            Silver3_7795_1 silver377951 = new Silver3_7795_1();
+            Scanner scan = new Scanner(System.in);
+            StringBuilder stringBuilder = new StringBuilder();
+            Integer count = scan.nextInt();
+            for(int i = 0; i < count; i++) {
+                Integer firstLength = scan.nextInt();
+                Integer secondLength = scan.nextInt();
+                Integer[] firstArray = new Integer[firstLength];
+                for(int j = 0; j < firstLength; j++) {
+                    firstArray[j] = scan.nextInt();
+                }
+                Integer[] secondArray = new Integer[secondLength];
+                for(int j = 0; j < secondLength; j++) {
+                    secondArray[j] = scan.nextInt();
+                }
+                Integer answer = silver377951.solution(firstLength, secondLength, firstArray, secondArray);
+                stringBuilder.append(answer).append("\n");
+            }
+            System.out.println(stringBuilder);
+        }
+        public Integer solution(Integer firstLength, Integer secondLength, Integer[] firstArray, Integer[] secondArray) {
+            int answer = 0;
+            int secondPoint = 0;
+            Arrays.sort(firstArray); Arrays.sort(secondArray);
+            for (Integer x : firstArray) {
+                while(secondLength > secondPoint && x > secondArray[secondPoint]) {
+                    secondPoint++;
+                }
+                answer = answer + secondPoint;
+            }
+            return answer;
+        }
+    }
 }
