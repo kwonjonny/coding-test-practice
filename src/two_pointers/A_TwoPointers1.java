@@ -271,4 +271,38 @@ public class A_TwoPointers1 {
             return answerList;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-07
+     */
+    public static class ATwoPointers6 {
+        public static void main(String[] args) {
+            ATwoPointers6 aTwoPointers6 = new ATwoPointers6();
+            Scanner scan = new Scanner(System.in);
+            Integer aLength = scan.nextInt();
+            Integer[] aArray = new Integer[aLength];
+            for(int i = 0; i < aLength; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            Integer bLength = scan.nextInt();
+            Integer[] bArray = new Integer[bLength];
+            for(int i = 0; i < bLength; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            for(Integer x : aTwoPointers6.solution(aLength, bLength, aArray, bArray)) {
+                System.out.print(x + " ");
+            }
+        }
+        public List<Integer> solution(Integer aLength, Integer bLength, Integer[] aArray, Integer[] bArray) {
+            List<Integer> answer = new ArrayList<>();
+            int a1 = 0, b1 = 0;
+            while(a1 < aLength && b1 < bLength) {
+                if(aArray[a1] > bArray[b1]) answer.add(bArray[b1++]);
+                else answer.add(aArray[a1++]);
+            }
+            while(a1 < aLength) answer.add(aArray[a1++]);
+            while(b1 < bLength) answer.add(bArray[b1++]);
+            return answer;
+        }
+    }
 }
