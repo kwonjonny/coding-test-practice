@@ -17,12 +17,13 @@ import java.util.Scanner;
  * 첫째 줄에 구하고자 하는 최소의 길이를 출력한다. 만일 그러한 합을 만드는 것이 불가능하다면 0을 출력하면 된다.
  *
  * 예제 입력 1
- * 10 15
- * 5 1 3 5 10 7 4 9 2 8
+     10 15
+     5 1 3 5 10 7 4 9 2 8
  * 예제 출력 1
  * 2
  */
 public class Gold5_1806 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
@@ -47,5 +48,36 @@ public class Gold5_1806 {
 
         }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+
+    /**
+     * 재 복습: 2025-01-07
+     */
+    public static class Gold5_1806_1 {
+        public static void main(String[] args) {
+            Gold5_1806_1 gold518061 = new Gold5_1806_1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer sumOrder = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            gold518061.solution(length, sumOrder, intArray);
+        }
+        public void solution(Integer length, Integer sumOrder, Integer[] intArray) {
+            int minLength = Integer.MAX_VALUE;
+            int currentSum = 0;
+            int left = 0;
+            for(int right = 0; right < length; right++) {
+                currentSum = currentSum + intArray[right];
+
+                while(currentSum >= sumOrder) {
+                    minLength = Math.min(minLength, right - left + 1);
+                    currentSum = currentSum - intArray[left++];
+                }
+            }
+            System.out.println(minLength);
+        }
     }
 }
