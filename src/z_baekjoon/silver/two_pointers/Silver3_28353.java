@@ -33,24 +33,25 @@ import java.util.Scanner;
  * 행복해질 수 있는 사람의 수의 최댓값을 출력한다.
  *
  * 예제 입력 1
- * 5 20
- * 8 16 11 2 4
+    5 20
+    8 16 11 2 4
  * 예제 출력 1
  * 2
  *
  * 예제 입력 2
- * 6 10
- * 9 5 6 7 4 3
+    6 10
+    9 5 6 7 4 3
  * 예제 출력 2
  * 2
  *
  * 예제 입력 3
- * 4 100
- * 100 99 98 97
+     4 100
+     100 99 98 97
  * 예제 출력 3
  * 0
  */
 public class Silver3_28353 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
@@ -77,5 +78,39 @@ public class Silver3_28353 {
                 right--;
             }        }
         return answer;
+    }
+
+    /**
+     * 재 복습:2025-01-07
+     */
+    public static class Silver3_28353_1 {
+        public static void main(String[] args) {
+            Silver3_28353_1 silver3283531 = new Silver3_28353_1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer sumOrder = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            silver3283531.solution(length, sumOrder, intArray);
+        }
+        public void solution(Integer length, Integer sumOrder, Integer[] intArray) {
+            Arrays.sort(intArray);
+            int left = 0;
+            int right = length - 1;
+            int answer = 0;
+            while(right > left) {
+                int sum = intArray[left] + intArray[right];
+                if(sum > sumOrder) {
+                    right--;
+                } else{
+                    answer++;
+                    left++;
+                    right--;
+                }
+            }
+            System.out.println(answer);
+        }
     }
 }
