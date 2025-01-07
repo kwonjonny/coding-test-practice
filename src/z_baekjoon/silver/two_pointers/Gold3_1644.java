@@ -47,6 +47,7 @@ import java.util.Scanner;
  * 2
  */
 public class Gold3_1644 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int order = scan.nextInt();
@@ -79,5 +80,45 @@ public class Gold3_1644 {
         }
         System.out.println(answer);
         return answer;
+    }
+
+    /**
+     * 재 복습: 2025-01-07
+     */
+    public static class Gold3_1644_1 {
+        public static void main(String[] args) {
+            Gold3_1644_1 gold316441 = new Gold3_1644_1();
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            gold316441.solution(order);
+        }
+        public void solution(Integer order) {
+            int[] intArray = new int[order + 1];
+            List<Integer> list = new ArrayList<>();
+            for(int i = 2; i <= order; i++) {
+                if(intArray[i] == 0) {
+                    for(int j = i * i; j <= order; j = j + i) {
+                        intArray[j] = 1;
+                    }
+                }
+            }
+            for(int i = 2; i <= order; i++) {
+                if(intArray[i] == 0) {
+                    list.add(i);
+                }
+            }
+            int currentSum = 0;
+            int answer = 0;
+            int left = 0;
+            for (Integer integer : list) {
+                currentSum = currentSum + integer;
+                if (order.equals(currentSum)) answer++;
+                while (currentSum > order) {
+                    currentSum = currentSum - list.get(left++);
+                    if (order.equals(currentSum)) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
     }
 }
