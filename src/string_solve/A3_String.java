@@ -222,4 +222,28 @@ public class A3_String {
             System.out.println(answer);
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A3String7 {
+        public static void main(String[] args) {
+            A3String7 a3String7 = new A3String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            a3String7.solution(str);
+        }
+        public void solution(String str) {
+            String[] splitArray = str.split(" ");
+            int maxLength = 0;
+            String answer = "";
+            for(String x : splitArray) {
+                if(x.length() > maxLength) {
+                    maxLength = x.length();
+                    answer = x;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
