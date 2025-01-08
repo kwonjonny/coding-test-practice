@@ -179,4 +179,23 @@ public class A9_String {
             System.out.println(Integer.parseInt(stringBuilder.toString()));
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A9String6 {
+        public static void main(String[] args) {
+            A9String6 a9String6 = new A9String6();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a9String6.solution(str);
+        }
+        public void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) stringBuilder.append(x);
+            }
+            System.out.println(Integer.valueOf(stringBuilder.toString()));
+        }
+    }
 }
