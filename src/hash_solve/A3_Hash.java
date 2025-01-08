@@ -1,9 +1,6 @@
 package hash_solve;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 매출액의 종류
@@ -46,6 +43,44 @@ import java.util.Scanner;
  */
 public class A3_Hash {
 
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A3Hash3 {
+        public static void main(String[] args) {
+            A3Hash3 a3Hash3 = new A3Hash3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a3Hash3.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            List<Integer> list = new ArrayList<>();
+            HashMap<Integer, Integer> hashMap = new LinkedHashMap<>();
+            for(int i = 0; i < order; i++) {
+                int findInt = intArray[i];
+                hashMap.put(findInt, hashMap.getOrDefault(findInt, 0) + 1);
+            }
+            list.add(hashMap.size());
+            for(int right = order; right < length; right++) {
+                int findInt = intArray[right];
+                hashMap.put(findInt, hashMap.getOrDefault(findInt, 0) + 1);
+
+                int leftInt = right - order;
+                hashMap.put(intArray[leftInt], hashMap.get(intArray[leftInt]) - 1);
+                if(hashMap.get(intArray[leftInt]) == 0) hashMap.remove(intArray[leftInt]);
+                list.add(hashMap.size());
+            }
+            for(Integer x : list) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer arrayLength = scan.nextInt();
