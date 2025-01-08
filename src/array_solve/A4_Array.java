@@ -237,4 +237,30 @@ public class A4_Array {
             return answerList;
         }
     }
+
+    /*
+     * 재 복습: 2025-01-08
+     */
+    public static class A4Array7 {
+        public static void main(String[] args) {
+            A4Array7 a4Array7 = new A4Array7();
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            a4Array7.solution(order);
+        }
+        public void solution(Integer order) {
+            List<Integer> list = new ArrayList<>();
+            int prev = 0;
+            int next = 1;
+            for(int i = 0; i < order; i++) {
+                list.add(next);
+                int temp = next;
+                next = next + prev;
+                prev = temp;
+            }
+            for(Integer x : list) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
