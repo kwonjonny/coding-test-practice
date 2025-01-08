@@ -191,4 +191,35 @@ public class A2_Hash {
             return "NO";
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A2Hash5 {
+        public static void main(String[] args) {
+            A2Hash5 a2Hash5 = new A2Hash5();
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            a2Hash5.solution(firstStr, secondStr);
+        }
+        public void solution(String firstStr, String secondStr) {
+            String answer = "YES";
+            HashMap<Character, Integer> firstMap = new HashMap<>();
+            for(Character x : firstStr.toCharArray()) {
+                firstMap.put(x, firstMap.getOrDefault(x, 0) + 1);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                if(!firstMap.containsKey(x) && firstMap.get(x) == 0) answer = "NO";
+                else firstMap.put(x, firstMap.get(x) - 1);
+            }
+            for(Map.Entry<Character, Integer> x : firstMap.entrySet()) {
+                if (x.getValue() != 0) {
+                    answer = "NO";
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
