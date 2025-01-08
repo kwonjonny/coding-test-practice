@@ -252,4 +252,32 @@ public class B2_String {
             System.out.println(stringBuilder);
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class B2String8 {
+        public static void main(String[] args) {
+            B2String8 b2String8 = new B2String8();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            b2String8.solution(str);
+        }
+        public void solution(String str) {
+            int count = 1;
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(i < str.length() - 1 && findChar == str.charAt(i + 1)) count++;
+                else {
+                    stringBuilder.append(findChar);
+                    if(count > 1) {
+                        stringBuilder.append(count);
+                        count = 1;
+                    }
+                }
+            }
+            System.out.println(stringBuilder);
+        }
+    }
 }
