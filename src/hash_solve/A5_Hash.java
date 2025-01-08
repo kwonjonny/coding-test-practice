@@ -29,6 +29,43 @@ import java.util.*;
  */
 public class A5_Hash {
 
+    /**
+     * 재복습: 2025-01-08
+     */
+    public static class A5Hash4 {
+        public static void main(String[] args) {
+            A5Hash4 a5Hash4 = new A5Hash4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a5Hash4.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < length; i++) {
+                for(int j = i + 1; j < length; j++) {
+                    for(int k = j + 1; k < length; k++) {
+                        treeSet.add(intArray[i] + intArray[j] + intArray[k]);
+                    }
+                }
+            }
+            Integer answer = -1;
+            Integer count = 0;
+            for(Integer x : treeSet) {
+                count++;
+                if(count.equals(order)) {
+                    answer = x;
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
@@ -53,6 +90,7 @@ public class A5_Hash {
         int cnt = 0;
         for(Integer x : treeSet) {
             cnt++;
+            System.out.println("x: " + x);
             if(cnt == findOrder) {
                 answer = x;
                 break;
