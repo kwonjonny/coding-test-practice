@@ -33,12 +33,13 @@ import java.util.Scanner;
  * <p>
  * 예제:
  * 입력:
- * 5
- 5 3 7 2 3
- 3 7 1 6 1
- 7 2 5 3 4
- 4 3 6 4 1
- 8 7 3 5 2
+ *
+     5
+     5 3 7 2 3
+     3 7 1 6 1
+     7 2 5 3 4
+     4 3 6 4 1
+     8 7 3 5 2
  * <p>
  * 출력:
  * 10
@@ -334,6 +335,46 @@ public class B1_Array {
                 }
             }
             return answer;
+        }
+    }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class B1Array7 {
+        public static void main(String[] args) {
+            B1Array7 b1Array7 = new B1Array7();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            Integer[][] intArray = new Integer[count][count];
+            for (int i = 0; i < count; i++) {
+                for (int j = 0; j < count; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            b1Array7.solution(count, intArray);
+        }
+        public void solution(Integer length, Integer[][] intArray) {
+            int cnt = 0;
+            int[] tx = {-1, 0, 1, 0};
+            int[] ty = {0, 1, 0, -1};
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    boolean isPeak = true;
+                    for(int k = 0; k < 4; k++) {
+                        int nx = i + tx[k];
+                        int ny = j + ty[k];
+                        if (nx >= 0 && nx < length && ny >= 0 && ny < length) {
+                            if (intArray[i][j] <= intArray[nx][ny]) {
+                                isPeak = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(isPeak) cnt++;
+                }
+            }
+            System.out.println(cnt);
         }
     }
 }
