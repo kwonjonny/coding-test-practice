@@ -113,4 +113,27 @@ public class A1_Stack {
         }
     }
 
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A1Stack3 {
+        public static void main(String[] args) {
+            A1Stack3 a1Stack3 = new A1Stack3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a1Stack3.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(x.equals('(')) stack.push(x);
+                else {
+                    if(stack.isEmpty()) return "NO";
+                    stack.pop();
+                }
+            }
+            return stack.isEmpty() ? "YES" : "NO";
+        }
+    }
 }
