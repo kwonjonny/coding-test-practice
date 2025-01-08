@@ -246,4 +246,31 @@ public class A7_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A7Array7 {
+        public static void main(String[] args) {
+            A7Array7 a7Array7 = new A7Array7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a7Array7.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            int score = 0;
+            int answer = 0;
+            for(int i = 0; i < length; i++) {
+                if(intArray[i] == 1) {
+                    score++;
+                    answer = answer + score;
+                } else score = 0;
+            }
+            System.out.println(answer);
+        }
+    }
 }

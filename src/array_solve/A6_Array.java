@@ -338,4 +338,44 @@ public class A6_Array {
             return true;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A6Array6 {
+        public static void main(String[] args) {
+            A6Array6 a6Array6 = new A6Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a6Array6.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            List<Integer> answerList = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                int temp = intArray[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                A6Array6 a6Array6 = new A6Array6();
+                if(a6Array6.isPrime(res)) answerList.add(res);
+            }
+            for(Integer x : answerList) {
+                System.out.print(x + " ");
+            }
+        }
+        public Boolean isPrime(Integer num) {
+            if(num == 1) return false;
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) return false;
+            }
+            return true;
+        }
+    }
 }
