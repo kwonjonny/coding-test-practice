@@ -305,4 +305,33 @@ public class A8_String {
             System.out.println(answer);
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A8String7 {
+        public static void main(String[] args) {
+            A8String7 a8String7 = new A8String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            a8String7.solution(str);
+        }
+        public void solution(String str) {
+            List<Character> list = new ArrayList<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) list.add(x);
+            }
+            String answer = "YES";
+            int left = 0;
+            int right = list.size() - 1;
+            if(right > left) {
+                if(!list.get(right).equals(list.get(left))) {
+                    answer = "NO";
+                }
+                left++;
+                right--;
+            }
+            System.out.println(answer);
+        }
+    }
 }
