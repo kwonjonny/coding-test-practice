@@ -115,4 +115,30 @@ public class A_TwoPointersAndSlidingWindow2 {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class ATwoPointersAndSlidingWindow4 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow4 aTwoPointersAndSlidingWindow4 = new ATwoPointersAndSlidingWindow4();
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            aTwoPointersAndSlidingWindow4.solution(order);
+        }
+        public void solution(Integer order) {
+            int answer = 0;
+            int currentSum = 0;
+            int left = 0;
+            for(int right = 0; right < order; right++) {
+                currentSum = currentSum + right;
+                if(order.equals(currentSum)) answer++;
+                while(currentSum > order) {
+                    currentSum = currentSum - left++;
+                    if(order.equals(currentSum)) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
