@@ -72,7 +72,7 @@ public class A2_Stack {
             return stringBuilder.toString();
         }
     }
-    
+
     /**
      * 재 복습: 2025-01-08
      */
