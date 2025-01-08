@@ -45,12 +45,12 @@ import java.util.Stack;
  * 잘려진 조각의 총 개수를 나타내는 정수를 한 줄에 출력한다.
  *
  * 예시 입력
- * ()(((()())(())()))(())
+    ()(((()())(())()))(())
  * 예시 출력
  * 17
  *
  * 예시 입력
- * (((()(()()))(())()))(()())
+    (((()(()()))(())()))(()())
  * 예시 출력
  * 24
  *
@@ -77,5 +77,31 @@ public class A5_Stack {
             }
         }
         return answer;
+    }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A5Stack {
+        public static void main(String[] args) {
+            A5Stack a5Stack = new A5Stack();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a5Stack.solution(str);
+        }
+        public void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            int answer = 0;
+            for(int i = 0; i < str.length(); i++) {
+                Character findChar = str.charAt(i);
+                if(findChar.equals('(')) stack.push('(');
+                else {
+                    stack.pop();
+                    if(str.charAt(i - 1) == '(') answer = answer + stack.size();
+                    else answer++;
+                }
+            }
+            System.out.println(answer);
+        }
     }
 }
