@@ -326,4 +326,38 @@ public class B1_String {
             }
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class B1String9 {
+        public static void main(String[] args) {
+            B1String9 b1String9 = new B1String9();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            b1String9.solution(str, c);
+        }
+        public void solution(String str, Character c) {
+            int[] distances = new int[str.length()];
+            int distance = 1000;
+            for (int i = 0; i < str.length(); i++) {
+                Character findChar = str.charAt(i);
+                if (findChar.equals(c)) distance = 0;
+                else distance++;
+                distances[i] = distance;
+            }
+
+            distance = 1000;
+            for (int i = str.length() - 1; i >= 0; i--) {
+                Character findChar = str.charAt(i);
+                if (findChar.equals(c)) distance = 0;
+                else distance++;
+                distances[i] = Math.min(distances[i], distance);
+            }
+            for (Integer x : distances) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
