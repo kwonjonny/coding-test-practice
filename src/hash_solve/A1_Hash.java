@@ -201,4 +201,32 @@ public class A1_Hash {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A1Hash5 {
+        public static void main(String[] args) {
+            A1Hash5 a1Hash5 = new A1Hash5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            a1Hash5.solution(length, str);
+        }
+        public void solution(Integer length, String str) {
+            HashMap<Character, Integer> hashMap = new HashMap<>();
+            for(Character x : str.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x, 0) + 1);
+            }
+            int max = 0;
+            Character answer = null;
+            for(Map.Entry<Character, Integer> x : hashMap.entrySet()) {
+                if(x.getValue() > max) {
+                    max = x.getValue();
+                    answer = x.getKey();
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
