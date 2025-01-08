@@ -217,4 +217,24 @@ public class A1_String {
         }
     }
 
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A1String7 {
+        public static void main(String[] args) {
+            A1String7 a1String7 = new A1String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            a1String7.solution(str, c);
+        }
+        public void solution(String str, char c) {
+            str = str.toLowerCase();
+            int answer = 0;
+            for(Character x : str.toCharArray()) {
+                if(x.equals(c)) answer++;
+            }
+            System.out.println(answer);
+        }
+    }
 }
