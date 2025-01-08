@@ -21,12 +21,13 @@ import java.util.Stack;
  * 연산한 결과를 출력합니다.
  *
  * 예시 입력
- * 352+*9-
+    352+*9-
  * 
  * 예시 출력
  * 12
  */
 public class A4_Stack {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
@@ -51,5 +52,34 @@ public class A4_Stack {
             }
         }
         return stack.peek();
+    }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A4Stack1 {
+        public static void main(String[] args) {
+            A4Stack1 a4Stack1 = new A4Stack1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a4Stack1.solution(str);
+        }
+        public void solution(String str) {
+            int answer = 0;
+            Stack<Integer> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) stack.push(x - '0');
+                else {
+                    int left = stack.pop();
+                    int right = stack.pop();
+                    if(x.equals('*')) answer = right * left;
+                    else if(x.equals('+')) answer = right + left;
+                    else if(x.equals('-')) answer = right - left;
+                    else if(x.equals('/')) answer = right / left;
+                    stack.push(answer);
+                }
+            }
+            System.out.println(stack.pop());
+        }
     }
 }
