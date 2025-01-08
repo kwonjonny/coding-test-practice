@@ -72,5 +72,32 @@ public class A2_Stack {
             return stringBuilder.toString();
         }
     }
-
+    
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A2Stack2 {
+        public static void main(String[] args) {
+            A2Stack2 a2Stack2 = new A2Stack2();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = a2Stack2.solution(str);
+            System.out.println(answer);
+        }
+        public String solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(x.equals(')')) {
+                    while(stack.pop() != '(');
+                } else {
+                    stack.push(x);
+                }
+            }
+            for(Character x : stack) {
+                stringBuilder.append(x);
+            }
+            return stringBuilder.toString();
+        }
+    }
 }
