@@ -49,8 +49,8 @@ import java.util.Scanner;
  *
  * 예제:
  * 입력:
-4
-#****###**#####**#####**##**
+    4
+    #****###**#####**#####**##**
  *
  * 출력:
  *   COOL
@@ -174,6 +174,30 @@ public class B3_String {
                 int temp = Integer.parseInt(subString, 2);
                 char c = (char) temp;
                 stringBuilder.append(c);
+            }
+            System.out.println(stringBuilder);
+        }
+    }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class B3String6 {
+        public static void main(String[] args) {
+            B3String6 b3String6 = new B3String6();
+            Scanner scan = new Scanner(System.in);
+            Integer cutCount = scan.nextInt();
+            String str = scan.next();
+            b3String6.solution(cutCount, str);
+        }
+        public void solution(Integer cutCount, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < cutCount; i++) {
+                String splitString = str.substring(0, 7).replace('#', '1').replace('*','0');
+                int parseInt = Integer.parseInt(splitString, 2);
+                char parseChar = (char) parseInt;
+                stringBuilder.append(parseChar);
+                str = str.substring(7);
             }
             System.out.println(stringBuilder);
         }
