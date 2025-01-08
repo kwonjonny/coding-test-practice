@@ -111,4 +111,48 @@ public class A3_Stack {
         }
         return answer;
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A3Stack2 {
+        public static void main(String[] args) {
+            A3Stack2 a3Stack2 = new A3Stack2();
+            Scanner scan = new Scanner(System.in);
+            Integer boardLength = scan.nextInt();
+            Integer[][] boardArray = new Integer[boardLength][boardLength];
+            for(int i = 0; i < boardLength; i++) {
+                for(int j = 0; j < boardLength; j++) {
+                    boardArray[i][j] = scan.nextInt();
+                }
+            }
+            Integer movesLength = scan.nextInt();
+            Integer[] movesArray = new Integer[movesLength];
+            for(int i = 0; i < movesLength; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            a3Stack2.solution(boardLength, boardArray, movesLength, movesArray);
+        }
+        public void solution(Integer boardLength, Integer[][] boardArray, Integer movesLength, Integer[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int removeDolls = 0;
+            for(Integer x : movesArray) {
+                int pos = x - 1;
+                for(int i = 0; i < boardLength; i++) {
+                    if(boardArray[i][pos] != 0) {
+                        int doll = boardArray[i][pos];
+                        if(!stack.isEmpty() && stack.peek().equals(doll)){
+                            removeDolls = removeDolls + 2;
+                            stack.pop();
+                        }
+                        else stack.push(doll);
+                        boardArray[i][pos] = 0;
+                        break;
+                    }
+                }
+            }
+            System.out.println(removeDolls);
+        }
+    }
+
 }
