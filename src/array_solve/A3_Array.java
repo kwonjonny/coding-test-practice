@@ -271,4 +271,37 @@ public class A3_Array {
             }
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A3Array6 {
+        public static void main(String[] args) {
+            A3Array6 a3Array6 = new A3Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] aArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            Integer[] bArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            a3Array6.solution(length, aArray, bArray);
+        }
+        public void solution(Integer length, Integer[] aArray, Integer[] bArray) {
+            List<String> list = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                Integer a = aArray[i];
+                Integer b = bArray[i];
+                if(a.equals(b)) list.add("D");
+                else if (a.equals(1) && b.equals(3) || a.equals(2) && b.equals(1) || a.equals(3) && b.equals(2)) list.add("A");
+                else list.add("B");
+            }
+            for(String  x : list) {
+                System.out.println(x);
+            }
+        }
+    }
 }
