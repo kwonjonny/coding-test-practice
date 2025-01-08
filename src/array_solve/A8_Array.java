@@ -273,4 +273,35 @@ public class A8_Array {
             return answerArray;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A8Array8 {
+        public static void main(String[] args) {
+            A8Array8 a8Array8 = new A8Array8();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a8Array8.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            int[] answerArray = new int[length];
+            for(int i = 0; i < length; i++) {
+                int cnt = 1;
+                for(int j = 0; j < length; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        cnt++;
+                    }
+                }
+                answerArray[i] = cnt;
+            }
+            for(Integer x : answerArray) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
