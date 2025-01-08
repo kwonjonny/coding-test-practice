@@ -199,4 +199,30 @@ public class A5_Array {
             return answer;
         }
     }
+
+    /*
+     * 재 복습: 2025-01-08
+     */
+    public static class A5Array6 {
+        public static void main(String[] args) {
+            A5Array6 a5Array6 = new A5Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            a5Array6.solution(order);
+        }
+        public void solution(Integer order) {
+            int[] array = new int[order + 1];
+            int answer = 0;
+
+            for(int i = 2; i <= order; i++) {
+                if(array[i] == 0) {
+                    answer++;
+                    for(int j = i * i; j <= order; j = j + i) {
+                        array[j] = 1;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
