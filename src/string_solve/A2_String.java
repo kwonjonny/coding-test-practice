@@ -213,4 +213,24 @@ public class A2_String {
             System.out.println(stringBuilder);
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A2String7 {
+        public static void main(String[] args) {
+            A2String7 a2String7 = new A2String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a2String7.solution(str);
+        }
+        public void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isLowerCase(x)) stringBuilder.append(Character.toUpperCase(x));
+                else stringBuilder.append(Character.toLowerCase(x));
+            }
+            System.out.println(stringBuilder);
+        }
+    }
 }
