@@ -212,4 +212,25 @@ public class A6_String {
             }
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A6String7 {
+        public static void main(String[] args) {
+            A6String7 a6String7 = new A6String7();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a6String7.solution(str);
+        }
+        public void solution(String str) {
+            Set<Character> set = new LinkedHashSet<>();
+            for(Character x : str.toCharArray()) {
+                set.add(x);
+            }
+            for(Character x : set) {
+                System.out.print(x);
+            }
+        }
+    }
 }
