@@ -225,4 +225,26 @@ public class A4_String {
             }
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class A4String7 {
+        public static void main(String[] args) {
+            A4String7 a4String7 = new A4String7();
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strArray = new String[count];
+            for(int i = 0; i < count; i++) {
+                strArray[i] = scan.next();
+            }
+            a4String7.solution(count, strArray);
+        }
+        public void solution(Integer count, String[] strArray) {
+            for(String x : strArray) {
+                String reverse = new StringBuilder(x).reverse().toString();
+                System.out.println(reverse);
+            }
+        }
+    }
 }
