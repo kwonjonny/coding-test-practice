@@ -119,4 +119,46 @@ public class B3_Array {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class B3Array4 {
+        public static void main(String[] args) {
+            B3Array4 b3Array4 = new B3Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer testCount = scan.nextInt();
+            Integer[][] intArray = new Integer[testCount][length];
+            for (int i = 0; i < testCount; i++) {
+                for (int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            b3Array4.solution(length, testCount, intArray);
+        }
+        public void solution(Integer length, Integer testCount, Integer[][] intArray) {
+            int answer = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean can = true;
+                    for(int i = 0; i < testCount; i++) {
+                        int mentorScore = 0;
+                        int menteeScore = 0;
+                        for(int j = 0; j < length; j++) {
+                            if(intArray[i][j] == mentor) mentorScore = j;
+                            if(intArray[i][j] == mentee) menteeScore = j;
+                        }
+                        if(mentorScore > menteeScore) {
+                            can = false;
+                            break;
+                        }
+                    }
+                    if(can) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
