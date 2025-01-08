@@ -169,4 +169,35 @@ public class A_TwoPointersAndSlidingWindow1 {
             return answer;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class ATwoPointersAndSlidingWindow5 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow5 aTwoPointersAndSlidingWindow5 = new ATwoPointersAndSlidingWindow5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aTwoPointersAndSlidingWindow5.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            int answer = 0;
+            int left = 0;
+            int currentSum = 0;
+            for(int right = 0; right < length; right++) {
+                currentSum = currentSum + intArray[right];
+                if(order.equals(currentSum)) answer++;
+                while(currentSum > order) {
+                    currentSum = currentSum - intArray[left++];
+                    if(order.equals(currentSum)) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
