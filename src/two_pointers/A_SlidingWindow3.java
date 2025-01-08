@@ -194,4 +194,35 @@ public class A_SlidingWindow3 {
             return max;
         }
     }
+
+    /**
+     * 재 복습: 2025-01-08
+     */
+    public static class ASlidingWindow7 {
+        public static void main(String[] args) {
+            ASlidingWindow7 aSlidingWindow7 = new ASlidingWindow7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSlidingWindow7.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            int max = 0;
+            int currentSum = 0;
+            for(int i = 0; i < order; i++) {
+                currentSum = currentSum + intArray[i];
+            }
+            max = currentSum;
+            for(int right = order; right < length; right++) {
+                int left = right - order;
+                currentSum = currentSum + (intArray[right] - intArray[left]);
+                max = Math.max(max, currentSum);
+            }
+            System.out.println(max);
+        }
+    }
 }
