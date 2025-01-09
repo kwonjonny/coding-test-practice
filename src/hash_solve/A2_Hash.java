@@ -41,7 +41,7 @@ import java.util.Scanner;
  *   NO
  */
 public class A2_Hash {
-    
+
     /**
      * 재 복습: 2025-01-09
      */
