@@ -103,16 +103,14 @@ public class A3_Stack {
             for(Integer x : movesArray) {
                 int pickUp = x -1;
                 for(int i = 0; i < boardLength; i++) {
-                    for(int j = 0; j < boardLength; j++) {
-                        if(boardArray[i][pickUp] != 0) {
-                            int doll = boardArray[i][pickUp];
-                            boardArray[i][j] = 0;
-                            stack.push(doll);
-                            if(!stack.isEmpty() && stack.peek().equals(doll)) {
-                                answer = answer + 2;
-                                stack.pop();
-                            } else stack.push(doll);
-                        }
+                    if(boardArray[i][pickUp] != 0) {
+                        int doll = boardArray[i][pickUp];
+                        boardArray[i][pickUp] = 0;
+                        stack.push(doll);
+                        if(!stack.isEmpty() && stack.peek().equals(doll)) {
+                            answer = answer + 2;
+                            stack.pop();
+                        } else stack.push(doll);
                     }
                 }
             }
