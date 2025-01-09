@@ -27,6 +27,36 @@ import java.util.Scanner;
  */
 public class A2_Array {
 
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A2Array6 {
+        public static void main(String[] args) {
+            A2Array6 a2Array6 = new A2Array6();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a2Array6.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            int maxHeight = 0;
+            int cnt = 1;
+            for(int i = 1; i < length; i++) {
+                if(maxHeight < intArray[i]) {
+                    maxHeight = intArray[i];
+                    cnt++;
+                }
+            }
+            System.out.println(cnt);
+        }
+    }
+
+
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
