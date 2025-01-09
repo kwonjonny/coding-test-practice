@@ -1,6 +1,7 @@
 package hash_solve;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * K번째 큰 수
@@ -28,6 +29,44 @@ import java.util.*;
  * 143
  */
 public class A5_Hash {
+
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A5Hash5 {
+        public static void main(String[] args) {
+            A5Hash5 A5Hash5 = new A5Hash5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A5Hash5.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < length; i++) {
+                for(int j = i + 1; j < length; j++) {
+                    for(int t = j + 1; t < length; t++) {
+                        int sum = intArray[i] + intArray[j] + intArray[t];
+                        treeSet.add(sum);
+                    }
+                }
+            }
+            int cnt = 0;
+            int answer = 0;
+            for(Integer x : treeSet) {
+                cnt++;
+                if(order.equals(cnt)) {
+                    answer = x;
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 
     /**
      * 재복습: 2025-01-08
