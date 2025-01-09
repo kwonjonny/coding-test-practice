@@ -29,6 +29,32 @@ import java.util.Scanner;
  */
 public class A1_Array {
 
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A1Array7 {
+        public static void main(String[] args) {
+            A1Array7 a1Array7 = new A1Array7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a1Array7.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            answer.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > intArray[i - 1]) answer.add(intArray[i]);
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer aInt = scan.nextInt();
