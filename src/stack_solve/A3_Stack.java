@@ -75,6 +75,53 @@ import java.util.Stack;
  */
 public class A3_Stack {
 
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A3Stack3 {
+        public static void main(String[] args) {
+            A3Stack3 a3Stack3 = new A3Stack3();
+            Scanner scan = new Scanner(System.in);
+            Integer boardLength = scan.nextInt();
+            Integer[][] boards = new Integer[boardLength][boardLength];
+            for(int i = 0; i < boardLength; i++) {
+                for(int j = 0; j < boardLength; j++) {
+                    boards[i][j] = scan.nextInt();
+                }
+            }
+            Integer moves = scan.nextInt();
+            Integer[] movesArray = new Integer[moves];
+            for(int i = 0; i < moves; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            a3Stack3.solution(boardLength, boards, moves, movesArray);
+        }
+        public void solution(Integer boardLength, Integer[][] boardArray, Integer moves, Integer[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+
+            for(Integer x : movesArray) {
+                int pickUp = x -1;
+                for(int i = 0; i < boardLength; i++) {
+                    for(int j = 0; j < boardLength; j++) {
+                        if(boardArray[i][pickUp] != 0) {
+                            int doll = boardArray[i][pickUp];
+                            boardArray[i][j] = 0;
+                            stack.push(doll);
+                            if(!stack.isEmpty() && stack.peek().equals(doll)) {
+                                answer = answer + 2;
+                                stack.pop();
+                            } else stack.push(doll);
+                        }
+                    }
+                }
+            }
+            for(Integer x : stack) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer boardLength = scan.nextInt();
