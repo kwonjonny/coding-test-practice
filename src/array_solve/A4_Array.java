@@ -52,7 +52,7 @@ public class A4_Array {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
