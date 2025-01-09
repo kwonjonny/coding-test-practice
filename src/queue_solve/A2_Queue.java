@@ -37,13 +37,40 @@ import java.util.Scanner;
  * 첫 줄에 수업설계가 잘된 것이면 “YES", 잘못된 것이면 ”NO“를 출력합니다.
  *
  * 예시 입력 1
- * CBA
- * CBDAGE
+     CBA
+     CBDAGE
  *
  * 예시 출력 1
  * YES
  */
 public class A2_Queue {
+
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A2Queue1 {
+        public static void main(String[] args) {
+            A2Queue1 a2Queue1 = new A2Queue1();
+            Scanner scan = new Scanner(System.in);
+            String first =  scan.next();
+            String second = scan.next();
+            a2Queue1.solution(first, second);
+        }
+        public void solution(String first, String second) {
+            Queue<Character> queue = new LinkedList<>();
+            String answer = "NO";
+            for(Character x : first.toCharArray()) {
+                queue.offer(x);
+            }
+            for(Character x : second.toCharArray()) {
+                if(queue.contains(x)) {
+                    if(!queue.poll().equals(x)) answer = "NO";
+                }
+            }
+            if(queue.isEmpty()) answer = "YES";
+            System.out.println(answer);
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
