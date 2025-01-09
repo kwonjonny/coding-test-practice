@@ -30,6 +30,35 @@ import java.util.Scanner;
  */
 public class A8_Array {
 
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A8Array9 {
+        public static void main(String[] args) {
+            A8Array9 A8Array9 = new A8Array9();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A8Array9.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                int count = 1;
+                for(int j = 0; j < length; j++) {
+                    if(intArray[i] < intArray[j]) count++;
+                }
+                answer.add(count);
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
