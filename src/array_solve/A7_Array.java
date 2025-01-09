@@ -68,7 +68,7 @@ public class A7_Array {
             System.out.println(answer);
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
