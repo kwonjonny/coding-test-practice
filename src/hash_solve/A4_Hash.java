@@ -1,6 +1,7 @@
 package hash_solve;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 /**
@@ -27,6 +28,34 @@ import java.util.Scanner;
  * 출력설명: {bac}, {acb}, {cba} 3개의 부분문자열이 "abc"문자열과 아나그램입니다.
  */
 public class A4_Hash {
+
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A4Hash2 {
+        public void solution(String firstStr, String secondStr) {
+            HashMap<Character, Integer> firstMap = new LinkedHashMap<>();
+            HashMap<Character, Integer> secondMap = new LinkedHashMap<>();
+            int answer = 0;
+
+            for(Character x : secondStr.toCharArray()) {
+                firstMap.put(x, firstMap.getOrDefault(x, 0) + 1);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                secondMap.put(x, secondMap.getOrDefault(x, 0) + 1);
+            }
+            if(firstMap.equals(secondMap)) answer++;
+            for(int right = secondStr.length(); right < firstStr.length(); right++) {
+                char rightChar = firstStr.charAt(right);
+                firstMap.put(rightChar, firstMap.getOrDefault(rightChar, 0) + 1);
+
+                char leftChar = firstStr.charAt(right - secondStr.length());
+                if(firstMap.get(leftChar) == 1) firstMap.remove(leftChar);
+                else firstMap.put(leftChar, firstMap.get(leftChar) - 1);
+                if(firstMap.equals(secondMap)) answer++;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
