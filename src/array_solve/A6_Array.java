@@ -70,7 +70,7 @@ public class A6_Array {
             return true;
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
