@@ -1,6 +1,7 @@
 package hash_solve;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -40,6 +41,39 @@ import java.util.Scanner;
  *   NO
  */
 public class A2_Hash {
+    
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A2Hash6 {
+        public static void main(String[] args) {
+            A2Hash6 a2Hash6 = new A2Hash6();
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            a2Hash6.solution(firstStr, secondStr);
+        }
+        public void solution(String firstStr, String secondStr) {
+            HashMap<Character, Integer> hashMap = new LinkedHashMap<>();
+            String answer = "NO";
+            for(Character x : firstStr.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x, 0) + 1);
+            }
+            for(Character x : secondStr.toCharArray()) {
+                if(hashMap.containsKey(x) && hashMap.get(x) != 0) {
+                    hashMap.put(x, hashMap.get(x) - 1);
+                }
+            }
+            for(Map.Entry<Character, Integer> x : hashMap.entrySet()) {
+                if (x.getValue() != 0) {
+                    answer = "NO";
+                    break;
+                }
+                else answer = "YES";
+            }
+            System.out.println(answer);
+        }
+    }
 
     public static void main(String [] args) {
         Scanner scan = new Scanner(System.in);
