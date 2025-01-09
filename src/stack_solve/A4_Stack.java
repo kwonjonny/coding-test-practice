@@ -28,6 +28,36 @@ import java.util.Stack;
  */
 public class A4_Stack {
 
+    /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A4Stack3 {
+        public static void main(String[] args) {
+            A4Stack3 a4Stack3 = new A4Stack3();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a4Stack3.solution(str);
+        }
+        public void solution(String str) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) stack.push(x - '0');
+                else {
+                    int left = stack.pop();
+                    int right = stack.pop();
+                    if (x.equals('*')) answer = right * left;
+                    else if (x.equals('+')) answer = right + left;
+                    else if (x.equals('-')) answer = right - left;
+                    else if (x.equals('/')) answer = right / left;
+                    stack.push(answer);
+                }
+            }
+            System.out.println(stack.pop());
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
