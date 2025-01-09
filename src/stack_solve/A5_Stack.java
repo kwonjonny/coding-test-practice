@@ -57,6 +57,29 @@ import java.util.Stack;
  */
 public class A5_Stack {
 
+    public static class A5Stack1 {
+        public static void main(String[] args) {
+            A5Stack1 a5Stack1 = new A5Stack1();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a5Stack1.solution(str);
+        }
+        public void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            int answer = 0;
+
+            for(int i = 0; i < str.length(); i++) {
+                Character x = str.charAt(i);
+                if(x.equals('(')) stack.push('(');
+                else {
+                    stack.pop();
+                    if(str.charAt(i - 1) == '(') answer = answer + stack.size();
+                    else answer++;
+                }
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
