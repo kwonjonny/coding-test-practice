@@ -44,6 +44,42 @@ import java.util.*;
 public class A3_Hash {
 
     /**
+     * 재 복습: 2025-01-09
+     */
+    public static class A3Hash4 {
+        public static void main(String[] args) {
+            A3Hash4 a3Hash4 = new A3Hash4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a3Hash4.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            HashMap<Integer, Integer> hashMap = new LinkedHashMap<>();
+            for(int i = 0; i < order; i++) {
+                hashMap.put(intArray[i], hashMap.getOrDefault(intArray[i], 0) + 1);
+            }
+            answer.add(hashMap.size());
+            for(int right = order; right < length; right++) {
+                hashMap.put(intArray[right], hashMap.getOrDefault(intArray[right], 0) + 1);
+
+                int left = right - order;
+                hashMap.put(intArray[left], hashMap.get(intArray[left]) - 1);
+                if(hashMap.get(intArray[left]) == 0) hashMap.remove(intArray[left]);
+                answer.add(hashMap.size());
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-08
      */
     public static class A3Hash3 {
