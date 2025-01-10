@@ -86,7 +86,7 @@ public class B1_Array {
             System.out.println(answer);
         }
     }
-    
+
     /**
      * 재 복습: 2025-01-09
      */
