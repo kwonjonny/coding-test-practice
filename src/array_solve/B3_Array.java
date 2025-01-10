@@ -38,6 +38,48 @@ import java.util.Scanner;
  */
 public class B3_Array {
 
+    /**
+     * 재 복습: 2025-01-10
+     */
+    public static class B3Array5 {
+        public static void main(String[] args) {
+            B3Array5 b3Array5 = new B3Array5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer testCount = scan.nextInt();
+            Integer[][] intArray = new Integer[testCount + 1][length + 1];
+            for(int i = 1; i <= testCount; i++) {
+                for(int j = 1; j <= length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            b3Array5.solution(length, testCount, intArray);
+        }
+        public void solution(Integer length, Integer testCount, Integer[][] intArray) {
+            int answer = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean isPossible = true;
+                    for(int t = 1; t <= testCount; t++) {
+                        int mentorScore = 0;
+                        int menteeScore = 0;
+                        for(int score = 1; score <= length; score++) {
+                           if(intArray[t][score] == mentor) mentorScore = score;
+                           if(intArray[t][score] == mentee) menteeScore = score;
+                        }
+                        if(mentorScore > menteeScore) {
+                            isPossible = false;
+                            break;
+                        }
+                    }
+                    if(isPossible) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
