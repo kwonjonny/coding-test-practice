@@ -28,6 +28,32 @@ import java.util.Scanner;
 public class A4_Array {
 
     /**
+     * 재 복습: 2025-01-10
+     */
+    public static class A4Array9 {
+        public static void main(String[] args) {
+            A4Array9 a4Array9 = new A4Array9();
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            a4Array9.solution(order);
+        }
+        public void solution(Integer order) {
+            List<Integer> answer = new ArrayList<>();
+            int prev = 0;
+            int next = 1;
+            for(int i = 0; i < order; i++) {
+                answer.add(next);
+                int temp = next;
+                next = prev + next;
+                prev = temp;
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-09
      */
     public static class A4Array8 {
