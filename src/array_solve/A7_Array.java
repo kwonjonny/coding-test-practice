@@ -42,6 +42,36 @@ import java.util.Scanner;
 public class A7_Array {
 
     /**
+     * 재 복습: 2025-01-10
+     */
+    public static class A7Array9 {
+        public static void main(String[] args) {
+            A7Array9 a7Array9 = new A7Array9();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a7Array9.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            int answer = 0;
+            int score = 0;
+            for(int i = 0; i < length; i++) {
+                if(intArray[i] == 0) {
+                    score = 0;
+                }
+                else {
+                    score++;
+                    answer = answer + score;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-09
      */
     public static class A7Array8 {
