@@ -59,6 +59,43 @@ import java.util.Scanner;
 public class B2_Array {
 
     /**
+     * 재 복습: 2025-01-10
+     */
+    public static class B2Array4 {
+        public static void main(String[] args) {
+            B2Array4 b2Array4 = new B2Array4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[][] intArray = new Integer[length][length];
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            b2Array4.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[][] intArray) {
+            int max = 0;
+            int ansewr = 0;
+            for(int i = 0; i < length; i++) {
+                int cnt = 0;
+                for(int j = 0; j < length; j++) {
+                    for(int t = 0; t < length; t++) {
+                        if(intArray[i][j].equals(intArray[i][t])) {
+                            cnt++;
+                        }
+                    }
+                }
+                if(cnt > max) {
+                    max = cnt;
+                    ansewr = i;
+                }
+            }
+            System.out.println(ansewr);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-09
      */
     public static class B2Array3 {
