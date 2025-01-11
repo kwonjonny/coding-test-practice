@@ -22,13 +22,44 @@ import java.util.Scanner;
  *
  *
  * 예시 입력 1
- * 6
- * 13 5 11 7 23 15
+    6
+    13 5 11 7 23 15
  *
  * 예시 출력 1
  * 5 7 11 13 15 23
  */
 public class A_Sorting2 {
+
+    /**
+     * 재 복습: 2025-01-11
+     */
+    public static class ASorting2 {
+        public static void main(String[] args) {
+            ASorting2 aSorting2 = new ASorting2();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSorting2.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            for(int i = 0; i < length - 1; i++) {
+                for(int j = 0; j < length; j++) {
+                    if(intArray[i] < intArray[j]) {
+                        int temp = intArray[j];
+                        intArray[j] = intArray[i];
+                        intArray[i] = temp;
+                    }
+                }
+            }
+            for(Integer x : intArray) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
