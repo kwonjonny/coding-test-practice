@@ -21,13 +21,47 @@ import java.util.Scanner;
  *
  *
  * 예시 입력 1
- * 8 32
- * 23 87 65 12 57 32 99 81
+    8 32
+    23 87 65 12 57 32 99 81
  *
  * 예시 출력 1
  * 3
  */
 public class A_Searching3 {
+
+    /**
+     * 재 복습: 2025-01-11
+     */
+    public static class ASearching3 {
+        public static void main(String[] args) {
+            ASearching3 aSearching3 = new ASearching3();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSearching3.solution(length, target, intArray);
+        }
+        public void solution(Integer length, Integer target, Integer[] intArray) {
+            Arrays.sort(intArray);
+            int left = 0;
+            int right = length - 1;
+            int answer = 0;
+            while(right >= left) {
+                int middle = (right + left) / 2;
+                if(target.equals(intArray[middle])) {
+                    answer = middle + 1;
+                    break;
+                }
+                else if (intArray[middle] > target) right = middle - 1;
+                else left = middle + 1;
+            }
+            System.out.println(answer);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
