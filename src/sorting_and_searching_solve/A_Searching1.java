@@ -1,5 +1,6 @@
 package sorting_and_searching_solve;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
@@ -27,13 +28,39 @@ import java.util.Scanner;
  * 첫 번째 줄에 D 또는 U를 출력한다.
  *
  * 예시 입력 1
- * 8
- * 20 25 52 30 39 33 43 33
+    8
+    20 25 52 30 39 33 43 33
  *
  * 예시 출력 1
  * U
  */
 public class A_Searching1 {
+
+    /**
+     * 재 복습: 2025-01-11
+     */
+    public static class ASearching1 {
+        public static void main(String[] args) {
+            ASearching1 aSearching1 = new ASearching1();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length;i ++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSearching1.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            String answer = "";
+            Arrays.sort(intArray);
+            for(int i = 0; i < length - 1; i++) {
+                if(intArray[i].equals(intArray[i + 1])) answer = "D";
+                else answer = "U";
+            }
+            System.out.println(answer);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
