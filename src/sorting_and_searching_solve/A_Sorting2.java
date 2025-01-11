@@ -59,7 +59,7 @@ public class A_Sorting2 {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
