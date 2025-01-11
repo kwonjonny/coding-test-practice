@@ -23,12 +23,12 @@ import java.util.Scanner;
  * N개의 좌표를 정렬하여 출력하세요.
  *
  * 예시 입력 1
- * 5
- * 2 7
- * 1 3
- * 1 2
- * 2 5
- * 3 6
+    5
+    2 7
+    1 3
+    1 2
+    2 5
+    3 6
  *
  * 예시 출력 1
  * 1 2
@@ -38,6 +38,41 @@ import java.util.Scanner;
  * 3 6
  */
 public class A_Sorting5 {
+
+    /*
+     * 재 복습: 2025-01-11
+     */
+    public static class ASorting5 {
+        public static class Point implements Comparable<ASorting5.Point> {
+            private int x;
+            private int y;
+            public Point(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+            @Override
+            public int compareTo(Point other) {
+                if(this.x == other.x) return this.y - other.y;
+                else return this.x - other.x;
+            }
+        }
+        public static void main(String[] args) {
+            ASorting5 aSorting5 = new ASorting5();
+            Scanner scan = new Scanner(System.in);
+            List<ASorting5.Point> answer = new ArrayList<>();
+            Integer count = scan.nextInt();
+            for(int i = 0; i < count; i++) {
+                int x = scan.nextInt();
+                int y = scan.nextInt();
+                answer.add(new ASorting5.Point(x, y));
+            }
+            Collections.sort(answer);
+            for(ASorting5.Point p : answer) {
+                System.out.println(p.x + " " + p.y);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
