@@ -34,8 +34,8 @@ import java.util.*;
  * 첫 번째 줄에 철수의 반 번호와 짝꿍의 반 번호를 차례로 출력합니다.
  *
  * 예시 입력 1
- * 9
- * 120 125 152 130 135 135 143 127 160
+    9
+    120 125 152 130 135 135 143 127 160
  *
  * 예시 출력 1
  * 3 8
@@ -44,6 +44,36 @@ import java.util.*;
  * 출력해설 : 키 정보 152가 철수이고, 127이 철수 짝꿍입니다.
  */
 public class A_Searching2 {
+
+    /**
+     * 재 복습: 2025-01-11
+     */
+    public static class ASearching2 {
+        public static void main(String[] args) {
+            ASearching2 aSearching2 = new ASearching2();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSearching2.solution(length, intArray);
+        }
+        public void solution(Integer length, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            Integer[] cloneArray = intArray.clone();
+            Arrays.sort(intArray);
+            for(int i = 0; i < length; i++) {
+                if(!intArray[i].equals(cloneArray[i])) {
+                    answer.add(i + 1);
+                }
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
