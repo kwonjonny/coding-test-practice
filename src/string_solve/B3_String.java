@@ -57,6 +57,30 @@ import java.util.Scanner;
  */
 public class B3_String {
 
+    /**
+     * 재 복습: 2025-01-13 
+     */
+    public static class B3String7 {
+        public static void main(String[] args) {
+            B3String7 b3String7 = new B3String7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            b3String7.solution(length, str);
+        }
+        public void solution(Integer length, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < length; i++) {
+                String subString = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                int subTemp = Integer.parseInt(subString, 2);
+                char subChar = (char) subTemp;
+                str = str.substring(7);
+                stringBuilder.append(subChar);
+            }
+            System.out.println(stringBuilder);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer count = scan.nextInt();
