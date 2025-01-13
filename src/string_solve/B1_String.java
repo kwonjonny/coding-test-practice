@@ -23,6 +23,43 @@ import java.util.Scanner;
  */
 public class B1_String {
 
+    /**
+     * 재 복습: 2025-01-13
+     */
+    public static class B1String10 {
+        public static void main(String[] args) {
+            B1String10 b1String10 = new B1String10();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            b1String10.solution(str, c);
+        }
+        public void solution(String str, char c) {
+            int distance = 1000;
+            int[] distances = new int[str.length()];
+            for(int i = 0; i < str.length(); i++) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                }
+                else {
+                    distance++;
+                }
+                distances[i] = distance;
+            }
+            for(int i = str.length() -1; i >= 0; i--) {
+                if(str.charAt(i) == c) {
+                    distance = 0;
+                } else {
+                    distance++;
+                }
+                distances[i] = Math.min(distances[i], distance);
+            }
+            for(Integer x : distances) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
