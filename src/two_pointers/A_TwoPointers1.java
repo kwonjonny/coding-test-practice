@@ -35,6 +35,41 @@ import java.util.Scanner;
  */
 public class A_TwoPointers1 {
 
+    /**
+     * 재 복습: 2025-01-13
+     */
+    public static class ATwoPointers7 {
+        public static void main(String[] args) {
+            ATwoPointers7 aTwoPointers7 = new ATwoPointers7();
+            Scanner scan = new Scanner(System.in);
+            Integer first = scan.nextInt();
+            Integer[] firstArray = new Integer[first];
+            for(int i = 0; i < first; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            Integer second = scan.nextInt();
+            Integer[] secondArray = new Integer[second];
+            for(int i = 0; i < second; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            aTwoPointers7.solution(first, firstArray, second, secondArray);
+        }
+        public void solution(Integer first, Integer[] firstArray, Integer second, Integer[] secondArray) {
+            int firstPointer = 0;
+            int secondPointer = 0;
+            List<Integer> answer = new ArrayList<>();
+            while(first > firstPointer && second > secondPointer) {
+                if(firstArray[firstPointer].equals(secondArray[secondPointer])) answer.add(firstArray[firstPointer++]);
+                else answer.add(secondArray[secondPointer++]);
+            }
+            while(first > firstPointer) answer.add(firstArray[firstPointer++]);
+            while(second > secondPointer) answer.add(secondArray[secondPointer++]);
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
