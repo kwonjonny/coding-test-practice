@@ -23,6 +23,34 @@ import java.util.*;
 public class A1_Stack {
 
     /**
+     * 재 복습: 2025-01-13
+     */
+    public static class A1Stack5 {
+        public static void main(String[] args) {
+            A1Stack5 a1Stack5 = new A1Stack5();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a1Stack5.solution(str);
+        }
+        public void solution(String str) {
+            String answer = "YES";
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(x.equals('(')) {
+                    stack.push(x);
+                }
+                else {
+                    if(!stack.isEmpty()) answer = "NO";
+                    else stack.pop();
+                }
+            }
+            if(stack.isEmpty()) answer = "YES";
+            else answer = "NO";
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-08
      */
     public static class A1Stack4 {
