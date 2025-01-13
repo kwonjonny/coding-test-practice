@@ -33,6 +33,45 @@ import java.util.*;
  */
 public class A_TwoPointers2 {
 
+    /**
+     * 재 복습: 2025-01-13
+     */
+    public static class ATwoPointers7 {
+        public static void main(String[] args) {
+            ATwoPointers7 aTwoPointers7 = new ATwoPointers7();
+            Scanner scan = new Scanner(System.in);
+            Integer firstLength = scan.nextInt();
+            Integer[] firstArray = new Integer[firstLength];
+            for(int i = 0; i < firstLength; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            Integer secondLength = scan.nextInt();
+            Integer[] secondArray = new Integer[secondLength];
+            for(int i = 0; i < secondLength; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            aTwoPointers7.solution(firstLength, firstArray, secondLength, secondArray);
+        }
+        public void solution(Integer firstLength, Integer[] firstArray, Integer secondLength, Integer[] secondArray) {
+            Arrays.sort(firstArray); Arrays.sort(secondArray);
+            int firstPointer = 0;
+            int secondPointer = 0;
+            List<Integer> answer = new ArrayList<>();
+            while(firstLength > firstPointer && secondLength > secondPointer) {
+                if(firstArray[firstPointer].equals(secondArray[secondPointer])) {
+                    answer.add(firstArray[firstPointer++]);
+                    secondPointer++;
+                }
+                else if (firstArray[firstPointer] > secondArray[secondPointer]) secondPointer++;
+                else if (firstArray[firstPointer] < secondArray[secondPointer]) firstPointer++;
+            }
+
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer aCount = scan.nextInt();
