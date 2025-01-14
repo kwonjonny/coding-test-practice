@@ -43,6 +43,45 @@ import java.util.*;
  */
 public class A3_Hash {
 
+    /*
+     * 재 복습: 2025-01-14
+     */
+    public static class A3Hash5 {
+        public static void main(String[] args) {
+            A3Hash5 a3Hash5 = new A3Hash5();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a3Hash5.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            HashMap<Integer, Integer> hashMap = new LinkedHashMap<>();
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < order; i++) {
+                int findInt = intArray[i];
+                hashMap.put(findInt, hashMap.getOrDefault(findInt, 0) + 1);
+            }
+            answer.add(hashMap.size());
+
+            for(int right = order; right < length; right++) {
+                int rightInt = intArray[right];
+                hashMap.put(rightInt, hashMap.getOrDefault(rightInt, 0) + 1);
+
+                int leftInt = intArray[right - order];
+                hashMap.put(leftInt, hashMap.get(leftInt) - 1);
+                if(hashMap.get(leftInt) == 0) hashMap.remove(leftInt);
+                answer.add(hashMap.size());
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     /**
      * 재 복습: 2025-01-09
      */
