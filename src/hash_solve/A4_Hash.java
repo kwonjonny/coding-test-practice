@@ -29,6 +29,45 @@ import java.util.Scanner;
  */
 public class A4_Hash {
 
+    /*
+     * 재 복습: 2025-01-14
+     */
+    public static class A4Hash3 {
+        public static void main(String[] args) {
+            A4Hash3 a4Hash3 = new A4Hash3();
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            a4Hash3.solution(first, second);
+        }
+        public void solution(String firstStr, String secondStr) {
+            HashMap<Character, Integer> firstMap = new LinkedHashMap<>();
+            HashMap<Character, Integer> secondMap = new LinkedHashMap<>();
+            int answer = 0;
+
+            for(int i = 0; i < secondStr.length(); i++) {
+                char findChar = firstStr.charAt(i);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(int i = 0; i < secondStr.length(); i++) {
+                char findChar = secondStr.charAt(i);
+                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
+            }
+            if(firstMap.equals(secondMap)) answer++;
+            for(int right = secondStr.length(); right < firstStr.length(); right++) {
+                char findChar = firstStr.charAt(right);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+
+                char leftChar = firstStr.charAt(right - secondStr.length());
+                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
+                if(firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
+
+                if(firstMap.equals(secondMap)) answer++;
+            }
+            System.out.println(answer);
+        }
+    }
+
     /**
      * 재 복습: 2025-01-09
      */
