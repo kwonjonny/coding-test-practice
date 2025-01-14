@@ -30,6 +30,38 @@ import java.util.Scanner;
 public class A_Searching3 {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class ASearching5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching5.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Arrays.sort(intArray);
+            int left = 0;
+            int right = length - 1;
+            int answer = 0;
+            while(right > left) {
+                int mid = (left + right) / 2;
+                if(target.equals(intArray[mid])) {
+                    answer = mid + 1;
+                    break;
+                }
+                else if (intArray[mid] > target) right = mid + 1;
+                else left = mid - 1;
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-13
      */
     public static class ASearching4 {
