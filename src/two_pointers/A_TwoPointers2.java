@@ -34,6 +34,45 @@ import java.util.*;
 public class A_TwoPointers2 {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class ATwoPointers8 {
+        public static void main(String[] args) {
+            ATwoPointers8 aTwoPointers8 = new ATwoPointers8();
+            Scanner scan = new Scanner(System.in);
+            Integer first = scan.nextInt();
+            Integer[] firstArray = new Integer[first];
+            for(int i = 0; i < first; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            Integer second = scan.nextInt();
+            Integer[] secondArray = new Integer[second];
+            for(int i = 0; i < second; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            aTwoPointers8.solution(first, firstArray, second, secondArray);
+        }
+        public void solution(Integer first, Integer[] firstArray, Integer second, Integer[] secondArray) {
+            Arrays.sort(firstArray);
+            Arrays.sort(secondArray);
+            List<Integer> answser = new ArrayList<>();
+            int firstP = 0;
+            int secondP = 0;
+            while(first > firstP && second > secondP) {
+                if(firstArray[firstP].equals(secondArray[secondP])) {
+                    answser.add(firstArray[firstP++]);
+                    secondP++;
+                }
+                else if (firstArray[firstP] > secondArray[secondP]) secondP++;
+                else if (firstArray[firstP] < secondArray[secondP]) firstP++;
+            }
+            for(Integer x : answser) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-13
      */
     public static class ATwoPointers7 {
