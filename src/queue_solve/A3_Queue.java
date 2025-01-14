@@ -47,13 +47,66 @@ import java.util.Scanner;
  * 3
  *
  * 예시 입력 2
- * 6 3
- * 70 60 90 60 60 60
+     6 3
+     70 60 90 60 60 60
  *
  * 예시 출력 2
  * 4
  */
 public class A3_Queue {
+
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A3Queue4 {
+        public static void main(String[] args) {
+            A3Queue4 a3Queue4 = new A3Queue4();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            a3Queue4.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            Queue<Person4> queue = new LinkedList<>();
+            for(int i = 0; i < length; i++) {
+                queue.offer(new Person4(i, intArray[i]));
+            }
+            int answer = 0;
+            while(!queue.isEmpty()) {
+                Person4 temp = queue.poll();
+                for(Person4 x : queue) {
+                    if(x.order > temp.order) {
+                        queue.offer(temp);
+                        temp = null;
+                        break;
+                    }
+                }
+                if(temp != null) {
+                    answer++;
+                    if(order.equals(temp.getId())) System.out.println(answer);
+                }
+            }
+        }
+        public static class Person4 {
+            private Integer id;
+            private Integer order;
+            public Person4(Integer id, Integer order) {
+                this.id = id;
+                this.order = order;
+            }
+            public Integer getId() {
+                return id;
+            }
+            public Integer getOrder() {
+                return order;
+            }
+        }
+    }
+
 
     /**
      * 재 복습: 2025-01-13
