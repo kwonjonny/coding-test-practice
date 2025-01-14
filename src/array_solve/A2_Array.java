@@ -5,27 +5,53 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *  보이는 학생
- *
+ * 보이는 학생
+ * <p>
  * 설명: 선생님이 N명의 학생을 일렬로 세웠습니다. 일렬로 서 있는 학생의 키가 앞에서부터 순서대로 주어질 때, 맨 앞에 서 있는
- *
+ * <p>
  * 선생님이 볼 수 있는 학생의 수를 구하는 프로그램을 작성하세요. (앞에 서 있는 사람들보다 크면 보이고, 작거나 같으면 보이지 않습니다.)
- *
- *
+ * <p>
+ * <p>
  * 입력:
  * - 첫 줄에 정수 N(5<=N<=100,000)이 입력된다. 그 다음줄에 N명의 학생의 키가 앞에서부터 순서대로 주어진다.
- *
+ * <p>
  * 출력:
  * - 선생님이 볼 수 있는 최대학생수를 출력한다.
- *
+ * <p>
  * 예제:
  * 입력:
      8
      130 135 148 140 145 150 150 153
  * 출력:
- *   5
+ * 5
  */
 public class A2_Array {
+
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A2Array8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for (int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A2Array8.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            int answer = 0;
+            int maxHeight = 0;
+            for (int i = 0; i < length; i++) {
+                if(intArray[i] > maxHeight) {
+                    maxHeight = intArray[i];
+                    answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 
     /**
      * 재 복습: 2025-01-10
@@ -36,16 +62,17 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer length = scan.nextInt();
             Integer[] intArray = new Integer[length];
-            for(int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 intArray[i] = scan.nextInt();
             }
             a2Array7.solution(length, intArray);
         }
+
         public void solution(Integer length, Integer[] intArray) {
             int answer = 0;
             int max = 0;
-            for(int i = 0; i < length; i++) {
-                if(max < intArray[i]) {
+            for (int i = 0; i < length; i++) {
+                if (max < intArray[i]) {
                     max = intArray[i];
                     answer++;
                 }
@@ -63,16 +90,17 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer length = scan.nextInt();
             Integer[] intArray = new Integer[length];
-            for(int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 intArray[i] = scan.nextInt();
             }
             a2Array6.solution(length, intArray);
         }
+
         public void solution(Integer length, Integer[] intArray) {
             int maxHeight = 0;
             int cnt = 1;
-            for(int i = 1; i < length; i++) {
-                if(maxHeight < intArray[i]) {
+            for (int i = 1; i < length; i++) {
+                if (maxHeight < intArray[i]) {
                     maxHeight = intArray[i];
                     cnt++;
                 }
@@ -80,8 +108,6 @@ public class A2_Array {
             System.out.println(cnt);
         }
     }
-
-
 
 
     public static void main(String[] args) {
@@ -152,7 +178,7 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer count = scan.nextInt();
             Integer[] studentArray = new Integer[count];
-            for(int i = 0; i < count; i++) {
+            for (int i = 0; i < count; i++) {
                 studentArray[i] = scan.nextInt();
             }
 
@@ -164,10 +190,10 @@ public class A2_Array {
             Integer studentCount = 1;
             Integer maxHeight = studentArray[0];
 
-            for(int i = 0; i < count; i++) {
-                if(maxHeight < studentArray[i]) {
+            for (int i = 0; i < count; i++) {
+                if (maxHeight < studentArray[i]) {
                     maxHeight = studentArray[i];
-                    studentCount ++ ;
+                    studentCount++;
                 }
             }
             return studentCount;
@@ -183,15 +209,16 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer count = scan.nextInt();
             Integer[] intArray = new Integer[count];
-            for(int i = 0; i < count; i++) {
+            for (int i = 0; i < count; i++) {
                 intArray[i] = scan.nextInt();
             }
             System.out.println(a2Array1.solution(count, intArray));
         }
+
         public Integer solution(Integer count, Integer[] intArray) {
             Integer studentCount = 0;
-            for(int i = 0; i < count; i++) {
-                if(i < intArray.length -1 && intArray[i] < intArray[i +1]) {
+            for (int i = 0; i < count; i++) {
+                if (i < intArray.length - 1 && intArray[i] < intArray[i + 1]) {
                     studentCount++;
                 }
             }
@@ -208,15 +235,16 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer count = scan.nextInt();
             Integer[] intArray = new Integer[count];
-            for(int i = 0; i < count; i++) {
+            for (int i = 0; i < count; i++) {
                 intArray[i] = scan.nextInt();
             }
             System.out.println(a2Array2.solution(count, intArray));
         }
+
         public Integer solution(Integer count, Integer[] intArray) {
             Integer answer = 0;
-            for(int i = 0; i < count; i++) {
-                if(i < intArray.length - 1 && intArray[i] < intArray[i +1]) {
+            for (int i = 0; i < count; i++) {
+                if (i < intArray.length - 1 && intArray[i] < intArray[i + 1]) {
                     answer++;
                 }
             }
@@ -233,18 +261,19 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer length = scan.nextInt();
             Integer[] intArray = new Integer[length];
-            for(int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 intArray[i] = scan.nextInt();
             }
             System.out.println(a2Array3.solution(length, intArray));
         }
+
         public Integer solution(Integer length, Integer[] intArray) {
             Integer answer = 0;
             Integer maxHigh = 0;
 
-            for(int i = 0; i < length; i++) {
-                if(intArray[i] > maxHigh) {
-                    answer ++;
+            for (int i = 0; i < length; i++) {
+                if (intArray[i] > maxHigh) {
+                    answer++;
                     maxHigh = intArray[i];
                 }
             }
@@ -261,17 +290,18 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer length = scan.nextInt();
             Integer[] intArray = new Integer[length];
-            for(int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 intArray[i] = scan.nextInt();
             }
             Integer answer = a2Array4.solution(length, intArray);
             System.out.println(answer);
         }
+
         public Integer solution(Integer length, Integer[] intArray) {
             Integer answer = 1;
             Integer max = intArray[0];
-            for(int i = 1; i < length; i++) {
-                if(intArray[i] > max) {
+            for (int i = 1; i < length; i++) {
+                if (intArray[i] > max) {
                     max = intArray[i];
                     answer++;
                 }
@@ -289,16 +319,17 @@ public class A2_Array {
             Scanner scan = new Scanner(System.in);
             Integer length = scan.nextInt();
             Integer[] intArray = new Integer[length];
-            for(int i = 0; i < length; i++) {
+            for (int i = 0; i < length; i++) {
                 intArray[i] = scan.nextInt();
             }
             a2Array5.solution(length, intArray);
         }
+
         public void solution(Integer length, Integer[] intArray) {
             int max = 0;
             int cnt = 0;
-            for(int i = 0; i < length; i++) {
-                if(intArray[i] > max) {
+            for (int i = 0; i < length; i++) {
+                if (intArray[i] > max) {
                     max = intArray[i];
                     cnt++;
                 }
