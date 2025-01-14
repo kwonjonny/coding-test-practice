@@ -23,6 +23,26 @@ import java.util.Scanner;
  */
 public class A2_String {
 
+    /**
+     * 재 복습: 2024-01-14
+     */
+    public static class A2String8 {
+        public static void main(String[] args) {
+            A2String8 a2String8 = new A2String8();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            a2String8.solution(str);
+        }
+        public void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isLowerCase(x)) stringBuilder.append(Character.toUpperCase(x));
+                else stringBuilder.append(Character.toLowerCase(x));
+            }
+            System.out.println(stringBuilder);
+        }
+    }
+
     public static void main(String [] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
