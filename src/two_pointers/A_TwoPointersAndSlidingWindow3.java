@@ -31,6 +31,39 @@ import java.util.Scanner;
  */
 public class A_TwoPointersAndSlidingWindow3 {
 
+    /*
+     * 재 복습: 2025-01-14
+     */
+    public static class ATwoPointersAndSlidingWindow7 {
+        public static void main(String[] args) {
+            ATwoPointersAndSlidingWindow7 aTwoPointersAndSlidingWindow7 = new ATwoPointersAndSlidingWindow7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aTwoPointersAndSlidingWindow7.solution(length, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            int zeroCount = 0;
+            int left = 0;
+            int maxLength = 0;
+            for(int right = 0; right < length; right++) {
+                if(intArray[right] == 0) zeroCount++;
+                while(zeroCount > order) {
+                   if(intArray[left] == 0) {
+                        zeroCount--;
+                   }
+                   left++;
+                }
+                maxLength = Math.max(maxLength, right - left + 1);
+            }
+            System.out.println(maxLength);
+        }
+    }
+
     /**
      * 재 복습: 2025-01-13
      */
