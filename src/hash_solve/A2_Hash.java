@@ -43,6 +43,39 @@ import java.util.Scanner;
 public class A2_Hash {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A2Hash7 {
+        public static void main(String[] args) {
+            A2Hash7 a2Hash7 = new A2Hash7();
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            a2Hash7.solution(first, second);
+        }
+        public void solution(String first, String second) {
+            HashMap<Character, Integer> firstMap = new LinkedHashMap<>();
+            for(int i = 0; i < first.length(); i++) {
+                char findChar = first.charAt(i);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(int i = 0; i < second.length(); i++) {
+                char findChar = second.charAt(i);
+                if(firstMap.containsKey(findChar) && firstMap.get(findChar) != 0) {
+                    firstMap.put(findChar, firstMap.get(findChar) - 1);
+                }
+            }
+            String answer = "";
+            for(Map.Entry<Character, Integer> x : firstMap.entrySet()) {
+                if(x.getValue().equals(0)) {
+                    answer = "YES";
+                } else answer = "NO";
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-09
      */
     public static class A2Hash6 {
