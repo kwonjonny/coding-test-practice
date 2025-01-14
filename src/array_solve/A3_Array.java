@@ -45,6 +45,38 @@ import java.util.Scanner;
 public class A3_Array {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A3Array9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] A = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                A[i] = scan.nextInt();
+            }
+            Integer[] B = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                B[i] = scan.nextInt();
+            }
+            A3Array9.solution(length, A, B);
+        }
+        public static void solution(Integer length, Integer[] A, Integer[] B) {
+            List<String> answer = new ArrayList<>();
+            for(int i = 0; i < length; i++) {
+                Integer a = A[i];
+                Integer b = B[i];
+                if(a.equals(b)) answer.add("D");
+                else if (a.equals(1) && b.equals(3) || a.equals(2) && b.equals(1) || a.equals(3) && b.equals(2)) answer.add("A");
+                else answer.add("B");
+            }
+            for(String x : answer) {
+                System.out.println(x);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-10
      */
     public static class A3Array8 {
