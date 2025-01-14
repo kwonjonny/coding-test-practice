@@ -21,6 +21,29 @@ import java.util.Scanner;
  * 1 1 2 3 5 8 13 21 34 55
  */
 public class A_StackFrame4 {
+
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class AStackFrame4 {
+        static int[] fivort;
+
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            fivort = new int[order + 1];
+            DFS(order);
+            for(int i = 1; i <= order; i++) {
+                System.out.print(fivort[i] + " ");
+            }
+        }
+        public static Integer DFS(Integer order) {
+            if (order == 1) return fivort[order] = 1;
+            else if (order == 2) return fivort[order] = 1;
+            return fivort[order] = DFS(order - 1) + DFS(order - 2);
+        }
+    }
+
     static int[] fibo;
 
     public static void main(String[] args) {
