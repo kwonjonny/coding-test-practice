@@ -28,6 +28,29 @@ import java.util.Scanner;
  */
 public class A1_String {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A1String9 {
+        public static void main(String[] args) {
+            A1String9 a1String9 = new A1String9();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            Character c = scan.next().charAt(0);
+            a1String9.solution(str, c);
+        }
+        public void solution(String str, Character c) {
+            int answer = 0;
+            str = str.toLowerCase();
+            for(Character x : str.toCharArray()) {
+                if(c.equals(x)) {
+                    answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
