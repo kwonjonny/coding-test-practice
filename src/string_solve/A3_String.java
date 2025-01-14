@@ -24,6 +24,31 @@ import java.util.Scanner;
  */
 public class A3_String {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A3String8 {
+        public static void main(String[] args) {
+            A3String8 a3String8 = new A3String8();
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            a3String8.solution(str);
+        }
+        public void solution(String str) {
+            String[] splitStr = str.split(" ");
+            String answer = "";
+            int max = 0;
+            for(String x : splitStr) {
+                if(x.length() > max) {
+                    max = x.length();
+                    answer = x;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
