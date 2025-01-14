@@ -76,6 +76,51 @@ import java.util.Stack;
 public class A3_Stack {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A3Stack5 {
+        public static void main(String[] args) {
+            A3Stack5 a3Stack5 = new A3Stack5();
+            Scanner scan = new Scanner(System.in);
+            Integer boardLength = scan.nextInt();
+            Integer[][] boardArray = new Integer[boardLength][boardLength];
+            for(int i = 0; i < boardLength; i++) {
+                for(int j = 0; j < boardLength; j++) {
+                    boardArray[i][j] = scan.nextInt();
+                }
+            }
+            Integer moves = scan.nextInt();
+            Integer[] movesArray = new Integer[moves];
+            for(int i = 0; i < moves; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            a3Stack5.solution(boardLength, boardArray, moves, movesArray);
+        }
+        public void solution(Integer boardLength, Integer[][] boardArray, Integer moves, Integer[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+            for(Integer x : movesArray) {
+                int pickUp = x - 1;
+                for(int i = 0; i < boardLength; i++) {
+                    int doll = boardArray[i][pickUp];
+                    boardArray[i][pickUp] = 0;
+                    if(doll != 0) {
+                        if(!stack.isEmpty() && stack.peek().equals(doll)) {
+                            stack.pop();
+                            answer = answer + 2;
+                        }
+                        else {
+                            stack.push(doll);
+                        }
+                        break;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-10
      */
     public static class A3Stack4 {
