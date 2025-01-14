@@ -26,6 +26,23 @@ import java.util.Scanner;
  */
 public class A7_String {
 
+    /**
+     * 재 복습: 2024-01-14
+     */
+    public static class A7String8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A7String8.solution(str);
+        }
+        public static void solution(String str) {
+            str = str.toLowerCase();
+            String reverse = new StringBuilder(str).reverse().toString();
+            if(str.equals(reverse)) System.out.println("YES");
+            else System.out.println("NO");
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
