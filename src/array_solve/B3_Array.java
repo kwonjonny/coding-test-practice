@@ -39,6 +39,48 @@ import java.util.Scanner;
 public class B3_Array {
 
     /**
+     * 재 복습: 2024-01-14
+     * 왜 index 를 1부터 시작하는지 생각해보자 
+     */
+    public static class B3Array6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer testCount = scan.nextInt();
+            Integer[][] intArray = new Integer[testCount + 1][length + 1];
+            for(int i = 1; i <= testCount; i++) {
+                for(int j = 1; j <= length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            B3Array6.solution(length, testCount, intArray);
+        }
+        public static void solution(Integer length, Integer testCount, Integer[][] intArray) {
+            int ansewr = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean canMentor = true;
+                    for(int t = 1; t <= testCount; t++) {
+                        int menteeScore = 0;
+                        int mentorScore = 0;
+                        for(int i = 1; i <= length; i++) {
+                            if(intArray[t][i] == mentor) mentorScore = i;
+                            if(intArray[t][i] == mentee) menteeScore = i;
+                        }
+                        if(mentorScore > menteeScore) {
+                            canMentor = false;
+                            break;
+                        }
+                    }
+                    if(canMentor) ansewr++;
+                }
+            }
+            System.out.println(ansewr);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-10
      */
     public static class B3Array5 {
