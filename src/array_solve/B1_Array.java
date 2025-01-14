@@ -47,6 +47,45 @@ import java.util.Scanner;
 public class B1_Array {
 
     /**
+     * 재 복습: 2024-01-14
+     */
+    public static class B1Array10 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[][] intArray = new Integer[length][length];
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            B1Array10.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[][] intArray) {
+            int[] nx = {-1, 0, 1, 0};
+            int[] ny = {0, 1, 0, -1};
+            int answer = 0;
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    boolean isPeak = true;
+                    for(int t = 0; t < 4; t++) {
+                        int dx = i + nx[t];
+                        int dy = j + ny[t];
+                        if(dx >= 0 && dx < length && dy >= 0 && dy < length) {
+                            if(intArray[i][j] < intArray[dx][dy]) {
+                                isPeak = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(isPeak) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-10
      */
     public static class B1Array9 {
