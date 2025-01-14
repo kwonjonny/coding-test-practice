@@ -30,6 +30,26 @@ import java.util.Scanner;
  */
 public class A4_String {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A4String8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String[] strArray = new String[length];
+            for(int i = 0; i < length; i++) {
+                strArray[i] = scan.next();
+            }
+            A4String8.solution(length, strArray);
+        }
+        public static void solution(Integer length, String[] array) {
+            for(String x : array) {
+                System.out.println(new StringBuilder(x).reverse());
+            }
+        }
+    }
+
     public static void main(String [] args) {
         Scanner scan = new Scanner(System.in);
         Integer scanner = scan.nextInt();
