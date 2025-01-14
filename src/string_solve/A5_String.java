@@ -24,6 +24,29 @@ import java.util.Stack;
  */
 public class A5_String {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A5String8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A5String8.solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) stack.push(x);
+            }
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) stringBuilder.append(stack.pop());
+                else stringBuilder.append(x);
+            }
+            System.out.println(stringBuilder);
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
