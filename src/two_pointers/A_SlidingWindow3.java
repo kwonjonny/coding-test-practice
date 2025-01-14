@@ -40,6 +40,35 @@ import java.util.Scanner;
 public class A_SlidingWindow3 {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class ASlidingWindow9 {
+        public static void main(String[] args) {
+            ASlidingWindow8 aSlidingWindow8 = new ASlidingWindow8();
+            Scanner scan = new Scanner(System.in);
+            Integer legnth = scan.nextInt();
+            Integer order = scan.nextInt();
+            Integer[] intArray = new Integer[legnth];
+            for(int i = 0; i < legnth; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            aSlidingWindow8.solution(legnth, order, intArray);
+        }
+        public void solution(Integer length, Integer order, Integer[] intArray) {
+            int currentSum = 0;
+            for(int i = 0; i < order; i++) {
+                currentSum = currentSum + intArray[i];
+            }
+            int max = currentSum;
+            for(int right = order; right < length; right++) {
+                currentSum = currentSum + (intArray[right] - intArray[right - order]);
+                max = Math.max(max, currentSum);
+            }
+            System.out.println(max);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-13
      */
     public static class ASlidingWindow8 {
