@@ -31,6 +31,52 @@ import java.util.Scanner;
  */
 public class A9_Array {
 
+    /**
+     * 재 복습: 2024-01-14
+     */
+    public static class A9Array10 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[][] intArray = new Integer[length][length];
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            A9Array10.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[][] intArray) {
+            int sum1 , sum2;
+            int max = 0;
+            for(int i = 0; i < length; i++) {
+                sum1 = 0;
+                sum2 = 0;
+                for(int j = 0; j < length; j++) {
+                    sum1 = sum1 + intArray[i][j];
+                    sum2 = sum2 + intArray[j][j];
+                }
+                max = Math.max(max, sum1);
+                max = Math.max(max, sum2);
+            }
+
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < length; i++) {
+                sum1 = sum1 + intArray[i][i];
+                sum2 = sum2 + intArray[i][length - i - 1];
+            }
+            max = Math.max(max, sum1);
+            max = Math.max(max, sum2);
+            System.out.println(max);
+        }
+    }
+
+
+
+
+
+
     /*
      * 재복습: 2025-01-10
      */
