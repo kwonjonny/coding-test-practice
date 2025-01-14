@@ -26,6 +26,31 @@ import java.util.Scanner;
 public class A5_Array {
 
     /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A5Array9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            A5Array9.solution(order);
+        }
+        public static void solution(Integer order) {
+            int[] array = new int[order + 1];
+            int answer = 0;
+
+            for(int i = 2; i <= order; i++) {
+                if(array[i] == 0) {
+                    answer ++;
+                    for(int j = i * i; j <= order; j = j + i) {
+                        array[j] = 1;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-10
      */
     public static class A5Array8 {
