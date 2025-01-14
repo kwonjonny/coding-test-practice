@@ -39,6 +39,39 @@ import java.util.Scanner;
  */
 public class A_Sorting5 {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class ASorting6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            List<Point6> answer = new ArrayList<>();
+            Integer order = scan.nextInt();
+            for(int i = 0; i < order; i++) {
+                int x = scan.nextInt();
+                int y = scan.nextInt();
+                answer.add(new Point6(x, y));
+            }
+            Collections.sort(answer);
+            for(Point6 x: answer) {
+                System.out.println(x.x + " " + x.y);
+            }
+        }
+        public static class Point6 implements Comparable<Point6>{
+            private int x;
+            private int y;
+            public Point6(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+            @Override
+            public int compareTo(Point6 other) {
+                if(this.x == other.x) return this.y - other.y;
+                else return this.x - other.x;
+            }
+        }
+    }
+
     /*
      * 재 복습: 2025-01-11
      */
