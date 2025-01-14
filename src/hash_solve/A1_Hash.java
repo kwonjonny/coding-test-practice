@@ -34,6 +34,31 @@ import java.util.Scanner;
  */
 public class A1_Hash {
 
+    public static class A1Hash7 {
+        public static void main(String[] args) {
+            A1Hash7 a1Hash7 = new A1Hash7();
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            a1Hash7.solution(length, str);
+        }
+        public void solution(Integer length, String str) {
+            HashMap<Character, Integer> hashMap = new LinkedHashMap<>();
+            for(Character x : str.toCharArray()) {
+                hashMap.put(x, hashMap.getOrDefault(x , 0) + 1);
+            }
+            Character answer = null;
+            int max = 0;
+            for(Map.Entry<Character, Integer> x : hashMap.entrySet()) {
+                if(x.getValue() > max) {
+                    max = x.getValue();
+                    answer = x.getKey();
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
     /**
      * 재 복습: 2025-01-09
      */
