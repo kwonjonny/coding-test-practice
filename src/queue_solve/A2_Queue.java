@@ -45,6 +45,32 @@ import java.util.Scanner;
  */
 public class A2_Queue {
 
+    /**
+     * 재 복습: 2025-01-14
+     */
+    public static class A2Queue3 {
+        public static void main(String[] args) {
+            A2Queue3 a2Queue3 = new A2Queue3();
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            a2Queue3.solution(first, second);
+        }
+        public void solution(String first, String second) {
+            Queue<Character> queue = new LinkedList<>();
+            for(Character x : first.toCharArray()) {
+                queue.offer(x);
+            }
+            for(Character x : second.toCharArray()) {
+                if(!queue.isEmpty() && queue.peek() == x) {
+                    queue.poll();
+                }
+            }
+            String answer = queue.isEmpty() ? "YES" : "NO";
+            System.out.println(answer);
+        }
+    }
+
     /*
      * 재 복습: 2025-01-10
      */
