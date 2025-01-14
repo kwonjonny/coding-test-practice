@@ -58,6 +58,29 @@ import java.util.Scanner;
 public class B3_String {
 
     /**
+     * 재 복습: 2024-01-14
+     */
+    public static class B3String8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            String str = scan.next();
+            B3String8.solution(length, str);
+        }
+        public static void solution(Integer length, String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(int i = 0; i < length; i++) {
+                String subString = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                int parseInt = Integer.parseInt(subString, 2);
+                char parseChar = (char) parseInt;
+                str = str.substring(7);
+                stringBuilder.append(parseChar);
+            }
+            System.out.println(stringBuilder);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-13 
      */
     public static class B3String7 {
