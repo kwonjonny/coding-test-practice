@@ -45,7 +45,7 @@ import java.util.Stack;
  * 예제 출력 2
  * 5
  */
-public class Bronze_17608 {
+public class Bronze2_17608 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
