@@ -35,7 +35,7 @@ import java.util.Stack;
  * 0
  * 예제 출력 1
  * 0
- * 
+ *
  * 예제 입력 2
  * 10
  * 1
@@ -51,7 +51,7 @@ import java.util.Stack;
  * 예제 출력 2
  * 7
  */
-public class Silver4 {
+public class Silver4_10773 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer order = scan.nextInt();
