@@ -59,7 +59,7 @@ import java.util.Stack;
  * -1
  * 0
  * 3
- * 
+ *
  * 예제 입력 2
  * 7
  * pop
@@ -77,7 +77,7 @@ import java.util.Stack;
  * -1
  * -1
  */
-public class Silver_10828 {
+public class Silver4_10828 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
