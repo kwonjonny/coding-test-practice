@@ -20,13 +20,43 @@ import java.util.Scanner;
  * 오름차순으로 정렬된 수열을 출력합니다.
  *
  * 예시 입력 1
- * 6
- * 11 7 5 6 10 9
+    6
+    11 7 5 6 10 9
  *
  * 예시 출력 1
  * 5 6 7 9 10 11
  */
 public class A_Sorting3 {
+
+    /**
+     * 재 복습: 2025-01-18
+     */
+    public static class ASorting3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASorting3.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            for(int i = 0; i < length; i++) {
+                int j;
+                int temp = intArray[i];
+                for(j = i - 1; j >= 0; j--) {
+                    if(intArray[j] > temp) intArray[j + 1] = intArray[j];
+                    else break;
+                }
+                intArray[j + 1] = temp;
+            }
+            for(Integer x : intArray) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer lenth = scan.nextInt();
