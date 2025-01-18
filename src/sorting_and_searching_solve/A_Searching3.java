@@ -30,7 +30,7 @@ import java.util.Scanner;
 public class A_Searching3 {
 
     /**
-     * 재 복습: 2025-01-18 
+     * 재 복습: 2025-01-18
      */
     public static class ASearching6 {
         public static void main(String[] args) {
