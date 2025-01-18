@@ -1,9 +1,6 @@
 package sorting_and_searching_solve;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 중복 확인
@@ -35,6 +32,27 @@ import java.util.Scanner;
  * U
  */
 public class A_Searching1 {
+
+    public static class ASearching3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching3.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            Arrays.sort(intArray);
+            String answer = "";
+            for(int i = 0; i < length - 1; i++) {
+                if(Objects.equals(intArray[i], intArray[i + 1])) answer = "D";
+                else answer = "U";
+            }
+            System.out.println(answer);
+        }
+    }
 
     /**
      * 재 복습: 2025-01-14
