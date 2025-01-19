@@ -23,6 +23,29 @@ import java.util.Scanner;
 public class A_StackFrame4 {
 
     /**
+     * 재 복습: 2025-01-19
+     */
+    public static class AStackFrame5 {
+        static int[] fibo;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            fibo = new int[order + 1];
+            AStackFrame5.DFS(order);
+            for(int i = 1; i < fibo.length; i++) {
+                System.out.print(fibo[i] + " ");
+            }
+        }
+        public static Integer DFS(Integer order) {
+            if(order == 1) return fibo[order] = 1;
+            else if (order == 2) return fibo[order] = 1;
+            else {
+                return fibo[order] = DFS(order - 2) + DFS(order - 1);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class AStackFrame4 {
