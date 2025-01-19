@@ -48,6 +48,65 @@ import java.util.Scanner;
 public class A_Searching4 {
 
     /**
+     * 재 복습: 2025-01-19
+     */
+    public static class ASearching5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching5.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            int left = ASearching5.max(intArray);
+            int right = ASearching5.sum(intArray);
+            int answer = 0;
+            while(right >= left) {
+                int mid = (left + right) / 2;
+                if(ASearching5.count(intArray,target,mid)) {
+                    answer = mid;
+                    right = mid - 1;
+                }
+                else left = mid + 1;
+            }
+            System.out.println(answer);
+        }
+        public static Boolean count(Integer[] intArray, Integer target, Integer mid) {
+            int dvdCount = 1;
+            int currentSum = 0;
+            for(Integer x : intArray) {
+                if(currentSum + x > mid) {
+                    dvdCount++;
+                    currentSum = x;
+                    if(dvdCount > target) {
+                        return false;
+                    }
+                }
+                else currentSum = currentSum + x;
+            }
+            return true;
+        }
+        public static Integer sum(Integer[] intArray) {
+            int currentSum = 0;
+            for(Integer x : intArray) {
+                currentSum = currentSum + x;
+            }
+            return currentSum;
+        }
+        public static Integer max(Integer[] intArray) {
+            int max = 0;
+            for(Integer x : intArray) {
+                if(x > max) max = x;
+            }
+            return max;
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-18
      */
     public static class ASearching4 {
