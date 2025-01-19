@@ -37,6 +37,48 @@ import java.util.Scanner;
  */
 public class A_Searching5 {
 
+    /**
+     * 재 복습: 2025-01-19
+     */
+    public static class ASearching5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Arrays.sort(intArray);
+            int left = 1;
+            int right = intArray[length - 1];
+            int answer = 0;
+            while(right >= left) {
+                int mid = (left + right) / 2;
+                if(ASearching5.count(intArray, mid) >= target) {
+                    answer = mid;
+                    left = mid + 1;
+                }
+                else right = mid - 1;
+            }
+            System.out.println(answer);
+        }
+        public static Integer count(Integer[] intArray, Integer distance) {
+            int horse  = 1;
+            int endPosition = intArray[0];
+            for(int i = 1; i < intArray.length; i++) {
+                if(intArray[i] - endPosition >= distance) {
+                    horse++;
+                    endPosition = intArray[i];
+                }
+            }
+            return horse;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer length = scan.nextInt();
