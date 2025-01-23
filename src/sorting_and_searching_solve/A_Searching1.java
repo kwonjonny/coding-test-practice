@@ -32,7 +32,7 @@ import java.util.*;
  * U
  */
 public class A_Searching1 {
-    
+
     /**
      * 재 복습: 2025-01-23
      */
