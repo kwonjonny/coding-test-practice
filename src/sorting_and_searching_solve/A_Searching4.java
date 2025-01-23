@@ -48,6 +48,67 @@ import java.util.Scanner;
 public class A_Searching4 {
 
     /**
+     * 재 복습: 2025-01-23
+     */
+    public static class ASearching6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching6.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            int left = ASearching6.minLength(intArray);
+            int right = ASearching6.max(intArray);
+            int answer = 0;
+            while(right >= left) {
+                int mid = (left + right) / 2;
+                if(count(mid, intArray, target)) {
+                    answer = mid;
+                    right--;
+                }
+                else mid = left++;
+            }
+            System.out.println(answer);
+        }
+        public static boolean count(Integer mid, Integer[] intArray, Integer target) {
+            int count = 1;
+            int currentSum = 0;
+            for(Integer x : intArray) {
+               if(currentSum + x > mid) {
+                   count++;
+                   currentSum = x;
+                   if(count > target) {
+                       return false;
+                   }
+               }
+               else currentSum = currentSum + x;
+            }
+            return true;
+        }
+        public static Integer minLength(Integer[] intArray) {
+            int min = 0;
+            for(Integer x : intArray) {
+                if(x > min) {
+                    min = x;
+                }
+            }
+            return min;
+        }
+        public static Integer max(Integer[] intArray) {
+            int sum = 0;
+            for(Integer x : intArray) {
+                sum = sum + x;
+            }
+            return sum;
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-19
      */
     public static class ASearching5 {
