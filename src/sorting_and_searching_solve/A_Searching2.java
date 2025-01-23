@@ -46,6 +46,34 @@ import java.util.*;
 public class A_Searching2 {
 
     /**
+     * 재 복습: 2025-01-23
+     */
+    public static class ASearching5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching5.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            Integer[] intArrayCopy = intArray.clone();
+            List<Integer> answer = new ArrayList<>();
+            Arrays.sort(intArray);
+            for(int i = 0; i < length; i++) {
+                if(!intArrayCopy[i].equals(intArray[i])) {
+                    answer.add(i + 1);
+                }
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-18
      */
     public static class ASearching4 {
