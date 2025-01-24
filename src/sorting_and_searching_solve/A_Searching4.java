@@ -48,6 +48,68 @@ import java.util.Scanner;
 public class A_Searching4 {
 
     /**
+     * 재 복습: 2025-01-24
+     */
+    public static class ASearching7 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching7.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Integer left = ASearching7.left(intArray);
+            Integer right = ASearching7.right(intArray);
+            Integer answer = 0;
+
+            while(right >= left) {
+                Integer mid = (left + right) / 2;
+                if(count(intArray, target, mid)) {
+                    answer = mid;
+                    mid = right--;
+                }
+                else mid = left++;
+            }
+            System.out.println(answer);
+        }
+        public static Boolean count(Integer[] intArray, Integer target, Integer mid) {
+            int dvdCount = 1;
+            int currentSum = 0;
+            for(Integer x : intArray) {
+                if(currentSum + x > mid) {
+                    dvdCount++;
+                    currentSum = x;
+                    if(dvdCount > target) {
+                        return false;
+                    }
+                }
+                else currentSum = currentSum + x;
+            }
+            return true;
+        }
+        public static Integer left(Integer[] intArray) {
+            int min = 0;
+            for(Integer x : intArray) {
+                if(x > min) {
+                    min = x;
+                }
+            }
+            return min;
+        }
+        public static Integer right(Integer[] intArray) {
+            int currentSum = 0;
+            for(Integer x : intArray) {
+                currentSum = currentSum + x;
+            }
+            return currentSum;
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-23
      */
     public static class ASearching6 {
