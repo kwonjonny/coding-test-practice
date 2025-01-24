@@ -30,6 +30,37 @@ import java.util.Scanner;
 public class A_Sorting1 {
 
     /**
+     * 재 복습: 2025-01-24
+     */
+    public static class ASorting6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASorting6.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            for(int i = 0; i < length - 1; i++) {
+                int idx = i;
+                for(int j = i + 1; j < length; j++) {
+                    if(intArray[i] > intArray[j]) {
+                        idx = j;
+                    }
+                }
+                int temp = intArray[i];
+                intArray[i] = intArray[idx];
+                intArray[idx] = temp;
+            }
+            for(Integer x : intArray) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-19
      */
     public static class ASorting5 {
