@@ -55,6 +55,48 @@ import java.util.Scanner;
  */
 public class A3_Queue {
 
+    public static class A3Queue5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A3Queue5.solution(length, target, intArray);
+        }
+        public static class Person5 {
+            private Integer id;
+            private Integer price;
+            public Person5(Integer id, Integer price) {
+                this.id = id;
+                this.price = price;
+            }
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Queue<Person5> queue = new LinkedList<>();
+            for(int i = 0; i < length; i++) {
+                queue.offer(new Person5(i, intArray[i]));
+            }
+            int answer = 0;
+            while(!queue.isEmpty()) {
+                Person5 temp = queue.poll();
+                for(Person5 x : queue) {
+                    if(temp.price > x.price) {
+                        queue.offer(temp);
+                        temp = null;
+                        break;
+                    }
+                }
+                if(temp != null) {
+                    answer++;
+                    if(target.equals(temp.id)) System.out.println(answer);
+                }
+            }
+        }
+    }
+
     /**
      * 재 복습: 2025-01-14
      */
