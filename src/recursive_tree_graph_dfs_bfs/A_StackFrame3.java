@@ -23,6 +23,24 @@ import java.util.Scanner;
 public class A_StackFrame3 {
 
     /**
+     * 재 복습: 2025-01-24
+     */
+    public static class AStackFrame5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            System.out.println(DFS(count));
+        }
+        public static Integer solution(Integer count) {
+            if(count == 0) return 1;
+            else {
+                int answer = 1;
+                return answer * DFS(count -1);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-19
      */
     public static class AStackFrame4 {
