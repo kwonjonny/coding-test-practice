@@ -38,6 +38,48 @@ import java.util.Scanner;
 public class A_Searching5 {
 
     /**
+     * 재 복습: 2025-01-31
+     */
+    public static class ASearching7 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching7.solution(length, target, intArray);
+        }
+        public static Integer count(Integer[] intArray, Integer mid) {
+            int horseCount = 1;
+            int endPosition = intArray[0];
+            for(int i = 1; i < intArray.length; i++) {
+                if(intArray[i] - endPosition >= mid) {
+                    horseCount++;
+                    endPosition = intArray[i];
+                }
+            }
+            return horseCount;
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Arrays.sort(intArray);
+            int left = 0;
+            int right = intArray[length - 1];
+            int answer = 0;
+            while(right >= left) {
+                int mid = (right + left) / 2;
+                if(count(intArray, mid) >= target) {
+                    answer = mid;
+                    mid = left++;
+                }
+                else mid = right--;
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-24
      */
     public static class ASearching6 {
