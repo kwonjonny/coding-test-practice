@@ -48,6 +48,33 @@ import java.util.Scanner;
 public class A1_Queue {
 
     /**
+     * 재 복습: 2025-01-31
+     */
+    public static class A1Queue6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer prince = scan.nextInt();
+            Integer target = scan.nextInt();
+            A1Queue6.solution(prince, target);
+        }
+        public static void solution(Integer prince, Integer target) {
+            Queue<Integer> princeQueue = new LinkedList<>();
+            for(int i = 1; i <= prince; i++) {
+                princeQueue.offer(i);
+            }
+            int answer = 0;
+            while(!princeQueue.isEmpty()) {
+                for(int i = 1; i < target; i++) {
+                    princeQueue.offer(princeQueue.poll());
+                }
+                princeQueue.poll();
+                if(princeQueue.size() == 1) answer = princeQueue.poll();
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-24
      */
     public static class A1Queue5 {
