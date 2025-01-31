@@ -23,6 +23,31 @@ import java.util.Scanner;
 public class A_StackFrame4 {
 
     /**
+     * 재 복습: 2025-01-24
+     */
+    public static class AStackFrame6 {
+        static int[] pivot;
+
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            pivot = new int[count + 1];
+            DFS(count);
+            for(int i = 1; i < pivot.length; i++) {
+                System.out.print(pivot[i] + " ");
+            }
+        }
+        public static Integer DFS(Integer count) {
+            if(count == 0) return pivot[count] = 1;
+            else if (count == 1) return pivot[count] = 1;
+            else if (count == 2) return pivot[count] = 1;
+            else {
+               return pivot[count] = DFS(count - 1) + DFS(count - 2);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-19
      */
     public static class AStackFrame5 {

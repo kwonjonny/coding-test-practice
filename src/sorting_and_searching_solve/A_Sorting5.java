@@ -40,6 +40,40 @@ import java.util.Scanner;
 public class A_Sorting5 {
 
     /**
+     * 재 복습: 2025-01-24
+     */
+    public static class ASorting8 {
+        public static class Point8 implements Comparable<Point8> {
+            int x;
+            int y;
+            Point8(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+            @Override
+            public int compareTo(Point8 other) {
+                if(this.x == other.x) return this.y - other.y;
+                else return this.x - other.x;
+            }
+        }
+
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            List<Point8> answer = new ArrayList<>();
+            for(int i = 0; i < count; i++) {
+                int x = scan.nextInt();
+                int y = scan.nextInt();
+                answer.add(new Point8(x, y));
+            }
+            Collections.sort(answer);
+            for(Point8 d : answer) {
+                System.out.println(d.x + " " + d.y);
+            }
+        }
+    }
+
+    /**
      * 재 복습:2025-01-18
      */
     public static class ASorting7 {
