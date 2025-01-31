@@ -43,6 +43,41 @@ import java.util.*;
  */
 public class A3_Hash {
 
+    /**
+     * 재 복습: 2025-01-31
+     */
+    public static class A3Hash6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] =  scan.nextInt();
+            }
+            A3Hash6.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            HashMap<Integer, Integer> hashMap = new LinkedHashMap<>();
+            for(int i = 0; i < target; i++) {
+                hashMap.put(intArray[i], hashMap.getOrDefault(intArray[i], 0) + 1);
+            }
+            answer.add(hashMap.size());
+            for(int right = target; right < length; right++) {
+                hashMap.put(intArray[right], hashMap.getOrDefault(intArray[right], 0) + 1);
+
+                int left = intArray[right - target];
+                hashMap.put(left, hashMap.get(left) - 1);
+                if(hashMap.get(left) == 0) hashMap.remove(left);
+                answer.add(hashMap.size());
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     /*
      * 재 복습: 2025-01-14
      */
