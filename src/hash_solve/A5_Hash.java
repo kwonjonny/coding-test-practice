@@ -30,6 +30,43 @@ import java.util.*;
 public class A5_Hash {
 
     /**
+     * 재 복습: 2025-01-31
+     */
+    public static class A5Hash7 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                 intArray[i] = scan.nextInt();
+            }
+            A5Hash7.solution(length, target, intArray);
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            Set<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < length; i++) {
+                for(int j = i + 1; j < length; j++) {
+                    for(int k = j + 1; k < length; k++) {
+                        int sum = intArray[i] + intArray[j] + intArray[k];
+                        treeSet.add(sum);
+                    }
+                }
+            }
+            int current = 0;
+            int answer = 0;
+            for(Integer x : treeSet) {
+                current++;
+                if(target.equals(current)) {
+                    answer = x;
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A5Hash6 {
