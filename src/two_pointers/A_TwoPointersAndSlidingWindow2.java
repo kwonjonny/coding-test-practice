@@ -30,6 +30,32 @@ import java.util.Scanner;
 public class A_TwoPointersAndSlidingWindow2 {
 
     /**
+     * 재 복습: 2025-01-31
+     */
+    public static class ATwoPointersAndSlidingWindow7 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer target = scan.nextInt();
+            ATwoPointersAndSlidingWindow7.solution(target);
+        }
+        public static void solution(Integer target) {
+            int currentSum = 0;
+            int answer = 0;
+            int left = 1;
+            for(int i = 1; i < target; i++) {
+                currentSum = currentSum + i;
+                if(currentSum == target) answer++;
+
+                while(currentSum > target) {
+                    currentSum = currentSum - left++;
+                    if(currentSum == target) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class ATwoPointersAndSlidingWindow6 {
