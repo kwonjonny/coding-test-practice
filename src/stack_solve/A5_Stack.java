@@ -57,6 +57,33 @@ import java.util.Stack;
  */
 public class A5_Stack {
 
+    /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A5Stack3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A5Stack3.solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            int answer = 0;
+            for(int i = 0; i < str.length(); i++) {
+                Character findChar = str.charAt(i);
+                if(findChar.equals('(')) stack.push('(');
+                else {
+                    stack.pop();
+                    if(str.charAt(i - 1) == '(') {
+                        answer = answer + stack.size();
+                    }
+                    else answer = answer + 1;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
     /*
      * 재 복습: 2025-01-14
      */
