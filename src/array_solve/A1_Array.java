@@ -30,6 +30,33 @@ import java.util.Scanner;
 public class A1_Array {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A1Array10 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A1Array10.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            List<Integer> answer = new ArrayList<>();
+            answer.add(intArray[0]);
+            for(int i = 1; i < length; i++) {
+                if(intArray[i] > intArray[i - 1]) {
+                    answer.add(intArray[i]);
+                }
+            }
+            for(Integer x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A1Array9 {
