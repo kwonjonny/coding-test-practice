@@ -48,6 +48,65 @@ import java.util.Scanner;
 public class A_Searching4 {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class ASearching9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer target = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            ASearching9.solution(length, target, intArray);
+        }
+       public static Integer left(Integer[] intArray) {
+            int left = 0;
+            for(Integer x : intArray) {
+                if(x > left) left = x;
+            }
+            return left;
+       }
+        public static Integer right(Integer[] intArray) {
+            int right = 0;
+            for(Integer x : intArray) {
+                right = right + x;
+            }
+            return right;
+        }
+        public static void solution(Integer length, Integer target, Integer[] intArray) {
+            int right = ASearching9.right(intArray);
+            int left = ASearching9.left(intArray);
+            int answer = 0;
+            while(right >= left) {
+                int mid = (left + right) / 2;
+                if(ASearching9.count(intArray, mid, target)) {
+                    answer = mid;
+                    mid = right--;
+                }
+                else mid = left++;
+            }
+            System.out.println(answer);
+        }
+        public static Boolean count(Integer[] intArray, Integer mid, Integer target) {
+            int dvdCount = 1;
+            int currentSum = 0;
+            for(Integer x : intArray) {
+                if(currentSum + x > mid) {
+                    currentSum = x;
+                    dvdCount++;
+                    if(dvdCount > target) {
+                        return false;
+                    }
+                }
+                else currentSum = currentSum + x;
+            }
+            return true;
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-31
      */
     public static class ASearching8 {
