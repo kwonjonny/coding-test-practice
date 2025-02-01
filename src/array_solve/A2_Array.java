@@ -28,6 +28,32 @@ import java.util.Scanner;
 public class A2_Array {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A2Array9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer[] intArray = new Integer[length];
+            for(int i = 0; i < length; i++) {
+                intArray[i] = scan.nextInt();
+            }
+            A2Array9.solution(length, intArray);
+        }
+        public static void solution(Integer length, Integer[] intArray) {
+            int height = intArray[0];
+            int answer = 1;
+            for(int i = 0; i < length; i++) {
+                if(intArray[i] > height) {
+                    answer ++;
+                    height = intArray[i];
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A2Array8 {
