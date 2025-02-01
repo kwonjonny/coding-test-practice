@@ -29,6 +29,24 @@ import java.util.Scanner;
 public class A9_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A9String8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A9String8.solution(str);
+        }
+        public static void solution(String str) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) stringBuilder.append(x);
+            }
+            System.out.println(Integer.parseInt(stringBuilder.toString()));
+        }
+    }
+
+    /**
      * 재 복습: 2024-01-14
      */
     public static class A9String7 {
