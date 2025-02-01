@@ -29,6 +29,38 @@ import java.util.Stack;
 public class A4_Stack {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A4Stack5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A4Stack5.solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Integer> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isDigit(x)) stack.push(x - '0');
+                else {
+                    int right = stack.pop();
+                    int left = stack.pop();
+                    int result = 0;
+
+                    switch (x) {
+                        case '*': result = left * right; break;
+                        case '/': result = left / right; break;
+                        case '-': result = left - right; break;
+                        case '+': result = left + right; break;
+                    }
+
+                    stack.push(result);
+                }
+            }
+            System.out.println(stack.pop());
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A4Stack4 {
