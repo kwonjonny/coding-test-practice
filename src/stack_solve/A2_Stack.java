@@ -24,6 +24,29 @@ import java.util.Stack;
 public class A2_Stack {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A2Stack5 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A2Stack5.solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(Character x : str.toCharArray()) {
+                if(!x.equals(')')) stack.push(x);
+                else if (!stack.isEmpty()) {
+                    while(stack.pop() != '(');
+                }
+            }
+            for(Character x : stack) {
+                System.out.print(x);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A2Stack4 {
