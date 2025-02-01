@@ -27,6 +27,25 @@ import java.util.Scanner;
 public class A7_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A7String9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A7String9.solution(str);
+        }
+        public static void solution(String str) {
+            str = str.toLowerCase();
+            String answer = "";
+            String reverse = new StringBuilder(str).reverse().toString();
+            if(reverse.equals(str)) answer = "YES";
+            else answer = "NO";
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2024-01-14
      */
     public static class A7String8 {
