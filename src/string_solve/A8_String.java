@@ -32,6 +32,34 @@ import java.util.Scanner;
 public class A8_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A8String9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            A8String9.solution(str);
+        }
+        public static void solution(String str) {
+            List<Character> list = new ArrayList<>();
+            for(Character x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) list.add(Character.toLowerCase(x));
+            }
+            int left = 0, right = list.size() - 1;
+            String answer = "YES";
+            while(right >= left) {
+                if (!list.get(left).equals(list.get(right))) {
+                    answer = "NO";
+                    break;
+                }
+                right--;
+                left++;
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2024-01-14
      */
     public static class A8String8 {
