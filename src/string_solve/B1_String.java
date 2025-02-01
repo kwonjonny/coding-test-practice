@@ -24,6 +24,36 @@ import java.util.Scanner;
 public class B1_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class B1string12 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            Character c = scan.next().charAt(0);
+            B1string12.solution(str, c);
+        }
+        public static void solution(String str, Character c) {
+            int[] distances = new int[str.length()];
+            int distance = 1000;
+            for(int i = 0; i < str.length(); i++) {
+                if(str.charAt(i) == c) distance = 0;
+                else distance++;
+                distances[i] = distance;
+            }
+            distance = 1000;
+            for(int i = str.length() - 1; i >= 0; i--) {
+                if(str.charAt(i) == c) distance = 0;
+                else distance++;
+                distances[i] = Math.min(distances[i], distance);
+            }
+            for(Integer x : distances) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2024-01-14
      */
     public static class B1String11 {
