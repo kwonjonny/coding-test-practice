@@ -27,6 +27,26 @@ import java.util.Set;
 public class A6_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A6String9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            A6String9.solution(str);
+        }
+        public static void solution(String str) {
+            Set<Character> set = new LinkedHashSet<>();
+            for(Character x : str.toCharArray()) {
+                set.add(x);
+            }
+            for(Character x : set) {
+                System.out.print(x);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2024-01-14
      */
     public static class A6String8 {
