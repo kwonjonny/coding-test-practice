@@ -31,6 +31,27 @@ import java.util.Scanner;
 public class A4_String {
 
     /**
+     * 재 복습: 2025-02-01
+     */
+    public static class A4String9 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer count = scan.nextInt();
+            String[] strArray = new String[count];
+            for(int i = 0; i < count; i++) {
+                strArray[i] = scan.next();
+            }
+            A4String9.solution(count, strArray);
+        }
+        public static void solution(Integer count, String[] strArray) {
+          for(String x : strArray) {
+              String reverse = new StringBuilder(x).reverse().toString();
+              System.out.println(reverse);
+          }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-14
      */
     public static class A4String8 {
