@@ -22,6 +22,24 @@ import java.util.Scanner;
 public class A_StackFrame1 {
 
     /**
+     * 재 복습: 2025-02-03
+     */
+    public static class AStackFrame4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            AStackFrame4.DFS(order);
+        }
+        public static void DFS(Integer order) {
+            if(order == 0) return;
+            else {
+                DFS(order - 1);
+                System.out.print(order + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-24
      */
     public static class AStackFrame3 {
