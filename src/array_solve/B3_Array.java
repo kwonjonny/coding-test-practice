@@ -39,6 +39,47 @@ import java.util.Scanner;
 public class B3_Array {
 
     /**
+     * 재 복습: 2025-02-03
+     */
+    public static class B3Array8 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer length = scan.nextInt();
+            Integer testCount = scan.nextInt();
+            Integer[][] intArray = new Integer[length + 1][length + 1];
+            for(int i = 1; i <= testCount; i++) {
+                for(int j = 1; j <= length; j++) {
+                    intArray[i][j] = scan.nextInt();
+                }
+            }
+            B3Array8.solution(length, testCount, intArray);
+        }
+        public static void solution(Integer length, Integer testCount, Integer[][] intArray) {
+            int answer = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean canMentor = true;
+                    for(int t = 1; t <= testCount; t++) {
+                        int mentorScore = 0;
+                        int menteeScore = 0;
+                        for(int j = 1; j <= length; j++) {
+                            if(intArray[t][j] == mentor) mentorScore = j;
+                            if(intArray[t][j] == mentee) menteeScore = j;
+                        }
+                        if(mentorScore > menteeScore) {
+                            canMentor = false;
+                            break;
+                        }
+                    }
+                    if(canMentor) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-02-01
      */
     public static class B3Array7 {
