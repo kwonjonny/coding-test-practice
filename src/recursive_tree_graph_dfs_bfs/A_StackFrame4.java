@@ -23,6 +23,30 @@ import java.util.Scanner;
 public class A_StackFrame4 {
 
     /**
+     * 재 복습: 2025-02-04
+     */
+    public static class AStackFrame7 {
+        static int[] fivo;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            fivo = new int[order + 1];
+            DFS(order);
+            for(int i = 1; i < fivo.length; i++) {
+                System.out.print(fivo[i] + " ");
+            }
+        }
+        public static Integer DFS(Integer order) {
+            if(order == 0) return fivo[order] = 1;
+            else if (order == 1) return fivo[order] = 1;
+            else if (order == 2) return fivo[order] = 1;
+            else {
+                return fivo[order] = DFS(order - 1) + DFS(order - 2);
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-24
      */
     public static class AStackFrame6 {
