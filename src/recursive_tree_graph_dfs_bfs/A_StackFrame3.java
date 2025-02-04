@@ -23,6 +23,26 @@ import java.util.Scanner;
 public class A_StackFrame3 {
 
     /**
+     * 재 복습: 2025-02-04
+     */
+    public static class AStackFrame6 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            Integer order = scan.nextInt();
+            Integer answer = DFS(order);
+            System.out.println(answer);
+        }
+        public static Integer DFS(Integer order) {
+            int answer = 0;
+            if(order == 0) return 1;
+            else {
+                answer = order * DFS(order - 1);
+            }
+            return answer;
+        }
+    }
+
+    /**
      * 재 복습: 2025-01-24
      */
     public static class AStackFrame5 {
