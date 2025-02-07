@@ -1,5 +1,7 @@
 package recursive_tree_graph_dfs_bfs;
 
+import java.util.Scanner;
+
 /**
  * 부분 집합 구하기 (DFS)
  *
@@ -26,6 +28,38 @@ package recursive_tree_graph_dfs_bfs;
  */
 public class DFS_2 {
 
+    /**
+     * 재 복습: 2025-02-07
+     */
+    public static class DFS3 {
+        static int order;
+        static int[] array;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            order = scan.nextInt();
+            array = new int[order + 1];
+            DFS(1);
+        }
+        public static void DFS(Integer L) {
+            if(L == order + 1) {
+                String temp = "";
+                for(int i =1; i <= order; i++) {
+                    if(array[i] == 1) {
+                        temp = temp + (i + " ");
+                    }
+                }
+                if(temp.length() > 0) System.out.println(temp);
+            }
+            else {
+                array[L] = 1;
+                DFS(L + 1);
+                array[L] = 0;
+                DFS(L + 1);
+            }
+        }
+    }
+
+    
     public static class DFS2 {
         public static void DFS(int L) {
             if(L == n + 1) {
