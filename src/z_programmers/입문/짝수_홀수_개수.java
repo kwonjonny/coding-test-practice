@@ -9,7 +9,7 @@ import java.util.*;
  * 제한사항
  * 1 ≤ num_list의 길이 ≤ 100
  * 0 ≤ num_list의 원소 ≤ 1,000
- * 
+ *
  * 입출력 예
  * num_list	result
  * [1, 2, 3, 4, 5]	[2, 3]
