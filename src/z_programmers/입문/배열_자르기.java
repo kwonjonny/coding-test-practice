@@ -10,7 +10,7 @@ import java.util.*;
  * 2 ≤ numbers의 길이 ≤ 30
  * 0 ≤ numbers의 원소 ≤ 1,000
  * 0 ≤num1 < num2 < numbers의 길이
- * 
+ *
  * 입출력 예
  * numbers	        num1	num2	result
  * [1, 2, 3, 4, 5]	1	    3	    [2, 3, 4]
