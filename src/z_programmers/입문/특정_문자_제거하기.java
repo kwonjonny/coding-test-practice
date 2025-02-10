@@ -16,7 +16,7 @@ import java.util.*;
  * my_string	letter	result
  * "abcdef"	"f"	"abcde"
  * "BCBdbe"	"B"	"Cdbe"
- * 
+ *
  * 입출력 예 설명
  * 입출력 예 #1
  * "abcdef" 에서 "f"를 제거한 "abcde"를 return합니다.
