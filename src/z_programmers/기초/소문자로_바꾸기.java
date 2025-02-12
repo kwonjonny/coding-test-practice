@@ -9,7 +9,7 @@ import java.util.*;
  * 제한사항
  * 1 ≤ myString의 길이 ≤ 100,000
  * myString은 알파벳으로 이루어진 문자열입니다.
- * 
+ *
  * 입출력 예
  * myString	        result
  * "aBcDeFg"	    "abcdefg"
