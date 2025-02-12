@@ -33,6 +33,43 @@ import java.util.*;
  */
 public class BFS_2 {
 
+    /**
+     * 재 복습: 2025-02-12
+     */
+    public static class BFS3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int S = scan.nextInt();
+            int E = scan.nextInt();
+            System.out.println(BFS(S,E));
+        }
+        public static int BFS(int S, int E) {
+            check = new int[10001];
+            Queue<Integer> Q = new LinkedList<>();
+            int L = 0;
+            check[S] = 1;
+            Q.offer(S);
+            while(!Q.isEmpty()) {
+                int len = Q.size();
+                for(int i = 0; i < len; i++) {
+                    int X = Q.poll();
+                    if(X == E) return L;
+                    for(int j = 0; j < 3; j++) {
+                        int NX = X + cong[j];
+                        if (NX >= 1 && NX <= 10000 && check[NX] == 0) {
+                            check[NX] = 0;
+                            Q.offer(NX);
+                        }
+                    }
+                }
+                L++;
+            }
+            return -1;
+        }
+        public static int[] check;
+        public static int[] cong = {1, -1, 5};
+    }
+
     public static class BFS2 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
