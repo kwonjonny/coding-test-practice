@@ -1,4 +1,4 @@
-package z_programmers.입문;
+package z_programmers.기초;
 
 import java.util.*;
 
@@ -34,7 +34,7 @@ import java.util.*;
  * 입출력 예 #3
  * "a", "b", "c" 이외의 문자가 존재하지 않습니다. 따라서 저장할 문자열이 없습니다.
  * 따라서 ["EMPTY"]를 return 합니다.
- * 
+ *
  * ※ 공지 - 2024년 9월 9일 테스트케이스가 추가 되었습니다. 기존에 제출한 코드가 통과하지 못할 수도 있습니다.
  */
 public class 세_개의_구분자 {
