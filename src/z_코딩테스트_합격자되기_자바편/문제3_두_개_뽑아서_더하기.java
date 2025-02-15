@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class 문제_3_두_개_뽑아서_더하기 {
+public class 문제3_두_개_뽑아서_더하기 {
     public static void main(String[] args) {
         int[] numbers = {2, 1, 3, 4, 1};
         int[] answer = solution(numbers);
