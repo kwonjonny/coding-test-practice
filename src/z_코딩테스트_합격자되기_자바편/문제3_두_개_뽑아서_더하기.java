@@ -1,8 +1,6 @@
 package z_코딩테스트_합격자되기_자바편;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class 문제3_두_개_뽑아서_더하기 {
     public static void main(String[] args) {
