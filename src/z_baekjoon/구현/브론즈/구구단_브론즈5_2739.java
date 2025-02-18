@@ -1,4 +1,4 @@
-package z_baekjoon.구현;
+package z_baekjoon.구현.브론즈;
 
 import java.util.*;
 
