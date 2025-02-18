@@ -1,4 +1,4 @@
-package z_baekjoon.silver.투포인터;
+package z_baekjoon.투포인터;
 
 import java.util.*;
 

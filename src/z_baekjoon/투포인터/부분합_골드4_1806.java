@@ -1,8 +1,7 @@
-package z_baekjoon.silver.투포인터;
+package z_baekjoon.투포인터;
 
 import java.util.*;
-
-public class 수들의_합2_실버4_2003 {
+public class 부분합_골드4_1806 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
@@ -11,20 +10,20 @@ public class 수들의_합2_실버4_2003 {
         for(int i = 0; i < N; i++) {
             array[i] = scan.nextInt();
         }
-        solution(N, T, array);
+        int answer = solution(N, T, array);
+        System.out.println(answer);
     }
-    public static void solution(int N, int T, int[] array) {
+    public static int solution(int N, int T, int[] array) {
+        int length = Integer.MAX_VALUE;
         int currentSum = 0;
         int left = 0;
-        int answer = 0;
         for(int right = 0; right < N; right++) {
             currentSum += array[right];
-            if(currentSum == T) answer++;
-            while(currentSum > T) {
+            while(currentSum >= T) {
+                length = Math.min(length, right - left + 1);
                 currentSum -= array[left++];
-                if(currentSum == T) answer++;
             }
         }
-        System.out.println(answer);
+        return length == Integer.MAX_VALUE ? 0 : length;
     }
 }

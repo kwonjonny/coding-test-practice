@@ -1,4 +1,4 @@
-package z_baekjoon.silver.슬라이딩윈도우;
+package z_baekjoon.슬라이딩윈도우;
 
 import java.util.*;
 
