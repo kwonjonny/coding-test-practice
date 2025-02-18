@@ -2,7 +2,7 @@ package z_baekjoon.투포인터;
 
 import java.util.*;
 
-public class 고양이카페실버3_28353 {
+public class 고양이카페_실버3_28353 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
