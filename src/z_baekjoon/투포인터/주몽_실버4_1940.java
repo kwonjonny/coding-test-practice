@@ -2,7 +2,7 @@ package z_baekjoon.투포인터;
 
 import java.util.*;
 
-public class 주몽 {
+public class 주몽_실버4_1940 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
