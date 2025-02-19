@@ -1,8 +1,8 @@
-package z_baekjoon.투포인터;
+package z_baekjoon.투포인터.실버;
 
 import java.util.*;
 
-public class 고양이카페_실버3_28353 {
+public class 주몽_실버4_1940 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
@@ -15,18 +15,20 @@ public class 고양이카페_실버3_28353 {
     }
     public static void solution(int N, int T, int[] array) {
         Arrays.sort(array);
-        int answer = 0;
         int left = 0;
         int right = array.length - 1;
+        int answer = 0;
         while(right > left) {
-            int sum = array[left] + array[right];
-            if(sum <= T) {
-                answer++;
+            int currentSum = array[left] + array[right];
+            if(currentSum == T) {
+                answer ++;
                 left++;
                 right--;
-            } else {
-                right --;
             }
+            else if (currentSum > T) {
+                right--;
+            }
+            else left++;
         }
         System.out.println(answer);
     }

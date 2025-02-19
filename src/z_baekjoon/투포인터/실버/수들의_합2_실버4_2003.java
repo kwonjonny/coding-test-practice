@@ -1,8 +1,8 @@
-package z_baekjoon.투포인터;
+package z_baekjoon.투포인터.실버;
 
 import java.util.*;
 
-public class 주몽_실버4_1940 {
+public class 수들의_합2_실버4_2003 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
@@ -14,21 +14,16 @@ public class 주몽_실버4_1940 {
         solution(N, T, array);
     }
     public static void solution(int N, int T, int[] array) {
-        Arrays.sort(array);
+        int currentSum = 0;
         int left = 0;
-        int right = array.length - 1;
         int answer = 0;
-        while(right > left) {
-            int currentSum = array[left] + array[right];
-            if(currentSum == T) {
-                answer ++;
-                left++;
-                right--;
+        for(int right = 0; right < N; right++) {
+            currentSum += array[right];
+            if(currentSum == T) answer++;
+            while(currentSum > T) {
+                currentSum -= array[left++];
+                if(currentSum == T) answer++;
             }
-            else if (currentSum > T) {
-                right--;
-            }
-            else left++;
         }
         System.out.println(answer);
     }

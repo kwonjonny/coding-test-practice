@@ -1,4 +1,4 @@
-package z_baekjoon.투포인터;
+package z_baekjoon.투포인터.실버;
 
 import java.util.*;
 public class 두_수의_합_실버3_3273 {
