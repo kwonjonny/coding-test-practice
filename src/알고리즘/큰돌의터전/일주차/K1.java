@@ -126,4 +126,40 @@ public class K1 {
             }
         }
     }
+
+
+    public static class k12_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char[] alphabets = new char[128];
+            for(char x : str.toCharArray()) {
+                alphabets[x]++;
+            }
+
+            int flag = 0;
+            Character mid = null;
+            StringBuilder ret = new StringBuilder();
+            for(int i = 'Z'; i >= 'A'; i--) {
+                if(alphabets[i] % 2 == 1) {
+                    mid = (char) i;
+                    flag ++;
+                    alphabets[i]--;
+                }
+                if(flag == 2) break;
+                for(int j = 0; j < alphabets[i]; j = j + 2) {
+                    ret.insert(0, (char) i);
+                    ret.append((char) i);
+                }
+            }
+            if(mid != null) {
+                ret.insert(ret.length() / 2, mid);
+            }
+            if(flag == 2) {
+                System.out.println("I'm Sorry Hansoo");
+            } else {
+                System.out.println(ret.toString());
+            }
+        }
+    }
 }
