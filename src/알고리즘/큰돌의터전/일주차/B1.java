@@ -35,4 +35,22 @@ public class B1 {
             }
         }
     }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class B12_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            int[] alphabets = new int[26];
+            for(char x : str.toCharArray()) {
+                alphabets[x - 'a']++;
+            }
+            for(int x : alphabets) {
+                System.out.print(x + " ");
+            }
+        }
+    }
 }
