@@ -29,4 +29,20 @@ public class D1 {
             System.out.println(answer);
         }
     }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class D12_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+
+            String reverse = new StringBuilder(str).reverse().toString();
+            if(reverse.equals(str)) {
+                System.out.println(1);
+            } else System.out.println(0);
+        }
+    }
 }
