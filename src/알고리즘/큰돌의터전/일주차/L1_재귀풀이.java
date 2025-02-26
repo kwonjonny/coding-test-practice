@@ -38,10 +38,44 @@ public class L1_재귀풀이 {
         }
     }
 
+    
     /**
      * 재 복습: 2025-02-25
      */
     public static class L12 {
+        static int answer = 0;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[L];
+            for(int i = 0; i < L; i++) {
+                array[i] = scan.nextInt();
+            }
+            List<Integer> list = new ArrayList<>();
+            combination(-1, list, L, T, array);
+            System.out.println(answer);
+        }
+        public static void combination(int idx, List<Integer> list, int L, int T, int[] array) {
+            if(list.size() == 2) {
+                int a = array[list.get(0)];
+                int b = array[list.get(1)];
+                if(a + b == T) answer++;
+                return;
+            }
+            for(int i = idx + 1; i < L; i++) {
+                list.add(i);
+                combination(i, list, L, T, array);
+                list.remove(list.size() - 1);
+            }
+        }
+    }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class L12_1 {
         static int answer = 0;
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
