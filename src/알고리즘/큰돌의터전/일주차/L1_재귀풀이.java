@@ -103,4 +103,41 @@ public class L1_재귀풀이 {
             }
         }
     }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class L1_2 {
+        static int answer = 0;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[L];
+            for(int i = 0; i < L; i++) {
+                array[i] = scan.nextInt();
+            }
+            List<Integer> list = new ArrayList<>();
+            combination(-1, L, T, array, list);
+            System.out.println(answer);
+        }
+        public static void combination(int idx,
+                                       int L,
+                                       int T,
+                                       int[] array,
+                                       List<Integer> list) {
+            if(list.size() == 2) {
+                int a = array[list.get(0)];
+                int b = array[list.get(1)];
+                if(a + b == T) answer++;
+                return;
+            }
+            for(int i = idx + 1; i < L; i++) {
+                list.add(i);
+                combination(i, L, T, array, list);
+                list.remove(list.size() - 1);
+            }
+        }
+    }
 }
