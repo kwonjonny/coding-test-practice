@@ -10,20 +10,19 @@ public class I1 {
 
         Map<String, Integer> stringKeyMap = new HashMap<>();
         Map<Integer, String> integerKeyMap = new HashMap<>();
-        for(int i = 1; i <= N; i++) {
+        for (int i = 1; i <= N; i++) {
             String name = scan.next();
             stringKeyMap.put(name, i);
             integerKeyMap.put(i, name);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < T; i++) {
+        for (int i = 0; i < T; i++) {
             String str = scan.next();
-            if(Character.isDigit(str.charAt(0))) {
+            if (Character.isDigit(str.charAt(0))) {
                 String value = integerKeyMap.get(Integer.parseInt(str));
                 stringBuilder.append(value).append("\n");
-            }
-            else {
+            } else {
                 int key = stringKeyMap.get(str);
                 stringBuilder.append(key).append("\n");
             }
@@ -41,20 +40,19 @@ public class I1 {
             int T = scan.nextInt();
             Map<String, Integer> stringMap = new HashMap<>();
             Map<Integer, String> integerMap = new HashMap<>();
-            for(int i = 1; i <= L; i++) {
+            for (int i = 1; i <= L; i++) {
                 String str = scan.next();
                 stringMap.put(str, i);
                 integerMap.put(i, str);
             }
 
             StringBuilder stringBuilder = new StringBuilder();
-            for(int i = 0; i < T; i++) {
+            for (int i = 0; i < T; i++) {
                 String str = scan.next();
-                if(Character.isDigit(str.charAt(0))) {
+                if (Character.isDigit(str.charAt(0))) {
                     String x = integerMap.get(Integer.parseInt(str));
                     stringBuilder.append(x).append("\n");
-                }
-                else {
+                } else {
                     int x = stringMap.get(str);
                     stringBuilder.append(x).append("\n");
                 }
@@ -62,4 +60,38 @@ public class I1 {
             System.out.println(stringBuilder.toString());
         }
     }
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class I12_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int T = scan.nextInt();
+
+            Map<Integer, String> integerMap = new HashMap<>();
+            Map<String, Integer> stringMap = new HashMap<>();
+            for (int i = 1; i <= L; i++) {
+                String str = scan.next();
+                integerMap.put(i, str);
+                stringMap.put(str, i);
+            }
+
+            StringBuilder ret = new StringBuilder();
+            for (int i = 0; i < T; i++) {
+                String str = scan.next();
+                char findChar = str.charAt(0);
+                if (Character.isDigit(findChar)) {
+                    String answer = integerMap.get(Integer.parseInt(str));
+                    ret.append(answer).append("\n");
+                } else {
+                    int answer = stringMap.get(str);
+                    ret.append(answer).append("\n");
+                }
+            }
+            System.out.println(ret.toString());
+        }
+    }
+
 }
