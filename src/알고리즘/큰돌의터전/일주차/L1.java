@@ -25,4 +25,29 @@ public class L1 {
             System.out.println(cnt);
         }
     }
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class L12 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[L];
+            for(int i = 0; i < L; i++) {
+                array[i] = scan.nextInt();
+            }
+
+            int answer = 0;
+            for(int i = 0; i < L; i++) {
+                for(int j = i + 1; j < L; j++) {
+                    if(array[i] + array[j] == T) {
+                        answer++;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
 }
