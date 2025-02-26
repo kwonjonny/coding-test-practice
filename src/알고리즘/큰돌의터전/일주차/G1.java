@@ -56,4 +56,38 @@ public class G1 {
             System.out.println(stringBuilder.toString());
         }
     }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class G12_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            String[] array = new String[N + 1];
+            for(int i = 0; i < N + 1; i++) {
+                array[i] = scan.next();
+            }
+
+            String[] prefixSuffix = array[0].split("\\*");
+            String prefix = prefixSuffix[0];
+            String suffix = prefixSuffix[1];
+
+            StringBuilder ret = new StringBuilder();
+            for(int i = 1; i < N + 1; i++) {
+                String str = array[i];
+                if(str.length() < prefix.length() + suffix.length()) {
+                    ret.append("NE").append("\n");
+                }
+                else if (str.startsWith(prefix) && str.endsWith(suffix)) {
+                    ret.append("DA").append("\n");
+                }
+                else {
+                    ret.append("NE").append("\n");
+                }
+            }
+            System.out.println(ret.toString());
+        }
+    }
 }
