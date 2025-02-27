@@ -77,4 +77,36 @@ public class F1 {
             System.out.println(ret.toString());
         }
     }
+
+
+    /**
+     * 재 복습: 2025-02-26
+     */
+    public static class F12_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+
+            StringBuilder ret = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(Character.isUpperCase(findChar)) {
+                    int x = findChar - 'A';
+                    char c = (char) ('A' + (x + 13) % 26);
+                    ret.append(c);
+                }
+                else if (Character.isLowerCase(findChar)) {
+                    int x = findChar - 'a';
+                    char c = (char) ('a' + (x + 13) % 26);
+                    ret.append(c);
+                }
+                else {
+                    ret.append(findChar);
+                }
+            }
+            System.out.println(ret.toString());
+        }
+    }
+
+
 }
