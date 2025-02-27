@@ -85,5 +85,33 @@ public class E1 {
     }
 
 
+    /**
+     * 재 복습: 2025-02-27
+     */
+    public static class E12_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] alphabets = new int[26];
+            for(int i = 0; i < N; i++) {
+                String str = scan.next();
+                for(int j = 0; j < 1; j++) {
+                    char c = str.charAt(j);
+                    alphabets[c - 'a']++;
+                }
+            }
 
+            StringBuilder ret = new StringBuilder();
+            for(int i = 0; i < 26; i++) {
+                if(alphabets[i] >= 5) {
+                    ret.append((char) ('a' + i));
+                }
+            }
+            if(ret.length() == 0) {
+                System.out.println("PREDAJA");
+            } else {
+                System.out.println(ret.toString());
+            }
+        }
+    }
 }
