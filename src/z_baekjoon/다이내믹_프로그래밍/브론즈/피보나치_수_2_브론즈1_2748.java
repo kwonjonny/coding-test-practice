@@ -2,7 +2,7 @@ package z_baekjoon.다이내믹_프로그래밍.브론즈;
 
 import java.util.Scanner;
 
-public class 피보나치_수_2_2748 {
+public class 피보나치_수_2_브론즈1_2748 {
     static long[] dynamic;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
