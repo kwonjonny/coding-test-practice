@@ -1,4 +1,4 @@
-package z_baekjoon.스택.실버;
+package z_baekjoon.스택.실버.실버4;
 
 import java.util.*;
 
