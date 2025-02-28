@@ -69,7 +69,7 @@ public class J_봉우리10 {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 boolean isFlag = true;
-                for (int k = 0; k < 8; k++) {
+                for (int k = 0; k < 4; k++) {
                     int tx = i + dx[k];
                     int ty = j + dy[k];
                     if (tx >= 0 && ty >= 0 && tx < N && ty < N) {
