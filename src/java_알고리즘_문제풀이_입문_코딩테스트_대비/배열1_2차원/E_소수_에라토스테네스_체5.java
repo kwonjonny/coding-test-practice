@@ -42,7 +42,7 @@ public class E_소수_에라토스테네스_체5 {
         for(int i = 2; i <= N; i++) {
             if(array[i] == 0) {
                 answer++;
-                for (int j = i * 2; j <= N; j = j + i) {
+                for (int j = i * i; j <= N; j = j + i) {
                     array[j] = 1;
                 }
             }
