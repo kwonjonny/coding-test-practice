@@ -34,12 +34,12 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
  * <p>
  * 예시 입력 1
  * <p>
- * 5
- * 5 3 7 2 3
- * 3 7 1 6 1
- * 7 2 5 3 4
- * 4 3 6 4 1
- * 8 7 3 5 2
+     5
+     5 3 7 2 3
+     3 7 1 6 1
+     7 2 5 3 4
+     4 3 6 4 1
+     8 7 3 5 2
  * 예시 출력 1
  * <p>
  * 10
@@ -63,12 +63,13 @@ public class J_봉우리10 {
     public static int solution(int N, int[][] array) {
         int[] dx = {-1, 0, 1, 0};
         int[] dy = {0, 1, 0, -1};
+
         int answer = 0;
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 boolean isFlag = true;
-                for (int k = 0; k < 4; k++) {
+                for (int k = 0; k < 8; k++) {
                     int tx = i + dx[k];
                     int ty = j + dy[k];
                     if (tx >= 0 && ty >= 0 && tx < N && ty < N) {
