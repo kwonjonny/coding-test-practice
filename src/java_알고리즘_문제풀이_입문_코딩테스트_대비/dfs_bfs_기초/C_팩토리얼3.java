@@ -22,6 +22,24 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class C_팩토리얼3 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class C_팩토리얼3_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int answer = DFS(N);
+            System.out.println(answer);
+        }
+        public static int DFS(int N) {
+            if(N == 0) return 1;
+            else return N * DFS(N - 1);
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
