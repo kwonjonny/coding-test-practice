@@ -1,7 +1,7 @@
 package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기초;
 
 /**
- * 2. 재귀함수를 이용한 이진수 ㅜㄹ력
+ * 2. 재귀함수를 이용한 이진수 출력
  * <p>
  * 10진수 N이 입력되면 2진수로 변환하여 출력하는 프로그램을 작성하세요. 단 재귀함수를 이용해서 출력해야 합니다.
  * <p>
@@ -21,6 +21,26 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class B_재귀함수를_이용한_이진수_출력2 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class B_재귀함수를_이용한_이진수_출력2_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            DFS(N);
+        }
+        public static void DFS(int N) {
+            if(N == 0) return;
+            else {
+                DFS(N / 2);
+                System.out.print(N % 2);
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
