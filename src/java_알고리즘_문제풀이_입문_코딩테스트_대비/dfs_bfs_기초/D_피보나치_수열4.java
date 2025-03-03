@@ -22,6 +22,31 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class D_피보나치_수열4 {
+
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class D_피보나치_수열4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            fibo = new int[N + 1];
+            DFS(N);
+            for(int i = 1; i <= N; i++) {
+                System.out.print(fibo[i] + " ");
+            }
+        }
+        static int[] fibo;
+        public static int DFS(int N) {
+            if(fibo[N] != 0) return fibo[N];
+            if(N == 1) return fibo[N] = 1;
+            if(N == 2) return fibo[N] = 1;
+            else return fibo[N] = DFS(N - 2) + DFS(N - 1);
+        }
+    }
+
+
     static int[] fibo;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
