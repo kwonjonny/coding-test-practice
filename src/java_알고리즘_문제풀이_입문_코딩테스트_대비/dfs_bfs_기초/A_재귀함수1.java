@@ -21,6 +21,26 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class A_재귀함수1 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class A_재귀함수_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            DFS(N);
+        }
+        public static void DFS(int N) {
+            if(N == 0) return;
+            else {
+                DFS(N - 1);
+                System.out.print(N + " ");
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
