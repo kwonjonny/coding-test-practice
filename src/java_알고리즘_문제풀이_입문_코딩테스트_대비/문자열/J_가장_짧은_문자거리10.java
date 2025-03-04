@@ -29,6 +29,47 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class J_가장_짧은_문자거리10 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class J_가장_짧은_문자거리10_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            int[] answer = solution(str, c);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(String str, char c) {
+            int[] distances = new int[str.length()];
+            int distance = 1000;
+            for(int i = 0; i < str.length(); i++) {
+                if(c == str.charAt(i)) {
+                    distance = 0;
+                }
+                else {
+                    distance++;
+                }
+                distances[i] = distance;
+            }
+            distance = 1000;
+            for(int i = str.length() - 1; i >= 0; i--) {
+                if(c == str.charAt(i)) {
+                    distance = 0;
+                }
+                else {
+                    distance++;
+                }
+                distances[i] = Math.min(distances[i], distance);
+            }
+            return distances;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
