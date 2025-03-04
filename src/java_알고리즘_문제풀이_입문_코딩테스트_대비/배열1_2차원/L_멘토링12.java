@@ -48,6 +48,49 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class L_멘토링12 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class L_멘토링12_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int T = scan.nextInt();
+            int[][] array = new int[T + 1][L + 1];
+            for(int i = 1; i < T + 1; i++) {
+                for(int j = 1; j < L +1; j++) {
+                    array[i][j] = scan.nextInt();
+                }
+            }
+            int answer = solution(L, T, array);
+            System.out.println(answer);
+        }
+        public static int solution(int L, int T, int[][] array) {
+            int answer = 0;
+            for(int mentor = 1; mentor <= L; mentor++) {
+                for(int mentee = 1; mentee <= L; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean cansMentor = true;
+                    for(int k = 1; k <= T; k++) {
+                        int mentorScore = 0;
+                        int menteeScore = 0;
+                        for(int i = 1; i <= L; i++) {
+                            if(array[k][i] == mentor) mentorScore = i;
+                            if(array[k][i] == mentee) menteeScore = i;
+                        }
+                        if(mentorScore >= menteeScore) {
+                            cansMentor = false;
+                        }
+                    }
+                    if(cansMentor) answer++;
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int length = scan.nextInt();
