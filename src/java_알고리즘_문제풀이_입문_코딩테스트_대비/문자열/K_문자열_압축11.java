@@ -37,6 +37,40 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class K_문자열_압축11 {
+    
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class K_문자열_압축11_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = solution(str);
+            System.out.println(answer);
+        }
+        public static String solution(String str) {
+            StringBuilder ret = new StringBuilder();
+
+            int cnt = 1;
+            for(int i = 0; i < str.length() - 1; i++) {
+                if(str.charAt(i) == str.charAt(i + 1)) {
+                    cnt++;
+                }
+                else {
+                    ret.append(str.charAt(i));
+                    if(cnt > 1) {
+                        ret.append(cnt);
+                        cnt = 1;
+                    }
+                }
+            }
+            ret.append(str.charAt(str.length() - 1));
+            if(cnt > 1) ret.append(cnt);
+            return ret.toString();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
