@@ -46,6 +46,47 @@ public class L_경로_탐색_인접리스트12 {
     /**
      * 재 복습: 2025-03-04
      */
+    public static class L_경로_탐색_인접리스트12_2 {
+        static int[] check;
+        static int answer;
+        static List<List<Integer>> graph;
+        static int N;
+        static int T;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            check = new int[N + 1];
+            graph = new ArrayList<>();
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            check[1] = 1;
+            DFS(1);
+            System.out.println(answer);
+        }
+        public static void DFS(int V) {
+            if(V == N) answer++;
+            else {
+                for(int nx : graph.get(V)) {
+                    if(check[nx] == 0) {
+                        check[nx] = 1;
+                        DFS(nx);
+                        check[nx] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 재 복습: 2025-03-04
+     */
     public static class L_경로_탐색_인접리스트12_1 {
         static List<List<Integer>> graph;
         static int answer;
