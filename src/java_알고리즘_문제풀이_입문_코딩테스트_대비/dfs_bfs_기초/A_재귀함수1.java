@@ -24,7 +24,7 @@ public class A_재귀함수1 {
 
 
     /**
-     * 재 복습: 2025-03-06
+     * 재 복습: 2025-03-05
      */
     public static class A_재귀함수_1_1 {
         public static void main(String[] args) {
