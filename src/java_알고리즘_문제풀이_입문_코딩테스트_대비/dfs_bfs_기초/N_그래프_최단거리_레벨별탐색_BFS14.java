@@ -37,6 +37,60 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class N_그래프_최단거리_레벨별탐색_BFS14 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class N_그래프_최단거리_레벨탐색_BFS14_1 {
+        static int[] check;
+        static int[] distance;
+        static List<List<Integer>> graph;
+        static int N;
+        static int T;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            check = new int[N + 1];
+            distance = new int[N + 1];
+            graph = new ArrayList<>();
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<Integer>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            BFS(1);
+            for(int i = 2; i < N; i++) {
+                System.out.println(i + " : " + distance[i]);
+            }
+        }
+        public static void BFS(int V) {
+            Queue<Integer> Q = new LinkedList<>();
+            check[V] = 1;
+            distance[V] = 0;
+            Q.offer(V);
+            int level = 0;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int cv = Q.poll();
+                    for(int nv : graph.get(cv)) {
+                        if(check[nv] == 0) {
+                            distance[nv] = level + 1;
+                            check[nv] = 1;
+                            Q.offer(nv);
+                        }
+                    }
+                }
+                level++;
+            }
+        }
+    }
+
+
     static int[] check;
     static int[] distance;
     static List<List<Integer>> graph;
