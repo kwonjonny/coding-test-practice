@@ -38,6 +38,59 @@ import java.util.*;
 
 public class M_그래프_최단거리_BFS13 {
 
+    /**
+     * 레벨 별 탐색 로직
+     */
+    public static class M_그래프_최단거리_BFS13_1 {
+        static int[] distance;
+        static int[] check;
+        static List<List<Integer>> graph;
+        static int N;
+        static int T;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            graph = new ArrayList<>();
+            check = new int[N + 1];
+            distance = new int[N + 1];
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            BFS(1);
+            for(int i = 2; i < N; i++) {
+                System.out.println(i + " : " + distance[i]);
+            }
+        }
+        public static void BFS(int V) {
+            Queue<Integer> Q = new LinkedList<>();
+            int level = 0;
+            Q.offer(V);
+            check[V] = 1;
+            distance[V] = 1;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int x = Q.poll();
+                    for(int cv : graph.get(x)) {
+                        if(check[cv] == 0) {
+                            check[cv] = 1;
+                            distance[cv] = level + 1;
+                            Q.offer(cv);
+                        }
+                    }
+                }
+                level++;
+            }
+        }
+    }
+
+    
     static int[] check;
     static int[] distance;
     static List<List<Integer>> graph;
