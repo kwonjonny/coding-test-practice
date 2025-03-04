@@ -35,6 +35,49 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class F_뒤집은_소수6 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class F_뒤집은소수6_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int L = scan.nextInt();
+            int[] array = new int[L];
+            for(int i = 0; i < L; i++) {
+                array[i] = scan.nextInt();
+            }
+            int[] answer = solution(L, array);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int L, int[] array) {
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < L; i++) {
+                int temp = array[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                if(isPrime(res)) {
+                    answer.add(res);
+                }
+            }
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+        public static boolean isPrime(int num) {
+            if(num == 1) return false;
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) return false;
+            }
+            return true;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
