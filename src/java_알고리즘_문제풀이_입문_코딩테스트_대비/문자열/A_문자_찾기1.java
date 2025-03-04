@@ -32,6 +32,30 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class A_문자_찾기1 {
+
+    /**
+     * 재 복습: 2025-03-04
+     */
+    public static class A_문자_찾기1_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            int answer = solution(str, c);
+            System.out.println(answer);
+        }
+        public static int solution(String str, char c) {
+            str = str.toUpperCase();
+            c = Character.toUpperCase(c);
+            int answer = 0;
+            for(int i = 0; i < str.length(); i++) {
+                if(c == str.charAt(i)) answer++;
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
