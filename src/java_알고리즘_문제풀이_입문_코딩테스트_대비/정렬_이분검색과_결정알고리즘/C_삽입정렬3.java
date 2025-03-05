@@ -4,7 +4,7 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
  * 3. 삽입 정렬
  * 설명
  * <p>
- * N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
+ * N개의 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
  * <p>
  * 정렬하는 방법은 삽입정렬입니다.
  * <p>
@@ -33,6 +33,38 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
 import java.util.*;
 
 public class C_삽입정렬3 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class C_삽입정렬3_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int[] answer = solution(N, array);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int N, int[] array) {
+            for(int i = 0; i < N; i++) {
+                for(int j = i - 1; j >= 0; j--) {
+                    if(array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            return array;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
