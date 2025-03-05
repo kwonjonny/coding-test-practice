@@ -77,6 +77,54 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class C_크레인_인형뽑기_카카오3 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class C_크레인_인형뽑기_카카오3_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[][] dolls = new int[N][N];
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    dolls[i][j] = scan.nextInt();
+                }
+            }
+            int T = scan.nextInt();
+            int[] moves = new int[T];
+            for(int i = 0; i < T; i++) {
+                moves[i] = scan.nextInt();
+            }
+            int answer = solution(N, dolls, T, moves);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int[][] dolls, int T, int[] moves) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+            for(int i = 0; i < T; i++) {
+                int pick = (moves[i] - 1);
+                for(int j = 0; j < N; j++) {
+                   if(dolls[j][pick] != 0) {
+                       int pickUpDoll = dolls[j][pick];
+                       dolls[j][pick] = 0;
+                       if(!stack.isEmpty() && stack.peek() == pickUpDoll) {
+                           answer = answer + 2;
+                           stack.pop();
+                           break;
+                       }
+                       else {
+                           stack.push(pickUpDoll);
+                           break;
+                       }
+                   }
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
