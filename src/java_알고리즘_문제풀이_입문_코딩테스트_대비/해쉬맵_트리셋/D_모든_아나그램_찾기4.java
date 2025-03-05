@@ -36,6 +36,49 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.해쉬맵_�
 import java.util.*;
 
 public class D_모든_아나그램_찾기4 {
+    
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class D_모든_아나그램_찾기4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            int answer = solution(first, second);
+            System.out.println(answer);
+        }
+        public static int solution(String first, String second) {
+            Map<Character, Integer> firstMap = new HashMap<>();
+            Map<Character, Integer> secondMap = new HashMap<>();
+
+            for(int i = 0; i < second.length(); i++) {
+                char findChar = first.charAt(i);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(int i = 0; i < second.length(); i++) {
+                char findChar = second.charAt(i);
+                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
+            }
+
+            int answer = 0;
+            int left = 0;
+            if(firstMap.equals(secondMap)) answer++;
+            for(int right = second.length(); right < first.length(); right++) {
+                char findChar = first.charAt(right);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+
+                char leftChar = first.charAt(left);
+                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
+                if(firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
+                left++;
+                if(firstMap.equals(secondMap)) answer++;
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String first = scan.next();
