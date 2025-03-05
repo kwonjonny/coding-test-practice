@@ -38,6 +38,34 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
 import java.util.*;
 
 public class E_연속된_자연수의_합5 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class E_연속된_자연수의_합5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int answer = solution(N);
+            System.out.println(answer);
+        }
+        public static int solution(int N) {
+            int left = 1;
+            int currentSum = 0;
+            int answer = 0;
+            for(int right = 1; right < N; right++) {
+                currentSum += right;
+                if(N == currentSum) answer++;
+                while(currentSum > N) {
+                    currentSum -= left++;
+                    if(N == currentSum) answer++;
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
