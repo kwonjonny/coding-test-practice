@@ -44,6 +44,35 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.해쉬맵_�
 import java.util.*;
 
 public class B_아나그램_해쉬2 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class B_아나그램_해쉬2_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            String answer = solution(first, second);
+            System.out.println(answer);
+        }
+        public static String solution(String first, String second) {
+            Map<Character, Integer> firstMap = new HashMap<>();
+            Map<Character, Integer> secondMap = new HashMap<>();
+            for(int i = 0; i < first.length(); i++) {
+                char findChar = first.charAt(i);
+                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
+            }
+            for(int i = 0; i < second.length(); i++) {
+                char findChar = second.charAt(i);
+                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
+            }
+            if(firstMap.equals(secondMap)) return "YES";
+            return "NO";
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String firstStr = scan.next();
