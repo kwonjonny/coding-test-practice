@@ -8,7 +8,7 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
  * <p>
  * 만약 N=10이고 10일 간의 매출기록이 아래와 같습니다. 이때 K=3이면
  * <p>
- * 12 1511 20 2510 20 19 13 15
+ * 12 15 11 20 25 10 20 19 13 15
  * <p>
  * 연속된 3일간의 최대 매출액은 11+20+25=56만원입니다.
  * <p>
@@ -39,6 +39,38 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
 import java.util.*;
 
 public class C_최대_매출3 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class C_최대_매출3_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int answer = solution(N, T, array);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int T, int[] array) {
+            int currentSum = 0;
+            for(int i = 0; i < T; i++) {
+                currentSum += array[i];
+            }
+            int max = currentSum;
+            int left = 0;
+            for(int right = T; right < N; right++) {
+                currentSum += array[right] - array[left++];
+                max = Math.max(max, currentSum);
+            }
+            return max;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
