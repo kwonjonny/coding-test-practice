@@ -43,11 +43,43 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
  * <p>
  * 3 8
  * 힌트
+ * 출력해설 : 키 정보 152가 철수이고, 127이 철수 짝꿍입니다.
  */
 
 import java.util.*;
 
 public class F_장난꾸러기6 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class F_장난꾸러기6_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int[] answer = solution(N, array);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int N, int[] array) {
+            int[] cloneArray = array.clone();
+            List<Integer> answer = new ArrayList<>();
+            Arrays.sort(array);
+            for(int i = 0; i < N; i++) {
+                if(cloneArray[i] != array[i]) {
+                    answer.add(i + 1);
+                }
+            }
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
