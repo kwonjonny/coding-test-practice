@@ -35,6 +35,45 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.해쉬맵_�
 import java.util.*;
 
 public class E_K번째_큰_수5 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class E_K번째_큰_수5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int answer = solution(N, T, array);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int T, int[] array) {
+            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < N; i++) {
+                for(int j = i + 1; j < N; j++) {
+                    for(int k = j + 1; k < N; k++) {
+                        treeSet.add(array[i] + array[j] + array[k]);
+                    }
+                }
+            }
+            int cnt = 0;
+            int answer = 0;
+            for(int x : treeSet) {
+                cnt++;
+                if(cnt == T) {
+                    answer = x;
+                    break;
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
