@@ -37,6 +37,22 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
 import java.util.*;
 
 public class J_마구간_정하기_결정알고리즘10 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
@@ -51,12 +67,12 @@ public class J_마구간_정하기_결정알고리즘10 {
 
     public static int solution(int N, int T, int[] array) {
         Arrays.sort(array);
-        int lt = array[0];
+        int lt = 1;
         int rt = array[N - 1];
         int answer = 0;
         while(lt <= rt) {
             int mid = (lt + rt) / 2;
-            if(count(mid, array) >= mid) {
+            if(count(mid, array) >= T) {
                 answer = mid;
                 lt = mid + 1;
             } else {
