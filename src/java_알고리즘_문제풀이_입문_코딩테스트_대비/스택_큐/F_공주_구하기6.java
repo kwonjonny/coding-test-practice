@@ -50,6 +50,36 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class F_공주_구하기6 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class F_공주_구하기6_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int answer = solution(N, T);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int T) {
+            Queue<Integer> Q = new LinkedList<>();
+            for(int i = 1; i <= N; i++) {
+                Q.offer(i);
+            }
+            int answer = 0;
+            while(!Q.isEmpty()) {
+                for(int i = 1; i < T; i++) {
+                    Q.offer(Q.poll());
+                }
+                Q.poll();
+                if(Q.size() == 1) answer = Q.poll();
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
