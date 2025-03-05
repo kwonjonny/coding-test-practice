@@ -35,12 +35,52 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 
 import java.util.*;
 
-public class H_송아지_찾기_BFS_상태트리탐색_8 {
+public class H_송아지_찾기_BFS_상태트리탐색8 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class H_송아지_찾기_BFS_상태트리탐색8_2 {
+        static int[] check;
+        static int[] distance = {-1, 1, 5};
+        static int N;
+        static int T;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            int answer = BFS(N, T);
+            System.out.println(answer);
+        }
+        public static int BFS(int N, int T) {
+            check = new int[10001];
+            Queue<Integer> Q = new LinkedList<>();
+            Q.offer(N);
+            int level = 0;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int current = Q.poll();
+                    if(current == T) return level;
+                    for(int j = 0; j < 3; j++) {
+                        int tx = current + distance[j];
+                        if(check[tx] == 0 && tx >= 1 && tx <= 10000) {
+                            Q.offer(tx);
+                            check[tx] = 1;
+                        }
+                    }
+                }
+                level++;
+            }
+            return level;
+        }
+    }
+
 
     /**
      * 재 복습: 2025-03-04
      */
-    public static class H_송아지_찾기_BFS_상태트리탐색_8_1 {
+    public static class H_송아지_찾기_BFS_상태트리탐색8_1 {
         static int[] distance = {-1, 1, 5};
         static int[] check;
         public static void main(String[] args) {
