@@ -39,6 +39,39 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
 import java.util.*;
 
 public class D_연속_부분수열4 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class D_연속_부분수열4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int answer = solution(N, T, array);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int T, int[] array) {
+            int left = 0;
+            int currentSum = 0;
+            int answer = 0;
+            for(int right = 0; right < N; right++) {
+                currentSum += array[right];
+                if(currentSum == T) answer++;
+                while(currentSum > T) {
+                    currentSum -= array[left++];
+                    if(currentSum == T) answer++;
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
