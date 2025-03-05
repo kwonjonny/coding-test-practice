@@ -39,6 +39,48 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
 import java.util.*;
 
 public class B_공통원소_구하기2 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class B_공통원소_구하기2_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int first = scan.nextInt();
+            int[] firstArray = new int[first];
+            for(int i = 0; i < first; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            int second = scan.nextInt();
+            int[] secondArray = new int[second];
+            for(int i = 0; i < second; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            int[] answer = solution(first, firstArray, second, secondArray);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int first, int[] firstArray, int second, int[] secondArray) {
+            List<Integer> answer = new ArrayList<>();
+            Arrays.sort(firstArray);
+            Arrays.sort(secondArray);
+            int f1 = 0;
+            int s1 = 0;
+            while(f1 < first && s1 < second) {
+                if(firstArray[f1] == secondArray[s1]) {
+                    answer.add(firstArray[f1++]);
+                    s1++;
+                }
+                else if (firstArray[f1] > secondArray[s1]) s1++;
+                else if (firstArray[f1] < secondArray[s1]) f1++;
+            }
+
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
