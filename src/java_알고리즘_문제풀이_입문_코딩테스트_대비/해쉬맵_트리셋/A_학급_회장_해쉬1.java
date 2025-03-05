@@ -37,6 +37,37 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.해쉬맵_�
 import java.util.*;
 
 public class A_학급_회장_해쉬1 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class A_학급_회장_해쉬1_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            String str = scan.next();
+            char answer = solution(N, str);
+            System.out.println(answer);
+        }
+        public static char solution(int N, String str) {
+            Map<Character, Integer> map = new HashMap<>();
+            Character answer = null;
+            for(int i = 0; i < N; i++) {
+                char findChar = str.charAt(i);
+                map.put(findChar, map.getOrDefault(findChar, 0) + 1);
+            }
+            int max = 0;
+            for(Map.Entry<Character, Integer> set : map.entrySet()) {
+                if(max < set.getValue()) {
+                    max = set.getValue();
+                    answer = set.getKey();
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
