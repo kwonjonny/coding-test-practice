@@ -27,8 +27,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
  * <p>
  * 예시 입력 1
  * <p>
- * 8
- * 20 25 52 30 39 33 43 33
+     8
+     20 25 52 30 39 33 43 33
  * 예시 출력 1
  * <p>
  * D
@@ -37,6 +37,33 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
 import java.util.*;
 
 public class E_중복_확인5 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class E_중복_확인_5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for (int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            String answer = solution(N, array);
+            System.out.println(answer);
+        }
+        public static String solution(int N, int[] array) {
+            Arrays.sort(array);
+            for(int i = 0; i < N - 1; i++) {
+                if(array[i] == array[i + 1]) {
+                    return "D";
+                }
+            }
+            return "U";
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
