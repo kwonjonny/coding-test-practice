@@ -47,6 +47,41 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class G_교육과정_설계7 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class G_교육과정_설계7_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String first = scan.next();
+            String second = scan.next();
+            String answer = solution(first, second);
+            System.out.println(answer);
+        }
+        public static String solution(String first, String second) {
+            Queue<Character> Q = new LinkedList<>();
+            for(int i = 0; i < second.length(); i++) {
+                Q.offer(second.charAt(i));
+            }
+            StringBuilder ret = new StringBuilder();
+            while(!Q.isEmpty()) {
+                char pollChar = Q.poll();
+                for(int i = 0; i < first.length(); i++) {
+                    char findChar = first.charAt(i);
+                    if(findChar == pollChar) {
+                        ret.append(pollChar);
+                    }
+                }
+            }
+            if(ret.toString().equals(first)) {
+                return "YES";
+            }
+            return "NO";
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String firstStr = scan.next();
