@@ -39,6 +39,43 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.투포인�
 import java.util.*;
 
 public class A_두_배열_합치기1 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class A_두_배열_합치기1_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int first = scan.nextInt();
+            int[] firstArray = new int[first];
+            for(int i = 0; i < first; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            int second = scan.nextInt();
+            int[] secondArray = new int[second];
+            for(int i = 0; i < second; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            int[] answer = solution(first, firstArray, second, secondArray);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int first, int[] firstArray, int second, int[] secondArray) {
+            List<Integer> answer = new ArrayList<>();
+            int f1 = 0;
+            int s1 = 0;
+            while(f1 < first && s1 < second) {
+                if(firstArray[f1] > secondArray[s1]) answer.add(secondArray[s1++]);
+                else answer.add(firstArray[f1++]);
+            }
+            while(f1 < first) answer.add(firstArray[f1++]);
+            while(s1 < second) answer.add(secondArray[s1++]);
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
