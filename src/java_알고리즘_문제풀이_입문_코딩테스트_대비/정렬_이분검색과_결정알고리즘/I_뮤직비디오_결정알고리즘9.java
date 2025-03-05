@@ -48,6 +48,52 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
 import java.util.*;
 
 public class I_뮤직비디오_결정알고리즘9 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class I_뮤직비디오_결정알고리즘9_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int answer = solution(N, T, array);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int T, int[] array) {
+            int lt = Arrays.stream(array).max().getAsInt();
+            int rt = Arrays.stream(array).sum();
+            int answer = 0;
+            while(lt <= rt) {
+                int mid = (lt + rt) / 2;
+                if(count(mid, array) <= T) {
+                    answer = mid;
+                    rt = mid - 1;
+                } else {
+                    lt = mid + 1;
+                }
+            }
+            return answer;
+        }
+        public static int count(int mid, int[] array) {
+            int currentSum = 0;
+            int answer = 1;
+            for(int x : array) {
+                if(currentSum + x > mid) {
+                    answer++;
+                    currentSum = x;
+                }
+                else currentSum += x;
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
