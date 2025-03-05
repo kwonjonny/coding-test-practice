@@ -32,6 +32,38 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class D_후위식_연산_postfix4 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class D_후위식_연산_postfix4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            int answer = solution(str);
+            System.out.println(answer);
+        }
+        public static int solution(String str) {
+            Stack<Integer> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(Character.isDigit(findChar)) stack.push(findChar - '0');
+                else {
+                    int answer = 0;
+                    int lt = stack.pop();
+                    int rt = stack.pop();
+                    if(findChar == '-') answer = rt - lt;
+                    else if(findChar == '+') answer = rt + lt;
+                    else if(findChar == '/') answer = rt / lt;
+                    else if(findChar == '*') answer = rt * lt;
+                    stack.push(answer);
+                }
+            }
+            return stack.pop();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
