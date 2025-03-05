@@ -30,6 +30,34 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class A_올바른_괄호1 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class A_올바른_괄호1_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            String answer = solution(str);
+            System.out.println(answer);
+        }
+        public static String solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(findChar == '(') stack.push(findChar);
+                else {
+                    if(stack.isEmpty()) return "NO";
+                    char c = stack.pop();
+                    if(c != '(') return "NO";
+                }
+            }
+            if(stack.isEmpty()) return "YES";
+            else return "NO";
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
