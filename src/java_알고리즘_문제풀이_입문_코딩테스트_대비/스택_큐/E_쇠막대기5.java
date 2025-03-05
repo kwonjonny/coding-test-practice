@@ -62,6 +62,38 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class E_쇠막대기5 {
+
+    /**
+     * 재 복습: 2025-03-05
+     */
+    public static class E_쇠막대기5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            int answer = solution(str);
+            System.out.println(answer);
+        }
+        public static int solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            int answer = 0;
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(findChar == '(') stack.push('(');
+                else {
+                    if(str.charAt(i - 1) == '(') {
+                        stack.pop();
+                        answer += stack.size();
+                    } else {
+                        stack.pop();
+                        answer += 1;
+                    }
+                }
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
