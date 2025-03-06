@@ -27,12 +27,12 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_활
  * <p>
  * 예시 입력 1
  * <p>
- * 5 20
- * 10 5
- * 25 12
- * 15 8
- * 6 3
- * 7 4
+     5 20
+     10 5
+     25 12
+     15 8
+     6 3
+     7 4
  * 예시 출력 1
  * <p>
  * 41
@@ -41,6 +41,41 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_활
 import java.util.*;
 
 public class C_최대점수_구하기_DFS3 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class C_최대점수_구하기_DFS3_1 {
+        static int N;
+        static int answer = 0;
+        static int M;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            M = scan.nextInt();
+            int[] array1 = new int[N];
+            int[] array2 = new int[N];
+            for(int i = 0; i < N; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                array1[i] = a;
+                array2[i] = b;
+            }
+            DFS(0, 0, 0, array1, array2);
+            System.out.println(answer);
+        }
+        public static void DFS(int level, int array1Sum, int array2Sum, int[] array1, int[] array2) {
+            if(array2Sum > M) return;
+            if(level == N) {
+                answer = Math.max(answer, array1Sum);
+            }
+            else {
+                DFS(level + 1, array1Sum + array1[level], array2Sum + array2[level], array1, array2);
+                DFS(level + 1, array1Sum, array2Sum, array1, array2);
+            }
+        }
+    }
+
 
     static int N;
     static int T;
