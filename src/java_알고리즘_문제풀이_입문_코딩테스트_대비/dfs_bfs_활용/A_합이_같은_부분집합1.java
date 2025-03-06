@@ -37,6 +37,42 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_활
 import java.util.*;
 
 public class A_합이_같은_부분집합1 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class A_합이_같은_부분집합1_1 {
+        static int N;
+        static String answer = "NO";
+        static int totalSum = 0;
+        static boolean flag = false;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+                totalSum += array[i];
+            }
+            DFS(0, 0, array);
+            System.out.println(answer);
+        }
+        public static void DFS(int level, int sum, int[] array) {
+            if(flag) return;
+            if(N == level) {
+                if((totalSum - sum) == sum) {
+                    answer = "YES";
+                    flag = true;
+                }
+            }
+            else {
+                DFS(level + 1, sum + array[level], array);
+                DFS(level + 1, sum, array);
+            }
+        }
+    }
+
+
     static String answer = "NO";
     static int N;
     static boolean flag;
