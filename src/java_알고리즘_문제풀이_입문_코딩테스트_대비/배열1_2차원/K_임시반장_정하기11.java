@@ -14,8 +14,6 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
  * <p>
  * 예를 들어 학생 수가 5명일 때의 표를 살펴보자.
  * <p>
- * Image1.jpg
- * <p>
  * 위 경우에 4번 학생을 보면 3번 학생과 2학년 때 같은 반이었고, 3번 학생 및 5번 학생과 3학년 때 같은 반이었으며,
  * <p>
  * 2번 학생과는 4학년 때 같은 반이었음을 알 수 있다. 그러므로 이 학급에서 4번 학생과 한번이라도
@@ -59,6 +57,7 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class K_임시반장_정하기11 {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
