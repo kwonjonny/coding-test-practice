@@ -37,6 +37,48 @@ import java.util.*;
 public class F_뒤집은_소수6 {
 
     /**
+     * 재 복습: 2025-03-06
+     */
+    public static class F_뒤집은_소수6_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int[] answer = solution(N, array);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int N, int[] array) {
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < N; i++) {
+                int temp = array[i];
+                int res = 0;
+                while(temp > 0) {
+                    int t = temp % 10;
+                    res = res * 10 + t;
+                    temp = temp / 10;
+                }
+                if(isPrime(res)) {
+                    answer.add(res);
+                }
+            }
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+        public static boolean isPrime(int num) {
+            if(num == 1) return false;
+            for(int i = 2; i < num; i++) {
+                if(num % i == 0) return false;
+            }
+            return true;
+        }
+    }
+
+    
+    /**
      * 재 복습: 2025-03-04
      */
     public static class F_뒤집은소수6_1 {
