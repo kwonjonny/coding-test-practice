@@ -33,6 +33,39 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class H_등수구하기8 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class H_등수구하기8_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            int[] answer = solution(N, array);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int N, int[] array) {
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < N; i++) {
+                int score = 1;
+                for(int j = 0 ; j < N; j++) {
+                    if(array[i] < array[j]) {
+                        score++;
+                    }
+                }
+                answer.add(score);
+            }
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
