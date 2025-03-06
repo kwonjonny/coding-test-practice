@@ -29,12 +29,12 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
  * <p>
  * 예시 입력 1
  * <p>
- * 5
- * 10 13 10 12 15
- * 12 39 30 23 11
- * 11 25 50 53 15
- * 19 27 29 37 27
- * 19 13 30 13 19
+     5
+     10 13 10 12 15
+     12 39 30 23 11
+     11 25 50 53 15
+     19 27 29 37 27
+     19 13 30 13 19
  * 예시 출력 1
  * <p>
  * 155
@@ -43,6 +43,50 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class I_격자판_최대합9 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class I_격자판_최대합9_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[][] array = new int[N][N];
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    array[i][j] = scan.nextInt();
+                }
+            }
+            int answer = solution(N, array);
+            System.out.println(answer);
+        }
+        public static int solution(int N, int[][] array) {
+            int sum1, sum2;
+            int max = 0;
+            for(int i = 0; i < N; i++) {
+                sum1 = 0;
+                sum2 = 0;
+                for(int j = 0; j < N; j++) {
+                    sum1 += array[i][j];
+                    sum2 += array[j][i];
+                }
+                max = Math.max(max, sum1);
+                max = Math.max(max, sum2);
+            }
+
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < N; i++) {
+                sum1 += array[i][i];
+                sum2 += array[i][N - i - 1];
+            }
+            max = Math.max(max, sum1);
+            max = Math.max(max, sum2);
+            return max;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
