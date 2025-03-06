@@ -48,6 +48,43 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class C_가위_바위_보3 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class C_가위_바위_보3_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] first = new int[N];
+            for(int i = 0; i < N; i++) {
+                first[i] = scan.nextInt();
+            }
+            int[] second = new int[N];
+            for(int i = 0; i < N; i++) {
+                second[i] = scan.nextInt();
+            }
+            List<String> answer = solution(N, first, second);
+            for(String x : answer) {
+                System.out.println(x);
+            }
+        }
+        public static List<String> solution(int N, int[] first, int[] second) {
+            List<String> answer = new ArrayList<>();
+            int first1 = 0;
+            int second1 = 0;
+            while(first1 < N && second1 < N) {
+                if(first[first1] == 1 && second[second1] == 3 || first[first1] == 2 && second[second1] == 1 || first[first1] == 3 && second[second1] == 2) answer.add("A");
+                else if(first[first1] == second[second1]) answer.add("D");
+                else answer.add("B");
+                first1++;
+                second1++;
+            }
+            return answer;
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
