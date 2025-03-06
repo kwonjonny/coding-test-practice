@@ -30,6 +30,34 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class D_피보나치_수열4 {
+
+    /**
+     * 재 복습: 2025-03-06
+     */
+    public static class D_피보나치_수열4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] answer = solution(N);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+        public static int[] solution(int N) {
+            List<Integer> answer = new ArrayList<>();
+            int next = 1;
+            int prev = 0;
+            for(int i = 0; i < N; i++) {
+                answer.add(next);
+                int temp = next;
+                next = next + prev;
+                prev = temp;
+            }
+            return answer.stream().mapToInt(e -> e).toArray();
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
