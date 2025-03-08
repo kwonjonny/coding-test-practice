@@ -39,6 +39,52 @@ import java.util.*;
 public class M_그래프_최단거리_BFS13 {
 
     /**
+     * 재 복습: 2025-03-08
+     */
+    public static class M_그래프_최단거리_BFS13_2 {
+        static int[] distance;
+        static int[] check;
+        static int N;
+        static int T;
+        static List<List<Integer>> graph;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            graph = new ArrayList<>();
+            distance = new int[N + 1];
+            check = new int[N + 1];
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            BFS(1);
+            for(int i = 2; i < N; i++) {
+                System.out.println(i + " : " + distance[i]);
+            }
+        }
+        public static void BFS(int L) {
+            Queue<Integer> Q = new LinkedList<>();
+            Q.offer(L);
+            check[L] = - 1;
+            while(!Q.isEmpty()) {
+                int nx = Q.poll();
+                for(int nv : graph.get(nx)) {
+                    if(check[nv] == 0) {
+                        check[nv] = 1;
+                        distance[nv] = distance[nx] + 1;
+                        Q.offer(nv);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-04
      */
     public static class M_그래프_최단거리_BFS13_1 {
