@@ -22,6 +22,24 @@ import java.util.*;
 
 public class B_재귀함수를_이용한_이진수_출력2 {
 
+    /**
+     * 재 복습: 2025-03-014
+     */
+    public static class B_재귀함수를_이용한_이진수_출력2_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            DFS(N);
+        }
+        public static void DFS(int N) {
+            if(N == 0) return;
+            else {
+                DFS(N / 2);
+                System.out.print(N % 2);
+            }
+        }
+    }
+
 
     /**
      * 재 복습: 2025-03-05
