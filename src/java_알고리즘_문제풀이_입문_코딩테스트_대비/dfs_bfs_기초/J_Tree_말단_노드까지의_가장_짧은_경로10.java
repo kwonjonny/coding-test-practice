@@ -18,6 +18,51 @@ import java.util.*;
 public class J_Tree_말단_노드까지의_가장_짧은_경로10 {
 
     /**
+     * 재 복습: 2025-03-14
+     */
+    public static class J_Tree_말단_노드까지의_가장_짧은_경로10_4 {
+        public static void main(String[] args) {
+            J_Tree_말단_노드까지의_가장_짧은_경로10_4 T = new J_Tree_말단_노드까지의_가장_짧은_경로10_4();
+            T.root = new Node(1);
+            T.root.lt = new Node(2);
+            T.root.rt = new Node(3);
+            T.root.lt.lt = new Node(4);
+            T.root.lt.rt = new Node(5);
+            int answer = BFS(T.root);
+            System.out.println(answer);
+        }
+        public static int BFS(Node root) {
+            Queue<Node> Q = new LinkedList<>();
+            int level = 0;
+            Q.offer(root);
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    Node current = Q.poll();
+                    if(current.lt == null && current.rt == null) {
+                        return level;
+                    }
+                    if(current.lt != null) Q.offer(current.lt);
+                    if(current.rt != null) Q.offer(current.rt);
+                }
+                level++;
+            }
+            return -1;
+        }
+        Node root;
+        public static class Node {
+            int data;
+            Node lt, rt;
+            public Node(int data) {
+                this.data = data;
+                this.lt = null;
+                this.rt = null;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-07
      */
     public static class J_Tree_말단_노드까지의_가장_짧은_경로10_3 {
