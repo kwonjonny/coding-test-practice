@@ -19,6 +19,42 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 public class E_이진트리_순회_깊이우선탐색5 {
 
     /**
+     * 재 복습: 2025-03-14
+     */
+    public static class E_이진트리_순회_깊이우선탐색5_4 {
+        public static void main(String[] args) {
+            E_이진트리_순회_깊이우선탐색5_4 T = new E_이진트리_순회_깊이우선탐색5_4();
+            T.root = new Node(1);
+            T.root.lt = new Node(2);
+            T.root.rt = new Node(3);
+            T.root.lt.lt = new Node(4);
+            T.root.lt.rt = new Node(5);
+            T.root.rt.lt = new Node(6);
+            T.root.rt.rt = new Node(7);
+            DFS(T.root);
+        }
+        public static void DFS(Node root) {
+            if(root == null) return;
+            else {
+                System.out.print(root.data + " ");
+                DFS(root.lt);
+                DFS(root.rt);
+            }
+        }
+        Node root;
+        public static class Node {
+            int data;
+            Node lt, rt;
+            public Node(int data) {
+                this.data = data;
+                this.lt = null;
+                this.rt = null;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-07
      */
     public static class E_이진트리_순회_깊이우선탐색5_3 {
