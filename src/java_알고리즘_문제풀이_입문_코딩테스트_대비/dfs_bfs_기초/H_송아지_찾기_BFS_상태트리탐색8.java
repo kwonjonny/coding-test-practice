@@ -38,6 +38,48 @@ import java.util.*;
 public class H_송아지_찾기_BFS_상태트리탐색8 {
 
     /**
+     * 재 복습: 2025-03-14
+     */
+    public static class H_송아지_찾기_BFS_상태트리탐색8_5 {
+        static int N;
+        static int T;
+        static int[] check;
+        static int[] distance = {-1, 1, 5};
+        static int answer = 0;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            check = new int[10001];
+            int answer = BFS(N);
+            System.out.println(answer);
+        }
+        public static int BFS(int level) {
+            check[level] = -1;
+            Queue<Integer> Q = new LinkedList<>();
+            Q.offer(level);
+            int L = 0;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int nx = Q.poll();
+                    if(nx == T) return L;
+                    for(int j = 0; j < 3; j++) {
+                        int nv = nx + distance[j];
+                        if(nv >= 1 && nv <= 10000 && check[nv] == 0) {
+                            check[nv] = 1;
+                            Q.offer(nv);
+                        }
+                    }
+                }
+                L++;
+            }
+            return -1;
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-08
      */
     public static class H_송아지_찾기_BFS_상태트리탐색8_4 {
