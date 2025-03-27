@@ -52,6 +52,33 @@ import java.util.*;
 public class F_공주_구하기6 {
 
     /**
+     * 재 복습: 2025-03-27
+     */
+    public static class F_공주_구하기6_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            solution(N, T);
+        }
+        public static void solution(int N, int T) {
+            Queue<Integer> Q = new LinkedList<>();
+            for(int i = 1; i <= N; i++) {
+                Q.offer(i);
+            }
+            int answer = 0;
+            while(!Q.isEmpty()) {
+                for(int i = 0; i < T - 1; i++) {
+                    Q.offer(Q.poll());
+                }
+                Q.poll();
+                if(Q.size() == 1) answer = Q.poll();
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class F_공주_구하기6_1 {
