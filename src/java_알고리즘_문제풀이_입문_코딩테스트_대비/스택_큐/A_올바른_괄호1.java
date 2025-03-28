@@ -32,6 +32,35 @@ import java.util.*;
 public class A_올바른_괄호1 {
 
     /**
+     * 재 복습: 2025-03-28
+     */
+    public static class A_올바른_괄호1_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(findChar == '(') stack.push('(');
+                else {
+                    if(stack.isEmpty()) {
+                        System.out.println("NO");
+                        break;
+                    }
+                    else {
+                        stack.pop();
+                    }
+                }
+            }
+            if(!stack.isEmpty()) System.out.println("NO");
+            else System.out.println("YES");
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class A_올바른_괄호1_1 {
