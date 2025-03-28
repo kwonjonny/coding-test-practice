@@ -79,6 +79,53 @@ import java.util.*;
 public class C_크레인_인형뽑기_카카오3 {
 
     /**
+     * 재 복습: 2025-03-28
+     */
+    public static class C_크레인_인형뽑기_카카오3_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int dollLength = scan.nextInt();
+            int[][] dollArray = new int[dollLength][dollLength];
+            for(int i = 0; i < dollLength; i++) {
+                for(int j = 0; j < dollLength; j++) {
+                    dollArray[i][j] = scan.nextInt();
+                }
+            }
+            int movesLength = scan.nextInt();
+            int[] movesArray = new int[movesLength];
+            for(int i = 0; i < movesLength; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            solution(dollLength, dollArray, movesLength, movesArray);
+        }
+        public static void solution(int dollLength, int[][] dollArray, int movesLength, int[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+            for(int i = 0; i < movesLength; i++) {
+                int pickUp = (movesArray[i] - 1);
+                for(int j = 0; j < dollLength; j++) {
+                    int pickDoll = dollArray[j][pickUp];
+                    if(pickDoll != 0) {
+                        if(!stack.isEmpty() && pickDoll == stack.peek()) {
+                           answer += 2;
+                           stack.pop();
+                           dollArray[j][pickUp] = 0;
+                           break;
+                        }
+                        else {
+                            stack.push(pickDoll);
+                            dollArray[j][pickUp] = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class C_크레인_인형뽑기_카카오3_1 {
