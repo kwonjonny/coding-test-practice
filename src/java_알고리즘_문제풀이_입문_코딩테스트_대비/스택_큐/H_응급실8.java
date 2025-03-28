@@ -58,6 +58,64 @@ import java.util.*;
 public class H_응급실8 {
 
     /**
+     * 재 복습: 2025-03-28
+     */
+    public static class H_응급실8_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            Queue<Person> Q = new LinkedList<>();
+            for(int i = 0;i < N; i++) {
+                Q.offer(new Person(i, array[i]));
+            }
+            int answer = 0;
+            while(!Q.isEmpty()) {
+                Person temp = Q.poll();
+                for(Person x : Q) {
+                    if(x.getData() > temp.getData()) {
+                        Q.offer(temp);
+                        temp = null;
+                        break;
+                    }
+                }
+                if(temp != null) {
+                    answer++;
+                    if(temp.getIndex() == (T)) {
+                       break;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+        public static class Person {
+            int index;
+            int data;
+            public Person(int index, int data) {
+                this.index = index;
+                this.data = data;
+            }
+            public int getIndex() {
+                return index;
+            }
+            public int getData() {
+                return data;
+            }
+            public String toString() {
+                return "index: " + index + " " + "data: " + data;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class H_응급실8_1 {
