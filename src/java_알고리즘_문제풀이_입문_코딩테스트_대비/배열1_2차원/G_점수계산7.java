@@ -46,6 +46,32 @@ import java.util.*;
 public class G_점수계산7 {
 
     /**
+     * 재 복습: 2025-04-01
+     */
+    public static class G_점수계산7_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            int cnt = 0;
+            int answer = 0;
+            for(int i = 0; i < N; i++) {
+                if(array[i] == 0) cnt = 0;
+                else cnt++;
+                answer += cnt;
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-06
      */
     public static class G_점수계산7_1 {
