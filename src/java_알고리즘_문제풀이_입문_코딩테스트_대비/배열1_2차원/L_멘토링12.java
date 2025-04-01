@@ -50,6 +50,46 @@ import java.util.*;
 public class L_멘토링12 {
 
     /**
+     * 재 복습: 2025-04-02
+     */
+    public static class L_멘토링_12_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int length = scan.nextInt();
+            int testCount = scan.nextInt();
+            int[][] array = new int[testCount + 1][length + 1];
+            for(int i = 1; i <= testCount; i++) {
+                for(int j = 1; j <= length; j++) {
+                    array[i][j] = scan.nextInt();
+                }
+            }
+            solution(length, testCount, array);
+        }
+        public static void solution(int length, int testCount, int[][] array) {
+            int answer = 0;
+            for(int mentor = 1; mentor <= length; mentor++) {
+                for(int mentee = 1; mentee <= length; mentee++) {
+                    if(mentor == mentee) continue;
+                    boolean canMentor = true;
+                    for(int i = 1; i <= testCount; i++) {
+                        int mentorScore = 0;
+                        int menteeScore = 0;
+                        for(int j = 1; j <= length; j++) {
+                            if(array[i][j] == mentor) mentorScore = j;
+                            if(array[i][j] == mentee) menteeScore = j;
+                        }
+                        if(mentorScore > menteeScore) {
+                            canMentor = false;
+                        }
+                    }
+                    if(canMentor) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-06
      */
     public static class L_멘토링_12_1 {
