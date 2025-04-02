@@ -33,6 +33,32 @@ import java.util.*;
 public class B_보이는_학생2 {
 
     /**
+     * 재 복습: 2025-04-02
+     */
+    public static class B_보이는_학생2_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            int answer = 0;
+            int maxHeight = 0;
+            for(int i = 0; i < N; i++) {
+                if(array[i] > maxHeight) {
+                    maxHeight = array[i];
+                    answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-06
      */
     public static class B_보이는_학생2_1 {
