@@ -35,6 +35,36 @@ import java.util.*;
 public class C_삽입정렬3 {
 
     /**
+     * 재 복습: 2025-04-08
+     */
+    public static class C_삽입정렬3_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            for(int i = 0; i < N; i++) {
+                for(int j = i - 1; j >= 0; j--) {
+                    if(array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            for(int x : array) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    
+    /**
      * 재 복습: 2025-03-05
      */
     public static class C_삽입정렬3_1 {
