@@ -30,6 +30,33 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class E_특정_문자_뒤집기5 {
+
+    /**
+     * 재 복습: 2025-04-29
+     */
+    public static class E_특정_문자_뒤집기5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                if(Character.isAlphabetic(str.charAt(i))) {
+                    stack.push(str.charAt(i));
+                }
+            }
+            StringBuilder ret = new StringBuilder();
+            for(int i = 0; i < str.length(); i++) {
+                if(Character.isAlphabetic(str.charAt(i))) ret.append(stack.pop());
+                else ret.append(str.charAt(i));
+            }
+            System.out.println(ret);
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
