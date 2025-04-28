@@ -29,6 +29,27 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class B_대소문자_변환2 {
+
+    /**
+     * 재 복습: 2025-04-29
+     */
+    public static class B_대소문자_변환_2_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            StringBuilder ret = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isLowerCase(x)) ret.append(Character.toUpperCase(x));
+                else ret.append(Character.toLowerCase(x));
+            }
+            System.out.println(ret);
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
