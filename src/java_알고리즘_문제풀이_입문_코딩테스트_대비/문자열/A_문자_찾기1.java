@@ -34,6 +34,28 @@ import java.util.*;
 public class A_문자_찾기1 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class A_문자찾기1_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            solution(str, c);
+        }
+        public static void solution(String str, char c) {
+            char t = Character.toLowerCase(c);
+            int cnt = 0;
+            for(char x : str.toCharArray()) {
+                char y = Character.toLowerCase(x);
+                if(y == t) cnt++;
+            }
+            System.out.println(cnt);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-04
      */
     public static class A_문자_찾기1_1 {
