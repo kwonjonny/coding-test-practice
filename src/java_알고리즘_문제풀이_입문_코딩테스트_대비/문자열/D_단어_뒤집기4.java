@@ -34,6 +34,29 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class D_단어_뒤집기4 {
+
+    /**
+     * 재 복습: 2025-04-29
+     */
+    public static class D_단어_뒤집기4_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            String[] strArray = new String[N];
+            for(int i = 0; i < N; i++) {
+                strArray[i] = scan.next();
+            }
+            solution(N, strArray);
+        }
+        public static void solution(int N, String[] strArray) {
+            for(int i = 0; i < N; i++) {
+                String reverse = new StringBuilder(strArray[i]).reverse().toString();
+                System.out.println(reverse);
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
