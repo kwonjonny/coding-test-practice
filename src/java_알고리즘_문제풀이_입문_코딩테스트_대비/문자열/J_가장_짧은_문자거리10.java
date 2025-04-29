@@ -31,6 +31,39 @@ import java.util.*;
 public class J_가장_짧은_문자거리10 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class J_가장_짧은_문자거리10_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            solution(str, c);
+        }
+        public static void solution(String str, char c) {
+            int[] array = new int[str.length()];
+            int distance = 1000;
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(findChar == c) distance = 0;
+                else distance++;
+                array[i] = distance;
+            }
+            distance = 1000;
+            for(int i = str.length() - 1; i >= 0; i--) {
+                char findChar = str.charAt(i);
+                if(findChar == c) distance = 0;
+                else distance++;
+                array[i] = Math.min(array[i], distance);
+            }
+            for(int x : array) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-04
      */
     public static class J_가장_짧은_문자거리10_1 {
