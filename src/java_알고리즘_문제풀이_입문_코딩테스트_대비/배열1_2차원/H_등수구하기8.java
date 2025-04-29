@@ -35,6 +35,37 @@ import java.util.*;
 public class H_등수구하기8 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class H_등수구하기8_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < N; i++) {
+                int cnt = 1;
+                for(int j = 0; j < N; j++) {
+                    if(array[i] < array[j]) {
+                        cnt++;
+                    }
+                }
+                answer.add(cnt);
+            }
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-01
      */
     public static class H_등수구하기8_2 {
