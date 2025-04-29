@@ -50,6 +50,45 @@ import java.util.Scanner;
 public class J_봉우리10 {
 
     /**
+     * 재복습: 2025-04-29
+     */
+    public static class J_봉우리10_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[][] array = new int[N][N];
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    array[i][j] = scan.nextInt();
+                }
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[][] array) {
+            int[] dx = {0, 1, 0, -1};
+            int[] dy = {-1, 0, 1, 0};
+            int answer = 0;
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    boolean isPeak = true;
+                    for(int k = 0; k < 4; k++) {
+                        int nx = i + dx[k];
+                        int ny = j + dy[k];
+                        if(nx < N && ny < N && nx >= 0 && ny >= 0) {
+                            if(array[i][j] < array[nx][ny]) {
+                                isPeak = false;
+                            }
+                        }
+                    }
+                    if(isPeak) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-11
      */
     public static class J_봉우리10_3 {
