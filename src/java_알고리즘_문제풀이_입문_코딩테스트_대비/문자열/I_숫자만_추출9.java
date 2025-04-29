@@ -31,6 +31,26 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class I_숫자만_추출9 {
+
+    /**
+     * 재 복습: 2025-04-29
+     */
+    public static class I_숫자만_추출9_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            StringBuilder ret = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isDigit(x)) ret.append(x);
+            }
+            System.out.println(Integer.parseInt(ret.toString()));
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.next();
