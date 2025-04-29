@@ -50,6 +50,39 @@ import java.util.*;
 public class C_가위_바위_보3 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class C_가위_바위_보3_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] aArray = new int[N];
+            int[] bArray = new int[N];
+            for(int i = 0; i < N; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            for(int i = 0; i < N; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            solution(N, aArray, bArray);
+        }
+        public static void solution(int N, int[] aArray, int[] bArray) {
+            List<String> answer = new ArrayList<>();
+            int p1 = 0;
+            while(p1 < N) {
+                if (aArray[p1] == bArray[p1]) answer.add("D");
+                else if(aArray[p1] == 1 && bArray[p1] == 3 || aArray[p1] == 2 && bArray[p1] == 1 || aArray[p1] == 3 && bArray[p1] == 2) answer.add("A");
+                else answer.add("B");
+                p1++;
+            }
+            for(String x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-02
      */
     public static class C_가위_바위_보3_2 {
