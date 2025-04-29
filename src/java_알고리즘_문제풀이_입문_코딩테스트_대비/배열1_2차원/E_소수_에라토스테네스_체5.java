@@ -32,6 +32,31 @@ import java.util.*;
 public class E_소수_에라토스테네스_체5 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class E_소수_에라토스테네스_체5_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            solution(N);
+        }
+        public static void solution(int N) {
+            int[] array = new int[N + 1];
+            int cnt = 0;
+            for(int i = 2; i <= N; i++) {
+                if(array[i] == 0) {
+                    cnt++;
+                    for(int j = i * i; j <= N; j = j + i) {
+                        array[j] = 1;
+                    }
+                }
+            }
+            System.out.println(cnt);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-02
      */
     public static class E_소수_에라토스테네스_체5_3 {
