@@ -32,6 +32,32 @@ import java.util.*;
 public class D_피보나치_수열4 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class D_피보나치_수열4_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            solution(N);
+        }
+        public static void solution(int N) {
+            int prev = 0;
+            int next = 1;
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < N; i++) {
+                answer.add(next);
+                int temp = next;
+                next = prev + next;
+                prev = temp;
+            }
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-02
      */
     public static class D_피보나치_수열4_2 {
