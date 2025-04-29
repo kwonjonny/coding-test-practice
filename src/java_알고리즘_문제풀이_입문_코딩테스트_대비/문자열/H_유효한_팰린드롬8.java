@@ -33,6 +33,35 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class H_유효한_팰린드롬8 {
+
+    /**
+     * 재 복습: 2025-04-29
+     */
+    public static class H_유효한_팰린드롬8_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            solution(str);
+        }
+        public static void solution(String str) {
+            List<Character> list = new ArrayList<>();
+            for(char x : str.toCharArray()) {
+                if(Character.isAlphabetic(x)) list.add(Character.toLowerCase(x));
+            }
+            int p1 = 0;
+            int p2 = list.size() - 1;
+            String ret = "";
+            while(p1 < p2) {
+                if(!list.get(p1).equals(list.get(p2))) ret = "NO";
+                else ret = "YES";
+                p1++;
+                p2--;
+            }
+            System.out.println(ret);
+        }
+    }
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
