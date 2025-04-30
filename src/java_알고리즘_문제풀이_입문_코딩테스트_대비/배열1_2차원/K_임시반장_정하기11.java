@@ -59,6 +59,45 @@ import java.util.*;
 public class K_임시반장_정하기11 {
 
     /**
+     * 재 복습: 2025-04-29
+     */
+    public static class K_임시반장_정하기11_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[][] array = new int[N + 1][6];
+            for(int i = 1; i <= N; i++) {
+                for(int j = 1; j <= 5; j++) {
+                    array[i][j] = scan.nextInt();
+                }
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[][] array) {
+            int max = -1;
+            int answer = -1;
+            for(int i = 1; i <= N; i++) {
+                int cnt = 0;
+                for(int j = 1; j <= N; j++) {
+                    if(i == j) continue;
+
+                    for(int k = 1; k <= 5; k++) {
+                        if(array[i][k] == array[j][k]) {
+                            cnt++;
+                            break;
+                        }
+                    }
+                }
+                if(cnt > max) {
+                    max = cnt;
+                    answer = i;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-04-02
      */
     public static class K_임시반장_정하기11_1 {
