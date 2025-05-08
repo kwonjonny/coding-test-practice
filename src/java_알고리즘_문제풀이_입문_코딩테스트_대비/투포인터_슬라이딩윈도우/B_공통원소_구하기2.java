@@ -41,6 +41,45 @@ import java.util.*;
 public class B_공통원소_구하기2 {
 
     /**
+     * 재 복습: 2025-05-08
+     */
+    public static class B_공통원소_구하기2_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int A = scan.nextInt();
+            int[] aArray = new int[A];
+            for(int i = 0; i < A; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            int B = scan.nextInt();
+            int[] bArray = new int[B];
+            for(int i = 0; i < B; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            solution(A, aArray, B, bArray);
+        }
+        public static void solution(int A, int[] aArray, int B, int[] bArray) {
+            List<Integer> answer = new ArrayList<>();
+            Arrays.sort(aArray);
+            Arrays.sort(bArray);
+            int a1 = 0;
+            int b1 = 0;
+            while (A > a1 && B > b1) {
+                if(aArray[a1] == bArray[b1]) {
+                    answer.add(aArray[a1++]);
+                    b1++;
+                }
+                else if (aArray[a1] > bArray[b1]) b1++;
+                else if (aArray[a1] < bArray[b1]) a1++;
+            }
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    
+    /**
      * 재 복습: 2025-03-05
      */
     public static class B_공통원소_구하기2_1 {
