@@ -40,6 +40,31 @@ import java.util.*;
 public class E_연속된_자연수의_합5 {
 
     /**
+     * 재 복습: 2025-05-08
+     */
+    public static class E_연속된_자연수의_합5_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            solution(N);
+        }
+        public static void solution(int N) {
+            int left = 0;
+            int sum = 0;
+            int answer = 0;
+            for(int i = 1; i < N; i++) {
+                sum += i;
+                if(sum == N) answer++;
+                while(sum > N) {
+                    sum -= left++;
+                    if(sum == N) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class E_연속된_자연수의_합5_1 {
