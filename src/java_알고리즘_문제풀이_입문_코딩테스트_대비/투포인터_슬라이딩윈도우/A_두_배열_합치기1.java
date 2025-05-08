@@ -41,6 +41,40 @@ import java.util.*;
 public class A_두_배열_합치기1 {
 
     /**
+     * 재 복습: 2025-05-08
+     */
+    public static class A_두_배열_합치기1_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int A = scan.nextInt();
+            int[] aArray = new int[A];
+            for(int i = 0; i < A; i++) {
+                aArray[i] = scan.nextInt();
+            }
+            int B = scan.nextInt();
+            int[] bArray = new int[B];
+            for(int i = 0; i < B; i++) {
+                bArray[i] = scan.nextInt();
+            }
+            solution(A, aArray, B, bArray);
+        }
+        public static void solution(int A, int[] aArray, int B, int[] bArray) {
+            List<Integer> answer = new ArrayList<>();
+            int a1 = 0;
+            int b1 = 0;
+            while (a1 < A && b1 < B) {
+                if(aArray[a1] > bArray[b1]) answer.add(bArray[b1++]);
+                else answer.add(aArray[a1++]);
+            }
+            while (a1 < A) answer.add(aArray[a1++]);
+            while (b1 < B) answer.add(bArray[b1++]);
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class A_두_배열_합치기1_1 {
