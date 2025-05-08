@@ -41,6 +41,36 @@ import java.util.*;
 public class D_연속_부분수열4 {
 
     /**
+     * 재 복습: 2025-05-08
+     */
+    public static class D_연속_부분수열4_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            int answer = 0;
+            int sum = 0;
+            int left = 0;
+            for(int right = 0; right < N; right++) {
+                sum += array[right];
+                if(sum == T) answer++;
+                while(sum >= T) {
+                    sum -= array[left++];
+                    if(sum == T) answer++;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class D_연속_부분수열4_1 {
