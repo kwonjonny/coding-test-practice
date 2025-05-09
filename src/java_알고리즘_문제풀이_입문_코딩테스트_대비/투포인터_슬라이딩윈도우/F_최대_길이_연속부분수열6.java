@@ -40,6 +40,37 @@ import java.util.*;
 public class F_최대_길이_연속부분수열6 {
 
     /**
+     * 재 복습: 2025-05-09
+     */
+    public static class F_최대_길이_연속부분수열6_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            int left = 0;
+            int length = 0;
+            int zeroCount = 0;
+            for(int right = 0; right < N; right++) {
+                if(array[right] == 0) zeroCount++;
+                while(zeroCount > T) {
+                    if(array[left] == 0) zeroCount--;
+                    left++;
+                }
+                length = Math.max(length, right + 1 - left);
+            }
+            System.out.println(length);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-06
      */
     public static class F_최대_길이_연속부분수열6_2 {
