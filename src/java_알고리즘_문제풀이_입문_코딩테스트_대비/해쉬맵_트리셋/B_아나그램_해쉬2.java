@@ -46,6 +46,32 @@ import java.util.*;
 public class B_아나그램_해쉬2 {
 
     /**
+     * 재 복습: 2025-05-09
+     */
+    public static class B_아나그램해쉬2_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            solution(firstStr, secondStr);
+        }
+        public static void solution(String firstStr, String secondStr) {
+            Map<Character, Integer> fisrtMap = new HashMap<>();
+            Map<Character, Integer> secondMap = new HashMap<>();
+
+            for(char x : firstStr.toCharArray()) {
+                fisrtMap.put(x, fisrtMap.getOrDefault(x, 0) + 1);
+            }
+            for(char x : secondStr.toCharArray()) {
+                secondMap.put(x, secondMap.getOrDefault(x, 0) + 1);
+            }
+            if(fisrtMap.equals(secondMap)) System.out.println("YES");
+            else System.out.println("NO");
+        }
+    }
+
+    
+    /**
      * 재 복습: 2025-03-28
      */
     public static class B_아나그램_해쉬2_2 {
