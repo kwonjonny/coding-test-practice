@@ -55,8 +55,8 @@ public class F_최대_길이_연속부분수열6 {
         }
         public static void solution(int N, int T, int[] array) {
             int left = 0;
-            int length = 0;
             int zeroCount = 0;
+            int length = 0;
             for(int right = 0; right < N; right++) {
                 if(array[right] == 0) zeroCount++;
                 while(zeroCount > T) {
