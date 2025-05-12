@@ -79,6 +79,52 @@ import java.util.*;
 public class C_크레인_인형뽑기_카카오3 {
 
     /**
+     * 재 복습: 2025-05-12
+     */
+    public static class C_크레인_인형뽑기_카카오3_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int board = scan.nextInt();
+            int[][] boardArray = new int[board][board];
+            for(int i = 0; i < board; i++) {
+                for(int j = 0; j < board; j++) {
+                    boardArray[i][j] = scan.nextInt();
+                }
+            }
+            int moves = scan.nextInt();
+            int[] movesArray = new int[moves];
+            for(int i = 0; i < moves; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            solution(board, boardArray, moves, movesArray);
+        }
+        public static void solution(int board, int[][] boardArray, int moves, int[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+            for(int x : movesArray) {
+                int pick = x - 1;
+                for(int i = 0; i < board; i++) {
+                    if(boardArray[i][pick] != 0) {
+                        int doll = boardArray[i][pick];
+                        boardArray[i][pick] = 0;
+                        if(!stack.isEmpty() && stack.peek() == doll) {
+                            stack.pop();
+                            answer += 2;
+                            break;
+                        }
+                        else {
+                            stack.push(doll);
+                            break;
+                        }
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-28
      */
     public static class C_크레인_인형뽑기_카카오3_2 {
