@@ -35,6 +35,39 @@ import java.util.*;
 public class H_이분검색8 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class H_이분검색8_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            Arrays.sort(array);
+            int lt = 0;
+            int rt = N - 1;
+            int answer = 0;
+            while(rt > lt) {
+                int mid = (lt + rt) / 2;
+                if(array[mid] == T) {
+                    answer = mid + 1;
+                    break;
+                }
+                else if (array[mid] > T) rt--;
+                else if (array[mid] < T) lt++;
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class H_이분검색8_1 {
