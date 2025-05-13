@@ -51,6 +51,35 @@ import java.util.*;
 public class F_장난꾸러기6 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class F_장난꾸러기6_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            List<Integer> answer = new ArrayList<>();
+            int[] cloneArray = array.clone();
+            Arrays.sort(array);
+            for(int i = 0; i < N; i++) {
+                if(array[i] != cloneArray[i]) {
+                    answer.add(i + 1);
+                }
+            }
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class F_장난꾸러기6_1 {
