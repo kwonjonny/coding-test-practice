@@ -49,6 +49,34 @@ import java.util.*;
 public class G_교육과정_설계7 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class G_교육과정_설계7_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String target = scan.next();
+            String str = scan.next();
+            solution(target, str);
+        }
+        public static void solution(String target, String str) {
+            Queue<Character> Q = new LinkedList<>();
+            for(char x : str.toCharArray()) {
+                Q.offer(x);
+            }
+            StringBuilder ret = new StringBuilder();
+            while(!Q.isEmpty()) {
+                char poll = Q.poll();
+                for(char x : target.toCharArray()) {
+                    if(x == poll) ret.append(x);
+                }
+            }
+            if(ret.toString().equals(target)) System.out.println("YES");
+            else System.out.println("NO");
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-28
      */
     public static class G_교육과정_설계7_2 {
