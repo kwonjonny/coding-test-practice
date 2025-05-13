@@ -39,6 +39,33 @@ import java.util.*;
 public class E_중복_확인5 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class E_중복_확인_5_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            Arrays.sort(array);
+            String answer = "U";
+            for(int i = 0; i < N - 1; i++) {
+                if(array[i] == array[i + 1]) {
+                    answer = "D";
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-08
      */
     public static class E_중복_확인_5_2 {
