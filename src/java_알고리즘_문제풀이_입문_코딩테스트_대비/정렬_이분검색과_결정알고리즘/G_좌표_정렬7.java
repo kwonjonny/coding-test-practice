@@ -43,6 +43,39 @@ import java.util.*;
 public class G_좌표_정렬7 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class G_좌표_정렬7_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            List<Point> answer = new ArrayList<>();
+            for(int i = 0; i < N; i++) {
+                int x = scan.nextInt();
+                int y = scan.nextInt();
+                answer.add(new Point(x, y));
+            }
+            Collections.sort(answer);
+            for(Point d : answer) {
+                System.out.println(d.x + " " + d.y);
+            }
+        }
+        public static class Point implements Comparable<Point> {
+            int x;
+            int y;
+            public Point(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+            public int compareTo(Point other) {
+                if(other.x == this.x) return this.y - other.y;
+                else return this.x - other.x;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-05
      */
     public static class G_좌표_정렬7_1 {
