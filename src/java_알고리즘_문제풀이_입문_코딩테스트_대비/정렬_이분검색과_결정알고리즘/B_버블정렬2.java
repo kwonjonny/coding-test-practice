@@ -35,6 +35,36 @@ import java.util.*;
 public class B_버블정렬2 {
 
     /**
+     * 재 복습: 2025-05-13
+     */
+    public static class B_버블정렬2_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N - 1; j++) {
+                    if(array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            for(int x: array) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-04-03
      */
     public static class B_버블정렬2_2 {
