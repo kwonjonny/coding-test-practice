@@ -23,6 +23,25 @@ import java.util.*;
 public class A_재귀함수1 {
 
     /**
+     * 재 복습: 2025-05-16
+     */
+    public static class A_재귀함수1_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            DFS(N);
+        }
+        public static void DFS(int N) {
+            if(N == 0) return;
+            else {
+                DFS(N - 1);
+                System.out.print(N + " ");
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-09
      */
     public static class A_재귀함수1_2 {
