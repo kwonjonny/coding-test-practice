@@ -30,6 +30,38 @@ import java.util.*;
 public class F_부분집합_구하기_DFS6 {
 
     /**
+     * 재 복습: 2025-05-16
+     */
+    public static class F_부분집합_구하기DFS6_4 {
+        static int N;
+        static int[] check;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            check = new int[N + 1];
+            DFS(1);
+        }
+        public static void DFS(int level) {
+            if(level == N + 1) {
+                StringBuilder ret = new StringBuilder();
+                for(int i = 0; i < level; i++) {
+                    if(check[i] == 1) {
+                        ret.append(i).append(" ");
+                    }
+                }
+                if(!ret.isEmpty()) System.out.println(ret);
+            }
+            else {
+                check[level] = 1;
+                DFS(level + 1);
+                check[level] = 0;
+                DFS(level + 1);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-19
      */
     public static class F_부분집합_구하기DFS6_3 {
