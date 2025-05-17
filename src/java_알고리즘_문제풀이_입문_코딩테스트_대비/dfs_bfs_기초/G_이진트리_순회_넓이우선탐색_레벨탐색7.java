@@ -18,6 +18,47 @@ import java.util.*;
 public class G_이진트리_순회_넓이우선탐색_레벨탐색7 {
 
     /**
+     * 재 복습: 2025-05-17
+     */
+    public static class G_이진트리_순회_넓이우선탐색_레벨탐색7_6 {
+        public static class Node {
+            int data;
+            Node lt, rt;
+            public Node(int data) {
+                this.data = data;
+                this.lt = null;
+                this.rt = null;
+            }
+        }
+        Node root;
+        public static void main(String[] args) {
+            G_이진트리_순회_넓이우선탐색_레벨탐색7_6 tree = new G_이진트리_순회_넓이우선탐색_레벨탐색7_6();
+            tree.root = new Node(1);
+            tree.root.lt = new Node(2);
+            tree.root.rt = new Node(3);
+            tree.root.lt.lt = new Node(4);
+            tree.root.lt.rt = new Node(5);
+            tree.root.rt.lt = new Node(6);
+            tree.root.rt.rt = new Node(7);
+            BFS(tree.root);
+        }
+        public static void BFS(Node root) {
+            Queue<Node> Q = new LinkedList<>();
+            Q.offer(root);
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    Node x = Q.poll();
+                    System.out.print(x.data + " ");
+                    if(x.lt != null) Q.offer(x.lt);
+                    if(x.rt != null) Q.offer(x.rt);
+                }
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-16
      */
     public static class G_이진트리_순회_넓이우선탐색_레벨탐색7_5 {
