@@ -18,6 +18,41 @@ import java.util.*;
 public class I_Tree_말단_노드까지의_가장_짧은_경로9 {
 
     /**
+     * 재 복습: 2025-05-19
+     */
+    public static class I_Tree_말단_노드까지의_가장_짧은_경로9_5 {
+        public static void main(String[] args) {
+            I_Tree_말단_노드까지의_가장_짧은_경로9_5 tree = new I_Tree_말단_노드까지의_가장_짧은_경로9_5();
+            tree.root = new Node(1);
+            tree.root.lt = new Node(2);
+            tree.root.rt = new Node(3);
+            tree.root.lt.lt = new Node(4);
+            tree.root.lt.rt = new Node(5);
+            int answer = DFS(tree.root, 0);
+            System.out.println(answer);
+        }
+        public static int DFS(Node root, int level) {
+            if(root.lt == null && root.rt == null) {
+                return level;
+            }
+            else {
+                return Math.min(DFS(root.lt, level + 1), DFS(root.rt, level + 1));
+            }
+        }
+        Node root;
+        public static class Node {
+            int data;
+            Node lt, rt;
+            public Node(int data) {
+                this.data = data;
+                this.lt = null;
+                this.rt = null;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-14
      */
     public static class I_Tree_말단_노드까지의_가장_짧은_경로9_4 {
