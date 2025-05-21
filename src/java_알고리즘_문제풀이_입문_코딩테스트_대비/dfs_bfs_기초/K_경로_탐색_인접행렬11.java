@@ -44,6 +44,45 @@ import java.util.*;
 public class K_경로_탐색_인접행렬11 {
 
     /**
+     * 재 복습: 2025-05-21
+     */
+    public static class K_경로_탐색_인접행렬11_6 {
+        static int N;
+        static int T;
+        static int[][] graph;
+        static int[] check;
+        static int answer;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            check = new int[N + 1];
+            graph = new int[N + 1][N + 1];
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph[a][b] = 1;
+            }
+            check[1] = 1;
+            DFS(1);
+            System.out.println(answer);
+        }
+        public static void DFS(int level) {
+            if(N == level) answer++;
+            else {
+                for(int i = 1; i <= N; i++) {
+                    if(graph[level][i] == 1 && check[i] == 0) {
+                        check[i] = 1;
+                        DFS(i);
+                        check[i] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-20
      */
     public static class K_경로_탐색_인접행렬11_5 {
