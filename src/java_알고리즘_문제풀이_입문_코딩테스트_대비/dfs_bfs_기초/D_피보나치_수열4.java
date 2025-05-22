@@ -24,6 +24,30 @@ import java.util.*;
 public class D_피보나치_수열4 {
 
     /**
+     * 재 복습: 2025-05-22
+     */
+    public static class D_피보나치_수열4_7 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int T = scan.nextInt();
+            fibo = new int[T + 1];
+            DFS(T);
+            for(int i = 0; i < T; i++) {
+                System.out.print(fibo[i] + " ");
+            }
+        }
+        static int[] fibo;
+        public static int DFS(int T) {
+            if(T == 0) return fibo[T] = 1;
+            if(T == 1) return fibo[T] = 1;
+            else {
+                return fibo[T] = DFS(T - 1) + DFS(T - 2);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-16
      */
     public static class D_피보나치_수열4_6 {
