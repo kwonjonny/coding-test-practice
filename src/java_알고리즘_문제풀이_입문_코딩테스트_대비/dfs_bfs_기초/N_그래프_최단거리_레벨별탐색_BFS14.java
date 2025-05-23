@@ -39,6 +39,58 @@ import java.util.*;
 public class N_그래프_최단거리_레벨별탐색_BFS14 {
 
     /**
+     * 재 복습: 2025-05-23
+     */
+    public static class N_그래프_최단거리_레벨별탐색_BFS14_7 {
+        static int N;
+        static int T;
+        static int[] distance;
+        static int[] check;
+        static List<List<Integer>> graph;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            distance = new int[N + 1];
+            check = new int[N + 1];
+            graph = new ArrayList<>();
+            check[1] = 1;
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            BFS(1);
+            for(int i = 2; i < N; i++) {
+                System.out.println(i + " : " + distance[i]);
+            }
+        }
+        public static void BFS(int level) {
+            Queue<Integer> Q = new LinkedList<>();
+            Q.offer(level);
+            int LEVEL = 0;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int NX = Q.poll();
+                    for(int NV : graph.get(NX)) {
+                        if(check[NV] == 0) {
+                            check[NV] = 1;
+                            Q.offer(NV);
+                            distance[NV] = LEVEL + 1;
+                        }
+                    }
+                }
+                LEVEL++;
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-22
      */
     public static class N_그래프_최단거리_레벨별탐색BFS14_6 {
