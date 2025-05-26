@@ -43,6 +43,41 @@ import java.util.*;
 public class C_최대점수_구하기_DFS3 {
 
     /**
+     * 재 복습: 2025-05-26
+     */
+    public static class C_최대점수_구하기_DFS3_4 {
+        static int maxScore = 0;
+        static int T;
+        static int N;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            int[] scoreArray = new int[N];
+            int[] timeArray = new int[N];
+            for(int i = 0; i < N; i++) {
+                int score = scan.nextInt();
+                int time = scan.nextInt();
+                scoreArray[i] = score;
+                timeArray[i] = time;
+            }
+            DFS(timeArray, scoreArray, 0, 0, 0);
+            System.out.println(maxScore);
+        }
+        public static void DFS(int[] timeArray, int[] scoreArray, int timeAdd, int scoreAdd, int level) {
+            if(timeAdd > T) return;
+            if(level == N) {
+                maxScore = Math.max(maxScore, scoreAdd);
+            }
+            else {
+                DFS(timeArray, scoreArray, timeAdd + timeArray[level], scoreAdd + scoreArray[level], level + 1);
+                DFS(timeArray, scoreArray, timeAdd, scoreAdd, level + 1);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-014
      */
     public static class C_최대점수_구하기_DFS3_3 {
