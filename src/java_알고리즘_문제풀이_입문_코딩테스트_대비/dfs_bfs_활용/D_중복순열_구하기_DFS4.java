@@ -31,6 +31,37 @@ import java.util.Scanner;
 public class D_중복순열_구하기_DFS4 {
 
     /**
+     * 재 복습: 2025-05-27
+     */
+    public static class D_중복순열_구하기_DFS4_2 {
+        static int N;
+        static int M;
+        static int[] PM;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            M = scan.nextInt();
+            PM = new int[M];
+            DFS(0);
+        }
+        public static void DFS(int level) {
+            if(level == M) {
+                for(int x : PM) {
+                    System.out.print(x + " ");
+                }
+                System.out.println();
+            }
+            else {
+                for(int i = 1; i <= N; i++) {
+                    PM[level] = i;
+                    DFS(level + 1);
+                }
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-03-06
      */
     public static class D_중복순열_구하기_DFS4_1 {
