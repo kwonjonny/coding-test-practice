@@ -10,7 +10,7 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
  * 3 -> 4  -> 6
  * <p>
  * 입력설명
- * 첫째 줄에는 저엄의 수 N(1<=N<=20)와 간선의 수 M가 주어진다. 그 다음부터 M줄에 걸쳐 연결정보가 주어진다.
+ * 첫째 줄에는 정점의 수 N(1<=N<=20)와 간선의 수 M가 주어진다. 그 다음부터 M줄에 걸쳐 연결정보가 주어진다.
  * <p>
  * 출력설명
  * 1번 정점에서 각 정점으로 가는 최소 간선수를 2번 정점부터 차례대로 출력하세요.
@@ -37,6 +37,57 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.dfs_bfs_기
 import java.util.*;
 
 public class N_그래프_최단거리_레벨별탐색_BFS14 {
+
+    /**
+     * 재 복습: 2025-05-30
+     */
+    public static class N_그래프_최단거리_레벨별탐색_BFS14_8 {
+        static int N;
+        static int T;
+        static int[] check;
+        static List<List<Integer>> graph;
+        static int[] distance;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            graph = new ArrayList<>();
+            check = new int[N + 1];
+            distance = new int[N + 1];
+            for(int i = 0; i <= N; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for(int i = 0; i < T; i++) {
+                int a = scan.nextInt();
+                int b = scan.nextInt();
+                graph.get(a).add(b);
+            }
+            BFS(1);
+            for(int i = 2; i < N; i++) {
+                System.out.println(i + " : " + distance[i]);
+            }
+        }
+        public static void BFS(int level) {
+            Queue<Integer> Q = new LinkedList<>();
+            Q.offer(level);
+            int L = 0;
+            while(!Q.isEmpty()) {
+                int length = Q.size();
+                for(int i = 0; i < length; i++) {
+                    int NX = Q.poll();
+                    for(int NT : graph.get(NX)) {
+                        if(check[NT] == 0) {
+                            check[NT] = 1;
+                            Q.offer(NT);
+                            distance[NT] = L + 1;
+                        }
+                    }
+                }
+                L++;
+            }
+        }
+    }
+
 
     /**
      * 재 복습: 2025-05-23
