@@ -39,6 +39,42 @@ import java.util.*;
 public class A_합이_같은_부분집합1 {
 
     /**
+     * 재 복습: 2025-05-30
+     */
+    public static class A_합이_같은_부분집합1_3 {
+        static int N;
+        static int[] array;
+        static int totalSum = 0;
+        static String answer = "NO";
+        static boolean flag;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+                totalSum += array[i];
+            }
+            DFS(0, 0);
+            System.out.println(answer);
+        }
+        public static void DFS(int level, int sum){
+            if(flag) return;
+            if(level == N) {
+                if(totalSum - sum == sum) {
+                    answer = "YES";
+                    flag = true;
+                }
+            }
+            else {
+                DFS(level + 1, sum + array[level]);
+                DFS(level + 1, sum);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-28
      */
     public static class A_합이_같은_부분집합1_2 {
