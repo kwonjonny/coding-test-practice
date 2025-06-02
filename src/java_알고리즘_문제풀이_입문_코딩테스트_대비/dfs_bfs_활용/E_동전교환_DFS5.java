@@ -37,6 +37,41 @@ import java.util.*;
 public class E_동전교환_DFS5 {
 
     /**
+     * 재 복습: 2025-06-02
+     */
+    public static class E_동전교환_DFS5_3 {
+        static int N;
+        static Integer[] array;
+        static int T;
+        static int answer = Integer.MAX_VALUE;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            array = new Integer[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            Arrays.sort(array, Collections.reverseOrder());
+            T = scan.nextInt();
+            DFS(0, 0);
+            System.out.println(answer);
+        }
+        public static void DFS(int level, int sum) {
+            if(sum > T) return;
+            if(level >= T) return;
+            if(sum == T) {
+                answer = Math.min(answer, level);
+            }
+            else {
+               for(int i = 0; i < N; i++) {
+                   DFS(level + 1, sum + array[i]);
+               }
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-30
      */
     public static class E_동전교환_DFS5_2 {
