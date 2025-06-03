@@ -30,6 +30,44 @@ import java.util.*;
 public class F_순열_구하기_DFS6 {
 
     /**
+     * 재 복습: 2025-06-03
+     */
+    public static class F_순열_구하기_DFS6_2 {
+        static int N;
+        static int T;
+        static int[] check, array, pm;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            check = new int[N];
+            pm = new int[T];
+            DFS(0);
+        }
+        public static void DFS(int level) {
+            if(level == T) {
+                for(int x : pm) System.out.print(x + " ");
+                System.out.println();
+            }
+            else {
+                for(int i = 0; i < N; i++) {
+                    if(check[i] == 0) {
+                        check[i] = 1;
+                        pm[level] = array[i];
+                        DFS(level + 1);
+                        check[i] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-06-02
      */
     public static class F_순열_구하기_DFS6_1 {
