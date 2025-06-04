@@ -37,6 +37,47 @@ import java.util.*;
 public class E_K번째_큰_수5 {
 
     /**
+     * 재 복습: 2025-06-04
+     */
+    public static class E_K번째_큰_수5_3 {
+        static int N;
+        static int T;
+        static int[] array;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution();
+        }
+        public static void solution() {
+            Set<Integer> set = new TreeSet<>(Collections.reverseOrder());
+            for(int i = 0; i < N; i++) {
+                for(int j = i + 1; j < N; j++) {
+                    for(int k = j + 1; k < N; k++) {
+                        int sum = array[i] + array[j] + array[k];
+                        set.add(sum);
+                    }
+                }
+            }
+            int answer = 0;
+            int X = 0;
+            for(int x : set) {
+                X++;
+                if(X == T) {
+                    answer = x;
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-12
      */
     public static class E_K번째_큰_수5_2 {
