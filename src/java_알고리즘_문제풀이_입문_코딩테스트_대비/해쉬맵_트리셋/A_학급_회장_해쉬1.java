@@ -39,6 +39,36 @@ import java.util.*;
 public class A_학급_회장_해쉬1 {
 
     /**
+     * 재 복습: 2025-06-04
+     */
+    public static class A_학급_회장_해쉬1_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            String str = scan.next();
+            solution(N, str);
+        }
+        public static void solution(int N, String str) {
+            Map<Character, Integer> map = new HashMap<>();
+            for(int i = 0; i < N; i++) {
+                char findChar = str.charAt(i);
+                map.put(findChar, map.getOrDefault(findChar, 0) + 1);
+            }
+
+            char answer = ' ';
+            int max = 0;
+            for(Map.Entry<Character, Integer> set : map.entrySet()) {
+                if(max < set.getValue()) {
+                    max = set.getValue();
+                    answer = set.getKey();
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    
+    /**
      * 재 복습: 2025-05-09
      */
     public static class A_학급_회장_해쉬1_3 {
