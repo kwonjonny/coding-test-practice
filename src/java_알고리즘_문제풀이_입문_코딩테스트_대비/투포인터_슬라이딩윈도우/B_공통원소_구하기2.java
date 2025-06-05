@@ -40,6 +40,41 @@ import java.util.*;
 
 public class B_공통원소_구하기2 {
 
+    public static class B_공통원소_구하기2_3 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int first = scan.nextInt();
+            int[] firstArray = new int[first];
+            for(int i = 0; i < first; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            int second = scan.nextInt();
+            int[] secondArray = new int[second];
+            for(int i = 0; i < second; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            solution(first, firstArray, second, secondArray);
+        }
+        public static void solution(int first, int[] firstArray, int second, int[] secondArray) {
+            Arrays.sort(firstArray); Arrays.sort(secondArray);
+            List<Integer> answer = new ArrayList<>();
+            int f1 = 0;
+            int s1 = 0;
+            while(first > f1 && second > s1) {
+                if(firstArray[f1] == secondArray[s1]) {
+                    answer.add(firstArray[f1]);
+                    f1++;
+                    s1++;
+                }
+                else if (firstArray[f1] > secondArray[s1]) s1++;
+                else f1++;
+            }
+            for(int x : answer) {
+                System.out.print(x + " ");
+            }
+        }
+    }
+
     /**
      * 재 복습: 2025-05-08
      */
