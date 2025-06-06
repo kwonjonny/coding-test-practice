@@ -41,6 +41,38 @@ import java.util.*;
 public class B_바둑이_승차_DFS2 {
 
     /**
+     *. 재 복습: 2025-06-06
+     */
+    public static class B_바둑이_승차DFS2_7 {
+        static int weight;
+        static int T;
+        static int[] array;
+        static int answer = Integer.MIN_VALUE;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            weight = scan.nextInt();
+            T = scan.nextInt();
+            array = new int[T];
+            for(int i = 0; i < T; i++) {
+                array[i] = scan.nextInt();
+            }
+            DFS(0, 0);
+            System.out.println(answer);
+        }
+        public static void DFS(int level, int sum) {
+            if(sum > weight) return;
+            if(level == T) {
+                answer = Math.max(answer, sum);
+            }
+            else {
+                DFS(level + 1, sum + array[level]);
+                DFS(level + 1, sum);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-30
      */
     public static class B_바둑이_승차DFS2_6 {
