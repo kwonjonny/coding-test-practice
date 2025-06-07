@@ -24,6 +24,26 @@ import java.util.*;
 public class C_팩토리얼3 {
 
     /**
+     * 재 복습: 2025-06-07
+     */
+    public static class C_팩토리얼3_7 {
+        static int N;
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            int answer = DFS(N);
+            System.out.println(answer);
+        }
+        public static int DFS(int N) {
+            if(N == 0) return 1;
+            else {
+                return N * DFS(N - 1);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-22
      */
     public static class C_팩토리얼3_6 {
