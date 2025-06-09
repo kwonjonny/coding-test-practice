@@ -34,6 +34,36 @@ import java.util.*;
 public class D_후위식_연산_postfix4 {
 
     /**
+     * 재 복습: 2025-06-10
+     */
+    public static class D_후위식_연산_postfix4_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Integer> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(Character.isDigit(findChar)) stack.push(findChar - '0');
+                else {
+                    int answer = 0;
+                    int lt = stack.pop();
+                    int rt = stack.pop();
+                    if(findChar == '+') answer = lt + rt;
+                    if(findChar == '-') answer = rt - lt;
+                    if(findChar == '/') answer = lt / rt;
+                    if(findChar == '*') answer = lt * rt;
+                    stack.push(answer);
+                }
+            }
+            if(!stack.isEmpty()) System.out.println(stack.pop());
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-12
      */
     public static class D_후위식_연산_postfix4_3 {
