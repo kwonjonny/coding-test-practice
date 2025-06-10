@@ -30,6 +30,31 @@ import java.util.*;
 public class B_괄호문자제거2 {
 
     /**
+     * 재 복습: 2025-06-10
+     */
+    public static class B_괄호문자제거2_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(findChar != ')') stack.push(findChar);
+                else if(findChar == ')') {
+                    while(stack.pop() != '(');
+                }
+            }
+            for(char x : stack) {
+                System.out.print(x);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-12
      */
     public static class B_괄호문자제거2_3 {
