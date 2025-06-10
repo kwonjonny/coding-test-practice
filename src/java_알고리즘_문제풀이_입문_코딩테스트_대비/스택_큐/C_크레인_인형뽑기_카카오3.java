@@ -79,6 +79,51 @@ import java.util.*;
 public class C_크레인_인형뽑기_카카오3 {
 
     /**
+     * 재 복습: 2025-06-10
+     */
+    public static class C_크레인_인형뽑기_카카오3_4 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int first = scan.nextInt();
+            int[][] firstArray = new int[first][first];
+            for(int i = 0; i < first; i++) {
+                for(int j = 0; j < first; j++) {
+                    firstArray[i][j] = scan.nextInt();
+                }
+            }
+            int moves = scan.nextInt();
+            int[] movesArray = new int[moves];
+            for(int i = 0; i < moves; i++) {
+                movesArray[i] = scan.nextInt();
+            }
+            solution(first, firstArray, moves, movesArray);
+        }
+        public static void solution(int first, int[][] firstArray, int moves, int[] movesArray) {
+            Stack<Integer> stack = new Stack<>();
+            int answer = 0;
+            for(int x : movesArray) {
+                int pickUp = x - 1;
+                for(int i = 0; i < first; i++) {
+                    if(firstArray[i][pickUp] != 0) {
+                        int pickUpDoll = firstArray[i][pickUp];
+                        firstArray[i][pickUp] = 0;
+                        if(!stack.isEmpty() && stack.peek() == pickUpDoll) {
+                            stack.pop();
+                            answer += 2;
+                        }
+                        else {
+                            stack.push(pickUpDoll);
+                        }
+                        break;
+                    }
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-05-12
      */
     public static class C_크레인_인형뽑기_카카오3_3 {
