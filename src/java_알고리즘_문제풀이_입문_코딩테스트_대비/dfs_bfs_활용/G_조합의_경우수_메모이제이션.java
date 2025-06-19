@@ -32,6 +32,30 @@ import java.util.Scanner;
 public class G_조합의_경우수_메모이제이션 {
 
     /**
+     * 재 복습: 2025-06-20
+     */
+    public static class G_조합의_경우수_메모이제이션_4 {
+        static int N;
+        static int T;
+        static int[][] df = new int[35][35];
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            N = scan.nextInt();
+            T = scan.nextInt();
+            int answer = DFS(N, T);
+            System.out.println(answer);
+        }
+        public static int DFS(int N, int T) {
+            if(T == 0 || N == T) return 1;
+            if(df[N][T] >= 1) return df[N][T];
+            else {
+                return df[N][T] = DFS(N - 1, T - 1) + DFS(N - 1, T);
+            }
+        }
+    }
+
+
+    /**
      * 재 복습: 2025-06-12
      */
     public static class G_조합의_경우수_메모이제이션_3 {
