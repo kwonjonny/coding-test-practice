@@ -34,7 +34,7 @@ import java.util.*;
 public class C_문장속_단어3 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-25
      */
     public static class C_문장속_단어3_1 {
         public static void main(String[] args) {
@@ -44,11 +44,11 @@ public class C_문장속_단어3 {
         }
         public static void solution(String str) {
             String[] array = str.split(" ");
-            int max = 0;
+            int length = 0;
             String answer = "";
-            for(String x : array) {
-                if(x.length() > max) {
-                    max = x.length();
+            for (String x : array) {
+                if (length < x.length()) {
+                    length = x.length();
                     answer = x;
                 }
             }
@@ -56,19 +56,19 @@ public class C_문장속_단어3 {
         }
     }
 
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
         String answer = solution(str);
         System.out.println(answer);
     }
+
     public static String solution(String str) {
         int max = 0;
         String answer = "";
         String[] array = str.split(" ");
-        for(String x : array) {
-            if(x.length() > max) {
+        for (String x : array) {
+            if (x.length() > max) {
                 max = x.length();
                 answer = x;
             }
