@@ -32,9 +32,7 @@ import java.util.*;
 
 public class G_회문_문자열7 {
 
-    /**
-     * 재 복습: 2025-04-29
-     */
+
     public static class G_회문_문자열7_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -42,12 +40,26 @@ public class G_회문_문자열7 {
             solution(str);
         }
         public static void solution(String str) {
-            String reverse = new StringBuilder(str.toLowerCase()).reverse().toString();
-            String newStr = str.toLowerCase();
-            if(reverse.equals(newStr)) System.out.println("YES");
+            str = str.toLowerCase();
+            String reverse = new StringBuilder(str).reverse().toString();
+            if (reverse.equals(str)) System.out.println("YES");
             else System.out.println("NO");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
