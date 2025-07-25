@@ -36,26 +36,29 @@ import java.util.*;
 public class D_단어_뒤집기4 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-25
      */
-    public static class D_단어_뒤집기4_1 {
+    public static class D_단어_뒤집기_4_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
-            String[] strArray = new String[N];
+            String[] array = new String[N];
             for(int i = 0; i < N; i++) {
-                strArray[i] = scan.next();
+                array[i] = scan.next();
             }
-            solution(N, strArray);
+            solution(N, array);
         }
-        public static void solution(int N, String[] strArray) {
+        public static void solution(int N, String[] array) {
+            List<String> answer = new ArrayList<>();
             for(int i = 0; i < N; i++) {
-                String reverse = new StringBuilder(strArray[i]).reverse().toString();
-                System.out.println(reverse);
+                String str = array[i];
+                answer.add(new StringBuilder(str).reverse().toString());
+            }
+            for(String x : answer) {
+                System.out.println(x);
             }
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
