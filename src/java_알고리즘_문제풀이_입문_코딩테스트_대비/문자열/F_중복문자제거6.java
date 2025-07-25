@@ -31,7 +31,7 @@ import java.util.*;
 public class F_중복문자제거6 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-25
      */
     public static class F_중복문자제거6_1 {
         public static void main(String[] args) {
@@ -40,16 +40,13 @@ public class F_중복문자제거6 {
             solution(str);
         }
         public static void solution(String str) {
-            Set<Character> set = new LinkedHashSet<>();
+            StringBuilder ret = new StringBuilder();
             for(char x : str.toCharArray()) {
-                set.add(x);
+                if(!ret.toString().contains(String.valueOf(x))) ret.append(x);
             }
-            for(char x : set) {
-                System.out.print(x);
-            }
+            System.out.println(ret);
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
