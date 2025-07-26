@@ -35,7 +35,7 @@ import java.util.*;
 public class H_유효한_팰린드롬8 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-26
      */
     public static class H_유효한_팰린드롬8_1 {
         public static void main(String[] args) {
@@ -45,22 +45,22 @@ public class H_유효한_팰린드롬8 {
         }
         public static void solution(String str) {
             List<Character> list = new ArrayList<>();
-            for(char x : str.toCharArray()) {
-                if(Character.isAlphabetic(x)) list.add(Character.toLowerCase(x));
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(Character.isAlphabetic(findChar)) list.add(Character.toLowerCase(findChar));
             }
-            int p1 = 0;
-            int p2 = list.size() - 1;
-            String ret = "";
-            while(p1 < p2) {
-                if(!list.get(p1).equals(list.get(p2))) ret = "NO";
-                else ret = "YES";
-                p1++;
-                p2--;
+            int left = 0;
+            int right = list.size() - 1;
+            String answer = "NO";
+            while(right > left) {
+                if(!list.get(left).equals(list.get(right))) break;
+                else answer = "YES";
+                left++;
+                right--;
             }
-            System.out.println(ret);
+            System.out.println(answer);
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
