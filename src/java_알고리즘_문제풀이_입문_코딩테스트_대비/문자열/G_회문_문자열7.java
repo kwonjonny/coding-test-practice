@@ -32,7 +32,9 @@ import java.util.*;
 
 public class G_회문_문자열7 {
 
-
+    /**
+     * 재 복습: 2025-07-26
+     */
     public static class G_회문_문자열7_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -46,21 +48,6 @@ public class G_회문_문자열7 {
             else System.out.println("NO");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
