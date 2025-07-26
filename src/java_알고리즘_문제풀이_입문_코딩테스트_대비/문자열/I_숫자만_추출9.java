@@ -33,7 +33,7 @@ import java.util.*;
 public class I_숫자만_추출9 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-26
      */
     public static class I_숫자만_추출9_1 {
         public static void main(String[] args) {
@@ -43,13 +43,13 @@ public class I_숫자만_추출9 {
         }
         public static void solution(String str) {
             StringBuilder ret = new StringBuilder();
-            for(char x : str.toCharArray()) {
-                if(Character.isDigit(x)) ret.append(x);
+            for(int i = 0; i < str.length(); i++) {
+                char findChar = str.charAt(i);
+                if(Character.isDigit(findChar)) ret.append(findChar);
             }
-            System.out.println(Integer.parseInt(ret.toString()));
+            System.out.println(Integer.valueOf(ret.toString()));
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
