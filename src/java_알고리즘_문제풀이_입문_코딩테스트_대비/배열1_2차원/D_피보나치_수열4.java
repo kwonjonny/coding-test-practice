@@ -32,88 +32,35 @@ import java.util.*;
 public class D_피보나치_수열4 {
 
     /**
-     * 재 복습: 2025-04-29
-     */
-    public static class D_피보나치_수열4_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            solution(N);
-        }
-        public static void solution(int N) {
-            int prev = 0;
-            int next = 1;
-            List<Integer> answer = new ArrayList<>();
-            for(int i = 0; i < N; i++) {
-                answer.add(next);
-                int temp = next;
-                next = prev + next;
-                prev = temp;
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-02
-     */
-    public static class D_피보나치_수열4_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            solution(N);
-        }
-        public static void solution(int N) {
-            List<Integer> answer = new ArrayList<>();
-            int prev = 0;
-            int next = 1;
-            for(int i = 0; i < N; i++) {
-                answer.add(next);
-                int temp = next;
-                next = next + prev;
-                prev = temp;
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-    /**
-     * 재 복습: 2025-03-06
+     * 재 복습: 2025-07-29
      */
     public static class D_피보나치_수열4_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
-            int[] answer = solution(N);
-            for(int x : answer) {
+            solution(N);
+        }
+        public static void solution(int N) {
+            List<Integer> answer = new ArrayList<>();
+            int nv = 1;
+            int nf = 0;
+            for (int i = 0; i < N; i++) {
+                answer.add(nv);
+                int nt = nv;
+                nv = nv + nf;
+                nf = nt;
+            }
+            for (int x : answer) {
                 System.out.print(x + " ");
             }
         }
-        public static int[] solution(int N) {
-            List<Integer> answer = new ArrayList<>();
-            int next = 1;
-            int prev = 0;
-            for(int i = 0; i < N; i++) {
-                answer.add(next);
-                int temp = next;
-                next = next + prev;
-                prev = temp;
-            }
-            return answer.stream().mapToInt(e -> e).toArray();
-        }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
         int[] answer = solution(N);
-        for(int x : answer) {
+        for (int x : answer) {
             System.out.print(x + " ");
         }
     }
@@ -121,7 +68,7 @@ public class D_피보나치_수열4 {
         List<Integer> answer = new ArrayList<>();
         int prev = 0;
         int next = 1;
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             answer.add(next);
             int temp = next;
             next = prev + next;
