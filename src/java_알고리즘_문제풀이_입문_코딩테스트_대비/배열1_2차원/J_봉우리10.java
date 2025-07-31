@@ -50,63 +50,13 @@ import java.util.Scanner;
 public class J_봉우리10 {
 
     /**
-     * 재복습: 2025-04-29
+     * 재 복습: 2025-07-31
      */
-    public static class J_봉우리10_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
+    public static class J_봉우리10_1 {
         public static void solution(int N, int[][] array) {
-            int[] dx = {0, 1, 0, -1};
-            int[] dy = {-1, 0, 1, 0};
             int answer = 0;
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    boolean isPeak = true;
-                    for(int k = 0; k < 4; k++) {
-                        int nx = i + dx[k];
-                        int ny = j + dy[k];
-                        if(nx < N && ny < N && nx >= 0 && ny >= 0) {
-                            if(array[i][j] < array[nx][ny]) {
-                                isPeak = false;
-                            }
-                        }
-                    }
-                    if(isPeak) answer++;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-11
-     */
-    public static class J_봉우리10_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[][] array) {
             int[] nx = {-1, 0, 1, 0};
             int[] ny = {0, 1, 0, -1};
-            int cnt = 0;
             for(int i = 0; i < N; i++) {
                 for(int j = 0; j < N; j++) {
                     boolean isPeak = true;
@@ -116,21 +66,15 @@ public class J_봉우리10 {
                         if(dx >= 0 && dy >= 0 && dx < N && dy < N) {
                             if(array[i][j] <= array[dx][dy]) {
                                 isPeak = false;
+                                break;
                             }
                         }
                     }
-                    if(isPeak) cnt++;
+                    if(isPeak) answer++;
                 }
             }
-            System.out.println(cnt);
+            System.out.println(answer);
         }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-01
-     */
-    public static class J_봉우리10_2 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -142,112 +86,7 @@ public class J_봉우리10 {
             }
             solution(N, array);
         }
-        public static void solution(int N, int[][] array) {
-            int[] nx = {-1, 0, 1, 0};
-            int[] ny = {0, 1, 0 ,-1};
-            int answer = 0;
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    boolean isPeak = true;
-                    for(int k = 0; k < 4; k++) {
-                        int dx = i + nx[k];
-                        int dy = j + ny[k];
-                        if(dx >= 0 && dx < N && dy < N && dy >= 0) {
-                            if(array[i][j] <= array[dx][dy]) {
-                                isPeak = false;
-                                break;
-                            }
-                        }
-                    }
-                    if(isPeak) answer++;
-                }
-            }
-            System.out.println(answer);
-        }
     }
-
-    /**
-     * 재 복습: 2025-03-06
-     */
-    public static class J_봉우리10_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            int answer = solution(N, array);
-            System.out.println(answer);
-        }
-        public static int solution(int N, int[][] array) {
-            int[] nx = {-1, 0, 1, 0};
-            int[] ny = {0, 1, 0, -1};
-
-            int answer = 0;
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    boolean isPeak = true;
-                    for(int k = 0; k < 4; k++) {
-                        int dx = i + nx[k];
-                        int dy = j + ny[k];
-                        if(dx < N && dy < N && dx >= 0 && dy >= 0) {
-                            if(array[i][j] <= array[dx][dy]) {
-                                isPeak = false;
-                                break;
-                            }
-                        }
-                    }
-                    if(isPeak) answer++;
-                }
-            }
-            return answer;
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-04
-     */
-    public static class J_봉우리_10_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N + 1][N + 1];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            int answer = solution(N, array);
-            System.out.println(answer);
-        }
-        public static int solution(int N, int[][] array) {
-            int[] nx = {-1, 0, 1, 0};
-            int[] ny = {0, 1, 0, -1};
-            int answer = 0;
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    boolean isPeak = true;
-                    for(int k = 0; k < 4; k++) {
-                        int tx = i + nx[k];
-                        int ty = j + ny[k];
-                        if(tx >= 0 && ty >= 0 && tx < N && ty < N) {
-                            if(array[i][j] <= array[tx][ty]) {
-                                isPeak = false;
-                                break;
-                            }
-                        }
-                    }
-                    if(isPeak) answer++;
-                }
-            }
-            return answer;
-        }
-    }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
