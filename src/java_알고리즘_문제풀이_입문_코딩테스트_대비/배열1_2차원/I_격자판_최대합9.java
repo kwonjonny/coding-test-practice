@@ -45,171 +45,32 @@ import java.util.*;
 public class I_격자판_최대합9 {
 
     /**
-     * 재 복습: 2025-04-29
-     */
-    public static class I_격자판_최대합9_5 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[][] array) {
-            int sum1, sum2;
-            int max = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 = 0; sum2 = 0;
-                for(int j = 0; j < N; j++) {
-                    sum1 += array[i][j];
-                    sum2 += array[j][i];
-                }
-                max = Math.max(max, sum1);
-                max = Math.max(max, sum2);
-            }
-            sum1 = 0;
-            sum2 = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 += array[i][i];
-                sum2 += array[i][N - i - 1];
-            }
-            max = Math.max(max, sum1);
-            max = Math.max(max, sum2);
-            System.out.println(max);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-28
-     */
-    public static class I_격자판_최대합9_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[][] array) {
-            int max = 0;
-            int sum1, sum2;
-            for(int i = 0; i < N; i++) {
-                sum1 = 0;
-                sum2 = 0;
-                for(int j = 0; j < N; j++) {
-                    sum1 += array[i][j];
-                    sum2 += array[j][i];
-                }
-                max = Math.max(max, sum1);
-                max = Math.max(max, sum2);
-            }
-            sum1 = 0;
-            sum2 = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 += array[i][i];
-                sum2 += array[i][N - 1 - i];
-            }
-            max = Math.max(max, sum1);
-            max = Math.max(max, sum2);
-            System.out.println(max);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-11
-     */
-    public static class I_격자판_최대합9_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[][] array) {
-            int sum1, sum2;
-            int max = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 = 0;
-                sum2 = 0;
-                for(int j = 0; j < N; j++) {
-                    sum1 += array[i][j];
-                    sum2 += array[j][i];
-                }
-                max = Math.max(max, sum1);
-                max = Math.max(max, sum2);
-            }
-
-            sum1 = 0;
-            sum2 = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 += array[i][i];
-                sum2 += array[i][N - i - 1];
-            }
-            max = Math.max(max, sum1);
-            max = Math.max(max, sum2);
-            System.out.println(max);
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-04-01
-     */
-    public static class I_격자판_최대합9_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[][] array = new int[N][N];
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    array[i][j] = scan.nextInt();
-                }
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[][] array) {
-            int sum1 = 0;
-            int sum2 = 0;
-            int max = 0;
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    sum1 = sum1 + array[i][j];
-                    sum2 = sum2 + array[j][i];
-                }
-                max = Math.max(max, sum1);
-                max = Math.max(max, sum2);
-                sum1 = 0;
-                sum2 = 0;
-            }
-            for(int i = 0; i < N; i++) {
-                sum1 = sum1 + array[i][i];
-                sum2 = sum2 + array[i][N - i - 1];
-            }
-            max = Math.max(max, sum1);
-            max = Math.max(max, sum2);
-            System.out.println(max);
-        }
-    }
-
-    /**
-     * 재 복습: 2025-03-06
+     * 재 복습: 2025-07-29
      */
     public static class I_격자판_최대합9_1 {
+        public static void solution(int N, int[][] array) {
+            int answer = 0;
+            int sum1, sum2;
+            for(int i = 0; i < N; i++) {
+                sum1 = 0;
+                sum2 = 0;
+                for(int j = 0; j < N; j++) {
+                    sum1 += array[i][j];
+                    sum2 += array[j][i];
+                }
+                answer = Math.max(answer, sum1);
+                answer = Math.max(answer, sum2);
+            }
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < N; i++) {
+               sum1 += array[i][i];
+               sum2 += array[i][N - 1 - i];
+            }
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
+            System.out.println(answer);
+        }
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -219,35 +80,9 @@ public class I_격자판_최대합9 {
                     array[i][j] = scan.nextInt();
                 }
             }
-            int answer = solution(N, array);
-            System.out.println(answer);
-        }
-        public static int solution(int N, int[][] array) {
-            int sum1, sum2;
-            int max = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 = 0;
-                sum2 = 0;
-                for(int j = 0; j < N; j++) {
-                    sum1 += array[i][j];
-                    sum2 += array[j][i];
-                }
-                max = Math.max(max, sum1);
-                max = Math.max(max, sum2);
-            }
-
-            sum1 = 0;
-            sum2 = 0;
-            for(int i = 0; i < N; i++) {
-                sum1 += array[i][i];
-                sum2 += array[i][N - i - 1];
-            }
-            max = Math.max(max, sum1);
-            max = Math.max(max, sum2);
-            return max;
+            solution(N, array);
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

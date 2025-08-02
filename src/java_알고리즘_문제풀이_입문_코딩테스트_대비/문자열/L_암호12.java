@@ -65,7 +65,7 @@ import java.util.*;
 public class L_암호12 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-28
      */
     public static class L_암호12_1 {
         public static void main(String[] args) {
@@ -75,16 +75,17 @@ public class L_암호12 {
             solution(N, str);
         }
         public static void solution(int N, String str) {
+            StringBuilder ret = new StringBuilder();
             for(int i = 0; i < N; i++) {
-                String subString = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                String sub = str.substring(0, 7).replace('#', '1').replace('*', '0');
+                int x = Integer.valueOf(sub, 2);
+                char c = (char) x;
+                ret.append(c);
                 str = str.substring(7);
-                int parseInt = Integer.valueOf(subString, 2);
-                char c = (char) parseInt;
-                System.out.print(c);
             }
+            System.out.println(ret);
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

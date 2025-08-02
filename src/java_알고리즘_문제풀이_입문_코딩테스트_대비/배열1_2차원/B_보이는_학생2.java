@@ -33,45 +33,9 @@ import java.util.*;
 public class B_보이는_학생2 {
 
     /**
-     * 재 복습: 2025-04-29
+     * 재 복습: 2025-07-29
      */
-    public static class B_보이는_학생2_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[] array) {
-            int cnt = 0;
-            int max = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] > max) {
-                    max = array[i];
-                    cnt++;
-                }
-            }
-            System.out.println(cnt);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-02
-     */
-    public static class B_보이는_학생2_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
+    public static class B_보이는_학생2_1 {
         public static void solution(int N, int[] array) {
             int answer = 0;
             int maxHeight = 0;
@@ -83,12 +47,6 @@ public class B_보이는_학생2 {
             }
             System.out.println(answer);
         }
-    }
-
-    /**
-     * 재 복습: 2025-03-06
-     */
-    public static class B_보이는_학생2_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -96,22 +54,9 @@ public class B_보이는_학생2 {
             for(int i = 0; i < N; i++) {
                 array[i] = scan.nextInt();
             }
-            int answer = solution(N, array);
-            System.out.println(answer);
-        }
-        public static int solution(int N, int[] array) {
-            int answer = 0;
-            int maxHeight = 0;
-            for(int i = 0; i < N; i++) {
-                if(maxHeight < array[i]) {
-                    maxHeight = array[i];
-                    answer++;
-                }
-            }
-            return answer;
+            solution(N, array);
         }
     }
-
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
