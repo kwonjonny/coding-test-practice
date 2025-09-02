@@ -48,33 +48,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.Scanner;
 
 public class J_봉우리10 {
-
-    /**
-     * 재 복습: 2025-07-31
-     */
+    
     public static class J_봉우리10_1 {
-        public static void solution(int N, int[][] array) {
-            int answer = 0;
-            int[] nx = {-1, 0, 1, 0};
-            int[] ny = {0, 1, 0, -1};
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    boolean isPeak = true;
-                    for(int k = 0; k < 4; k++) {
-                        int dx = i + nx[k];
-                        int dy = j + ny[k];
-                        if(dx >= 0 && dy >= 0 && dx < N && dy < N) {
-                            if(array[i][j] <= array[dx][dy]) {
-                                isPeak = false;
-                                break;
-                            }
-                        }
-                    }
-                    if(isPeak) answer++;
-                }
-            }
-            System.out.println(answer);
-        }
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -86,44 +61,27 @@ public class J_봉우리10 {
             }
             solution(N, array);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[][] array = new int[N][N];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                array[i][j] = scan.nextInt();
-            }
-        }
-        int answer = solution(N, array);
-        System.out.println(answer);
-    }
-    public static int solution(int N, int[][] array) {
-        int[] dx = {-1, 0, 1, 0};
-        int[] dy = {0, 1, 0, -1};
-
-        int answer = 0;
-
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                boolean isFlag = true;
-                for (int k = 0; k < 4; k++) {
-                    int tx = i + dx[k];
-                    int ty = j + dy[k];
-                    if (tx >= 0 && ty >= 0 && tx < N && ty < N) {
-                        if (array[i][j] <= array[tx][ty]) {
-                            isFlag = false;
-                            break;
+        public static void solution(int N, int[][] array) {
+            int[] nx = {-1, 0, 1, 0};
+            int[] ny = {0, 1, 0, - 1};
+            int cnt = 0;
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    boolean isPeak = true;
+                    for(int k = 0; k < 4; k++) {
+                        int tx = i + nx[k];
+                        int ty = j + ny[k];
+                        if(tx >= 0 && ty >= 0 && tx < N && ty < N) {
+                            if(array[i][j] <= array[tx][ty]) {
+                                isPeak = false;
+                                break;
+                            }
                         }
                     }
-                }
-                if (isFlag) {
-                    answer++;
+                    if(isPeak) cnt++;
                 }
             }
+            System.out.println(cnt);
         }
-        return answer;
     }
 }
