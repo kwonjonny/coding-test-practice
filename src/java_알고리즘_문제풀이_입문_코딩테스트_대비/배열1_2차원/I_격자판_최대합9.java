@@ -43,34 +43,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class I_격자판_최대합9 {
-
-    /**
-     * 재 복습: 2025-07-29
-     */
+    
     public static class I_격자판_최대합9_1 {
-        public static void solution(int N, int[][] array) {
-            int answer = 0;
-            int sum1, sum2;
-            for(int i = 0; i < N; i++) {
-                sum1 = 0;
-                sum2 = 0;
-                for(int j = 0; j < N; j++) {
-                    sum1 += array[i][j];
-                    sum2 += array[j][i];
-                }
-                answer = Math.max(answer, sum1);
-                answer = Math.max(answer, sum2);
-            }
-            sum1 = 0;
-            sum2 = 0;
-            for(int i = 0; i < N; i++) {
-               sum1 += array[i][i];
-               sum2 += array[i][N - 1 - i];
-            }
-            answer = Math.max(answer, sum1);
-            answer = Math.max(answer, sum2);
-            System.out.println(answer);
-        }
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -82,43 +56,29 @@ public class I_격자판_최대합9 {
             }
             solution(N, array);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[][] array = new int[N][N];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                array[i][j] = scan.nextInt();
+        public static void solution(int N, int[][] array) {
+            int sum1, sum2;
+            int max = Integer.MIN_VALUE;
+            for(int i = 0; i < N; i++) {
+                sum1 = 0;
+                sum2 = 0;
+                for(int j = 0; j < N; j++) {
+                    sum1 += array[j][i];
+                    sum2 += array[i][j];
+                }
+                max = Math.max(max, sum1);
+                max = Math.max(max, sum2);
             }
-        }
-        int answer = solution(N, array);
-        System.out.println(answer);
-    }
 
-    public static int solution(int N, int[][] array) {
-        int max = 0;
-        int p1, p2;
-        for (int i = 0; i < N; i++) {
-            p1 = 0;
-            p2 = 0;
-            for (int j = 0; j < N; j++) {
-                p1 += array[i][j];
-                p2 += array[j][i];
+            sum1 = 0;
+            sum2 = 0;
+            for(int i = 0; i < N; i++) {
+                sum1 += array[i][N - 1 - i];
+                sum2 += array[i][i];
             }
-            max = Math.max(max, p1);
-            max = Math.max(max, p2);
-        };
-
-        p1 = 0;
-        p2 = 0;
-        for(int i = 0; i < N; i++) {
-            p1 += array[i][i];
-            p2 += array[i][N - 1 - i];
+            max = Math.max(max, sum1);
+            max = Math.max(max, sum2);
+            System.out.println(max);
         }
-        max = Math.max(max, p1);
-        max = Math.max(max, p2);
-        return max;
     }
 }
