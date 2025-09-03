@@ -49,63 +49,32 @@ import java.util.*;
 
 public class C_가위_바위_보3 {
 
-    /**
-     * 재 복습: 2025-07-29
-     */
     public static class C_가위_바위_보3_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
-            int[] array1 = new int[N];
-            for(int i = 0; i < N; i++) array1[i] = scan.nextInt();
-            int[] array2 = new int[N];
-            for(int i = 0; i < N; i++) array2[i] = scan.nextInt();
-            solution(N, array1, array2);
+            int[] firstArray = new int[N];
+            for(int i = 0; i < N; i++) {
+                firstArray[i] = scan.nextInt();
+            }
+            int[] secondArray = new int[N];
+            for(int i = 0; i < N; i++) {
+                secondArray[i] = scan.nextInt();
+            }
+            solution(N, firstArray, secondArray);
         }
-        public static void solution(int N, int[] array1, int[] array2) {
+        public static void solution(int N, int[] firstArray, int[] secondArray) {
             List<String> answer = new ArrayList<>();
             int p1 = 0;
-            int p2 = 0;
-            while(array1.length > p1 && array2.length > p2) {
-                if(array1[p1] == array2[p2]) answer.add("D");
-                else if(array1[p1] == 1 && array2[p2] == 3 || array1[p1] == 2 && array2[p2] == 1 || array1[p1] == 3 && array2[p2] == 2) answer.add("A");
+            while (N > p1) {
+                if (firstArray[p1] == secondArray[p1]) answer.add("D");
+                else if(firstArray[p1] == 1 && secondArray[p1] == 3 || firstArray[p1] == 2 && secondArray[p1] == 1 || firstArray[p1] == 3 && secondArray[p1] == 2) answer.add("A");
                 else answer.add("B");
                 p1++;
-                p2++;
             }
             for(String x : answer) {
-                System.out.println(x);
+                System.out.println(x + " ");
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] first = new int[N];
-        for(int i = 0; i < N; i++) {
-            first[i] = scan.nextInt();
-        }
-        int[] second = new int[N];
-        for(int i = 0; i < N; i++) {
-            second[i] = scan.nextInt();
-        }
-        String[] answer = solution(N, first, second);
-        for(String x : answer) {
-            System.out.println(x);
-        }
-    }
-    public static String[] solution(int N, int[] first, int[] second) {
-        List<String> answer = new ArrayList<>();
-        int p1 = 0;
-        int p2 = 0;
-        while(p1 < N && p2 < N) {
-            if(first[p1] == second[p2]) answer.add("D");
-            else if(first[p1] == 1 && second[p2] == 3 || first[p1] == 2 && second[p2] == 1 || first[p1] == 3 && second[p2] == 2) answer.add("A");
-            else answer.add("B");
-            p1++;
-            p2++;
-        }
-        return answer.toArray(new String[0]);
     }
 }
