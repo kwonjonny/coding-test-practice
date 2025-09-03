@@ -45,61 +45,6 @@ import java.util.*;
 
 public class G_점수계산7 {
 
-    /**
-     * 재 복습: 2025-04-29
-     */
-    public static class G_점수계산7_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[] array) {
-            int cnt = 0;
-            int answer = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] == 1) cnt++;
-                else cnt = 0;
-                answer += cnt;
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-01
-     */
-    public static class G_점수계산7_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[] array) {
-            int cnt = 0;
-            int answer = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] == 0) cnt = 0;
-                else cnt++;
-                answer += cnt;
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-06
-     */
     public static class G_점수계산7_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -108,43 +53,17 @@ public class G_점수계산7 {
             for(int i = 0; i < N; i++) {
                 array[i] = scan.nextInt();
             }
-            int answer = solution(N, array);
-            System.out.println(answer);
+            solution(N, array);
         }
-        public static int solution(int N, int[] array) {
-            int cnt = 0;
+        public static void solution(int N, int[] array) {
             int answer = 0;
-            for(int i = 0; i < N - 1; i++) {
-                if(array[i] == 0) cnt = 0;
-                else cnt++;
+            int cnt = 0;
+            for(int i = 0; i < N; i++) {
+                if(array[i] == 1) cnt++;
+                else cnt = 0;
                 answer += cnt;
             }
-            return answer;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, array);
-        System.out.println(answer);
-    }
-    public static int solution(int N, int[] array) {
-        int answer = 0;
-        int score = 0;
-        for(int i = 0; i < N; i++) {
-            if(array[i] != 0) {
-                score++;
-                answer += score;
-            } else {
-                score = 0;
-            }
-        }
-        return answer;
     }
 }
