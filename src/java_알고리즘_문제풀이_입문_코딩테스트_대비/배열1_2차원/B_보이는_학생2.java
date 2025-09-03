@@ -31,22 +31,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class B_보이는_학생2 {
-
-    /**
-     * 재 복습: 2025-07-29
-     */
+    
     public static class B_보이는_학생2_1 {
-        public static void solution(int N, int[] array) {
-            int answer = 0;
-            int maxHeight = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] > maxHeight) {
-                    maxHeight = array[i];
-                    answer++;
-                }
-            }
-            System.out.println(answer);
-        }
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -56,27 +42,17 @@ public class B_보이는_학생2 {
             }
             solution(N, array);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, array);
-        System.out.println(answer);
-    }
-    public static int solution(int N, int[] array) {
-        int answer = 0;
-        int max = 0;
-        for(int i = 0; i < N; i++) {
-            if(max < array[i]) {
-                max = array[i];
-                answer++;
+        public static void solution(int N, int[] array) {
+            int maxHeight = Integer.MIN_VALUE;
+            int cnt = 0;
+            for(int i = 0; i < N; i++) {
+                int height = array[i];
+                if(maxHeight < height) {
+                    maxHeight = height;
+                    cnt++;
+                }
             }
+            System.out.println(cnt);
         }
-        return answer;
     }
 }
