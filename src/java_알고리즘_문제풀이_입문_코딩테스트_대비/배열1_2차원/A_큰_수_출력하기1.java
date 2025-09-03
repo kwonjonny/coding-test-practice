@@ -32,22 +32,7 @@ import java.util.*;
 
 public class A_큰_수_출력하기1 {
 
-    /**
-     * 재 복습: 2025-07-29
-     */
     public static class A_큰_수_출력하기1_1 {
-        public static void solution(int N, int[] array) {
-            List<Integer> answer = new ArrayList<>();
-            answer.add(array[0]);
-            for(int i = 1; i < N; i++) {
-                if(array[i] > array[i - 1]) {
-                    answer.add(array[i]);
-                }
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -57,27 +42,15 @@ public class A_큰_수_출력하기1 {
             }
             solution(N, array);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
+        public static void solution(int N, int[] array) {
+            List<Integer> ret = new ArrayList<>();
+            ret.add(array[0]);
+            for(int i = 1; i < N; i++) {
+                if(array[i] > array[i - 1]) ret.add(array[i]);
+            }
+            for(int x : ret) {
+                System.out.print(x + " ");
+            }
         }
-        int[] answer = solution(N, array);
-        for(int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-    public static int[] solution(int N, int[] array) {
-        List<Integer> answer = new ArrayList<>();
-        answer.add(array[0]);
-        for(int i = 1; i < N; i++) {
-            if(array[i] > array[i - 1]) answer.add(array[i]);
-
-        }
-        return answer.stream().mapToInt(e -> e).toArray();
     }
 }
