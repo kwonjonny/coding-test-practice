@@ -36,28 +36,27 @@ import java.util.*;
 
 public class F_뒤집은_소수6 {
 
-    /**
-     * 재 복습: 2025-07-29
-     */
     public static class F_뒤집은_소수6_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
             solution(N, array);
         }
         public static void solution(int N, int[] array) {
             List<Integer> answer = new ArrayList<>();
             for(int i = 0; i < N; i++) {
-                int nx = array[i];
-                int ny = 0;
-                while(nx > 0) {
-                   int temp = nx % 10;
-                   ny = ny  * 10 + temp;
-                   nx = nx / 10;
+                int T = array[i];
+                int res = 0;
+                while (T > 0) {
+                    int temp = T % 10;
+                    res = res * 10 + temp;
+                    T = T / 10;
                 }
-                if(isPrime(ny)) answer.add(ny);
+                if(isPrime(res)) answer.add(res);
             }
             for(int x : answer) {
                 System.out.print(x + " ");
@@ -70,39 +69,5 @@ public class F_뒤집은_소수6 {
             }
             return true;
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int[] answer = solution(N, array);
-        for(int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-    public static int[] solution(int N, int[] array) {
-        List<Integer> answer = new ArrayList<>();
-        for(int i = 0; i < N; i++) {
-            int temp = array[i];
-            int next = 0;
-            while(temp > 0) {
-               int t = temp % 10;
-               next = next * 10 + t;
-               temp = temp / 10;
-            }
-            if(isPrime(next)) answer.add(next);
-        }
-        return answer.stream().mapToInt(e -> e).toArray();
-    }
-    public static boolean isPrime(int N) {
-        if(N == 1) return false;
-        for(int i = 2; i < N; i++) {
-            if(N % i == 0) return false;
-        }
-        return true;
     }
 }
