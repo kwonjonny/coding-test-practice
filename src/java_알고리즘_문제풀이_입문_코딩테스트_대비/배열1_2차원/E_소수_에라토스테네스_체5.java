@@ -30,10 +30,7 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.배열1_2�
 import java.util.*;
 
 public class E_소수_에라토스테네스_체5 {
-
-    /**
-     * 재 복습: 2025-07-29
-     */
+    
     public static class E_소수_에라토스테네스_체5_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -42,36 +39,16 @@ public class E_소수_에라토스테네스_체5 {
         }
         public static void solution(int N) {
             int[] array = new int[N + 1];
-            int answer = 0;
-            for(int i = 2; i <= N; i++) {
+            int cnt = 0;
+            for(int i = 2; i < N; i++) {
                 if(array[i] == 0) {
-                    answer++;
-                    for(int j = i * i; j <= N; j = j + i) {
+                cnt++;
+                    for(int j = i * i; j < N; j = j + i) {
                         array[j] = 1;
                     }
                 }
             }
-            System.out.println(answer);
+            System.out.println(cnt);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int answer = solution(N);
-        System.out.println(answer);
-    }
-    public static int solution(int N) {
-        int[] array = new int[N + 1];
-        int answer = 0;
-        for(int i = 2; i <= N; i++) {
-            if(array[i] == 0) {
-                answer++;
-                for (int j = i * i; j <= N; j = j + i) {
-                    array[j] = 1;
-                }
-            }
-        }
-        return answer;
     }
 }
