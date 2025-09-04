@@ -35,10 +35,7 @@ import java.util.*;
 
 public class D_단어_뒤집기4 {
 
-    /**
-     * 재 복습: 2025-07-25
-     */
-    public static class D_단어_뒤집기_4_1 {
+    public static class D_단어_뒤집기4_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -49,34 +46,10 @@ public class D_단어_뒤집기4 {
             solution(N, array);
         }
         public static void solution(int N, String[] array) {
-            List<String> answer = new ArrayList<>();
             for(int i = 0; i < N; i++) {
-                String str = array[i];
-                answer.add(new StringBuilder(str).reverse().toString());
-            }
-            for(String x : answer) {
-                System.out.println(x);
+                String reverse = new StringBuilder(array[i]).reverse().toString();
+                System.out.println(reverse);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        String[] array = new String[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.next();
-        }
-        String[] answer = solution(array);
-        for(String x: answer) {
-            System.out.println(x);
-        }
-    }
-    public static String[] solution(String[] array) {
-        String[] answer = new String[array.length];
-        for(int i = 0; i < array.length; i++) {
-            answer[i] = new StringBuilder(array[i]).reverse().toString();
-        }
-        return answer;
     }
 }
