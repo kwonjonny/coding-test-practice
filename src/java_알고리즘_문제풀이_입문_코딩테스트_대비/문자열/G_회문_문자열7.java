@@ -32,9 +32,6 @@ import java.util.*;
 
 public class G_회문_문자열7 {
 
-    /**
-     * 재 복습: 2025-07-26
-     */
     public static class G_회문_문자열7_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -42,24 +39,22 @@ public class G_회문_문자열7 {
             solution(str);
         }
         public static void solution(String str) {
-            str = str.toLowerCase();
-            String reverse = new StringBuilder(str).reverse().toString();
-            if (reverse.equals(str)) System.out.println("YES");
-            else System.out.println("NO");
+            StringBuilder ret = new StringBuilder();
+            for(char x : str.toCharArray()) {
+                if(Character.isUpperCase(x)) ret.append(Character.toLowerCase(x));
+            }
+            int lt = 0;
+            int rt = ret.length() - 1;
+            String answer = "YES";
+            while(rt > lt) {
+                if(ret.charAt(lt) != ret.charAt(rt)) {
+                    answer = "NO";
+                    break;
+                }
+                lt++;
+                rt--;
+            }
+            System.out.println(answer);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        StringBuilder ret = new StringBuilder();
-        str = str.toLowerCase();
-        if(str.equals(new StringBuilder(str).reverse().toString())) ret.append("YES");
-        else ret.append("NO");
-        return ret.toString();
     }
 }
