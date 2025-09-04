@@ -32,9 +32,6 @@ import java.util.*;
 
 public class I_숫자만_추출9 {
 
-    /**
-     * 재 복습: 2025-07-26
-     */
     public static class I_숫자만_추출9_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -43,25 +40,11 @@ public class I_숫자만_추출9 {
         }
         public static void solution(String str) {
             StringBuilder ret = new StringBuilder();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(Character.isDigit(findChar)) ret.append(findChar);
+            for(char c : str.toCharArray()) {
+                if(Character.isDigit(c)) ret.append(c);
             }
-            System.out.println(Integer.valueOf(ret.toString()));
+            int x = Integer.parseInt(ret.toString());
+            System.out.println(x);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        int answer = solution(str);
-        System.out.println(answer);
-    }
-    public static int solution(String str) {
-        StringBuilder ret = new StringBuilder();
-        for(char x : str.toCharArray()) {
-            if(Character.isDigit(x)) ret.append(x);
-        }
-        return Integer.parseInt(ret.toString());
     }
 }
