@@ -33,9 +33,6 @@ import java.util.*;
 
 public class C_문장속_단어3 {
 
-    /**
-     * 재 복습: 2025-07-25
-     */
     public static class C_문장속_단어3_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -44,35 +41,15 @@ public class C_문장속_단어3 {
         }
         public static void solution(String str) {
             String[] array = str.split(" ");
-            int length = 0;
+            int maxLength = 0;
             String answer = "";
-            for (String x : array) {
-                if (length < x.length()) {
-                    length = x.length();
+            for(String x : array) {
+                if(x.length() > maxLength) {
                     answer = x;
+                    maxLength = x.length();
                 }
             }
             System.out.println(answer);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.nextLine();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-
-    public static String solution(String str) {
-        int max = 0;
-        String answer = "";
-        String[] array = str.split(" ");
-        for (String x : array) {
-            if (x.length() > max) {
-                max = x.length();
-                answer = x;
-            }
-        }
-        return answer;
     }
 }
