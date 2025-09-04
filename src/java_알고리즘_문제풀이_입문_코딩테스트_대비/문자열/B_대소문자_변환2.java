@@ -30,37 +30,20 @@ import java.util.*;
 
 public class B_대소문자_변환2 {
 
-    /**
-     * 재 복습: 2025-07-25
-     */
-    public static class B_대소문자_변환3 {
+    public static class B_대소문자_변환2_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
             solution(str);
         }
+
         public static void solution(String str) {
             StringBuilder ret = new StringBuilder();
-            for(char x : str.toCharArray()) {
+            for (char x : str.toCharArray()) {
                 if (Character.isLowerCase(x)) ret.append(Character.toUpperCase(x));
-                else if (Character.isUpperCase(x)) ret.append(Character.toLowerCase(x));
+                else ret.append(Character.toLowerCase(x));
             }
-            System.out.println(ret.toString());
+            System.out.println(ret);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        StringBuilder ret = new StringBuilder();
-        for(char x : str.toCharArray()) {
-            if(Character.isLowerCase(x)) ret.append(Character.toUpperCase(x));
-            else if(Character.isUpperCase(x)) ret.append(Character.toLowerCase(x));
-        }
-        return ret.toString();
     }
 }
