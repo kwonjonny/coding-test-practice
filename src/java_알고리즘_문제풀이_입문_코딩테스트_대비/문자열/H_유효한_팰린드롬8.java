@@ -30,13 +30,11 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
  * <p>
  * YES
  */
+
 import java.util.*;
 
 public class H_유효한_팰린드롬8 {
-
-    /**
-     * 재 복습: 2025-07-26
-     */
+    
     public static class H_유효한_팰린드롬8_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -46,42 +44,20 @@ public class H_유효한_팰린드롬8 {
         public static void solution(String str) {
             List<Character> list = new ArrayList<>();
             for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(Character.isAlphabetic(findChar)) list.add(Character.toLowerCase(findChar));
+                if(Character.isAlphabetic(str.charAt(i))) list.add(Character.toLowerCase(str.charAt(i)));
             }
-            int left = 0;
-            int right = list.size() - 1;
-            String answer = "NO";
-            while(right > left) {
-                if(!list.get(left).equals(list.get(right))) break;
-                else answer = "YES";
-                left++;
-                right--;
+            int lt = 0;
+            int rt = list.size() - 1;
+            String answer = "YES";
+            while(rt > lt) {
+                if(!list.get(lt).equals(list.get(rt))) {
+                    answer = "NO";
+                    break;
+                }
+                lt++;
+                rt--;
             }
             System.out.println(answer);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.nextLine();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        List<Character> list = new ArrayList<>();
-        for(char x : str.toLowerCase().toCharArray()) {
-            if(Character.isAlphabetic(x)) list.add(x);
-        }
-        int lt = 0;
-        int rt = list.size() - 1;
-        while(lt < rt) {
-            if(!list.get(lt).equals(list.get(rt))) {
-                return "NO";
-            }
-            lt++;
-            rt--;
-        }
-        return "YES";
     }
 }
