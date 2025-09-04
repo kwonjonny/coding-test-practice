@@ -31,9 +31,36 @@ import java.util.*;
 
 public class E_특정_문자_뒤집기5 {
 
-    /**
-     * 재 복습: 2025-07-25
-     */
+    public static class E_특정_문자_뒤집기5_2 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            solution(str);
+        }
+        public static void solution(String str) {
+            char[] array = new char[str.length()];
+            for(int i = 0; i < str.length(); i++) {
+                array[i] = str.charAt(i);
+            }
+            int lt = 0;
+            int rt = array.length - 1;
+            while(rt > lt) {
+                if(!Character.isAlphabetic(array[lt])) lt++;
+                else if(!Character.isAlphabetic(array[rt])) rt--;
+                else {
+                    char temp = array[lt];
+                    array[lt] = array[rt];
+                    array[rt] = temp;
+                    lt++;
+                    rt--;
+                }
+            }
+            for(char x : array) {
+                System.out.print(x);
+            }
+        }
+    }
+
     public static class E_특정_문자_뒤집기5_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -48,34 +75,9 @@ public class E_특정_문자_뒤집기5 {
             StringBuilder ret = new StringBuilder();
             for(int i = 0; i < str.length(); i++) {
                 if(Character.isAlphabetic(str.charAt(i))) ret.append(stack.pop());
-                else if(!Character.isAlphabetic(str.charAt(i))) ret.append(str.charAt(i));
+                else ret.append(str.charAt(i));
             }
             System.out.println(ret);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        StringBuilder ret = new StringBuilder();
-        char[] charArray = str.toCharArray();
-        int lt = 0;
-        int rt = str.length() - 1;
-        while(lt < rt) {
-            if(!Character.isAlphabetic(charArray[lt])) lt++;
-            else if(!Character.isAlphabetic(charArray[rt])) rt--;
-            else {
-                char temp = charArray[lt];
-                charArray[lt] = charArray[rt];
-                charArray[rt] = temp;
-                lt++;
-                rt--;
-            }
-        }
-        return ret.append(String.valueOf(charArray)).toString();
     }
 }
