@@ -30,40 +30,31 @@ import java.util.*;
 
 public class J_가장_짧은_문자거리10 {
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        char c = scan.next().charAt(0);
-        int[] answer = solution(str, c);
-        for(int x : answer) {
-            System.out.print(x + " ");
+    public static class J_가장_짧은_문자거리10_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            String str = scan.next();
+            char c = scan.next().charAt(0);
+            solution(str, c);
         }
-    }
-    public static int[] solution(String str, char c) {
-        int[] array = new int[str.length()];
-        int p = 1000;
-        for(int i = 0; i < str.length(); i++) {
-            if(str.charAt(i) == c) {
-                p = 0;
-                array[i] = p;
-            }
-            else {
-                p++;
-                array[i] = p;
-            }
-        }
-        p = 1000;
-        for(int i = str.length() - 1; i >= 0; i--) {
-            if(str.charAt(i) == c) {
-                p = 0;
-                array[i] = p;
-            }
-            else {
-                p++;
-                array[i] = Math.min(array[i], p);
-            }
-        }
+        public static void solution(String str, char c) {
+            int[] ret = new int[str.length()];
+            int cnt = 0;
 
-        return array;
+            for(int i = 0; i < str.length(); i++) {
+                if(str.charAt(i) == c) cnt = 0;
+                else cnt++;
+                ret[i] = cnt;
+            }
+            cnt = 0;
+            for(int i = str.length() - 1; i >= 0; i--) {
+                if(str.charAt(i) == c) cnt = 0;
+                else cnt++;
+                ret[i] = Math.min(cnt, ret[i]);
+            }
+            for(int x : ret) {
+                System.out.print(x + " ");
+            }
+        }
     }
 }
