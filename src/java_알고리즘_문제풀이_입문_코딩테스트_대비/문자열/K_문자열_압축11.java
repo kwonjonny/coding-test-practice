@@ -38,9 +38,6 @@ import java.util.*;
 
 public class K_문자열_압축11 {
 
-    /**
-     * 재 복습: 2025-07-28
-     */
     public static class K_문자열_압축11_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -50,8 +47,8 @@ public class K_문자열_압축11 {
         public static void solution(String str) {
             StringBuilder ret = new StringBuilder();
             int cnt = 1;
-            for(int i = 0; i < str.length(); i++) {
-                if(str.length() - 2 >= i && str.charAt(i) == str.charAt(i + 1)) {
+            for(int i = 0; i < str.length() - 1; i++) {
+                if(str.charAt(i) == str.charAt(i + 1)) {
                     cnt++;
                 }
                 else {
@@ -62,32 +59,9 @@ public class K_문자열_압축11 {
                     }
                 }
             }
+            ret.append(str.charAt(str.length() - 1));
+            if(cnt > 1) ret.append(cnt);
             System.out.println(ret);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        int cnt = 1;
-        StringBuilder ret = new StringBuilder();
-        for(int i = 0; i < str.length() - 1; i++) {
-            if(str.charAt(i) == str.charAt(i + 1)) {
-                cnt++;
-            } else {
-                ret.append(str.charAt(i));
-                if(cnt > 1) ret.append(cnt);
-                cnt = 1;
-            }
-        }
-
-        ret.append(str.charAt(str.length() - 1));
-        if (cnt > 1) ret.append(cnt);
-
-        return ret.toString();
     }
 }
