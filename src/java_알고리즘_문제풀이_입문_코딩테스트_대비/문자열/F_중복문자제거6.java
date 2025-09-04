@@ -30,10 +30,7 @@ import java.util.*;
 
 public class F_중복문자제거6 {
 
-    /**
-     * 재 복습: 2025-07-25
-     */
-    public static class F_중복문자제거6_1 {
+    public static class F_중복문자제거6_2 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
@@ -46,19 +43,5 @@ public class F_중복문자제거6 {
             }
             System.out.println(ret);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        StringBuilder ret = new StringBuilder();
-        for(int i = 0; i < str.length(); i++) {
-            if(str.indexOf(str.charAt(i)) == i) ret.append(str.charAt(i));
-        }
-        return ret.toString();
     }
 }
