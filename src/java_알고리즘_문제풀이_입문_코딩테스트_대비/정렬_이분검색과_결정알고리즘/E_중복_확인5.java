@@ -38,10 +38,38 @@ import java.util.*;
 
 public class E_중복_확인5 {
 
-    /**
-     * 재 복습: 2025-05-13
-     */
-    public static class E_중복_확인_5_3 {
+    public static class E_중복_확인5_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) {
+                array[i] = scan.nextInt();
+            }
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N - 1; j++) {
+                    if(array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            String answer = "U";
+            for(int i = 0; i < N - 1; i++) {
+                if(array[i] == array[i + 1]) {
+                    answer = "D";
+                    break;
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+
+    public static class E_중복_확인5_2 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -64,11 +92,7 @@ public class E_중복_확인5 {
         }
     }
 
-
-    /**
-     * 재 복습: 2025-04-08
-     */
-    public static class E_중복_확인_5_2 {
+    public static class E_중복_확인5_3 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
@@ -79,62 +103,15 @@ public class E_중복_확인5 {
             solution(N, array);
         }
         public static void solution(int N, int[] array) {
-            Arrays.sort(array);
+            Set<Integer> set = new HashSet<>();
             String answer = "U";
-            for(int i = 0; i < N - 1; i++) {
-                if(array[i] == array[i + 1]) {
-                    answer = "D";
-                    break;
-                }
+            for(int i = 0; i < N; i++) {
+               if(!set.add(array[i])) {
+                   answer = "D";
+                   break;
+               }
             }
             System.out.println(answer);
         }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class E_중복_확인_5_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for (int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            String answer = solution(N, array);
-            System.out.println(answer);
-        }
-        public static String solution(int N, int[] array) {
-            Arrays.sort(array);
-            for(int i = 0; i < N - 1; i++) {
-                if(array[i] == array[i + 1]) {
-                    return "D";
-                }
-            }
-            return "U";
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        String answer = solution(N, array);
-        System.out.println(answer);
-    }
-    public static String solution(int N, int[] array) {
-        Arrays.sort(array);
-        for(int i = 0; i < N - 1; i++) {
-            if(array[i] == array[i + 1]) {
-                return "D";
-            }
-        }
-        return "U";
     }
 }
