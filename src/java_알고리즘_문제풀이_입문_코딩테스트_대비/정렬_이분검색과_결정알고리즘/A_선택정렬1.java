@@ -34,39 +34,6 @@ import java.util.*;
 
 public class A_선택정렬1 {
 
-    /**
-     * 재 복습: 2025-05-13
-     */
-    public static class A_선택정렬1_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[] array) {
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    if(array[i] < array[j]) {
-                        int temp = array[i];
-                        array[i] = array[j];
-                        array[j] = temp;
-                    }
-                }
-            }
-            for(int x : array) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-04-02
-     */
     public static class A_선택정렬1_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
@@ -78,7 +45,7 @@ public class A_선택정렬1 {
             solution(N, array);
         }
         public static void solution(int N, int[] array) {
-            for(int i = 0; i < N; i++) {
+            for(int i = 0; i < N - 1; i++) {
                 for(int j = 0; j < N; j++) {
                     if(array[i] < array[j]) {
                         int temp = array[i];
@@ -91,62 +58,5 @@ public class A_선택정렬1 {
                 System.out.print(x + " ");
             }
         }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class A_선택정렬_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            int[] answer = solution(N, array);
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-        public static int[] solution(int N, int[] array) {
-            for(int i = 0; i < N; i++) {
-                for(int j = 0; j < N; j++) {
-                    if(array[i] < array[j]) {
-                        int temp = array[j];
-                        array[j] = array[i];
-                        array[i] = temp;
-                    }
-                }
-            }
-            return array;
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int[] answer = solution(N,array);
-        for(int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-    public static int[] solution(int N, int[] array) {
-        for(int i = 0; i < N - 1; i++) {
-            for(int j = i + 1; j < N; j++) {
-                if(array[i] > array[j]) {
-                   int temp = array[j];
-                   array[j] = array[i];
-                   array[i] = temp;
-                }
-            }
-        }
-        return array;
     }
 }
