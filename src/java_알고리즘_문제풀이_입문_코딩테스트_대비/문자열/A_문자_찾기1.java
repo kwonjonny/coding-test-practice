@@ -32,11 +32,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.문자열;
 import java.util.*;
 
 public class A_문자_찾기1 {
-    
-    /**
-     * 재 복습: 2025-07-25
-     */
-    public static class A_문자_찾기2 {
+
+    public static class A_문자_찾기1_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
@@ -44,29 +41,11 @@ public class A_문자_찾기1 {
             solution(str, c);
         }
         public static void solution(String str, char c) {
-            int answer = 0;
-            str = str.toLowerCase();
+            int cnt = 0;
             for(char x : str.toCharArray()) {
-                if(c == x) answer++;
+                if(Character.toLowerCase(x) == c) cnt++;
             }
-            System.out.println(answer);
+            System.out.println(cnt);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        char c = scan.next().charAt(0);
-        int answer = solution(str, c);
-        System.out.println(answer);
-    }
-    public static int solution(String str, char c) {
-        int cnt = 0;
-        c = Character.toLowerCase(c);
-        str = str.toLowerCase();
-        for(char x : str.toCharArray()) {
-            if(x == c) cnt++;
-        }
-        return cnt;
     }
 }
