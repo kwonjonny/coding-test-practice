@@ -49,88 +49,54 @@ import java.util.*;
 
 public class I_뮤직비디오_결정알고리즘9 {
 
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class I_뮤직비디오_결정알고리즘9_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int T = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            int answer = solution(N, T, array);
-            System.out.println(answer);
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
         }
-        public static int solution(int N, int T, int[] array) {
-            int lt = Arrays.stream(array).max().getAsInt();
-            int rt = Arrays.stream(array).sum();
-            int answer = 0;
-            while(lt <= rt) {
+        public static void solution(int N, int T, int[] array) {
+            int lt = max(array);
+            int rt = sum(array);
+            int answer = Integer.MIN_VALUE;
+            while(rt >= lt) {
                 int mid = (lt + rt) / 2;
                 if(count(mid, array) <= T) {
                     answer = mid;
                     rt = mid - 1;
-                } else {
-                    lt = mid + 1;
                 }
+                else lt = mid + 1;
             }
-            return answer;
+            System.out.println(answer);
         }
         public static int count(int mid, int[] array) {
-            int currentSum = 0;
-            int answer = 1;
+            int dvdCount = 1;
+            int sum = 0;
             for(int x : array) {
-                if(currentSum + x > mid) {
-                    answer++;
-                    currentSum = x;
+                if(x + sum > mid) {
+                    sum = x;
+                    dvdCount++;
                 }
-                else currentSum += x;
+                else sum += x;
             }
-            return answer;
+            return dvdCount;
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, T, array);
-        System.out.println(answer);
-    }
-    public static int solution(int N, int T, int[] array) {
-        int lt = Arrays.stream(array).max().getAsInt();
-        int rt = Arrays.stream(array).sum();
-        int answer = 0;
-        while (rt >= lt) {
-            int mid = (lt + rt) / 2;
-            if(count(mid, array) <= T) {
-                answer = mid;
-                rt = mid - 1;
-            } else {
-                lt = mid + 1;
+        public static int max(int[] array) {
+            int max = 0;
+            for(int x : array) {
+                if(x > max) max = x;
             }
+            return max;
         }
-        return answer;
-    }
-    public static int count(int mid, int[] array) {
-        int dvdCount = 1;
-        int currentSum = 0;
-        for(int i = 0; i < array.length; i++) {
-            if(array[i] + currentSum > mid) {
-                dvdCount++;
-                currentSum = array[i];
-            } else {
-                currentSum = currentSum + array[i];
+        public static int sum(int[] array) {
+            int sum = 0;
+            for(int x : array) {
+                sum += x;
             }
+            return sum;
         }
-        return dvdCount;
     }
 }
