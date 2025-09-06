@@ -50,87 +50,34 @@ import java.util.*;
 
 public class F_장난꾸러기6 {
 
-    /**
-     * 재 복습: 2025-05-13
-     */
-    public static class F_장난꾸러기6_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, array);
-        }
-        public static void solution(int N, int[] array) {
-            List<Integer> answer = new ArrayList<>();
-            int[] cloneArray = array.clone();
-            Arrays.sort(array);
-            for(int i = 0; i < N; i++) {
-                if(array[i] != cloneArray[i]) {
-                    answer.add(i + 1);
-                }
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class F_장난꾸러기6_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
+            for (int i = 0; i < N; i++) {
                 array[i] = scan.nextInt();
             }
-            int[] answer = solution(N, array);
-            for(int x : answer) {
+            solution(N, array);
+        }
+        public static void solution(int N, int[] array) {
+            int[] clone = array.clone();
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N - 1; j++) {
+                    if (array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            List<Integer> answer = new ArrayList<>();
+            for (int i = 0; i < N; i++) {
+                if (clone[i] != array[i]) answer.add(i + 1);
+            }
+            for (int x : answer) {
                 System.out.print(x + " ");
             }
         }
-        public static int[] solution(int N, int[] array) {
-            int[] cloneArray = array.clone();
-            List<Integer> answer = new ArrayList<>();
-            Arrays.sort(array);
-            for(int i = 0; i < N; i++) {
-                if(cloneArray[i] != array[i]) {
-                    answer.add(i + 1);
-                }
-            }
-            return answer.stream().mapToInt(e -> e).toArray();
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int[] answer = solution(N, array);
-        for (int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static int[] solution(int N, int[] array) {
-        List<Integer> answer = new ArrayList<>();
-        int[] cloneArray = array.clone();
-        Arrays.sort(array);
-        for (int i = 0; i < N; i++) {
-            if (cloneArray[i] != array[i]) {
-                answer.add(i + 1);
-            }
-        }
-        return answer.stream().mapToInt(e -> e).toArray();
     }
 }
