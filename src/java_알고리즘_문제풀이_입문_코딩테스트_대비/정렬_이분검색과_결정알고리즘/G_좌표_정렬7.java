@@ -41,25 +41,8 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.정렬_이�
 import java.util.*;
 
 public class G_좌표_정렬7 {
-
-    /**
-     * 재 복습: 2025-05-14
-     */
-    public static class G_좌표_정렬7_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            List<Point> X = new ArrayList<>();
-            for(int i = 0; i < N; i++) {
-                int x = scan.nextInt();
-                int y = scan.nextInt();
-                X.add(new Point(x, y));
-            }
-            Collections.sort(X);
-            for(Point x : X) {
-                System.out.println(x.x + " " + x.y);
-            }
-        }
+    
+    public static class G_좌표_정렬7_1 {
         public static class Point implements Comparable<Point> {
             int x;
             int y;
@@ -67,104 +50,25 @@ public class G_좌표_정렬7 {
                 this.x = x;
                 this.y = y;
             }
+            @Override
             public int compareTo(Point other) {
                 if(other.x == this.x) return this.y - other.y;
-                else return this.x - other.x;
+                return this.x - other.x;
             }
         }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-13
-     */
-    public static class G_좌표_정렬7_2 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
-            List<Point> answer = new ArrayList<>();
+            List<Point> ret = new ArrayList<>();
             for(int i = 0; i < N; i++) {
                 int x = scan.nextInt();
                 int y = scan.nextInt();
-                answer.add(new Point(x, y));
+                ret.add(new Point(x, y));
             }
-            Collections.sort(answer);
-            for(Point d : answer) {
+            Collections.sort(ret);
+            for(Point d : ret) {
                 System.out.println(d.x + " " + d.y);
             }
-        }
-        public static class Point implements Comparable<Point> {
-            int x;
-            int y;
-            public Point(int x, int y) {
-                this.x = x;
-                this.y = y;
-            }
-            public int compareTo(Point other) {
-                if(other.x == this.x) return this.y - other.y;
-                else return this.x - other.x;
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class G_좌표_정렬7_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            List<Point> answer = new ArrayList<>();
-            for(int i = 0; i < N; i++) {
-                int a = scan.nextInt();
-                int b = scan.nextInt();
-                answer.add(new Point(a, b));
-            }
-            Collections.sort(answer);
-            for(Point x : answer) {
-                System.out.println(x.x + " " + x.y);
-            }
-        }
-        public static class Point implements Comparable<Point> {
-            int x;
-            int y;
-            public Point(int x, int y) {
-                this.x = x;
-                this.y = y;
-            }
-            public int compareTo(Point other) {
-                if(other.x == this.x) return this.y - other.y;
-                else return this.x - other.x;
-            }
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        List<Point> answer = new ArrayList<>();
-        for (int i = 0; i < N; i++) {
-            int x = scan.nextInt();
-            int y = scan.nextInt();
-            answer.add(new Point(x, y));
-        }
-        Collections.sort(answer);
-        for (Point x : answer) {
-            System.out.println(x.x + " " + x.y);
-        }
-    }
-    public static class Point implements Comparable<Point> {
-        int x;
-        int y;
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-        public int compareTo(Point other) {
-            if (this.x == other.x) return this.y - other.y;
-            else return this.x - other.x;
         }
     }
 }
