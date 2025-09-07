@@ -52,188 +52,31 @@ import java.util.*;
 
 public class C_매출액의_종류3 {
 
-    /**
-     * 재 복습: 2025-06-04
-     */
-    public static class C_매출액의_종류3_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            List<Integer> answer = new ArrayList<>();
-            Map<Integer, Integer> map = new HashMap<>();
-            for(int i = 0; i < T; i++) {
-                map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-            }
-            answer.add(map.size());
-            int left = 0;
-            for(int i = T; i < N; i++) {
-                map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-
-                map.put(array[left], map.get(array[left]) - 1);
-                if(map.get(array[left]) == 0) map.remove(array[left]);
-                left++;
-                answer.add(map.size());
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-09
-     */
-    public static class C_매출액의_종류3_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            List<Integer> answer = new ArrayList<>();
-            Map<Integer, Integer> map = new HashMap<>();
-            for(int i = 0; i < T; i++) {
-                map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-            }
-            answer.add(map.size());
-            int left = 0;
-            for(int right = T; right < N; right++) {
-                map.put(array[right], map.getOrDefault(array[right], 0) + 1);
-
-                map.put(array[left], map.get(array[left]) - 1);
-                if(map.get(array[left]) == 0) map.remove(array[left]);
-                left++;
-                answer.add(map.size());
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class C_매출액의_종류3_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            Map<Integer, Integer> map = new HashMap<>();
-            List<Integer> answer = new ArrayList<>();
-            for(int i = 0; i < T; i++) {
-                map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-            }
-            answer.add(map.size());
-
-            int left = 0;
-            for(int right = T; right < N; right++) {
-                map.put(array[right], map.getOrDefault(array[right], 0) + 1);
-
-
-                map.put(array[left], map.get(array[left]) - 1);
-                if(map.get(array[left]) == 0) map.remove(array[left]);
-                left++;
-                answer.add(map.size());
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class C_매출액의_종류3_1 {
         public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);;
+            Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int T = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            Map<Integer, Integer> ret = new HashMap<>();
+            List<Integer> answer = new ArrayList<>();
+            for(int i = 0; i < T; i++) ret.put(array[i], ret.getOrDefault(array[i], 0) + 1);
+            answer.add(ret.size());
+            int lt = 0;
+            for(int rt = T; rt < N; rt++) {
+                ret.put(array[rt], ret.getOrDefault(array[rt], 0) + 1);
+                ret.put(array[lt], ret.get(array[lt]) - 1);
+                if(ret.get(array[lt]) == 0) ret.remove(array[lt]);
+                lt++;
+                answer.add(ret.size());
             }
-            int[] answer = solution(N, T, array);
             for(int x : answer) {
                 System.out.print(x + " ");
             }
         }
-        public static int[] solution(int N, int T, int[] array) {
-            List<Integer> answer = new ArrayList<>();
-            Map<Integer, Integer> map = new HashMap<>();
-            for(int i = 0; i < T; i++) {
-                map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-            }
-            answer.add(map.size());
-
-            int left = 0;
-            for(int right = T; right < N; right++) {
-                map.put(array[right], map.getOrDefault(array[right], 0) + 1);
-
-                map.put(array[left], map.get(array[left]) - 1);
-                if(map.get(array[left]) == 0) map.remove(array[left]);
-                left++;
-                answer.add(map.size());
-            }
-            return answer.stream().mapToInt(e -> e).toArray();
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int[] answer = solution(N, T, array);
-        for(int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-    public static int[] solution(int N, int T, int[] array) {
-        Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> answer = new ArrayList<>();
-        for(int i = 0; i < T; i++) {
-            map.put(array[i], map.getOrDefault(array[i], 0) + 1);
-        }
-        answer.add(map.size());
-
-        int left = 0;
-        for(int right = T; right < N; right++) {
-           map.put(array[right], map.getOrDefault(array[right], 0) + 1);
-
-           if(map.get(array[left]) == 1) map.remove(array[left]);
-           else map.put(array[left], map.getOrDefault(array[left], 0) -1) ;
-           left++;
-           answer.add(map.size());
-        }
-        return answer.stream().mapToInt(e -> e).toArray();
     }
 }
