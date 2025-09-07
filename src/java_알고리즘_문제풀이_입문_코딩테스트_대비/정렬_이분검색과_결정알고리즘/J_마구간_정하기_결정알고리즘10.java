@@ -38,58 +38,48 @@ import java.util.*;
 
 public class J_마구간_정하기_결정알고리즘10 {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
+    public static class J_마구간_정하기_결정알고리즘10_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            int T = scan.nextInt();
+            int[] array = new int[N];
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
         }
-        int answer = solution(N, T, array);
-        System.out.println(answer);
-    }
-
-    public static int solution(int N, int T, int[] array) {
-        Arrays.sort(array);
-        int lt = 1;
-        int rt = array[N - 1];
-        int answer = 0;
-        while(lt <= rt) {
-            int mid = (lt + rt) / 2;
-            if(count(mid, array) >= T) {
-                answer = mid;
-                lt = mid + 1;
-            } else {
-                rt = mid - 1;
+        public static void solution(int N, int T, int[] array) {
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N - 1; j++) {
+                    if(array[j] > array[j + 1]) {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
             }
-        }
-        return answer;
-    }
-    public static int count(int mid, int[] distance) {
-        int horseCount = 1;
-        int ep = distance[0];
-        for(int i = 1; i < distance.length; i++) {
-            if(distance[i] - ep >= mid) {
-                horseCount++;
-                ep = distance[i];
+            int lt = 1;
+            int rt = array[array.length - 1];
+            int answer = Integer.MIN_VALUE;
+            while(rt >= lt) {
+                int mid = (lt + rt) / 2;
+                if(count(mid, array) >= mid) {
+                    answer = mid;
+                    lt = mid + 1;
+                }
+                else rt = mid - 1;
             }
+            System.out.println(answer);
         }
-        return horseCount;
+        public static int count(int mid, int[] array) {
+            int horseCount = 1;
+            int ep = array[0];
+            for(int i = 1; i < array.length; i++) {
+                if(array[i] - ep >= mid) {
+                    horseCount++;
+                    ep = array[i];
+                }
+            }
+            return horseCount;
+        }
     }
 }
