@@ -39,103 +39,25 @@ import java.util.*;
 
 public class E_연속된_자연수의_합5 {
 
-    /**
-     * 재 복습: 2025-06-05
-     */
-    public static class E_연속된_자연수의_합5_3 {
+    public static class E_연속된_자연수의_합5_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             solution(N);
         }
         public static void solution(int N) {
-            int answer = 0;
+            int lt = 0;
             int currentSum = 0;
-            int left = 1;
-            for(int i = 1; i < N; i++) {
-                currentSum += i;
+            int answer = 0;
+            for(int rt = 0; rt < N; rt++) {
+                currentSum += rt;
                 if(currentSum == N) answer++;
                 while(currentSum > N) {
-                    currentSum -= left++;
+                    currentSum -= lt++;
                     if(currentSum == N) answer++;
                 }
             }
             System.out.println(answer);
         }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-08
-     */
-    public static class E_연속된_자연수의_합5_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            solution(N);
-        }
-        public static void solution(int N) {
-            int left = 0;
-            int sum = 0;
-            int answer = 0;
-            for(int i = 1; i < N; i++) {
-                sum += i;
-                if(sum == N) answer++;
-                while(sum > N) {
-                    sum -= left++;
-                    if(sum == N) answer++;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class E_연속된_자연수의_합5_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int answer = solution(N);
-            System.out.println(answer);
-        }
-        public static int solution(int N) {
-            int left = 1;
-            int currentSum = 0;
-            int answer = 0;
-            for(int right = 1; right < N; right++) {
-                currentSum += right;
-                if(N == currentSum) answer++;
-                while(currentSum > N) {
-                    currentSum -= left++;
-                    if(N == currentSum) answer++;
-                }
-            }
-            return answer;
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int answer = solution(N);
-        System.out.println(answer);
-    }
-    public static int solution(int N) {
-        int left = 1;
-        int currentSum = 0;
-        int answer = 0;
-        for(int right = 1; right < N; right++) {
-            currentSum += right;
-            if(currentSum == N) answer++;
-
-            while(currentSum > N) {
-                currentSum -= left++;
-                if(currentSum == N) answer++;
-            }
-        }
-        return answer;
     }
 }
