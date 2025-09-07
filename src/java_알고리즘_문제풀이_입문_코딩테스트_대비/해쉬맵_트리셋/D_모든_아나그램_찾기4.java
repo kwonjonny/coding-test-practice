@@ -37,200 +37,30 @@ import java.util.*;
 
 public class D_모든_아나그램_찾기4 {
 
-    /**
-     * 재 복습: 2025-06-04
-     */
-    public static class D_모든_아나그램_찾기4_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String firstStr = scan.next();
-            String secondStr = scan.next();
-            solution(firstStr, secondStr);
-        }
-        public static void solution(String firstStr, String secondStr) {
-            Map<Character, Integer> firstMap = new HashMap<>();
-            Map<Character, Integer> secondMap = new HashMap<>();
-            for(int i = 0; i < secondStr.length(); i++) {
-                char findChar = secondStr.charAt(i);
-                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-            }
-            for(int i = 0; i < secondStr.length(); i++) {
-                char findCHar = firstStr.charAt(i);
-                firstMap.put(findCHar, firstMap.getOrDefault(findCHar, 0) + 1);
-            }
-            int answer = 0;
-            if(firstMap.equals(secondMap)) answer++;
-
-            int left = 0;
-            for(int i = secondStr.length(); i < firstStr.length(); i++) {
-                char findChar = firstStr.charAt(i);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-
-                char leftChar = firstStr.charAt(left);
-                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
-                if(firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
-                left++;
-                if(firstMap.equals(secondMap)) answer++;
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-10
-     */
-    public static class D_모든_아나그램_찾기4_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String firstStr = scan.next();
-            String secondStr = scan.next();
-            solution(firstStr, secondStr);
-        }
-        public static void solution(String firstStr, String secondStr) {
-            Map<Character, Integer> secondMap = new HashMap<>();
-            for(char x : secondStr.toCharArray()) {
-                secondMap.put(x, secondMap.getOrDefault(x, 0) + 1);
-            }
-            Map<Character, Integer> firstMap = new HashMap<>();
-            for(int i = 0; i < secondStr.length(); i++) {
-                char findChar = firstStr.charAt(i);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-            }
-            int answer = 0;
-            if(secondMap.equals(firstMap)) answer++;
-            int left = 0;
-            for(int right = secondStr.length(); right < firstStr.length(); right++) {
-                char findChar = firstStr.charAt(right);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-
-                char leftChar = firstStr.charAt(left);
-                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
-                if(firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
-                left++;
-                if(firstMap.equals(secondMap)) answer++;
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class D_모든_아나그램_찾기4_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String firstStr = scan.next();
-            String secondStr = scan.next();
-            solution(firstStr, secondStr);
-        }
-        public static void solution(String firstStr, String secondStr) {
-            Map<Character, Integer> secondMap = new HashMap<>();
-            for(int i = 0; i < secondStr.length(); i++) {
-                char findChar = secondStr.charAt(i);
-                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-            }
-
-            Map<Character, Integer> firstMap = new HashMap<>();
-            for(int i = 0; i < secondStr.length(); i++) {
-                char findChar = firstStr.charAt(i);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-            }
-            int answer = 0;
-            int left = 0;
-            if(firstMap.equals(secondMap)) answer++;
-            for(int right = secondStr.length(); right < firstStr.length(); right++) {
-                char findChar = firstStr.charAt(right);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-
-                char leftChar = firstStr.charAt(left);
-                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
-                if(firstMap.get(leftChar) == 0) {
-                    firstMap.remove(leftChar);
-                }
-                left++;
-                if(firstMap.equals(secondMap)) answer++;
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class D_모든_아나그램_찾기4_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
-            String first = scan.next();
-            String second = scan.next();
-            int answer = solution(first, second);
-            System.out.println(answer);
+            String firstStr = scan.next();
+            String secondStr = scan.next();
+            solution(firstStr, secondStr);
         }
-        public static int solution(String first, String second) {
+        public static void solution(String firstStr, String secondStr) {
             Map<Character, Integer> firstMap = new HashMap<>();
             Map<Character, Integer> secondMap = new HashMap<>();
-
-            for(int i = 0; i < second.length(); i++) {
-                char findChar = first.charAt(i);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-            }
-            for(int i = 0; i < second.length(); i++) {
-                char findChar = second.charAt(i);
-                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-            }
-
             int answer = 0;
-            int left = 0;
+            for(int i = 0; i < secondStr.length(); i++) secondMap.put(secondStr.charAt(i), secondMap.getOrDefault(secondStr.charAt(i), 0) + 1);
+            for(int i = 0; i < secondStr.length(); i++) firstMap.put(firstStr.charAt(i), firstMap.getOrDefault(firstStr.charAt(i),0 ) + 1);
             if(firstMap.equals(secondMap)) answer++;
-            for(int right = second.length(); right < first.length(); right++) {
-                char findChar = first.charAt(right);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-
-                char leftChar = first.charAt(left);
-                firstMap.put(leftChar, firstMap.get(leftChar) - 1);
-                if(firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
-                left++;
+            
+            int lt = 0;
+            for(int rt = secondStr.length(); rt < firstStr.length(); rt++) {
+                firstMap.put(firstStr.charAt(rt), firstMap.getOrDefault(firstStr.charAt(rt), 0) + 1);
+                firstMap.put(firstStr.charAt(lt), firstMap.get(firstStr.charAt(lt)) - 1);
+                if(firstMap.get(firstStr.charAt(lt)) == 0) firstMap.remove(firstStr.charAt(lt));
+                lt++;
                 if(firstMap.equals(secondMap)) answer++;
             }
-            return answer;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String first = scan.next();
-        String second = scan.next();
-        int answer = solution(first, second);
-        System.out.println(answer);
-    }
-    public static int solution(String first, String second) {
-        Map<Character, Integer> firstMap = new HashMap<>();
-        Map<Character, Integer> secondMap = new HashMap<>();
-        for (int i = 0; i < second.length(); i++) {
-            char findChar = first.charAt(i);
-            firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-        }
-        for (int i = 0; i < second.length(); i++) {
-            char findChar = second.charAt(i);
-            secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-        }
-        int answer = 0;
-        if (firstMap.equals(secondMap)) answer++;
-
-        int left = 0;
-        for (int right = second.length(); right < first.length(); right++) {
-            char findChar = first.charAt(right);
-            firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-
-            char leftChar = first.charAt(left);
-            firstMap.put(leftChar, firstMap.get(leftChar) - 1);
-            if (firstMap.get(leftChar) == 0) firstMap.remove(leftChar);
-            left++;
-            if (firstMap.equals(secondMap)) answer++;
-        }
-        return answer;
     }
 }
