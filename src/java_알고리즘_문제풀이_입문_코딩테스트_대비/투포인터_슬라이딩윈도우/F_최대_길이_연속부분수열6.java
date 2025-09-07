@@ -39,187 +39,28 @@ import java.util.*;
  */
 public class F_최대_길이_연속부분수열6 {
 
-    /**
-     * 재 복습: 2025-06-05
-     */
-    public static class F_최대_길이_연속부분수열6_5 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            int zeroCount = 0;
-            int left = 0;
-            int length = 0;
-            for(int i = 0; i < N; i++) {
-                if(array[i] == 0) zeroCount++;
-                while(zeroCount > T) {
-                    if(array[left] == 0) zeroCount--;
-                    left++;
-                }
-                length = Math.max(length, i - left + 1);
-            }
-            System.out.println(length);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class F_최대_길이_연속부분수열6_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            int zeroCount = 0;
-            int left = 0;
-            int answer = 0;
-            for(int right = 0; right < N; right++) {
-                if(array[right] == 0) zeroCount++;
-                while(zeroCount > T) {
-                    if(array[left] == 0) zeroCount--;
-                    left++;
-                }
-                answer = Math.max(answer, right + 1 - left);
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-09
-     */
-    public static class F_최대_길이_연속부분수열6_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            int left = 0;
-            int zeroCount = 0;
-            int length = 0;
-            for(int right = 0; right < N; right++) {
-                if(array[right] == 0) zeroCount++;
-                while(zeroCount > T) {
-                    if(array[left] == 0) zeroCount--;
-                    left++;
-                }
-                length = Math.max(length, right + 1 - left);
-            }
-            System.out.println(length);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-06
-     */
-    public static class F_최대_길이_연속부분수열6_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array =  new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            int answer = solution(N, T, array);
-            System.out.println(answer);
-        }
-        public static int solution(int N, int T, int[] array) {
-            int zeroCount = 0;
-            int left = 0;
-            int answer = 0;
-            for(int right = 0; right < N; right++) {
-                if(array[right] == 0) zeroCount++;
-                while(zeroCount > T) {
-                    if(array[left] == 0) zeroCount--;
-                    left++;
-                }
-                answer = Math.max(answer, right - left + 1);
-            }
-            return answer;
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class F_최대_길이_연속부분수열6_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int T = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
+        }
+        public static void solution(int N, int T, int[] array) {
+            int answer = Integer.MIN_VALUE;
+            int zeroCount = 0;
+            int lt = 0;
+            for(int rt = 0; rt < N; rt++) {
+                if(array[rt] == 0) zeroCount++;
+                while(zeroCount > T) {
+                    if(array[lt] == 0) zeroCount--;
+                    lt++;
+                }
+                answer = Math.max(answer, rt - lt + 1);
             }
-            int answer = solution(N, T, array);
             System.out.println(answer);
         }
-        public static int solution(int N, int T, int[] array) {
-            int zeroPoint = 0;
-            int answer = 0;
-            int left = 0;
-            for(int right = 0; right < N; right++) {
-                if(array[right] == 0) zeroPoint++;
-                while(zeroPoint > T) {
-                    if(array[left] == 0) zeroPoint--;
-                    left++;
-                }
-                answer = Math.max(answer, right - left + 1);
-            }
-            return answer;
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, T, array);
-        System.out.println(answer);
-    }
-
-    public static int solution(int N, int T, int[] array) {
-        int lt = 0;
-        int zeroCount = 0;
-        int maxLength = 0;
-        for (int right = 0; right < N; right++) {
-            if (array[right] == 0) zeroCount++;
-            while (zeroCount > T) {
-                if (array[lt] == 0) zeroCount--;
-                lt++;
-            }
-            maxLength = Math.max(maxLength, right - lt + 1);
-        }
-        return maxLength;
     }
 }
