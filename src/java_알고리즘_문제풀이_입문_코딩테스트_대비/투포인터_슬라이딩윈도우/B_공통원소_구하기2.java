@@ -40,151 +40,33 @@ import java.util.*;
 
 public class B_공통원소_구하기2 {
 
-    public static class B_공통원소_구하기2_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int first = scan.nextInt();
-            int[] firstArray = new int[first];
-            for(int i = 0; i < first; i++) {
-                firstArray[i] = scan.nextInt();
-            }
-            int second = scan.nextInt();
-            int[] secondArray = new int[second];
-            for(int i = 0; i < second; i++) {
-                secondArray[i] = scan.nextInt();
-            }
-            solution(first, firstArray, second, secondArray);
-        }
-        public static void solution(int first, int[] firstArray, int second, int[] secondArray) {
-            Arrays.sort(firstArray); Arrays.sort(secondArray);
-            List<Integer> answer = new ArrayList<>();
-            int f1 = 0;
-            int s1 = 0;
-            while(first > f1 && second > s1) {
-                if(firstArray[f1] == secondArray[s1]) {
-                    answer.add(firstArray[f1]);
-                    f1++;
-                    s1++;
-                }
-                else if (firstArray[f1] > secondArray[s1]) s1++;
-                else f1++;
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-    /**
-     * 재 복습: 2025-05-08
-     */
-    public static class B_공통원소_구하기2_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int A = scan.nextInt();
-            int[] aArray = new int[A];
-            for(int i = 0; i < A; i++) {
-                aArray[i] = scan.nextInt();
-            }
-            int B = scan.nextInt();
-            int[] bArray = new int[B];
-            for(int i = 0; i < B; i++) {
-                bArray[i] = scan.nextInt();
-            }
-            solution(A, aArray, B, bArray);
-        }
-        public static void solution(int A, int[] aArray, int B, int[] bArray) {
-            List<Integer> answer = new ArrayList<>();
-            Arrays.sort(aArray);
-            Arrays.sort(bArray);
-            int a1 = 0;
-            int b1 = 0;
-            while (A > a1 && B > b1) {
-                if(aArray[a1] == bArray[b1]) {
-                    answer.add(aArray[a1++]);
-                    b1++;
-                }
-                else if (aArray[a1] > bArray[b1]) b1++;
-                else if (aArray[a1] < bArray[b1]) a1++;
-            }
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class B_공통원소_구하기2_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
-            int first = scan.nextInt();
-            int[] firstArray = new int[first];
-            for(int i = 0; i < first; i++) {
-                firstArray[i] = scan.nextInt();
+            int N = scan.nextInt();
+            int[] firstArray = new int[N];
+            for(int i = 0; i < N; i++) firstArray[i] = scan.nextInt();
+            int T = scan.nextInt();
+            int[] secondArray = new int[T];
+            for(int i = 0; i < T; i++) secondArray[i] = scan.nextInt();
+            solution(N, firstArray, T, secondArray);
+        }
+        public static void solution(int N, int[] firstArray, int T, int[] secondArray) {
+            Arrays.sort(firstArray); Arrays.sort(secondArray);
+            List<Integer> ret = new ArrayList<>();
+            int N1 = 0;
+            int T1 = 0;
+            while(N > N1 && T > T1) {
+                if(firstArray[N1] == secondArray[T1]) {
+                    ret.add(firstArray[N1]);
+                    N1++; T1++;
+                }
+                else if (firstArray[N1] > secondArray[T1]) T1++;
+                else if (firstArray[N1] < secondArray[T1]) N1++;
             }
-            int second = scan.nextInt();
-            int[] secondArray = new int[second];
-            for(int i = 0; i < second; i++) {
-                secondArray[i] = scan.nextInt();
-            }
-            int[] answer = solution(first, firstArray, second, secondArray);
-            for(int x : answer) {
+            for(int x : ret) {
                 System.out.print(x + " ");
             }
         }
-        public static int[] solution(int first, int[] firstArray, int second, int[] secondArray) {
-            List<Integer> answer = new ArrayList<>();
-            Arrays.sort(firstArray);
-            Arrays.sort(secondArray);
-            int f1 = 0;
-            int s1 = 0;
-            while(f1 < first && s1 < second) {
-                if(firstArray[f1] == secondArray[s1]) {
-                    answer.add(firstArray[f1++]);
-                    s1++;
-                }
-                else if (firstArray[f1] > secondArray[s1]) s1++;
-                else if (firstArray[f1] < secondArray[s1]) f1++;
-            }
-
-            return answer.stream().mapToInt(e -> e).toArray();
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] first = new int[N];
-        for (int i = 0; i < N; i++) first[i] = scan.nextInt();
-
-        int T = scan.nextInt();
-        int[] second = new int[T];
-        for (int i = 0; i < T; i++) second[i] = scan.nextInt();
-
-        int[] answer = solution(N, first, T, second);
-        for (int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-
-    public static int[] solution(int N, int[] first, int T, int[] second) {
-        int f1 = 0;
-        int s1 = 0;
-        List<Integer> answer = new ArrayList<>();
-        Arrays.sort(first);
-        Arrays.sort(second);
-        while (N > f1 && T > s1) {
-            if (first[f1] == second[s1]) {
-                answer.add(first[f1++]);
-                s1++;
-            } else if (first[f1] < second[s1]) f1++;
-            else if (first[f1] > second[s1]) s1++;
-        }
-
-        return answer.stream().mapToInt(e -> e).toArray();
     }
 }
