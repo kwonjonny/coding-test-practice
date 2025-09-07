@@ -40,118 +40,28 @@ import java.util.*;
 
 public class C_최대_매출3 {
 
-    /**
-     * 재 복습: 2025-06-05
-     */
-    public static class C_최대_매출3_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            int currentSum = 0;
-            for(int i = 0; i < T; i++) {
-                currentSum += array[i];
-            }
-            int max = currentSum;
-            int left = 0;
-            for(int i = T; i < N; i++) {
-                currentSum += array[i] - array[left++];
-                max = Math.max(max, currentSum);
-            }
-            System.out.println(max);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-08
-     */
-    public static class C_최대_매출3_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            int sum = 0;
-            for(int i = 0; i < T; i++) {
-                sum += array[i];
-            }
-            int max = sum;
-            int left = 0;
-            for(int i = T; i < N; i++) {
-                sum += array[i] - array[left++];
-                max = Math.max(max, sum);
-            }
-            System.out.println(max);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class C_최대_매출3_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int T = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            int answer = solution(N, T, array);
-            System.out.println(answer);
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
         }
-        public static int solution(int N, int T, int[] array) {
+        public static void solution(int N, int T, int[] array) {
             int currentSum = 0;
             for(int i = 0; i < T; i++) {
                 currentSum += array[i];
             }
-            int max = currentSum;
-            int left = 0;
-            for(int right = T; right < N; right++) {
-                currentSum += array[right] - array[left++];
-                max = Math.max(max, currentSum);
+            int answer = 0;
+            answer = Math.max(answer, currentSum);
+            int lt = 0;
+            for(int rt = T; rt < N; rt++) {
+                currentSum = currentSum + array[rt] - array[lt++];
+                answer = Math.max(answer, currentSum);
             }
-            return max;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for(int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, T, array);
-        System.out.println(answer);
-    }
-    public static int solution(int N, int T, int[] array) {
-        int currentSum = 0;
-        for(int i = 0; i < T; i++) {
-            currentSum += array[i];
-        }
-        int max = currentSum;
-        for(int right = T; right < N; right++) {
-            currentSum += array[right] - array[right - T];
-            if(currentSum > max) max = currentSum;
-        }
-        return max;
     }
 }
