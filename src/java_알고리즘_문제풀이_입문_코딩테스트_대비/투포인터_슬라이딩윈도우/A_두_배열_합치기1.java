@@ -40,138 +40,30 @@ import java.util.*;
 
 public class A_두_배열_합치기1 {
 
-    /**
-     * 두 배열 합치기1 (재복습)
-     */
-    public static class A_두_배열_합치기1_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int first = scan.nextInt();
-            int[] firstArray = new int[first];
-            for(int i = 0; i < first; i++) {
-                firstArray[i] = scan.nextInt();
-            }
-            int second = scan.nextInt();
-            int[] secondArray = new int[second];
-            for(int i = 0; i < second; i++) {
-                secondArray[i] = scan.nextInt();
-            }
-            solution(first, firstArray, second, secondArray);
-        }
-        public static void solution(int first, int[] firstArray, int second, int[] secondArray) {
-            List<Integer> answer = new ArrayList<>();
-            int f1 = 0;
-            int s1 = 0;
-            while(f1 < first && s1 < second) {
-                if(firstArray[f1] > secondArray[s1]) {
-                    answer.add(secondArray[s1++]);
-                }
-                else answer.add(firstArray[f1++]);
-            }
-            while(f1 < first) answer.add(firstArray[f1++]);
-            while(s1 < second) answer.add(secondArray[s1++]);
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-08
-     */
-    public static class A_두_배열_합치기1_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int A = scan.nextInt();
-            int[] aArray = new int[A];
-            for(int i = 0; i < A; i++) {
-                aArray[i] = scan.nextInt();
-            }
-            int B = scan.nextInt();
-            int[] bArray = new int[B];
-            for(int i = 0; i < B; i++) {
-                bArray[i] = scan.nextInt();
-            }
-            solution(A, aArray, B, bArray);
-        }
-        public static void solution(int A, int[] aArray, int B, int[] bArray) {
-            List<Integer> answer = new ArrayList<>();
-            int a1 = 0;
-            int b1 = 0;
-            while (a1 < A && b1 < B) {
-                if(aArray[a1] > bArray[b1]) answer.add(bArray[b1++]);
-                else answer.add(aArray[a1++]);
-            }
-            while (a1 < A) answer.add(aArray[a1++]);
-            while (b1 < B) answer.add(bArray[b1++]);
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
-        }
-    }
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class A_두_배열_합치기1_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int first = scan.nextInt();
             int[] firstArray = new int[first];
-            for(int i = 0; i < first; i++) {
-                firstArray[i] = scan.nextInt();
-            }
+            for(int i = 0; i < first; i++) firstArray[i] = scan.nextInt();
             int second = scan.nextInt();
             int[] secondArray = new int[second];
-            for(int i = 0; i < second; i++) {
-                secondArray[i] = scan.nextInt();
-            }
-            int[] answer = solution(first, firstArray, second, secondArray);
-            for(int x : answer) {
-                System.out.print(x + " ");
-            }
+            for(int i = 0; i < second; i++) secondArray[i] = scan.nextInt();
+            solution(first, firstArray, second, secondArray);
         }
-        public static int[] solution(int first, int[] firstArray, int second, int[] secondArray) {
-            List<Integer> answer = new ArrayList<>();
+        public static void solution(int first, int[] firstArray, int second, int[] secondArray) {
+            List<Integer> ret = new ArrayList<>();
             int f1 = 0;
             int s1 = 0;
             while(f1 < first && s1 < second) {
-                if(firstArray[f1] > secondArray[s1]) answer.add(secondArray[s1++]);
-                else answer.add(firstArray[f1++]);
+                if (firstArray[f1] > secondArray[s1]) ret.add(secondArray[s1++]);
+                else ret.add(firstArray[f1++]);
             }
-            while(f1 < first) answer.add(firstArray[f1++]);
-            while(s1 < second) answer.add(secondArray[s1++]);
-            return answer.stream().mapToInt(e -> e).toArray();
+            while(f1 < first) ret.add(firstArray[f1++]);
+            while(s1 < second) ret.add(secondArray[s1++]);
+            for(int x : ret) {
+                System.out.print(x + " ");
+            }
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[] first = new int[N];
-        for(int i = 0; i < N; i++) first[i] = scan.nextInt();
-
-        int T = scan.nextInt();
-        int[] second = new int[T];
-        for(int i = 0; i < T; i++) second[i] = scan.nextInt();
-
-        int[] answer = solution(N, first, T, second);
-        for(int x : answer) {
-            System.out.print(x + " ");
-        }
-    }
-    public static int[] solution(int N, int[] first, int T, int[] second) {
-        List<Integer> answer = new ArrayList<>();
-        int f1 = 0;
-        int s1 = 0;
-        while(f1 < N && s1 < T) {
-            if(first[f1] < second[s1]) answer.add(first[f1++]);
-            else answer.add(second[s1++]);
-        }
-        while(f1 < N) answer.add(first[f1++]);
-        while(s1 < T) answer.add(second[s1++]);
-        return answer.stream().mapToInt(e -> e).toArray();
     }
 }
