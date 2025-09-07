@@ -36,233 +36,34 @@ import java.util.*;
 
 public class E_K번째_큰_수5 {
 
-    /**
-     * 재 복습: 2025-06-04
-     */
-    public static class E_K번째_큰_수5_3 {
-        static int N;
-        static int T;
-        static int[] array;
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            N = scan.nextInt();
-            T = scan.nextInt();
-            array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution();
-        }
-        public static void solution() {
-            Set<Integer> set = new TreeSet<>(Collections.reverseOrder());
-            for(int i = 0; i < N; i++) {
-                for(int j = i + 1; j < N; j++) {
-                    for(int k = j + 1; k < N; k++) {
-                        int sum = array[i] + array[j] + array[k];
-                        set.add(sum);
-                    }
-                }
-            }
-            int answer = 0;
-            int X = 0;
-            for(int x : set) {
-                X++;
-                if(X == T) {
-                    answer = x;
-                    break;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class E_K번째_큰_수5_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            Set<Integer> set = new TreeSet<>(Collections.reverseOrder());
-            for(int i = 0; i < N; i++) {
-                for(int j = i + 1; j < N; j++) {
-                    for(int k = j + 1; k < N; k++) {
-                        int sum = array[i] + array[j] + array[k];
-                        set.add(sum);
-                    }
-                }
-            }
-            int cnt = 0;
-            int answer = 0;
-            for(int x : set) {
-                cnt++;
-                if(cnt == T) {
-                    answer = x;
-                    break;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class E_K_번째_큰_수5_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            Set<Integer> set = new TreeSet<>(Collections.reverseOrder());
-            for(int i = 0; i < N; i++) {
-                for(int j = i + 1; j < N; j++) {
-                    for(int k = j + 1; k < N; k++) {
-                        int sum = array[i] + array[j] + array[k];
-                        set.add(sum);
-                    }
-                }
-            }
-            int answer = 0;
-            int count = 0;
-            for(int x : set) {
-                count++;
-                if(count == T) {
-                    answer = x;
-                    break;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-03-27
-     */
-    public static class E_K_번째_큰_수5_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            int T = scan.nextInt();
-            int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            solution(N, T, array);
-        }
-        public static void solution(int N, int T, int[] array) {
-            Set<Integer> set = new TreeSet<>(Collections.reverseOrder());
-            for(int i = 0; i < N; i++) {
-                for(int j = i + 1; j < N; j++) {
-                    for(int k = j + 1; k < N; k++) {
-                        int sum = array[i] + array[j] + array[k];
-                        set.add(sum);
-                    }
-                }
-            }
-            int count = 0;
-            int answer = 0;
-            for(int x : set) {
-                count++;
-                if(count == T) {
-                    answer = x;
-                    break;
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class E_K번째_큰_수5_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             int T = scan.nextInt();
             int[] array = new int[N];
-            for(int i = 0; i < N; i++) {
-                array[i] = scan.nextInt();
-            }
-            int answer = solution(N, T, array);
-            System.out.println(answer);
+            for(int i = 0; i < N; i++) array[i] = scan.nextInt();
+            solution(N, T, array);
         }
-        public static int solution(int N, int T, int[] array) {
-            TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+        public static void solution(int N, int T, int[] array) {
+            Set<Integer> ret = new TreeSet<>(Collections.reverseOrder());
             for(int i = 0; i < N; i++) {
                 for(int j = i + 1; j < N; j++) {
                     for(int k = j + 1; k < N; k++) {
-                        treeSet.add(array[i] + array[j] + array[k]);
+                        ret.add(array[i] + array[j] + array[k]);
                     }
                 }
             }
             int cnt = 0;
-            int answer = 0;
-            for(int x : treeSet) {
+            int answer = Integer.MIN_VALUE;
+            for(int x : ret) {
                 cnt++;
                 if(cnt == T) {
                     answer = x;
                     break;
                 }
             }
-            return answer;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int T = scan.nextInt();
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = scan.nextInt();
-        }
-        int answer = solution(N, T, array);
-        System.out.println(answer);
-    }
-
-    public static int solution(int N, int T, int[] array) {
-        TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
-        for (int i = 0; i < N; i++) {
-            for (int j = i + 1; j < N; j++) {
-                for (int k = j + 1; k < N; k++) {
-                    int currentSum = array[i] + array[j] + array[k];
-                    treeSet.add(currentSum);
-                }
-            }
-        }
-        if(treeSet.size() < T) {
-            return -1;
-        }
-        int cnt = 0;
-        int answer = 0;
-        for (int x : treeSet) {
-            cnt++;
-            if (cnt == T) {
-                answer = x;
-                break;
-            }
-        }
-        return answer;
     }
 }
