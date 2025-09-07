@@ -38,143 +38,28 @@ import java.util.*;
 
 public class A_학급_회장_해쉬1 {
 
-    /**
-     * 재 복습: 2025-06-04
-     */
-    public static class A_학급_회장_해쉬1_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            String str = scan.next();
-            solution(N, str);
-        }
-        public static void solution(int N, String str) {
-            Map<Character, Integer> map = new HashMap<>();
-            for(int i = 0; i < N; i++) {
-                char findChar = str.charAt(i);
-                map.put(findChar, map.getOrDefault(findChar, 0) + 1);
-            }
-
-            char answer = ' ';
-            int max = 0;
-            for(Map.Entry<Character, Integer> set : map.entrySet()) {
-                if(max < set.getValue()) {
-                    max = set.getValue();
-                    answer = set.getKey();
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-05-09
-     */
-    public static class A_학급_회장_해쉬1_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            String str = scan.next();
-            solution(N, str);
-        }
-        public static void solution(int N, String str) {
-            Map<Character, Integer> map = new HashMap<>();
-            for(char x : str.toCharArray()) {
-                map.put(x, map.getOrDefault(x, 0) + 1);
-            }
-            char answer = ' ';
-            int max = 0;
-            for(Map.Entry<Character, Integer> set : map.entrySet()) {
-                if(set.getValue() > max) {
-                    max = set.getValue();
-                    answer = set.getKey();
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class A_학급_회장_해쉬1_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            int N = scan.nextInt();
-            String str = scan.next();
-            solution(N, str);
-        }
-        public static void solution(int N, String str) {
-            Map<Character, Integer> map = new HashMap<>();
-            for(int i = 0; i < N; i++) {
-                map.put(str.charAt(i), map.getOrDefault(str.charAt(i), 0) + 1);
-            }
-            Character answer = null;
-            int max = 0;
-            for(Map.Entry<Character, Integer> set : map.entrySet()) {
-                if(set.getValue() > max) {
-                    max = set.getValue();
-                    answer = set.getKey();
-                }
-            }
-            if(answer != null) System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class A_학급_회장_해쉬1_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             int N = scan.nextInt();
             String str = scan.next();
-            char answer = solution(N, str);
-            System.out.println(answer);
+            solution(N, str);
         }
-        public static char solution(int N, String str) {
-            Map<Character, Integer> map = new HashMap<>();
-            Character answer = null;
+        public static void solution(int N, String str) {
+            Map<Character, Integer> ret = new HashMap<>();
             for(int i = 0; i < N; i++) {
                 char findChar = str.charAt(i);
-                map.put(findChar, map.getOrDefault(findChar, 0) + 1);
+                ret.put(findChar, ret.getOrDefault(findChar, 0) + 1);
             }
-            int max = 0;
-            for(Map.Entry<Character, Integer> set : map.entrySet()) {
-                if(max < set.getValue()) {
-                    max = set.getValue();
-                    answer = set.getKey();
+            int max = Integer.MIN_VALUE;
+            char answer = ' ';
+            for(Map.Entry<Character, Integer> map : ret.entrySet()) {
+                if(map.getValue() > max) {
+                    max = map.getValue();
+                    answer = map.getKey();
                 }
             }
-            return answer;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        String str = scan.next();
-        char answer = solution(N, str);
-        System.out.println(answer);
-    }
-    public static char solution(int N, String str) {
-        Map<Character, Integer> map = new HashMap<>();
-        for(int i = 0; i < N; i++) {
-            char findChar = str.charAt(i);
-            map.put(findChar, map.getOrDefault(findChar, 0) + 1);
-        }
-        char answer = ' ';
-        int max = 0;
-        for(Map.Entry<Character, Integer> set : map.entrySet()) {
-            if(set.getValue() > max) {
-                max = set.getValue();
-                answer = set.getKey();
-            }
-        }
-        return answer;
     }
 }
