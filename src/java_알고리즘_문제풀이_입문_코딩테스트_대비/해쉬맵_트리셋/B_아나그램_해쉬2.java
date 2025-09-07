@@ -45,10 +45,7 @@ import java.util.*;
 
 public class B_아나그램_해쉬2 {
 
-    /**
-     * 재 복습: 2025-06-04
-     */
-    public static class B_아나그램해쉬2_4 {
+    public static class B_아나그램_해쉬2_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String first = scan.next();
@@ -58,116 +55,11 @@ public class B_아나그램_해쉬2 {
         public static void solution(String first, String second) {
             Map<Character, Integer> firstMap = new HashMap<>();
             Map<Character, Integer> secondMap = new HashMap<>();
-            for(char x : first.toCharArray()) firstMap.put(x, firstMap.getOrDefault(x, 0) + 1);
-            for(char x : second.toCharArray()) secondMap.put(x, secondMap.getOrDefault(x, 0) + 1);
+            for(int i = 0; i < first.length(); i++) firstMap.put(first.charAt(i), firstMap.getOrDefault(first.charAt(i), 0) + 1);
+            for(int i = 0; i < second.length(); i++) secondMap.put(second.charAt(i),secondMap.getOrDefault(second.charAt(i), 0) + 1);
             String answer = "NO";
             if(firstMap.equals(secondMap)) answer = "YES";
             System.out.println(answer);
         }
-    }
-
-    
-    /**
-     * 재 복습: 2025-05-09
-     */
-    public static class B_아나그램해쉬2_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String firstStr = scan.next();
-            String secondStr = scan.next();
-            solution(firstStr, secondStr);
-        }
-        public static void solution(String firstStr, String secondStr) {
-            Map<Character, Integer> fisrtMap = new HashMap<>();
-            Map<Character, Integer> secondMap = new HashMap<>();
-
-            for(char x : firstStr.toCharArray()) {
-                fisrtMap.put(x, fisrtMap.getOrDefault(x, 0) + 1);
-            }
-            for(char x : secondStr.toCharArray()) {
-                secondMap.put(x, secondMap.getOrDefault(x, 0) + 1);
-            }
-            if(fisrtMap.equals(secondMap)) System.out.println("YES");
-            else System.out.println("NO");
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class B_아나그램_해쉬2_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String firstStr = scan.next();
-            String secondStr = scan.next();
-            solution(firstStr, secondStr);
-        }
-        public static void solution(String firstStr, String secondStr) {
-            Map<Character, Integer> firstMap = new HashMap<>();
-            Map<Character, Integer> secondMap = new HashMap<>();
-            for(int i = 0; i < firstStr.length(); i++) {
-                firstMap.put(firstStr.charAt(i), firstMap.getOrDefault(firstStr.charAt(i), 0) + 1);
-            }
-            for(int i = 0; i < secondStr.length(); i++) {
-                secondMap.put(secondStr.charAt(i), secondMap.getOrDefault(secondStr.charAt(i), 0) + 1);
-            }
-            if(firstMap.equals(secondMap)) System.out.println("YES");
-            else System.out.println("NO");
-        }
-    }
-
-    
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class B_아나그램_해쉬2_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String first = scan.next();
-            String second = scan.next();
-            String answer = solution(first, second);
-            System.out.println(answer);
-        }
-        public static String solution(String first, String second) {
-            Map<Character, Integer> firstMap = new HashMap<>();
-            Map<Character, Integer> secondMap = new HashMap<>();
-            for(int i = 0; i < first.length(); i++) {
-                char findChar = first.charAt(i);
-                firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) + 1);
-            }
-            for(int i = 0; i < second.length(); i++) {
-                char findChar = second.charAt(i);
-                secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-            }
-            if(firstMap.equals(secondMap)) return "YES";
-            return "NO";
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String firstStr = scan.next();
-        String secondStr = scan.next();
-        String answer = solution(firstStr, secondStr);
-        System.out.println(answer);
-    }
-    public static String solution(String firstStr, String secondStr) {
-        Map<Character, Integer> firstMap = new HashMap<>();
-        Map<Character, Integer> secondMap = new HashMap<>();
-        for(int i = 0; i < firstStr.length(); i++) {
-            char findChar = firstStr.charAt(i);
-            firstMap.put(findChar, firstMap.getOrDefault(findChar, 0) +  1);
-        }
-        for(int i = 0; i < secondStr.length(); i++) {
-            char findChar = secondStr.charAt(i);
-            secondMap.put(findChar, secondMap.getOrDefault(findChar, 0) + 1);
-        }
-
-        StringBuilder ret = new StringBuilder();
-        if(firstMap.equals(secondMap)) ret.append("YES");
-        else ret.append("NO");
-        return ret.toString();
     }
 }
