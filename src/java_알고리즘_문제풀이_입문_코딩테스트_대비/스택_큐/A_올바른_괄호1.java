@@ -30,132 +30,28 @@ package java_알고리즘_문제풀이_입문_코딩테스트_대비.스택_큐;
 import java.util.*;
 
 public class A_올바른_괄호1 {
-
-    /**
-     * 재 복습: 2025-06-10
-     */
-    public static class A_올바른_괄호1_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            String answer = solution(str);
-            System.out.println(answer);
-        }
-        public static String solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar != ')') stack.push(findChar);
-                else {
-                    if(stack.isEmpty()) return "NO";
-                    stack.pop();
-                }
-            }
-            if(!stack.isEmpty()) return "NO";
-            else return "YES";
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class A_올바른_괄호1_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            String answer = solution(str);
-            System.out.println(answer);
-        }
-        public static String solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push(findChar);
-                else {
-                    if(stack.isEmpty()) return "NO";
-                    else stack.pop();
-                }
-            }
-            if(!stack.isEmpty()) return "NO";
-            else return "YES";
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class A_올바른_괄호1_2 {
+    
+    public static class A_올바른_괄호1_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
             solution(str);
         }
         public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
+            Stack<Character> ret = new Stack<>();
+            String answer = "YES";
             for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push('(');
+                if(str.charAt(i) == '(') ret.push(str.charAt(i));
                 else {
-                    if(stack.isEmpty()) {
-                        System.out.println("NO");
+                    if(ret.isEmpty()) {
+                        answer = "NO";
                         break;
                     }
-                    else {
-                        stack.pop();
-                    }
+                    ret.pop();
                 }
             }
-            if(!stack.isEmpty()) System.out.println("NO");
-            else System.out.println("YES");
-        }
-    }
-
-    /**
-     * 재 복습: 2025-03-05
-     */
-    public static class A_올바른_괄호1_1 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            String answer = solution(str);
+            if(!ret.isEmpty()) answer = "NO";
             System.out.println(answer);
         }
-        public static String solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push(findChar);
-                else {
-                    if(stack.isEmpty()) return "NO";
-                    char c = stack.pop();
-                    if(c != '(') return "NO";
-                }
-            }
-            if(stack.isEmpty()) return "YES";
-            else return "NO";
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-    public static String solution(String str) {
-        Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < str.length(); i++) {
-            char findChar = str.charAt(i);
-            if(findChar == '(') stack.push(findChar);
-            else {
-               if(stack.isEmpty()) return "NO";
-               stack.pop();
-            }
-        }
-        if(stack.isEmpty()) return "YES";
-        return "NO";
     }
 }
