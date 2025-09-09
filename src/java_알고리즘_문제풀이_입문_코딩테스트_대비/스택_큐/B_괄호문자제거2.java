@@ -29,130 +29,23 @@ import java.util.*;
 
 public class B_괄호문자제거2 {
 
-    /**
-     * 재 복습: 2025-06-10
-     */
-    public static class B_괄호문자제거2_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar != ')') stack.push(findChar);
-                else if(findChar == ')') {
-                    while(stack.pop() != '(');
-                }
-            }
-            for(char x : stack) {
-                System.out.print(x);
-            }
-        }
-    }
 
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class B_괄호문자제거2_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(char x : str.toCharArray()) {
-                if(x != ')') stack.push(x);
-                else {
-                    if(!stack.isEmpty()) {
-                        while(stack.pop() != '(');
-                    }
-                }
-            }
-            for(char x : stack) {
-                System.out.print(x);
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class B_괄호문자제거2_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar != ')') stack.push(findChar);
-                else {
-                    while(stack.pop() != '(');
-                }
-            }
-            for(char x : stack) {
-                System.out.print(x);
-            }
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class B_괄호문자제거2_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
-            String answer = solution(str);
-            System.out.println(answer);
+            solution(str);
         }
-        public static String solution(String str) {
-            Stack<Character> stack = new Stack<>();
+        public static void solution(String str) {
+            Stack<Character> ret = new Stack<>();
             for(int i = 0; i < str.length(); i++) {
                 char findChar = str.charAt(i);
-                if(findChar != ')') stack.push(findChar);
+                if(findChar != ')') ret.push(findChar);
                 else {
-                    while(stack.pop() != '(');
+                    while(ret.pop() != '(');
                 }
             }
-            StringBuilder ret = new StringBuilder();
-            for(char x : stack){
-                ret.append(x);
-            }
-            return ret.toString();
+            for(char x : ret) System.out.print(x);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        String answer = solution(str);
-        System.out.println(answer);
-    }
-
-    public static String solution(String str) {
-        Stack<Character> stack = new Stack<>();
-        StringBuilder ret = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            char findChar = str.charAt(i);
-            if (findChar != ')') stack.push(findChar);
-            else {
-                while (stack.pop() != '(') ;
-            }
-        }
-        for (char x : stack) {
-            ret.append(x);
-        }
-        return ret.toString();
     }
 }
