@@ -33,154 +33,31 @@ import java.util.*;
 
 public class D_후위식_연산_postfix4 {
 
-    /**
-     * 재 복습: 2025-06-10
-     */
-    public static class D_후위식_연산_postfix4_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Integer> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(Character.isDigit(findChar)) stack.push(findChar - '0');
-                else {
-                    int answer = 0;
-                    int lt = stack.pop();
-                    int rt = stack.pop();
-                    if(findChar == '+') answer = lt + rt;
-                    if(findChar == '-') answer = rt - lt;
-                    if(findChar == '/') answer = lt / rt;
-                    if(findChar == '*') answer = lt * rt;
-                    stack.push(answer);
-                }
-            }
-            if(!stack.isEmpty()) System.out.println(stack.pop());
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class D_후위식_연산_postfix4_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Integer> stack = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(Character.isDigit(findChar)) stack.push(findChar - '0');
-                else {
-                    int answer = 0;
-                    int lt = stack.pop();
-                    int rt = stack.pop();
-                    if(findChar == '+') answer = rt + lt;
-                    else if(findChar == '-') answer = rt - lt;
-                    else if(findChar == '/') answer = rt / lt;
-                    else if(findChar == '*') answer = rt * lt;
-                    stack.push(answer);
-                }
-            }
-            if(!stack.isEmpty()) System.out.println(stack.pop());
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class D_후위식_연산_postfix4_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Integer> S = new Stack<>();
-            for(int i = 0; i < str.length(); i++) {
-                if(Character.isDigit(str.charAt(i))) {
-                    S.push(str.charAt(i) - '0');
-                }
-                else {
-                    if(!S.isEmpty()) {
-                        int answer = 0;
-                        int b = S.pop();
-                        int a = S.pop();
-                        if(str.charAt(i) == '+') answer = a + b;
-                        else if(str.charAt(i) == '-') answer = a - b;
-                        else if(str.charAt(i) == '/') answer = a / b;
-                        else if(str.charAt(i) == '*') answer = a * b;
-                        S.push(answer);
-                    }
-                }
-            }
-            if(!S.isEmpty()) System.out.println(S.pop());
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class D_후위식_연산_postfix4_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
-            int answer = solution(str);
-            System.out.println(answer);
+            solution(str);
         }
-        public static int solution(String str) {
-            Stack<Integer> stack = new Stack<>();
+        public static void solution(String str) {
+            Stack<Integer> ret = new Stack<>();
             for(int i = 0; i < str.length(); i++) {
                 char findChar = str.charAt(i);
-                if(Character.isDigit(findChar)) stack.push(findChar - '0');
+                if(Character.isDigit(findChar)) ret.push(findChar - '0');
                 else {
-                    int answer = 0;
-                    int lt = stack.pop();
-                    int rt = stack.pop();
-                    if(findChar == '-') answer = rt - lt;
-                    else if(findChar == '+') answer = rt + lt;
-                    else if(findChar == '/') answer = rt / lt;
-                    else if(findChar == '*') answer = rt * lt;
-                    stack.push(answer);
+                    if(!ret.isEmpty()) {
+                        int answer = 0;
+                        int lt = ret.pop();
+                        int rt = ret.pop();
+                        if(findChar == '+') answer = rt + lt;
+                        if(findChar == '-') answer = rt - lt;
+                        if(findChar == '*') answer = rt * lt;
+                        if(findChar == '/') answer = rt / lt;
+                        ret.push(answer);
+                    }
                 }
             }
-            return stack.pop();
+            System.out.println(ret.peek());
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        int answer = solution(str);
-        System.out.println(answer);
-    }
-    public static int solution(String str) {
-        Stack<Integer> stack = new Stack<>();
-        int answer = 0;
-        for(int i = 0; i < str.length(); i++) {
-            char findChar = str.charAt(i);
-            if(Character.isDigit(findChar)) stack.push(Character.getNumericValue(findChar));
-            else {
-                if(!stack.isEmpty()) {
-                    int prefix = stack.pop();
-                    int suffix = stack.pop();
-                    if(findChar == '+') answer = suffix + prefix;
-                    else if(findChar == '-') answer = suffix - prefix;
-                    else if(findChar == '*') answer = (suffix * prefix);
-                    else if(findChar == '/') answer = suffix / prefix;
-                    stack.push(answer);
-                }
-            }
-        }
-        return answer;
     }
 }
