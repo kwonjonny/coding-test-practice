@@ -63,156 +63,33 @@ import java.util.*;
 
 public class E_쇠막대기5 {
 
-    /**
-     * 재 복습: 2025-06-10
-     */
-    public static class E_쇠막대기5_4 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            int answer = 0;
-
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push('(');
-                else {
-                    if(str.charAt(i - 1) == '(') {
-                        stack.pop();
-                        answer += stack.size();
-                    }
-                    else {
-                        stack.pop();
-                        answer += 1;
-                    }
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-05-12
-     */
-    public static class E_쇠막대기5_3 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            int answer = 0;
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push('(');
-                else {
-                    if(str.charAt(i - 1) == '(') {
-                        stack.pop();
-                        answer += stack.size();
-                    }
-                    else {
-                        stack.pop();
-                        answer += 1;
-                    }
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-28
-     */
-    public static class E_쇠막대기5_2 {
-        public static void main(String[] args) {
-            Scanner scan = new Scanner(System.in);
-            String str = scan.next();
-            solution(str);
-        }
-        public static void solution(String str) {
-            Stack<Character> stack = new Stack<>();
-            int answer = 0;
-            for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') {
-                    stack.push('(');
-                }
-                else {
-                    if(str.charAt(i - 1) == '(') {
-                        stack.pop();
-                        answer += stack.size();
-                    }
-                    else {
-                        stack.pop();
-                        answer += 1;
-                    }
-                }
-            }
-            System.out.println(answer);
-        }
-    }
-
-
-    /**
-     * 재 복습: 2025-03-05
-     */
     public static class E_쇠막대기5_1 {
         public static void main(String[] args) {
             Scanner scan = new Scanner(System.in);
             String str = scan.next();
-            int answer = solution(str);
-            System.out.println(answer);
+            solution(str);
         }
-        public static int solution(String str) {
-            Stack<Character> stack = new Stack<>();
+        public static void solution(String str) {
+            Stack<Character> ret = new Stack<>();
             int answer = 0;
             for(int i = 0; i < str.length(); i++) {
-                char findChar = str.charAt(i);
-                if(findChar == '(') stack.push('(');
+                if(str.charAt(i) == '(') ret.push('(');
                 else {
                     if(str.charAt(i - 1) == '(') {
-                        stack.pop();
-                        answer += stack.size();
-                    } else {
-                        stack.pop();
-                        answer += 1;
+                        if(!ret.isEmpty()) {
+                            ret.pop();
+                            answer += ret.size();
+                        }
+                    }
+                    else {
+                       if(!ret.isEmpty()) {
+                           ret.pop();
+                           answer += 1;
+                       }
                     }
                 }
             }
-            return answer;
+            System.out.println(answer);
         }
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String str = scan.next();
-        int answer = solution(str);
-        System.out.println(answer);
-    }
-    public static int solution(String str) {
-        Stack<Character> stack = new Stack<>();
-        int answer = 0;
-
-        for(int i = 0; i < str.length(); i++) {
-            char findChar = str.charAt(i);
-            if(findChar == '(') stack.push('(');
-            else {
-                if(str.charAt(i - 1) == '(') {
-                    stack.pop();
-                    answer += stack.size();
-                } else {
-                    stack.pop();
-                    answer += 1;
-                }
-            }
-        }
-        return answer;
     }
 }
