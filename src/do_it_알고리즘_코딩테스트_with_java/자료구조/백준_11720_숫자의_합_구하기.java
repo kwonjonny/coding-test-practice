@@ -13,4 +13,19 @@ public class 백준_11720_숫자의_합_구하기 {
         }
         System.out.println(sum);
     }
+
+
+    public static class 백준_11720_숫자의_합_구하기_1 {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int N = scan.nextInt();
+            String str = scan.next();
+            int sum = 0;
+            for(char x : str.toCharArray()) {
+                int y = x - '0';
+                sum += y;
+            }
+            System.out.println(sum);
+        }
+    }
 }
